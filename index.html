@@ -649,7 +649,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 /* ================= TABLE SELECT ================= */
 .ts-txt{position:absolute;z-index:4;display:flex;align-items:center;justify-content:center;
   font-family:'Baloo 2',system-ui,sans-serif;font-weight:800;color:#fff;line-height:1;white-space:nowrap}
-.ts-count{left:644px;width:238px;height:44px;font-size:34px;text-shadow:0 2px 3px rgba(0,0,0,.45)}
+.ts-count{left:700px;width:200px;height:44px;font-size:31px;justify-content:flex-start;text-shadow:0 2px 3px rgba(0,0,0,.45)}
 #cnt0{top:440px}
 #cnt1{top:742px}
 #cnt2{top:1062px}
@@ -669,11 +669,12 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
   display:none;align-items:center;justify-content:flex-start;pointer-events:none}
 .ts-prolock.on{display:flex}
 .ts-prolock::before{content:"";position:absolute;inset:0;background:rgba(8,16,40,.35);border-radius:46px}
-.ts-prolock img{position:absolute;left:520px;top:118px;width:64px;height:64px;filter:drop-shadow(0 3px 5px rgba(0,0,0,.4))}
-.ts-prolock span{position:absolute;left:470px;top:268px;padding:8px 26px;border-radius:22px;
-  background:linear-gradient(180deg,#e8402a,#a81b0c);border:3px solid #ffd8d0;color:#fff;
-  font-family:'Baloo 2',system-ui,sans-serif;font-size:24px;font-weight:800;white-space:nowrap;
-  text-shadow:0 2px 0 rgba(0,0,0,.3);box-shadow:0 4px 10px rgba(0,0,0,.35)}
+.ts-prolock img{position:absolute;left:505px;top:92px;width:66px;height:72px;filter:drop-shadow(0 3px 5px rgba(0,0,0,.4))}
+.ts-prolock span{position:absolute;left:470px;top:256px;width:360px;height:42px;border-radius:25px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(180deg,#a8271a,#8b0201);border:2px solid #d9695a;color:#fff;
+  font-family:'Baloo 2',system-ui,sans-serif;font-size:25px;font-weight:800;white-space:nowrap;
+  text-shadow:0 2px 0 rgba(0,0,0,.45);box-shadow:0 3px 8px rgba(0,0,0,.35)}
 
 .pn{position:absolute;top:1250px;height:90px;background:none;border:0;padding:0;z-index:4;
   transition:transform .1s}
@@ -682,7 +683,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .pn span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
   font-family:'Baloo 2',system-ui,sans-serif;font-size:46px;font-weight:800;color:#5b2a06;
   text-shadow:0 2px 0 rgba(255,255,255,.55);pointer-events:none}
-.pn.on span{color:#fff;text-shadow:0 3px 0 #b5651d,0 0 3px #b5651d}
+.pn.on span{color:#5A3410;text-shadow:0 2px 0 rgba(255,255,255,.35)}
 
 .ts-tap{position:absolute;background:transparent;border:0;padding:0;z-index:6;transition:transform .1s}
 .ts-tap:active{transform:scale(.97)}
