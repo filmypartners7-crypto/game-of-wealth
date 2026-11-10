@@ -547,72 +547,137 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
   text-shadow:0 2px 3px rgba(0,0,0,.55);opacity:.95}
 
 /* ================= HOME ================= */
-.home{position:relative;padding:6px 10px 0;gap:6px;overflow:hidden;
-  background:url('assets/castle.webp') center bottom/cover no-repeat,
-             linear-gradient(180deg,#4fb6f0 0%,#9fdcf8 32%,#cfeeff 58%,#c9edb6 74%,#8ed48a 100%)}
-.home::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(79,182,240,.72) 0%,rgba(160,220,248,.42) 30%,rgba(255,255,255,.12) 60%,rgba(120,200,120,.35) 100%)}
-.home>*{position:relative;z-index:2}
-.home::before{content:"";position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(50% 30% at 50% 58%,rgba(255,240,180,.75),transparent 70%)}
-.home-top{display:flex;align-items:center;gap:8px;position:relative;z-index:2}
-.profile-chip{display:flex;align-items:center;gap:6px;flex:1;min-width:0}
-.pavatar{width:44px;height:44px;flex:0 0 44px;border-radius:50%;object-fit:cover;display:block;
-  border:3px solid #ffd23f;box-shadow:0 0 0 3px rgba(255,255,255,.6),0 3px 8px rgba(0,0,0,.25);background:#8fd8f7}
-.pavatar.big{width:132px;height:132px;flex-basis:132px;border-width:5px;box-shadow:0 0 0 5px rgba(255,255,255,.65),0 10px 24px rgba(0,0,0,.3)}
-.pinfo{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
-.pinfo b{font-size:12px;font-weight:900;color:#fff;background:linear-gradient(180deg,#ffd968,#e0a51e);
-  padding:2px 10px;border-radius:10px;align-self:flex-start;color:#4a3200;border:2px solid #fff}
-.xpbar{height:12px;border-radius:8px;background:rgba(0,0,0,.28);border:2px solid #fff;overflow:hidden;max-width:110px}
-.xpbar i{display:block;height:100%;width:20%;background:linear-gradient(180deg,#8bf58c,#2fae3c)}
-.wallet{display:flex;gap:6px}
-.wpill{display:inline-flex;align-items:center;gap:5px;height:34px;padding:0 10px;border-radius:18px;
-  background:linear-gradient(180deg,#22344c,#152238);border:2px solid #f2c14e;color:#fff;
-  font-size:13px;font-weight:900;font-variant-numeric:tabular-nums;box-shadow:0 3px 0 rgba(0,0,0,.25)}
-.wpill i{width:16px;height:11px;border-radius:2px;display:inline-block}
-.wpill.cash i{background:linear-gradient(180deg,#63e06b,#2fae3c);border:1px solid #eafff0}
-.wpill.rix i{background:linear-gradient(180deg,#d8a8ff,#a855f7);border:1px solid #f0e0ff;transform:rotate(45deg);width:12px;height:12px}
+.home2{
+  --u:calc(min(100vw,560px)/360);
+  position:relative;height:100dvh;overflow:hidden;display:flex;flex-direction:column;
+  font-family:'Baloo 2',system-ui,sans-serif;
+}
+.h-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center bottom;z-index:0;display:block}
 
-.home-rail{position:absolute;left:8px;top:86px;z-index:3;display:flex;flex-direction:column;gap:10px}
-.railbtn{width:62px;border-radius:14px;padding:6px 4px;display:flex;flex-direction:column;align-items:center;gap:2px;
-  background:linear-gradient(180deg,#ffe9b8,#f2c14e);border:3px solid #fff;box-shadow:0 4px 0 #c98f14,0 6px 14px rgba(0,0,0,.2)}
-.railbtn em{font-size:8.5px;font-weight:900;font-style:normal;color:#4a3200;background:#fff8e0;border-radius:6px;padding:1px 5px;white-space:nowrap}
-.railbtn .gicon2,.railbtn .sicon{font-size:22px;line-height:1}
+/* top row */
+.h-top{position:relative;z-index:6;display:flex;justify-content:space-between;align-items:flex-start;
+  padding:calc(var(--u)*10) calc(var(--u)*7) 0;gap:calc(var(--u)*6)}
+.h-badge{position:relative;width:calc(var(--u)*172);flex:0 0 auto}
+.h-badge img{width:100%;display:block}
+.h-lv,.h-xp{
+  position:absolute;transform:translate(-50%,-50%);color:#fff;font-weight:800;white-space:nowrap;
+  text-shadow:0 1px 0 #3a2200,0 -1px 0 #3a2200,1px 0 0 #3a2200,-1px 0 0 #3a2200,0 2px 3px rgba(0,0,0,.55);
+}
+.h-lv{left:64.3%;top:31.5%;font-size:calc(var(--u)*15.5)}
+.h-xp{left:66%;top:74%;font-size:calc(var(--u)*12.5)}
 
-.home-stage{flex:1;position:relative;z-index:2;display:flex;align-items:center;justify-content:center;min-height:0}
-.podium{display:flex;flex-direction:column;align-items:center;gap:6px}
-.podium::after{content:"";width:180px;height:34px;border-radius:50%;
-  background:radial-gradient(ellipse at 50% 30%,#ffe9a8,#e0a51e 60%,#a8740c 100%);
-  box-shadow:0 8px 0 #8a5c00,0 14px 26px rgba(0,0,0,.3);margin-top:-8px}
-.nameplate{margin-top:-6px;padding:5px 20px;border-radius:14px;font-size:15px;font-weight:900;color:#fff;
-  background:linear-gradient(180deg,#a855f7,#7c3aed);border:3px solid #ffd23f;
-  box-shadow:0 4px 0 #5b21b6,inset 0 2px 0 rgba(255,255,255,.35);text-shadow:0 2px 0 rgba(0,0,0,.25)}
+.h-chips{display:flex;flex-direction:column;align-items:flex-end;gap:calc(var(--u)*5)}
+.h-chip{position:relative;display:block}
+.h-chip img{display:block;width:100%}
+.h-chip b{
+  position:absolute;transform:translate(-50%,-50%);color:#fff;font-weight:800;
+  font-size:calc(var(--u)*13.5);white-space:nowrap;text-shadow:0 2px 3px rgba(0,0,0,.55);
+}
+.h-chip-cash{width:calc(var(--u)*124)}
+.h-chip-cash b{left:64%;top:52%}
+.h-chip-rix{width:calc(var(--u)*112)}
+.h-chip-rix b{left:55%;top:52%}
+.h-plus{
+  position:absolute;left:81%;top:50%;transform:translate(-50%,-50%);
+  width:17%;aspect-ratio:1;border-radius:50%;background:transparent;
+}
 
-.playbtn{position:relative;z-index:2;align-self:center;width:min(88%,340px);height:76px;border-radius:40px;
-  font-size:34px;font-weight:900;letter-spacing:.06em;color:#fff;display:flex;align-items:center;justify-content:center;gap:12px;
-  background:linear-gradient(180deg,#8bf58c 0%,#3ecf4a 45%,#1f9d3a 100%);
-  border:4px solid #ffd23f;
-  box-shadow:0 7px 0 #14722b,0 14px 26px rgba(0,0,0,.28),inset 0 4px 0 rgba(255,255,255,.55);
-  text-shadow:0 3px 0 #14722b;transition:transform .08s}
-.playbtn:active{transform:translateY(5px);box-shadow:0 2px 0 #14722b,0 6px 14px rgba(0,0,0,.25),inset 0 4px 0 rgba(255,255,255,.5)}
-.playbtn .tri{width:0;height:0;border-left:26px solid #fff;border-top:17px solid transparent;border-bottom:17px solid transparent;filter:drop-shadow(0 3px 0 #14722b)}
+/* left rail */
+.h-rail{position:absolute;left:calc(var(--u)*7);top:calc(var(--u)*84);z-index:6;
+  display:flex;flex-direction:column;align-items:center;gap:calc(var(--u)*10)}
+.h-gift,.h-missions{position:relative;display:block;padding:0;background:none;border:0;transition:transform .09s}
+.h-gift:active,.h-missions:active{transform:scale(.95)}
+.h-gift img{width:calc(var(--u)*58);display:block;filter:drop-shadow(0 3px 5px rgba(0,0,0,.3))}
+.h-missions img{width:calc(var(--u)*66);display:block;filter:drop-shadow(0 3px 5px rgba(0,0,0,.3))}
+.h-timer{
+  position:absolute;left:50%;bottom:calc(var(--u)*-7);transform:translateX(-50%);
+  background:linear-gradient(180deg,#2f4a6b,#16304c);border:2px solid #ffd23f;border-radius:calc(var(--u)*9);
+  padding:1px calc(var(--u)*6);font-size:calc(var(--u)*10.5);font-weight:800;color:#fff;
+  white-space:nowrap;box-shadow:0 2px 4px rgba(0,0,0,.35)
+}
 
-.modes{position:relative;z-index:2;display:flex;gap:8px;padding:2px 2px 4px}
-.mode{flex:1;border-radius:18px;padding:10px 4px;display:flex;flex-direction:column;align-items:center;gap:5px;
-  color:#fff;font-size:12px;font-weight:900;line-height:1.15;text-align:center;border:3px solid #fff;
-  box-shadow:0 5px 0 rgba(0,0,0,.22),0 8px 16px rgba(0,0,0,.18),inset 0 3px 0 rgba(255,255,255,.45);
-  text-shadow:0 2px 0 rgba(0,0,0,.22);transition:transform .08s}
-.mode:active{transform:translateY(4px);box-shadow:0 1px 0 rgba(0,0,0,.22),inset 0 3px 0 rgba(255,255,255,.4)}
-.m-bots{background:linear-gradient(180deg,#5aa8f0,#2f7fd8)}
-.m-local{background:linear-gradient(180deg,#b07cf5,#7c3aed)}
-.m-locked{background:linear-gradient(180deg,#ffc04a,#e08a12)}
+/* stage */
+.h-stage{position:relative;z-index:4;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
+  min-height:0;padding-bottom:calc(var(--u)*2)}
+.h-hero{position:relative;display:flex;align-items:flex-end;justify-content:center;min-height:0}
+.h-glow{
+  position:absolute;left:50%;top:52%;width:calc(var(--u)*250);height:calc(var(--u)*250);
+  transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(255,244,180,.85) 0%,rgba(255,214,90,.45) 38%,rgba(255,214,90,0) 68%);
+  animation:heroGlow 3.2s ease-in-out infinite;
+}
+@keyframes heroGlow{0%,100%{opacity:.55;transform:translate(-50%,-50%) scale(.94)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.06)}}
+.h-char{
+  position:relative;display:block;height:clamp(150px,33vh,288px);width:auto;
+  filter:drop-shadow(0 10px 14px rgba(0,0,0,.28));
+  animation:heroBob 3s ease-in-out infinite;
+}
+@keyframes heroBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.h-sparkles{position:absolute;inset:0;pointer-events:none}
+.spark{
+  position:absolute;width:calc(var(--u)*10);height:calc(var(--u)*10);
+  background:radial-gradient(circle,#fff 0%,#fff8c4 40%,rgba(255,255,255,0) 70%);
+  clip-path:polygon(50% 0%,58% 42%,100% 50%,58% 58%,50% 100%,42% 58%,0% 50%,42% 42%);
+  animation:sparkTwinkle 2.6s ease-in-out infinite;
+}
+@keyframes sparkTwinkle{0%,100%{opacity:0;transform:scale(.4) rotate(0deg)}50%{opacity:1;transform:scale(1) rotate(45deg)}}
+.h-nameplate{
+  position:relative;margin-top:calc(var(--u)*-2);padding:calc(var(--u)*4) calc(var(--u)*22);
+  border-radius:calc(var(--u)*12);font-size:calc(var(--u)*15);font-weight:800;color:#fff;
+  background:linear-gradient(180deg,#a855f7,#6d28d9);border:3px solid #ffd23f;
+  box-shadow:0 4px 0 #4c1d95,inset 0 2px 0 rgba(255,255,255,.35);
+  text-shadow:0 2px 0 rgba(0,0,0,.3);white-space:nowrap;
+}
 
-.homenav{position:relative;z-index:2;display:flex;gap:4px;padding:4px 2px calc(6px + env(safe-area-inset-bottom))}
-.homenav button{flex:1;min-width:0;height:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:4px 1px;border-radius:12px;white-space:nowrap;overflow:hidden;
-  font-size:8px;font-weight:900;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.3);
-  background:linear-gradient(180deg,rgba(34,52,76,.92),rgba(21,34,56,.92));border:2px solid rgba(255,255,255,.35)}
-.homenav button.on{background:linear-gradient(180deg,#ffd968,#e0a51e);color:#4a3200;border-color:#fff;text-shadow:none}
-.homenav button:active{transform:translateY(2px)}
+/* actions */
+.h-actions{position:relative;z-index:5;display:flex;flex-direction:column;align-items:center;
+  gap:calc(var(--u)*8);padding:0 calc(var(--u)*8) calc(var(--u)*6)}
+.h-play{background:none;border:0;padding:0;display:block;transition:transform .09s;
+  animation:playBreathe 2.6s ease-in-out infinite}
+.h-play:active{transform:scale(.95);animation:none}
+.h-play img{width:calc(var(--u)*252);display:block;filter:drop-shadow(0 6px 12px rgba(0,0,0,.3))}
+@keyframes playBreathe{
+  0%,100%{transform:scale(1);filter:drop-shadow(0 6px 12px rgba(0,0,0,.3)) drop-shadow(0 0 0 rgba(160,255,120,0))}
+  50%{transform:scale(1.03);filter:drop-shadow(0 8px 16px rgba(0,0,0,.3)) drop-shadow(0 0 18px rgba(160,255,120,.85))}
+}
+.h-modes{display:flex;gap:calc(var(--u)*7);width:100%;justify-content:center}
+.h-mode{flex:1;max-width:calc(var(--u)*112);background:none;border:0;padding:0;transition:transform .09s}
+.h-mode:active{transform:scale(.95)}
+.h-mode img{width:100%;display:block;filter:drop-shadow(0 4px 7px rgba(0,0,0,.28))}
+
+/* bottom nav (placeholder art) */
+.h-nav{position:relative;z-index:6;display:flex;align-items:stretch;gap:2px;
+  margin:0 calc(var(--u)*6) calc(var(--u)*6);padding:calc(var(--u)*4);
+  border-radius:calc(var(--u)*16);border:3px solid #ffd23f;
+  background:linear-gradient(180deg,rgba(46,74,110,.94),rgba(21,40,64,.96));
+  box-shadow:0 5px 0 #16304c,0 8px 16px rgba(0,0,0,.28),inset 0 2px 0 rgba(255,255,255,.22)}
+.h-nav button{flex:1;min-width:0;padding:calc(var(--u)*7) 1px;border-radius:calc(var(--u)*11);
+  font-size:calc(var(--u)*8.5);font-weight:800;color:#fff;letter-spacing:.01em;
+  text-shadow:0 1px 2px rgba(0,0,0,.45);transition:transform .09s}
+.h-nav button span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.h-nav button:active{transform:scale(.95)}
+.h-nav button.on{background:linear-gradient(180deg,#ffd968,#e0a51e);color:#4a3200;text-shadow:none;
+  box-shadow:0 2px 0 #a8740c}
+
+/* toast */
+.toast{
+  position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom) + 92px);transform:translate(-50%,14px);
+  z-index:120;padding:11px 20px;border-radius:22px;white-space:nowrap;
+  font-family:'Baloo 2',system-ui,sans-serif;font-size:15px;font-weight:700;color:#4a3200;
+  background:linear-gradient(180deg,#fff6d8,#ffd968);border:3px solid #fff;
+  box-shadow:0 6px 0 #c98f14,0 12px 24px rgba(0,0,0,.3);
+  opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* table select placeholder */
+.tsel{position:relative;height:100dvh;display:flex;align-items:center;justify-content:center;padding:20px}
+.tsel-card{position:relative;z-index:5;width:100%;max-width:340px;text-align:center;
+  background:linear-gradient(180deg,#fffdf4,#ffe9bd);border:4px solid #f2c14e;border-radius:22px;
+  padding:22px 18px;box-shadow:0 8px 0 #c98f14,0 16px 30px rgba(0,0,0,.25)}
+.tsel-card h2{font-family:'Baloo 2',system-ui,sans-serif;font-size:24px;color:#4a3200}
+.tsel-card p{font-family:'Baloo 2',system-ui,sans-serif;font-size:14px;font-weight:700;color:#8a7442;margin:6px 0 16px}
+.tsel-rows{display:flex;flex-direction:column;gap:10px}
 
 /* setup head */
 .setup-head{display:flex;align-items:center;gap:10px;padding:6px 2px 0}
@@ -667,78 +732,76 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
   </section>
 
   <!-- ============ HOME ============ -->
-  <section id="homeScreen" class="screen home" hidden>
-    <header class="home-top">
-      <div class="profile-chip">
-        <img class="pavatar" id="homeAvatar" src="assets/a1.webp" alt="">
-        <div class="pinfo">
-          <b id="homeLevel">Lv 1</b>
-          <div class="xpbar"><i id="homeXp"></i></div>
-        </div>
+  <section id="homeScreen" class="screen home2" hidden>
+    <img class="h-bg" src="assets/bg-garden.webp" alt="">
+
+    <header class="h-top">
+      <div class="h-badge">
+        <img src="assets/home/profile-badge.webp" alt="">
+        <span class="h-lv" id="homeLevel">Lv 1</span>
+        <span class="h-xp" id="homeXp">0 / 800</span>
       </div>
-      <div class="wallet">
-        <span class="wpill cash"><i></i><b id="homeCash">2,000</b></span>
-        <span class="wpill rix"><i></i><b id="homeRix">0</b></span>
+      <div class="h-chips">
+        <div class="h-chip h-chip-cash">
+          <img src="assets/home/chip-cash.webp" alt="">
+          <b id="homeCash">2,000</b>
+        </div>
+        <div class="h-chip h-chip-rix">
+          <img src="assets/home/chip-rix.webp" alt="">
+          <b id="homeRix">0</b>
+          <button class="h-plus" id="btnBuyRix" aria-label="Buy RIX"></button>
+        </div>
       </div>
     </header>
 
-    <div class="home-rail">
-      <button class="railbtn gift" id="btnGift">
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="#e8503a"><rect x="3" y="9" width="18" height="11" rx="2"/><rect x="2" y="6" width="20" height="4" rx="1.6"/><rect x="10.6" y="6" width="2.8" height="14" fill="#ffd23f"/><path d="M12 6c-1.5-3-6-3-6-.5S10 7 12 6zM12 6c1.5-3 6-3 6-.5S14 7 12 6z" fill="#ffd23f"/></svg>
-        <em id="giftTimer">23:45:17</em>
+    <div class="h-rail">
+      <button class="h-gift" id="btnGift">
+        <img src="assets/home/gift.webp" alt="Daily gift">
+        <span class="h-timer" id="giftTimer">23:45:17</span>
       </button>
-      <button class="railbtn missions" id="btnMissions">
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="#f7e6c0"><rect x="4" y="3" width="16" height="18" rx="2" stroke="#b8860b" stroke-width="2"/><path d="M7 8h10M7 12h10M7 16h6" stroke="#b8860b" stroke-width="2" stroke-linecap="round"/></svg>
-        <em>Missions</em>
+      <button class="h-missions" id="btnMissions">
+        <img src="assets/home/missions.webp" alt="Missions">
       </button>
     </div>
 
-    <div class="home-stage">
-      <div class="podium">
-        <img class="pavatar big" id="homeChar" src="assets/a1.webp" alt="">
-        <div class="nameplate" id="homeName">Player</div>
+    <div class="h-stage">
+      <div class="h-hero">
+        <div class="h-glow"></div>
+        <img class="h-char" src="assets/home/character.webp" alt="">
+        <div class="h-sparkles" id="sparkles" aria-hidden="true"></div>
+      </div>
+      <div class="h-nameplate"><span id="homeName">Player</span></div>
+    </div>
+
+    <div class="h-actions">
+      <button class="h-play" id="btnPlay"><img src="assets/home/play.webp" alt="Play"></button>
+      <div class="h-modes">
+        <button class="h-mode" id="btnBots"><img src="assets/home/btn-bots.webp" alt="Practice vs Bots"></button>
+        <button class="h-mode" id="btnPass"><img src="assets/home/btn-passplay.webp" alt="Pass and Play"></button>
+        <button class="h-mode" id="btnPrivate"><img src="assets/home/btn-private.webp" alt="Private Room"></button>
       </div>
     </div>
 
-    <button class="playbtn" id="btnPlay"><span class="tri"></span>PLAY</button>
-
-    <div class="modes">
-      <button class="mode m-bots" data-mode="bots">
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><rect x="4" y="8" width="16" height="11" rx="4"/><circle cx="9" cy="13" r="1.8" fill="#fff"/><circle cx="15" cy="13" r="1.8" fill="#fff"/><path d="M12 3v3" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="2.6" r="1.6"/></svg>
-        <span>Practice<br>vs Bots</span>
-      </button>
-      <button class="mode m-local" data-mode="local">
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="10" r="2.6"/><path d="M2.5 19a6.5 6.5 0 0 1 13 0z"/><path d="M14.5 19a4.6 4.6 0 0 1 7 0z"/></svg>
-        <span>Pass &amp;<br>Play</span>
-      </button>
-      <button class="mode m-locked" id="btnPrivate">
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><rect x="5" y="10" width="14" height="10" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>
-        <span>Private<br>Room</span>
-      </button>
-    </div>
-
-    <nav class="homenav">
-      <button data-hnav="home" class="on">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 3l9 8h-3v9h-5v-6h-2v6H6v-9H3z"/></svg>
-        Home
-      </button>
-      <button data-hnav="shop">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4 8h16l-1.4 12H5.4z"/><path d="M8.5 8V6a3.5 3.5 0 0 1 7 0v2" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-        Shop
-      </button>
-      <button data-hnav="profile">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0z"/></svg>
-        Profile
-      </button>
-      <button data-hnav="leaderboard">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M7 21h10v-3H7z"/><path d="M6 4h12v4a6 6 0 0 1-12 0z"/><path d="M6 6H4v1a3 3 0 0 0 3 3M18 6h2v1a3 3 0 0 1-3 3" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-        Leaderboard
-      </button>
-      <button data-hnav="rules">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4 4h7v16H4z"/><path d="M13 4h7v16h-7z"/></svg>
-        Rules
-      </button>
+    <nav class="h-nav" id="homeNav">
+      <button data-hnav="home" class="on"><span>Home</span></button>
+      <button data-hnav="shop"><span>Shop</span></button>
+      <button data-hnav="profile"><span>Profile</span></button>
+      <button data-hnav="leaderboard"><span>Leaderboard</span></button>
+      <button data-hnav="rules"><span>Rules</span></button>
     </nav>
+  </section>
+
+  <!-- ============ TABLE SELECT (placeholder) ============ -->
+  <section id="tableSelectScreen" class="screen tsel" hidden>
+    <img class="h-bg" src="assets/bg-garden.webp" alt="">
+    <div class="tsel-card">
+      <h2>Table Select</h2>
+      <p id="tselMode">Choose your table</p>
+      <div class="tsel-rows">
+        <button class="btn gold wide" id="tselStart">Start a table</button>
+        <button class="btn ghost wide" id="tselBack">Back</button>
+      </div>
+    </div>
   </section>
 
   <!-- ============ MENU ============ -->
@@ -1736,6 +1799,8 @@ const Bots = (function () {
   function showScreen(name) {
     $('splashScreen').hidden = name !== 'splash';
     $('homeScreen').hidden = name !== 'home';
+    const ts = $('tableSelectScreen');
+    if (ts) ts.hidden = name !== 'tableSelect';
     $('menuScreen').hidden = name !== 'menu';
     $('gameScreen').hidden = name !== 'game';
   }
@@ -1743,13 +1808,65 @@ const Bots = (function () {
   function renderHome() {
     $('homeName').textContent = PROFILE.name;
     $('homeLevel').textContent = 'Lv ' + PROFILE.level;
-    $('homeXp').style.width = Math.round((PROFILE.xp / PROFILE.xpMax) * 100) + '%';
+    $('homeXp').textContent = PROFILE.xp + ' / ' + PROFILE.xpMax;
     $('homeCash').textContent = Math.round(PROFILE.cash).toLocaleString('en-IN');
     $('homeRix').textContent = PROFILE.rix;
   }
 
+  /* ---- toast + tap sound ---- */
+  let toastTimer = null;
+  function toast(msg) {
+    let el = document.getElementById('toast');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'toast';
+      el.className = 'toast';
+      document.body.appendChild(el);
+    }
+    el.textContent = msg;
+    el.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { el.classList.remove('show'); }, 1600);
+  }
+
+  let actx = null;
+  function playTap() {
+    try {
+      if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
+      if (actx.state === 'suspended') actx.resume();
+      const t = actx.currentTime;
+      const o = actx.createOscillator(), g = actx.createGain();
+      o.type = 'triangle';
+      o.frequency.setValueAtTime(780, t);
+      o.frequency.exponentialRampToValueAtTime(420, t + 0.07);
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(0.05, t + 0.008);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.09);
+      o.connect(g); g.connect(actx.destination);
+      o.start(t); o.stop(t + 0.1);
+    } catch (e) { /* audio unavailable */ }
+  }
+
+  function spawnSparkles() {
+    const wrap = $('sparkles');
+    if (!wrap) return;
+    wrap.innerHTML = '';
+    for (let i = 0; i < 7; i++) {
+      const el = document.createElement('span');
+      el.className = 'spark';
+      el.style.left = (6 + Math.random() * 84) + '%';
+      el.style.top = (4 + Math.random() * 82) + '%';
+      const sc = 0.6 + Math.random() * 0.8;
+      el.style.transform = 'scale(' + sc.toFixed(2) + ')';
+      el.style.animationDelay = (-Math.random() * 2.6).toFixed(2) + 's';
+      el.style.animationDuration = (2.2 + Math.random() * 1.4).toFixed(2) + 's';
+      wrap.appendChild(el);
+    }
+  }
+
   function goHome() {
     renderHome();
+    spawnSparkles();
     showScreen('home');
   }
 
@@ -2882,33 +2999,34 @@ const Bots = (function () {
       if (!el) return;
       el.onclick = function () { goHome(); };
     });
-    $('btnPlay').onclick = function () { UI.mode = 'bots'; syncModeSeg(); openSetup(); };
-    document.querySelectorAll('.mode[data-mode]').forEach(function (b) {
-      b.onclick = function () { UI.mode = b.dataset.mode; syncModeSeg(); openSetup(); };
-    });
-    $('btnPrivate').onclick = function () {
-      openSheet('<div class="sh-head">Private Room</div><div class="sh-body"><p class="lead">Private rooms need online play, which isn\u2019t built yet \u2014 the engine is ready for it, the server isn\u2019t.</p><div class="warn">Play vs Bots or Pass &amp; Play for now.</div></div><div class="sh-foot"><button class="btn primary wide" id="prvC">Got it</button></div>', 'log-sheet', 'generic');
-      $('prvC').onclick = closeSheet;
-    };
-    $('btnGift').onclick = function () {
-      openSheet('<div class="sh-head">Daily gift</div><div class="sh-body"><p class="lead">One gift a day, once rewards exist. Right now the game economy is cash and gold at the table only.</p></div><div class="sh-foot"><button class="btn primary wide" id="gftC">Close</button></div>', 'log-sheet', 'generic');
-      $('gftC').onclick = closeSheet;
-    };
-    $('btnMissions').onclick = function () {
-      openSheet('<div class="sh-head">Missions</div><div class="sh-body"><p class="lead">Missions arrive with the meta layer. For now the only scoreboard is the table itself.</p></div><div class="sh-foot"><button class="btn primary wide" id="msC">Close</button></div>', 'log-sheet', 'generic');
-      $('msC').onclick = closeSheet;
-    };
-    document.querySelectorAll('.homenav button').forEach(function (b) {
+    function toTableSelect(bots) {
+      UI.mode = bots ? 'bots' : 'local';
+      syncModeSeg();
+      $('tselMode').textContent = bots ? 'Practice vs Bots' : 'Choose your table';
+      showScreen('tableSelect');
+    }
+    $('btnPlay').onclick = function () { toTableSelect(false); };
+    $('btnBots').onclick = function () { toTableSelect(true); };
+    $('btnPass').onclick = function () { toast('Coming soon'); };
+    $('btnPrivate').onclick = function () { toast('Coming soon'); };
+    $('btnBuyRix').onclick = function () { toast('Buy RIX coming soon'); };
+    $('btnGift').onclick = function () { toast('Coming soon'); };
+    $('btnMissions').onclick = function () { toast('Coming soon'); };
+    $('tselStart').onclick = function () { openSetup(); };
+    $('tselBack').onclick = function () { goHome(); };
+
+    document.querySelectorAll('.h-nav button').forEach(function (b) {
       b.onclick = function () {
-        document.querySelectorAll('.homenav button').forEach(function (x) { x.classList.toggle('on', x === b); });
-        const n = b.dataset.hnav;
-        if (n === 'home') return;
-        if (n === 'shop') return showShop();
-        if (n === 'rules') return showRules();
-        if (n === 'profile') return showHomeProfile();
-        if (n === 'leaderboard') return showHomeLeaderboard();
+        document.querySelectorAll('.h-nav button').forEach(function (x) { x.classList.toggle('on', x === b); });
+        if (b.dataset.hnav === 'home') return;
+        toast('Coming soon');
       };
     });
+
+    const homeEl = $('homeScreen');
+    homeEl.addEventListener('pointerdown', function (ev) {
+      if (ev.target.closest('button')) playTap();
+    }, true);
     $('btnSetupBack').onclick = function () { goHome(); };
     let secs = 23 * 3600 + 45 * 60 + 17;
     setInterval(function () {
