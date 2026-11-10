@@ -100,7 +100,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 #gameScreen{padding:0 8px;gap:4px;
   background:
     linear-gradient(180deg,rgba(255,255,255,.42) 0%,rgba(214,244,255,.30) 40%,rgba(200,240,200,.42) 100%),
-    url('assets/tablebg.webp?v=18') center/cover no-repeat fixed}
+    url('assets/tablebg.webp?v=19') center/cover no-repeat fixed}
 
 .topbar{display:flex;align-items:center;gap:8px;padding:8px 0 2px}
 .topbar .icon{
@@ -252,7 +252,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .hand .card.sel{
   border-color:#63e06b;box-shadow:0 0 0 3px #63e06b,0 12px 22px rgba(0,0,0,.35);z-index:20!important;
 }
-.hand .card.ghost{background:url('assets/cardback.webp?v=18') center/cover;border-color:#fff}
+.hand .card.ghost{background:url('assets/cardback.webp?v=19') center/cover;border-color:#fff}
 
 /* ---------- action panel ---------- */
 .actionpanel{
@@ -394,7 +394,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .rcard.red .face.front{color:#d02a1e}
 .rcard .face.front .r{font-size:24px;line-height:1;font-family:Georgia,serif}
 .rcard .face.front .s{font-size:16px;line-height:1}
-.rcard .face.back{transform:rotateY(180deg);background:url('assets/cardback.webp?v=18') center/cover;border:2px solid #fff}
+.rcard .face.back{transform:rotateY(180deg);background:url('assets/cardback.webp?v=19') center/cover;border:2px solid #fff}
 .rcell.win .rcard .face.front{box-shadow:0 0 0 3px #63e06b,0 0 26px rgba(99,224,107,.9)}
 .rcell.win{animation:winglow 1.4s ease-in-out infinite alternate}
 @keyframes winglow{from{transform:scale(1)}to{transform:scale(1.05)}}
@@ -479,7 +479,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
 /* ================= SPLASH ================= */
 @font-face{font-family:'Baloo 2';font-style:normal;font-weight:400 800;font-display:swap;
-  src:url('assets/baloo.woff2?v=18') format('woff2')}
+  src:url('assets/baloo.woff2?v=19') format('woff2')}
 #splashScreen{font-family:'Baloo 2',system-ui,sans-serif}
 
 .splash{position:relative;height:100dvh;min-height:100dvh;width:100%;overflow:hidden;
@@ -556,7 +556,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .hs-skyext{display:none}
 
 .hs-crop{position:absolute;background-repeat:no-repeat;background-size:941px 1672px;
-  background-image:url('assets/home/home-base.webp?v=18');will-change:transform;z-index:2}
+  background-image:url('assets/home/home-base.webp?v=19');will-change:transform;z-index:2}
 .hs-char{left:345px;top:150px;width:267px;height:585px;background-position:-345px -150px;
   animation:hsBob 3s ease-in-out infinite}
 @keyframes hsBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
@@ -646,47 +646,51 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .castle{clip-path:polygon(0% 100%,0% 66%,5% 66%,5% 56%,11% 56%,11% 66%,18% 66%,18% 40%,22% 40%,22% 30%,27% 30%,27% 40%,31% 40%,31% 66%,38% 66%,38% 34%,43% 34%,43% 20%,50% 12%,57% 20%,57% 34%,62% 34%,62% 66%,69% 66%,69% 40%,73% 40%,73% 30%,78% 30%,78% 40%,82% 40%,82% 66%,89% 66%,89% 56%,95% 56%,95% 66%,100% 66%,100% 100%)}
 
 /* ================= TABLE SELECT ================= */
-.ts-txt{position:absolute;z-index:4;display:flex;align-items:center;justify-content:center;
-  font-family:'Baloo 2',system-ui,sans-serif;font-weight:800;color:#fff;line-height:1;white-space:nowrap}
-.ts-count{position:absolute;left:558px;width:352px;height:44px;display:flex;align-items:center;justify-content:center;gap:12px;
+.ts-dim{position:absolute;z-index:2;border-radius:40px;background:rgba(6,12,30,.25);pointer-events:none;display:none}
+.ts-dim.on{display:block}
+
+.ts-outline{position:absolute;z-index:3;border-radius:40px;pointer-events:none;
+  box-shadow:0 0 0 7px #ffd23f,0 0 26px 6px rgba(255,210,63,.7),inset 0 0 24px rgba(255,210,63,.35);
+  animation:tsPulse 1.5s ease-in-out infinite;transition:top .18s,height .18s}
+@keyframes tsPulse{0%,100%{box-shadow:0 0 0 7px #ffd23f,0 0 20px 4px rgba(255,210,63,.55),inset 0 0 20px rgba(255,210,63,.3)}
+50%{box-shadow:0 0 0 9px #ffe98a,0 0 36px 10px rgba(255,210,63,.95),inset 0 0 28px rgba(255,210,63,.45)}}
+
+.ts-count{position:absolute;z-index:4;left:556px;width:356px;height:52px;
+  display:flex;align-items:center;justify-content:center;gap:12px;
   font-family:'Baloo 2',system-ui,sans-serif;font-weight:800;color:#fff}
 .ts-count img{width:47px;height:36px;display:block}
-.ts-count span{font-size:31px;line-height:1;white-space:nowrap;text-shadow:0 2px 3px rgba(0,0,0,.45)}
-#cnt0{top:440px}
-#cnt1{top:700px}
-#cnt2{top:1062px}
+.ts-count span{font-size:32px;line-height:1;white-space:nowrap;text-shadow:0 2px 3px rgba(0,0,0,.45)}
+#cnt0{top:428px}
+#cnt1{top:735px}
+#cnt2{top:1055px}
 
-.ts-outline{position:absolute;z-index:3;border-radius:46px;pointer-events:none;opacity:0;
-  box-shadow:0 0 0 8px #ffd23f,0 0 34px 10px rgba(255,210,63,.75);
-  transition:opacity .15s,left .18s,top .18s,height .18s}
-.ts-outline.on{opacity:1;animation:tsPulse 1.4s ease-in-out infinite}
-.ts-skyext{background-image:url('assets/ts/sky-top.webp?v=18')}
-@keyframes tsPulse{0%,100%{box-shadow:0 0 0 8px #ffd23f,0 0 26px 6px rgba(255,210,63,.55)}
-50%{box-shadow:0 0 0 10px #ffe98a,0 0 44px 14px rgba(255,210,63,.95)}}
+.ts-lock{position:absolute;z-index:4;display:none;filter:drop-shadow(0 3px 6px rgba(0,0,0,.45))}
+.ts-lock.on{display:block}
+#lockPro{left:520px;top:640px;width:70px;height:80px}
+#lockHigh{left:520px;top:945px;width:90px;height:95px}
 
-.ts-dim{position:absolute;left:165px;top:1378px;width:305px;height:92px;z-index:3;
-  background:rgba(10,20,40,.42);border-radius:46px;pointer-events:none;transition:opacity .2s}
-
-.ts-prolock{position:absolute;left:0;top:530px;width:941px;height:270px;z-index:3;
-  display:none;align-items:center;justify-content:flex-start;pointer-events:none}
-.ts-prolock.on{display:flex}
-.ts-prolock::before{content:"";position:absolute;inset:0;background:rgba(8,16,40,.35);border-radius:46px}
-.ts-prolock img{position:absolute;left:505px;top:92px;width:66px;height:72px;filter:drop-shadow(0 3px 5px rgba(0,0,0,.4))}
-.ts-prolock span{position:absolute;left:558px;top:196px;width:352px;height:44px;border-radius:25px;
-  display:flex;align-items:center;justify-content:center;
+.ts-need{position:absolute;z-index:5;left:506px;width:364px;height:48px;border-radius:24px;
+  display:none;align-items:center;justify-content:center;
   background:linear-gradient(180deg,#a8271a,#8b0201);border:2px solid #d9695a;color:#fff;
-  font-family:'Baloo 2',system-ui,sans-serif;font-size:25px;font-weight:800;white-space:nowrap;
+  font-family:'Baloo 2',system-ui,sans-serif;font-size:26px;font-weight:800;white-space:nowrap;
   text-shadow:0 2px 0 rgba(0,0,0,.45);box-shadow:0 3px 8px rgba(0,0,0,.35)}
+.ts-need.on{display:flex}
+#needPro{top:735px}
+#needHigh{top:1108px}
 
-.pn{position:absolute;top:1250px;height:90px;background:none;border:0;padding:0;
-  transition:transform .1s}
-.pn:active{transform:scale(.95)}
-.pn .pn-bg{width:100%;height:100%;display:block;filter:saturate(.9)}
+.ts-rim{position:absolute;z-index:4;top:1378px;height:92px;border-radius:46px;pointer-events:none;
+  box-shadow:0 0 0 5px #ffd23f,0 0 18px 4px rgba(255,210,63,.75),inset 0 0 16px rgba(255,210,63,.35);
+  display:none;transition:opacity .15s}
+.ts-rim.on{display:block}
+#rimRanked{left:165px;width:305px}
+#rimFriendly{left:470px;width:305px}
+
+.pn{position:absolute;top:1255px;height:80px;background:none;border:0;padding:0}
+.pn:active{transform:scale(.97)}
 .pn span{position:absolute;inset:0;z-index:6;display:flex;align-items:center;justify-content:center;
-  font-family:'Baloo 2',system-ui,sans-serif;font-size:46px;font-weight:800;color:#5b2a06;
-  text-shadow:0 2px 0 rgba(255,255,255,.55);pointer-events:none}
-.pn span{color:#5A3410}
-.pn-hl{position:absolute;z-index:5;top:1250px;height:90px;border-radius:24px;pointer-events:none;
+  font-family:'Baloo 2',system-ui,sans-serif;font-size:46px;font-weight:800;color:#5A3410;
+  pointer-events:none;text-shadow:0 2px 0 rgba(255,255,255,.35)}
+.pn-hl{position:absolute;z-index:5;top:1255px;height:80px;border-radius:24px;pointer-events:none;
   background:linear-gradient(180deg,#ffe98a 0%,#ffc93c 45%,#e8a51e 100%);
   box-shadow:0 0 0 3px #fff2b8,0 0 22px 6px rgba(255,200,60,.85),inset 0 3px 0 rgba(255,255,255,.7);
   transition:left .18s cubic-bezier(.2,.8,.3,1),width .18s}
@@ -747,9 +751,9 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
   <!-- ============ SPLASH / LOGIN ============ -->
   <section id="splashScreen" class="screen splash">
-    <img class="splash-bg" src="assets/bg-garden.webp?v=18" alt="">
+    <img class="splash-bg" src="assets/bg-garden.webp?v=19" alt="">
     <div class="floaties" id="floaties" aria-hidden="true"></div>
-    <img class="splash-logo" src="assets/logo.webp?v=18" alt="Game of Wealth">
+    <img class="splash-logo" src="assets/logo.webp?v=19" alt="Game of Wealth">
 
     <div class="splash-bottom">
       <div class="splash-actions" id="splashActions">
@@ -785,7 +789,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <div class="hs-wrap" id="hsWrap">
       <div class="hs-stage" id="hsStage">
         <div class="hs-skyext"></div>
-        <img class="hs-bg" src="assets/home/home-base.webp?v=18" alt="">
+        <img class="hs-bg" src="assets/home/home-base.webp?v=19" alt="">
         <div class="hs-crop hs-char" id="hsChar"></div>
         <div class="hs-crop hs-play" id="hsPlay"></div>
         <div class="hs-shimmer"></div>
@@ -820,28 +824,30 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
   <section id="tableSelectScreen" class="screen home3" hidden>
     <div class="hs-wrap">
       <div class="hs-stage" id="tsStage">
-        <div class="hs-skyext ts-skyext"></div>
-        <img class="hs-bg" id="tsBg" src="assets/ts/ts-locked.webp?v=18" alt="">
+        <img class="hs-bg" id="tsBg" src="assets/ts/ts-base.webp?v=19" alt="">
 
+        <div class="ts-dim" id="dimPro"></div>
+        <div class="ts-dim" id="dimHigh"></div>
         <div class="ts-outline" id="tsOutline"></div>
 
-        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp?v=18" alt=""><span>128 playing</span></div>
-        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp?v=18" alt=""><span>64 playing</span></div>
-        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp?v=18" alt=""><span>12 playing</span></div>
+        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp?v=19" alt=""><span>128 playing</span></div>
+        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp?v=19" alt=""><span>64 playing</span></div>
+        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp?v=19" alt=""><span>12 playing</span></div>
 
-        <div class="ts-dim" id="tsRankedDim"></div>
-        <div class="ts-prolock" id="tsProLock">
-          <img src="assets/ic-lock.webp?v=18" alt="">
-          <span>Need 5,000 cash</span>
-        </div>
+        <img class="ts-lock" id="lockPro" src="assets/ic-lock.webp?v=19" alt="">
+        <img class="ts-lock" id="lockHigh" src="assets/ic-lock.webp?v=19" alt="">
+        <span class="ts-need" id="needPro">Need 5,000 cash</span>
+        <span class="ts-need" id="needHigh">Need 10,000 cash</span>
 
+        <div class="ts-rim" id="rimFriendly"></div>
+        <div class="ts-rim" id="rimRanked"></div>
 
         <div class="pn-hl" id="pnHl"></div>
-        <button class="pn" data-n="2" style="left:113px;width:130px"><img class="pn-bg" src="assets/ts/pbtn-cream.webp?v=18" alt=""><span>2</span></button>
-        <button class="pn" data-n="3" style="left:260px;width:130px"><img class="pn-bg" src="assets/ts/pbtn-cream.webp?v=18" alt=""><span>3</span></button>
-        <button class="pn" data-n="4" style="left:405px;width:130px"><img class="pn-bg" src="assets/ts/pbtn-cream.webp?v=18" alt=""><span>4</span></button>
-        <button class="pn" data-n="5" style="left:552px;width:130px"><img class="pn-bg" src="assets/ts/pbtn-cream.webp?v=18" alt=""><span>5</span></button>
-        <button class="pn" data-n="6" style="left:698px;width:130px"><img class="pn-bg" src="assets/ts/pbtn-cream.webp?v=18" alt=""><span>6</span></button>
+        <button class="pn" data-n="2" style="left:113px;width:130px"><span>2</span></button>
+        <button class="pn" data-n="3" style="left:260px;width:130px"><span>3</span></button>
+        <button class="pn" data-n="4" style="left:405px;width:130px"><span>4</span></button>
+        <button class="pn" data-n="5" style="left:552px;width:130px"><span>5</span></button>
+        <button class="pn" data-n="6" style="left:698px;width:130px"><span>6</span></button>
 
         <button class="ts-tap t2-back" id="ts-back" aria-label="Back"></button>
         <button class="ts-tap t2-rookie" id="ts-rookie" aria-label="Rookie"></button>
@@ -856,7 +862,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <!-- buy-in sheet -->
     <div class="bi-overlay" id="biOverlay" hidden>
       <div class="bi-sheet" id="biSheet">
-        <img class="bi-img" src="assets/ts/buyin.webp?v=18" alt="">
+        <img class="bi-img" src="assets/ts/buyin.webp?v=19" alt="">
         <span class="bi-amount" id="biAmount">2,000</span>
         <div class="bi-track" id="biTrack"><i id="biFill"></i><b id="biKnob"></b></div>
         <div class="bi-wallet" id="biWallet">Wallet: 2,000 &rarr; 0 after</div>
@@ -3069,7 +3075,7 @@ const Bots = (function () {
     const wrap = $('floaties');
     if (!wrap) return;
     wrap.innerHTML = '';
-    const kinds = ['assets/ic-cash1.webp?v=18', 'assets/ic-gold1.webp?v=18'];
+    const kinds = ['assets/ic-cash1.webp?v=19', 'assets/ic-gold1.webp?v=19'];
     for (let i = 0; i < 8; i++) {
       const img = document.createElement('img');
       img.className = 'flimg';
@@ -3149,14 +3155,31 @@ const Bots = (function () {
 
   function renderTableSelect() {
     const wallet = PROFILE.cash;
-    $('tsBg').src = wallet >= 10000 ? 'assets/ts/ts-unlocked.webp?v=18' : 'assets/ts/ts-locked.webp?v=18';
-    setCounts();
+    const proLocked = wallet < 5000;
+    const highLocked = wallet < 10000;
+
+    $('cnt0').style.display = '';
+    $('cnt1').style.display = proLocked ? 'none' : '';
+    $('cnt2').style.display = '';
+
+    $('lockPro').classList.toggle('on', proLocked);
+    $('lockHigh').classList.toggle('on', highLocked);
+    $('needPro').classList.toggle('on', proLocked);
+    $('needHigh').classList.toggle('on', highLocked);
+
+    $('dimPro').style.cssText = 'left:30px;top:530px;width:881px;height:270px';
+    $('dimHigh').style.cssText = 'left:30px;top:838px;width:881px;height:320px';
+    $('dimPro').classList.toggle('on', proLocked);
+    $('dimHigh').classList.toggle('on', highLocked);
 
     const t = TIERS[TS.tier];
     const ol = $('tsOutline');
-    ol.style.left = '30px'; ol.style.top = (t.top - 8) + 'px';
-    ol.style.width = '881px'; ol.style.height = (t.h + 16) + 'px';
-    ol.classList.add('on');
+    ol.style.left = '30px'; ol.style.width = '881px';
+    ol.style.top = (t.top - 10) + 'px';
+    ol.style.height = (t.h + 20) + 'px';
+
+    $('rimFriendly').classList.toggle('on', TS.mode === 'friendly');
+    $('rimRanked').classList.toggle('on', TS.mode === 'ranked');
 
     const hl = $('pnHl');
     const sel = document.querySelector('.pn[data-n="' + TS.players + '"]');
@@ -3164,11 +3187,6 @@ const Bots = (function () {
     document.querySelectorAll('.pn').forEach(function (b) {
       b.classList.toggle('on', +b.dataset.n === TS.players);
     });
-
-    $('tsRankedDim').style.opacity = TS.mode === 'friendly' ? '1' : '0';
-    const proLocked = wallet < 5000;
-    $('tsProLock').classList.toggle('on', proLocked);
-    $('cnt1').style.visibility = proLocked ? 'hidden' : '';
     fitHome();
   }
 
@@ -3327,7 +3345,7 @@ const Bots = (function () {
 </script>
 <script>
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js?v=18').catch(function(){}); });
+  window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js?v=19').catch(function(){}); });
 }
 </script>
 </body>
