@@ -100,7 +100,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 #gameScreen{padding:0 8px;gap:4px;
   background:
     linear-gradient(180deg,rgba(255,255,255,.42) 0%,rgba(214,244,255,.30) 40%,rgba(200,240,200,.42) 100%),
-    url('assets/tablebg.webp?v=19') center/cover no-repeat fixed}
+    url('assets/tablebg.webp?v=20') center/cover no-repeat fixed}
 
 .topbar{display:flex;align-items:center;gap:8px;padding:8px 0 2px}
 .topbar .icon{
@@ -252,7 +252,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .hand .card.sel{
   border-color:#63e06b;box-shadow:0 0 0 3px #63e06b,0 12px 22px rgba(0,0,0,.35);z-index:20!important;
 }
-.hand .card.ghost{background:url('assets/cardback.webp?v=19') center/cover;border-color:#fff}
+.hand .card.ghost{background:url('assets/cardback.webp?v=20') center/cover;border-color:#fff}
 
 /* ---------- action panel ---------- */
 .actionpanel{
@@ -394,7 +394,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .rcard.red .face.front{color:#d02a1e}
 .rcard .face.front .r{font-size:24px;line-height:1;font-family:Georgia,serif}
 .rcard .face.front .s{font-size:16px;line-height:1}
-.rcard .face.back{transform:rotateY(180deg);background:url('assets/cardback.webp?v=19') center/cover;border:2px solid #fff}
+.rcard .face.back{transform:rotateY(180deg);background:url('assets/cardback.webp?v=20') center/cover;border:2px solid #fff}
 .rcell.win .rcard .face.front{box-shadow:0 0 0 3px #63e06b,0 0 26px rgba(99,224,107,.9)}
 .rcell.win{animation:winglow 1.4s ease-in-out infinite alternate}
 @keyframes winglow{from{transform:scale(1)}to{transform:scale(1.05)}}
@@ -479,7 +479,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
 /* ================= SPLASH ================= */
 @font-face{font-family:'Baloo 2';font-style:normal;font-weight:400 800;font-display:swap;
-  src:url('assets/baloo.woff2?v=19') format('woff2')}
+  src:url('assets/baloo.woff2?v=20') format('woff2')}
 #splashScreen{font-family:'Baloo 2',system-ui,sans-serif}
 
 .splash{position:relative;height:100dvh;min-height:100dvh;width:100%;overflow:hidden;
@@ -556,7 +556,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .hs-skyext{display:none}
 
 .hs-crop{position:absolute;background-repeat:no-repeat;background-size:941px 1672px;
-  background-image:url('assets/home/home-base.webp?v=19');will-change:transform;z-index:2}
+  background-image:url('assets/home/home-base.webp?v=20');will-change:transform;z-index:2}
 .hs-char{left:345px;top:150px;width:267px;height:585px;background-position:-345px -150px;
   animation:hsBob 3s ease-in-out infinite}
 @keyframes hsBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
@@ -650,10 +650,10 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .ts-dim.on{display:block}
 
 .ts-outline{position:absolute;z-index:3;border-radius:40px;pointer-events:none;
-  box-shadow:0 0 0 7px #ffd23f,0 0 26px 6px rgba(255,210,63,.7),inset 0 0 24px rgba(255,210,63,.35);
-  animation:tsPulse 1.5s ease-in-out infinite;transition:top .18s,height .18s}
-@keyframes tsPulse{0%,100%{box-shadow:0 0 0 7px #ffd23f,0 0 20px 4px rgba(255,210,63,.55),inset 0 0 20px rgba(255,210,63,.3)}
-50%{box-shadow:0 0 0 9px #ffe98a,0 0 36px 10px rgba(255,210,63,.95),inset 0 0 28px rgba(255,210,63,.45)}}
+  box-shadow:0 0 0 4px #FFC727,0 0 18px 4px rgba(255,199,39,.55);
+  animation:tsPulse 1.8s ease-in-out infinite;transition:top .18s,height .18s}
+@keyframes tsPulse{0%,100%{box-shadow:0 0 0 4px #FFC727,0 0 14px 3px rgba(255,199,39,.40)}
+50%{box-shadow:0 0 0 4px #FFC727,0 0 26px 8px rgba(255,199,39,.75)}}
 
 .ts-count{position:absolute;z-index:4;left:556px;width:356px;height:52px;
   display:flex;align-items:center;justify-content:center;gap:12px;
@@ -666,8 +666,8 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
 .ts-lock{position:absolute;z-index:4;display:none;filter:drop-shadow(0 3px 6px rgba(0,0,0,.45))}
 .ts-lock.on{display:block}
-#lockPro{left:520px;top:640px;width:70px;height:80px}
-#lockHigh{left:520px;top:945px;width:90px;height:95px}
+#lockPro{left:511px;top:646px;width:60px;height:68px}
+#lockHigh{left:483px;top:952px;width:77px;height:81px}
 
 .ts-need{position:absolute;z-index:5;left:506px;width:364px;height:48px;border-radius:24px;
   display:none;align-items:center;justify-content:center;
@@ -690,7 +690,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .pn span{position:absolute;inset:0;z-index:6;display:flex;align-items:center;justify-content:center;
   font-family:'Baloo 2',system-ui,sans-serif;font-size:46px;font-weight:800;color:#5A3410;
   pointer-events:none;text-shadow:0 2px 0 rgba(255,255,255,.35)}
-.pn-hl{position:absolute;z-index:5;top:1255px;height:80px;border-radius:24px;pointer-events:none;
+.pn-hl{position:absolute;z-index:5;top:1255px;left:405px;width:130px;height:80px;border-radius:24px;pointer-events:none;
   background:linear-gradient(180deg,#ffe98a 0%,#ffc93c 45%,#e8a51e 100%);
   box-shadow:0 0 0 3px #fff2b8,0 0 22px 6px rgba(255,200,60,.85),inset 0 3px 0 rgba(255,255,255,.7);
   transition:left .18s cubic-bezier(.2,.8,.3,1),width .18s}
@@ -751,9 +751,9 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
   <!-- ============ SPLASH / LOGIN ============ -->
   <section id="splashScreen" class="screen splash">
-    <img class="splash-bg" src="assets/bg-garden.webp?v=19" alt="">
+    <img class="splash-bg" src="assets/bg-garden.webp?v=20" alt="">
     <div class="floaties" id="floaties" aria-hidden="true"></div>
-    <img class="splash-logo" src="assets/logo.webp?v=19" alt="Game of Wealth">
+    <img class="splash-logo" src="assets/logo.webp?v=20" alt="Game of Wealth">
 
     <div class="splash-bottom">
       <div class="splash-actions" id="splashActions">
@@ -789,7 +789,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <div class="hs-wrap" id="hsWrap">
       <div class="hs-stage" id="hsStage">
         <div class="hs-skyext"></div>
-        <img class="hs-bg" src="assets/home/home-base.webp?v=19" alt="">
+        <img class="hs-bg" src="assets/home/home-base.webp?v=20" alt="">
         <div class="hs-crop hs-char" id="hsChar"></div>
         <div class="hs-crop hs-play" id="hsPlay"></div>
         <div class="hs-shimmer"></div>
@@ -824,18 +824,18 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
   <section id="tableSelectScreen" class="screen home3" hidden>
     <div class="hs-wrap">
       <div class="hs-stage" id="tsStage">
-        <img class="hs-bg" id="tsBg" src="assets/ts/ts-base.webp?v=19" alt="">
+        <img class="hs-bg" id="tsBg" src="assets/ts/ts-base.webp?v=20" alt="">
 
         <div class="ts-dim" id="dimPro"></div>
         <div class="ts-dim" id="dimHigh"></div>
         <div class="ts-outline" id="tsOutline"></div>
 
-        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp?v=19" alt=""><span>128 playing</span></div>
-        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp?v=19" alt=""><span>64 playing</span></div>
-        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp?v=19" alt=""><span>12 playing</span></div>
+        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp?v=20" alt=""><span>128 playing</span></div>
+        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp?v=20" alt=""><span>64 playing</span></div>
+        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp?v=20" alt=""><span>12 playing</span></div>
 
-        <img class="ts-lock" id="lockPro" src="assets/ic-lock.webp?v=19" alt="">
-        <img class="ts-lock" id="lockHigh" src="assets/ic-lock.webp?v=19" alt="">
+        <img class="ts-lock" id="lockPro" src="assets/ic-lock.webp?v=20" alt="">
+        <img class="ts-lock" id="lockHigh" src="assets/ic-lock.webp?v=20" alt="">
         <span class="ts-need" id="needPro">Need 5,000 cash</span>
         <span class="ts-need" id="needHigh">Need 10,000 cash</span>
 
@@ -845,7 +845,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
         <div class="pn-hl" id="pnHl"></div>
         <button class="pn" data-n="2" style="left:113px;width:130px"><span>2</span></button>
         <button class="pn" data-n="3" style="left:260px;width:130px"><span>3</span></button>
-        <button class="pn" data-n="4" style="left:405px;width:130px"><span>4</span></button>
+        <button class="pn on" data-n="4" style="left:405px;width:130px"><span>4</span></button>
         <button class="pn" data-n="5" style="left:552px;width:130px"><span>5</span></button>
         <button class="pn" data-n="6" style="left:698px;width:130px"><span>6</span></button>
 
@@ -862,7 +862,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <!-- buy-in sheet -->
     <div class="bi-overlay" id="biOverlay" hidden>
       <div class="bi-sheet" id="biSheet">
-        <img class="bi-img" src="assets/ts/buyin.webp?v=19" alt="">
+        <img class="bi-img" src="assets/ts/buyin.webp?v=20" alt="">
         <span class="bi-amount" id="biAmount">2,000</span>
         <div class="bi-track" id="biTrack"><i id="biFill"></i><b id="biKnob"></b></div>
         <div class="bi-wallet" id="biWallet">Wallet: 2,000 &rarr; 0 after</div>
@@ -3075,7 +3075,7 @@ const Bots = (function () {
     const wrap = $('floaties');
     if (!wrap) return;
     wrap.innerHTML = '';
-    const kinds = ['assets/ic-cash1.webp?v=19', 'assets/ic-gold1.webp?v=19'];
+    const kinds = ['assets/ic-cash1.webp?v=20', 'assets/ic-gold1.webp?v=20'];
     for (let i = 0; i < 8; i++) {
       const img = document.createElement('img');
       img.className = 'flimg';
@@ -3345,7 +3345,7 @@ const Bots = (function () {
 </script>
 <script>
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js?v=19').catch(function(){}); });
+  window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js?v=20').catch(function(){}); });
 }
 </script>
 </body>
