@@ -477,13 +477,249 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .price-sheet .sh-body{padding:0}
 .pricepop .kv{width:100%}
 
+/* ================= SPLASH ================= */
+.splash{position:relative;overflow:hidden;justify-content:space-between;padding:0 18px 12px;align-items:center}
+.sky{position:absolute;inset:0;z-index:0;
+  background:linear-gradient(180deg,#4fb6f0 0%,#8fd8f7 30%,#c8ecff 55%,#bfe8a8 72%,#8ed48a 100%)}
+.castle{position:absolute;left:50%;top:34%;width:150%;height:34%;transform:translateX(-50%);
+  background:linear-gradient(180deg,#fff6e0,#ffe3b8);
+  clip-path:polygon(0% 100%,0% 58%,7% 58%,7% 46%,14% 46%,14% 58%,24% 58%,24% 30%,30% 30%,30% 18%,38% 18%,38% 30%,44% 30%,44% 58%,56% 58%,56% 30%,62% 30%,62% 18%,70% 18%,70% 30%,76% 30%,76% 58%,86% 58%,86% 46%,93% 46%,93% 58%,100% 58%,100% 100%);
+  opacity:.85;filter:drop-shadow(0 10px 24px rgba(120,90,40,.25))}
+.garden{position:absolute;left:0;right:0;bottom:0;height:42%;
+  background:
+    radial-gradient(60% 40% at 50% 100%,rgba(255,255,255,.45),transparent 70%),
+    linear-gradient(180deg,rgba(142,212,138,0) 0%,#7fc96f 40%,#5fae55 100%)}
+.floaties{position:absolute;inset:0;z-index:1;pointer-events:none}
+.fl{position:absolute;display:block;animation:floaty 5.5s ease-in-out infinite;animation-delay:var(--d,0s);opacity:.95}
+.fl.note{width:34px;height:21px;border-radius:4px;background:linear-gradient(180deg,#63e06b,#2fae3c);border:2px solid #eafff0;box-shadow:0 4px 10px rgba(0,0,0,.18);transform:rotate(-12deg)}
+.fl.note::after{content:"\20B9";position:absolute;inset:0;display:grid;place-items:center;font-size:12px;font-weight:900;color:#0d4a17}
+.fl.bar{width:26px;height:16px;border-radius:4px;background:linear-gradient(180deg,#ffe58a,#e0a51e);border:2px solid #fff6d0;transform:skewX(-14deg) rotate(8deg);box-shadow:0 4px 10px rgba(0,0,0,.18)}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-14px) rotate(6deg)}}
+
+.splash-top{position:relative;z-index:2;padding-top:26px;text-align:center;width:100%}
+.logo{display:inline-flex;flex-direction:column;align-items:center;line-height:.86}
+.logo .crown{font-size:30px;color:#ffd23f;text-shadow:0 2px 0 #b8860b;margin-bottom:-2px}
+.logo .l1{font-size:34px;font-weight:900;letter-spacing:.02em;color:#fff;
+  text-shadow:0 3px 0 #d9822b,0 6px 0 #a85e12,0 10px 16px rgba(0,0,0,.3)}
+.logo .l2{font-size:17px;font-weight:900;color:#fff;text-shadow:0 2px 0 #a85e12;margin:1px 0}
+.logo .l3{font-size:44px;font-weight:900;letter-spacing:.01em;
+  background:linear-gradient(180deg,#fff3b0 0%,#ffd23f 42%,#e08a12 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 3px 0 #a85e12) drop-shadow(0 6px 10px rgba(0,0,0,.3))}
+
+.splash-actions{position:relative;z-index:2;width:100%;max-width:360px;display:flex;flex-direction:column;gap:12px;margin-top:auto}
+.sbtn{height:62px;border-radius:34px;font-size:19px;font-weight:900;display:flex;align-items:center;justify-content:center;gap:10px;position:relative;
+  border:3px solid #fff;box-shadow:0 5px 0 rgba(0,0,0,.18),0 10px 22px rgba(0,0,0,.22),inset 0 3px 0 rgba(255,255,255,.6);
+  transition:transform .08s}
+.sbtn:active{transform:translateY(4px);box-shadow:0 1px 0 rgba(0,0,0,.18),0 4px 10px rgba(0,0,0,.2),inset 0 3px 0 rgba(255,255,255,.6)}
+.sbtn.green{background:linear-gradient(180deg,#7bf07d,#2fae3c);color:#fff;text-shadow:0 2px 0 #1c7d28}
+.sbtn.white{background:linear-gradient(180deg,#ffffff,#eef3f7);color:#3a3a3a}
+.sbtn.blue{background:linear-gradient(180deg,#5aa8f0,#2f7fd8);color:#fff;text-shadow:0 2px 0 #1f5fa8}
+.sbtn .tri{width:0;height:0;border-left:16px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent;filter:drop-shadow(0 2px 0 #1c7d28)}
+.sbtn .gicon{width:26px;height:26px;border-radius:50%;background:conic-gradient(#ea4335 0 25%,#fbbc05 25% 50%,#34a853 50% 75%,#4285f4 75%);color:#fff;font-weight:900;font-size:14px;display:grid;place-items:center;box-shadow:inset 0 0 0 5px #fff}
+.sbtn .picon{font-size:22px}
+
+.loading{position:relative;z-index:2;width:100%;max-width:330px;text-align:center;margin-top:14px}
+.ltext{font-size:14px;font-weight:900;color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.35);margin-bottom:6px}
+.lbar{position:relative;height:26px;border-radius:14px;background:rgba(0,0,0,.28);border:3px solid #fff;overflow:hidden;box-shadow:0 3px 0 rgba(0,0,0,.2)}
+.lbar i{position:absolute;inset:0;width:0%;border-radius:11px;background:linear-gradient(180deg,#8bf58c,#2fae3c);transition:width .25s linear}
+.lbar b{position:absolute;inset:0;display:grid;place-items:center;font-size:12px;font-weight:900;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.5)}
+.version{position:relative;z-index:2;font-size:11px;font-weight:800;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.35);opacity:.9}
+
+/* ================= HOME ================= */
+.home{position:relative;padding:6px 10px 0;gap:6px;overflow:hidden;
+  background:linear-gradient(180deg,#4fb6f0 0%,#9fdcf8 32%,#cfeeff 58%,#c9edb6 74%,#8ed48a 100%)}
+.home::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(50% 30% at 50% 58%,rgba(255,240,180,.75),transparent 70%)}
+.home-top{display:flex;align-items:center;gap:8px;position:relative;z-index:2}
+.profile-chip{display:flex;align-items:center;gap:6px;flex:1;min-width:0}
+.pavatar{width:44px;height:44px;flex:0 0 44px;border-radius:50%;display:grid;place-items:center;
+  font-size:18px;font-weight:900;color:#fff;background:linear-gradient(180deg,#ff9ec4,#d6337a);
+  border:3px solid #ffd23f;box-shadow:0 0 0 3px rgba(255,255,255,.6),0 3px 8px rgba(0,0,0,.25)}
+.pavatar.big{width:96px;height:96px;flex-basis:96px;font-size:38px;border-width:5px}
+.pinfo{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.pinfo b{font-size:12px;font-weight:900;color:#fff;background:linear-gradient(180deg,#ffd968,#e0a51e);
+  padding:2px 10px;border-radius:10px;align-self:flex-start;color:#4a3200;border:2px solid #fff}
+.xpbar{height:12px;border-radius:8px;background:rgba(0,0,0,.28);border:2px solid #fff;overflow:hidden;max-width:110px}
+.xpbar i{display:block;height:100%;width:20%;background:linear-gradient(180deg,#8bf58c,#2fae3c)}
+.wallet{display:flex;gap:6px}
+.wpill{display:inline-flex;align-items:center;gap:5px;height:34px;padding:0 10px;border-radius:18px;
+  background:linear-gradient(180deg,#22344c,#152238);border:2px solid #f2c14e;color:#fff;
+  font-size:13px;font-weight:900;font-variant-numeric:tabular-nums;box-shadow:0 3px 0 rgba(0,0,0,.25)}
+.wpill i{width:16px;height:11px;border-radius:2px;display:inline-block}
+.wpill.cash i{background:linear-gradient(180deg,#63e06b,#2fae3c);border:1px solid #eafff0}
+.wpill.rix i{background:linear-gradient(180deg,#d8a8ff,#a855f7);border:1px solid #f0e0ff;transform:rotate(45deg);width:12px;height:12px}
+
+.home-rail{position:absolute;left:8px;top:86px;z-index:3;display:flex;flex-direction:column;gap:10px}
+.railbtn{width:62px;border-radius:14px;padding:6px 4px;display:flex;flex-direction:column;align-items:center;gap:2px;
+  background:linear-gradient(180deg,#ffe9b8,#f2c14e);border:3px solid #fff;box-shadow:0 4px 0 #c98f14,0 6px 14px rgba(0,0,0,.2)}
+.railbtn em{font-size:8.5px;font-weight:900;font-style:normal;color:#4a3200;background:#fff8e0;border-radius:6px;padding:1px 5px;white-space:nowrap}
+.railbtn .gicon2,.railbtn .sicon{font-size:22px;line-height:1}
+
+.home-stage{flex:1;position:relative;z-index:2;display:flex;align-items:center;justify-content:center;min-height:0}
+.podium{display:flex;flex-direction:column;align-items:center;gap:6px}
+.podium::after{content:"";width:180px;height:34px;border-radius:50%;
+  background:radial-gradient(ellipse at 50% 30%,#ffe9a8,#e0a51e 60%,#a8740c 100%);
+  box-shadow:0 8px 0 #8a5c00,0 14px 26px rgba(0,0,0,.3);margin-top:-8px}
+.nameplate{margin-top:-6px;padding:5px 20px;border-radius:14px;font-size:15px;font-weight:900;color:#fff;
+  background:linear-gradient(180deg,#a855f7,#7c3aed);border:3px solid #ffd23f;
+  box-shadow:0 4px 0 #5b21b6,inset 0 2px 0 rgba(255,255,255,.35);text-shadow:0 2px 0 rgba(0,0,0,.25)}
+
+.playbtn{position:relative;z-index:2;align-self:center;width:min(88%,340px);height:76px;border-radius:40px;
+  font-size:34px;font-weight:900;letter-spacing:.06em;color:#fff;display:flex;align-items:center;justify-content:center;gap:12px;
+  background:linear-gradient(180deg,#8bf58c 0%,#3ecf4a 45%,#1f9d3a 100%);
+  border:4px solid #ffd23f;
+  box-shadow:0 7px 0 #14722b,0 14px 26px rgba(0,0,0,.28),inset 0 4px 0 rgba(255,255,255,.55);
+  text-shadow:0 3px 0 #14722b;transition:transform .08s}
+.playbtn:active{transform:translateY(5px);box-shadow:0 2px 0 #14722b,0 6px 14px rgba(0,0,0,.25),inset 0 4px 0 rgba(255,255,255,.5)}
+.playbtn .tri{width:0;height:0;border-left:26px solid #fff;border-top:17px solid transparent;border-bottom:17px solid transparent;filter:drop-shadow(0 3px 0 #14722b)}
+
+.modes{position:relative;z-index:2;display:flex;gap:8px;padding:2px 2px 4px}
+.mode{flex:1;border-radius:18px;padding:10px 4px;display:flex;flex-direction:column;align-items:center;gap:5px;
+  color:#fff;font-size:12px;font-weight:900;line-height:1.15;text-align:center;border:3px solid #fff;
+  box-shadow:0 5px 0 rgba(0,0,0,.22),0 8px 16px rgba(0,0,0,.18),inset 0 3px 0 rgba(255,255,255,.45);
+  text-shadow:0 2px 0 rgba(0,0,0,.22);transition:transform .08s}
+.mode:active{transform:translateY(4px);box-shadow:0 1px 0 rgba(0,0,0,.22),inset 0 3px 0 rgba(255,255,255,.4)}
+.m-bots{background:linear-gradient(180deg,#5aa8f0,#2f7fd8)}
+.m-local{background:linear-gradient(180deg,#b07cf5,#7c3aed)}
+.m-locked{background:linear-gradient(180deg,#ffc04a,#e08a12)}
+
+.homenav{position:relative;z-index:2;display:flex;gap:4px;padding:4px 2px calc(6px + env(safe-area-inset-bottom))}
+.homenav button{flex:1;min-width:0;height:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:4px 1px;border-radius:12px;white-space:nowrap;overflow:hidden;
+  font-size:8px;font-weight:900;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.3);
+  background:linear-gradient(180deg,rgba(34,52,76,.92),rgba(21,34,56,.92));border:2px solid rgba(255,255,255,.35)}
+.homenav button.on{background:linear-gradient(180deg,#ffd968,#e0a51e);color:#4a3200;border-color:#fff;text-shadow:none}
+.homenav button:active{transform:translateY(2px)}
+
+/* setup head */
+.setup-head{display:flex;align-items:center;gap:10px;padding:6px 2px 0}
+.backbtn{width:42px;height:42px;border-radius:50%;font-size:20px;font-weight:900;color:#fff;
+  background:linear-gradient(180deg,#5aa8f0,#2f7fd8);box-shadow:0 3px 0 #1f5fa8,inset 0 2px 0 rgba(255,255,255,.45)}
+.setup-head span{font-size:16px;font-weight:900;color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.25)}
+
+.homenav button svg{display:block;flex:0 0 auto;width:18px;height:18px}
+.railbtn svg{display:block}
+/* richer castle */
+.castle{clip-path:polygon(0% 100%,0% 66%,5% 66%,5% 56%,11% 56%,11% 66%,18% 66%,18% 40%,22% 40%,22% 30%,27% 30%,27% 40%,31% 40%,31% 66%,38% 66%,38% 34%,43% 34%,43% 20%,50% 12%,57% 20%,57% 34%,62% 34%,62% 66%,69% 66%,69% 40%,73% 40%,73% 30%,78% 30%,78% 40%,82% 40%,82% 66%,89% 66%,89% 56%,95% 56%,95% 66%,100% 66%,100% 100%)}
+
 </style>
 </head>
 <body>
 <div id="app">
 
+
+  <!-- ============ SPLASH / LOGIN ============ -->
+  <section id="splashScreen" class="screen splash">
+    <div class="sky"><div class="castle"></div><div class="garden"></div></div>
+    <div class="floaties" aria-hidden="true">
+      <span class="fl note" style="left:8%;top:16%;--d:0s"></span>
+      <span class="fl bar" style="left:78%;top:12%;--d:.6s"></span>
+      <span class="fl note" style="left:84%;top:38%;--d:1.1s"></span>
+      <span class="fl bar" style="left:12%;top:46%;--d:.3s"></span>
+      <span class="fl note" style="left:70%;top:62%;--d:.9s"></span>
+      <span class="fl bar" style="left:20%;top:72%;--d:1.4s"></span>
+    </div>
+    <div class="splash-top">
+      <div class="logo">
+        <div class="crown">&#9819;</div>
+        <div class="l1">GAME</div>
+        <div class="l2">of</div>
+        <div class="l3">WEALTH</div>
+      </div>
+    </div>
+    <div class="splash-actions">
+      <button class="sbtn green" id="btnGuest"><span class="tri"></span>Play as Guest</button>
+      <button class="sbtn white" id="btnGoogle"><span class="gicon">G</span>Continue with Google</button>
+      <button class="sbtn blue" id="btnPhone"><span class="picon">&#9742;</span>Phone Number</button>
+    </div>
+    <div class="loading">
+      <div class="ltext">Loading...</div>
+      <div class="lbar"><i id="loadFill"></i><b id="loadPct">0%</b></div>
+    </div>
+    <div class="version">Version 0.1 (Beta)</div>
+  </section>
+
+  <!-- ============ HOME ============ -->
+  <section id="homeScreen" class="screen home" hidden>
+    <header class="home-top">
+      <div class="profile-chip">
+        <div class="pavatar" id="homeAvatar">P</div>
+        <div class="pinfo">
+          <b id="homeLevel">Lv 1</b>
+          <div class="xpbar"><i id="homeXp"></i></div>
+        </div>
+      </div>
+      <div class="wallet">
+        <span class="wpill cash"><i></i><b id="homeCash">2,000</b></span>
+        <span class="wpill rix"><i></i><b id="homeRix">0</b></span>
+      </div>
+    </header>
+
+    <div class="home-rail">
+      <button class="railbtn gift" id="btnGift">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="#e8503a"><rect x="3" y="9" width="18" height="11" rx="2"/><rect x="2" y="6" width="20" height="4" rx="1.6"/><rect x="10.6" y="6" width="2.8" height="14" fill="#ffd23f"/><path d="M12 6c-1.5-3-6-3-6-.5S10 7 12 6zM12 6c1.5-3 6-3 6-.5S14 7 12 6z" fill="#ffd23f"/></svg>
+        <em id="giftTimer">23:45:17</em>
+      </button>
+      <button class="railbtn missions" id="btnMissions">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="#f7e6c0"><rect x="4" y="3" width="16" height="18" rx="2" stroke="#b8860b" stroke-width="2"/><path d="M7 8h10M7 12h10M7 16h6" stroke="#b8860b" stroke-width="2" stroke-linecap="round"/></svg>
+        <em>Missions</em>
+      </button>
+    </div>
+
+    <div class="home-stage">
+      <div class="podium">
+        <div class="pavatar big" id="homeChar">P</div>
+        <div class="nameplate" id="homeName">Player</div>
+      </div>
+    </div>
+
+    <button class="playbtn" id="btnPlay"><span class="tri"></span>PLAY</button>
+
+    <div class="modes">
+      <button class="mode m-bots" data-mode="bots">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><rect x="4" y="8" width="16" height="11" rx="4"/><circle cx="9" cy="13" r="1.8" fill="#fff"/><circle cx="15" cy="13" r="1.8" fill="#fff"/><path d="M12 3v3" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="2.6" r="1.6"/></svg>
+        <span>Practice<br>vs Bots</span>
+      </button>
+      <button class="mode m-local" data-mode="local">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="10" r="2.6"/><path d="M2.5 19a6.5 6.5 0 0 1 13 0z"/><path d="M14.5 19a4.6 4.6 0 0 1 7 0z"/></svg>
+        <span>Pass &amp;<br>Play</span>
+      </button>
+      <button class="mode m-locked" id="btnPrivate">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><rect x="5" y="10" width="14" height="10" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>
+        <span>Private<br>Room</span>
+      </button>
+    </div>
+
+    <nav class="homenav">
+      <button data-hnav="home" class="on">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 3l9 8h-3v9h-5v-6h-2v6H6v-9H3z"/></svg>
+        Home
+      </button>
+      <button data-hnav="shop">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4 8h16l-1.4 12H5.4z"/><path d="M8.5 8V6a3.5 3.5 0 0 1 7 0v2" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        Shop
+      </button>
+      <button data-hnav="profile">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0z"/></svg>
+        Profile
+      </button>
+      <button data-hnav="leaderboard">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M7 21h10v-3H7z"/><path d="M6 4h12v4a6 6 0 0 1-12 0z"/><path d="M6 6H4v1a3 3 0 0 0 3 3M18 6h2v1a3 3 0 0 1-3 3" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        Leaderboard
+      </button>
+      <button data-hnav="rules">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4 4h7v16H4z"/><path d="M13 4h7v16h-7z"/></svg>
+        Rules
+      </button>
+    </nav>
+  </section>
+
   <!-- ============ MENU ============ -->
-  <section id="menuScreen" class="screen">
+  <section id="menuScreen" class="screen" hidden>
+    <div class="setup-head">
+      <button class="backbtn" id="btnSetupBack">&#8592;</button>
+      <span>New Game</span>
+    </div>
     <div class="brand">
       <div class="brand-mark">&#9830;</div>
       <h1>GAME OF <span>WEALTH</span></h1>
@@ -1470,9 +1706,28 @@ const Bots = (function () {
   };
 
   /* ---------------- screens ---------------- */
+  const PROFILE = { name: 'Player', level: 1, xp: 0, xpMax: 800, cash: 2000, rix: 0 };
+
   function showScreen(name) {
+    $('splashScreen').hidden = name !== 'splash';
+    $('homeScreen').hidden = name !== 'home';
     $('menuScreen').hidden = name !== 'menu';
     $('gameScreen').hidden = name !== 'game';
+  }
+
+  function renderHome() {
+    $('homeAvatar').textContent = PROFILE.name.charAt(0).toUpperCase();
+    $('homeChar').textContent = PROFILE.name.charAt(0).toUpperCase();
+    $('homeName').textContent = PROFILE.name;
+    $('homeLevel').textContent = 'Lv ' + PROFILE.level;
+    $('homeXp').style.width = Math.round((PROFILE.xp / PROFILE.xpMax) * 100) + '%';
+    $('homeCash').textContent = Math.round(PROFILE.cash).toLocaleString('en-IN');
+    $('homeRix').textContent = PROFILE.rix;
+  }
+
+  function goHome() {
+    renderHome();
+    showScreen('home');
   }
 
   /* ---------------- sheet ---------------- */
@@ -2336,7 +2591,7 @@ const Bots = (function () {
       '<div class="standlist">' + rows + '</div></div>' +
       '<div class="sh-foot"><button class="btn ghost" id="resMenu">Menu</button>' +
       '<button class="btn primary" id="resAgain">Play again</button></div>', 'result-sheet', 'results');
-    $('resMenu').onclick = function () { closeSheet(); S = null; showScreen('menu'); refreshMenu(); };
+    $('resMenu').onclick = function () { closeSheet(); S = null; goHome(); };
     $('resAgain').onclick = function () { closeSheet(); startGame(); };
   }
 
@@ -2382,8 +2637,8 @@ const Bots = (function () {
     openSheet(
       '<div class="sh-head">Shop <span class="sh-price">RIX</span></div>' +
       '<div class="sh-body">' +
-      '<p class="lead">RIX isn\u2019t part of this table yet. The game economy runs on cash and gold only, so there\u2019s nothing to spend RIX on \u2014 this is where it would live.</p>' +
-      '<div class="warn">Cosmetics, table themes and card backs would slot in here once RIX has a way to be earned.</div>' +
+      '<p class="lead">You have <b>' + PROFILE.rix + ' RIX</b>. Nothing to spend it on yet \u2014 the table economy is cash and gold only, so RIX has no source and no sink.</p>' +
+      '<div class="warn">Table themes, card backs and avatar frames would slot in here once RIX can be earned.</div>' +
       '</div>' +
       '<div class="sh-foot"><button class="btn primary wide" id="shClose">Close</button></div>', 'log-sheet', 'shop');
     $('shClose').onclick = closeSheet;
@@ -2456,9 +2711,9 @@ const Bots = (function () {
       '<div class="sh-foot"><button class="btn primary wide" id="mClose">Back to the table</button></div>', 'menu-sheet', 'menu');
     $('mRules').onclick = showRules;
     $('mLog').onclick = showLog;
-    $('mSave').onclick = function () { UI.saved = S; closeSheet(); S = null; showScreen('menu'); refreshMenu(); };
+    $('mSave').onclick = function () { UI.saved = S; closeSheet(); S = null; goHome(); };
     $('mNew').onclick = function () {
-      if (confirm('Abandon this game and return to setup?')) { S = null; closeSheet(); showScreen('menu'); refreshMenu(); }
+      if (confirm('Abandon this game and return home?')) { S = null; closeSheet(); goHome(); }
     };
     $('mClose').onclick = closeSheet;
   }
@@ -2466,6 +2721,7 @@ const Bots = (function () {
   /* ---------------- menu wiring ---------------- */
   function refreshMenu() {
     $('btnContinue').hidden = !UI.saved;
+    $('btnContinue').textContent = UI.saved ? 'Resume saved game' : '';
     $('botRow').style.display = UI.mode === 'bots' ? '' : 'none';
     $('cfgPlayersVal').textContent = UI.players;
     $('cfgPlayers').value = UI.players;
@@ -2549,8 +2805,110 @@ const Bots = (function () {
   function boot() {
     bindMenu();
     bindBoard();
+    bindHome();
+    refreshMenu();
+    showScreen('splash');
+    runLoader();
+  }
+
+  function runLoader() {
+    let v = 0;
+    const fill = $('loadFill'), pct = $('loadPct');
+    const t = setInterval(function () {
+      v = Math.min(100, v + 4 + Math.random() * 7);
+      fill.style.width = v + '%';
+      pct.textContent = Math.round(v) + '%';
+      if (v >= 100) clearInterval(t);
+    }, 90);
+  }
+
+  function bindHome() {
+    ['btnGuest', 'btnGoogle', 'btnPhone'].forEach(function (id) {
+      const el = $(id);
+      if (!el) return;
+      el.onclick = function () { goHome(); };
+    });
+    $('btnPlay').onclick = function () { UI.mode = 'bots'; syncModeSeg(); openSetup(); };
+    document.querySelectorAll('.mode[data-mode]').forEach(function (b) {
+      b.onclick = function () { UI.mode = b.dataset.mode; syncModeSeg(); openSetup(); };
+    });
+    $('btnPrivate').onclick = function () {
+      openSheet('<div class="sh-head">Private Room</div><div class="sh-body"><p class="lead">Private rooms need online play, which isn\u2019t built yet \u2014 the engine is ready for it, the server isn\u2019t.</p><div class="warn">Play vs Bots or Pass &amp; Play for now.</div></div><div class="sh-foot"><button class="btn primary wide" id="prvC">Got it</button></div>', 'log-sheet', 'generic');
+      $('prvC').onclick = closeSheet;
+    };
+    $('btnGift').onclick = function () {
+      openSheet('<div class="sh-head">Daily gift</div><div class="sh-body"><p class="lead">One gift a day, once rewards exist. Right now the game economy is cash and gold at the table only.</p></div><div class="sh-foot"><button class="btn primary wide" id="gftC">Close</button></div>', 'log-sheet', 'generic');
+      $('gftC').onclick = closeSheet;
+    };
+    $('btnMissions').onclick = function () {
+      openSheet('<div class="sh-head">Missions</div><div class="sh-body"><p class="lead">Missions arrive with the meta layer. For now the only scoreboard is the table itself.</p></div><div class="sh-foot"><button class="btn primary wide" id="msC">Close</button></div>', 'log-sheet', 'generic');
+      $('msC').onclick = closeSheet;
+    };
+    document.querySelectorAll('.homenav button').forEach(function (b) {
+      b.onclick = function () {
+        document.querySelectorAll('.homenav button').forEach(function (x) { x.classList.toggle('on', x === b); });
+        const n = b.dataset.hnav;
+        if (n === 'home') return;
+        if (n === 'shop') return showShop();
+        if (n === 'rules') return showRules();
+        if (n === 'profile') return showHomeProfile();
+        if (n === 'leaderboard') return showHomeLeaderboard();
+      };
+    });
+    $('btnSetupBack').onclick = function () { goHome(); };
+    let secs = 23 * 3600 + 45 * 60 + 17;
+    setInterval(function () {
+      secs = Math.max(0, secs - 1);
+      const h = String(Math.floor(secs / 3600)).padStart(2, '0');
+      const m = String(Math.floor((secs % 3600) / 60)).padStart(2, '0');
+      const ss = String(secs % 60).padStart(2, '0');
+      const el = $('giftTimer');
+      if (el) el.textContent = h + ':' + m + ':' + ss;
+    }, 1000);
+  }
+
+  function syncModeSeg() {
+    document.querySelectorAll('#modeSeg button').forEach(function (x) {
+      x.classList.toggle('on', x.dataset.mode === UI.mode);
+    });
+    refreshMenu();
+  }
+
+  function openSetup() {
     refreshMenu();
     showScreen('menu');
+  }
+
+  function showHomeProfile() {
+    openSheet(
+      '<div class="sh-head">Profile</div>' +
+      '<div class="sh-body">' +
+      '<div class="kv"><span>Name</span><b>' + esc(PROFILE.name) + '</b></div>' +
+      '<div class="kv"><span>Level</span><b>' + PROFILE.level + '</b></div>' +
+      '<div class="kv"><span>XP</span><b>' + PROFILE.xp + ' / ' + PROFILE.xpMax + '</b></div>' +
+      '<div class="kv"><span>Cash</span><b>' + fmt(PROFILE.cash) + '</b></div>' +
+      '<div class="kv"><span>RIX</span><b>' + PROFILE.rix + '</b></div>' +
+      '</div>' +
+      '<div class="sh-foot"><button class="btn primary wide" id="hpC">Close</button></div>', 'log-sheet', 'generic');
+    $('hpC').onclick = closeSheet;
+  }
+
+  function showHomeLeaderboard() {
+    const rows = [
+      { n: 'RajaBhai', v: 12450 },
+      { n: 'BiscuitOP', v: 15230 },
+      { n: 'PixelRani', v: 11320 },
+      { n: 'LegendMithu', v: 9870 },
+      { n: PROFILE.name, v: PROFILE.cash }
+    ].sort(function (a, b) { return b.v - a.v; });
+    openSheet(
+      '<div class="sh-head">Leaderboard <span class="sh-price">net worth</span></div>' +
+      '<div class="sh-body"><div class="standlist">' + rows.map(function (r, i) {
+        return '<div class="stand' + (i === 0 ? ' first' : '') + '"><span class="pos">' + (i + 1) + '</span>' +
+          '<span class="nm">' + esc(r.n) + '</span><span class="cs">' + fmt(r.v) + '</span><span class="gd"></span></div>';
+      }).join('') + '</div></div>' +
+      '<div class="sh-foot"><button class="btn primary wide" id="hlC">Close</button></div>', 'log-sheet', 'generic');
+    $('hlC').onclick = closeSheet;
   }
   document.addEventListener('DOMContentLoaded', boot);
   if (document.readyState !== 'loading') boot();
