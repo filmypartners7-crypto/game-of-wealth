@@ -1,8 +1,10 @@
 /* Game of Wealth - offline shell.
    Documents are network-first so a new deploy shows up on the next load;
    everything else is cache-first with a background refresh. */
-const CACHE = 'gow-v4';
-const ASSETS = ['./', './index.html', './manifest.json', './icon.svg'];
+const CACHE = 'gow-v5';
+const ASSETS = ['./', './index.html', './manifest.json', './icon.svg',
+  './assets/castle.webp', './assets/tablebg.webp', './assets/cardback.webp',
+  './assets/a1.webp', './assets/a2.webp', './assets/a3.webp', './assets/a4.webp', './assets/a5.webp'];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(
