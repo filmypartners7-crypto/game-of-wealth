@@ -1,0 +1,2177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050807">
+<meta name="color-scheme" content="dark">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Wealth">
+<meta name="description" content="Game of Wealth - a turn-based strategy card and economy game for 2 to 6 players.">
+<title>Game of Wealth</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<style>
+*,*::before,*::after{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --gold:#d4af37; --gold-l:#f7e08a; --gold-d:#8a6d1f;
+  --green:#0e3b2e; --green2:#0a2a21; --green3:#123f31;
+  --bg:#050807; --panel:#0b1210; --panel2:#101a16;
+  --line:#22302a; --ink:#ece7d9; --dim:#8d9a92;
+  --red:#c0392b; --good:#4ade80; --bad:#ef4444;
+  --r:14px;
+}
+html,body{margin:0;height:100%}
+body{
+  background:
+    radial-gradient(120% 80% at 50% -10%, #12362a 0%, transparent 55%),
+    radial-gradient(80% 60% at 100% 100%, #1a2c1f 0%, transparent 60%),
+    var(--bg);
+  color:var(--ink);
+  font:15px/1.45 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  overscroll-behavior:none;
+}
+#app{max-width:560px;margin:0 auto;min-height:100dvh;position:relative;display:flex;flex-direction:column}
+.screen{flex:1;display:flex;flex-direction:column;min-height:0}
+[hidden]{display:none!important}
+h1,h2,h3,h4{margin:0;font-weight:800;letter-spacing:.02em}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.dim{color:var(--dim)}
+
+/* ---------- buttons ---------- */
+.btn{
+  padding:13px 16px;border-radius:12px;border:1px solid var(--line);
+  background:linear-gradient(180deg,#16241e,#0e1714);color:var(--ink);
+  font-weight:700;font-size:15px;min-height:48px;
+  transition:transform .08s ease,filter .15s ease,border-color .15s;
+}
+.btn:active{transform:scale(.975)}
+.btn.primary{
+  background:linear-gradient(180deg,#e7c65a,#b8912a);color:#161203;border-color:#f0d98b;
+  box-shadow:0 6px 22px -8px rgba(212,175,55,.65);
+}
+.btn.ghost{background:transparent;border-color:var(--line);color:var(--dim)}
+.btn.danger{color:#ffb4ac;border-color:#4a2320}
+.btn.wide{width:100%}
+.btn:disabled{opacity:.4}
+.btnrow{display:flex;gap:8px}
+.btnrow .btn{flex:1}
+
+/* ---------- menu ---------- */
+#menuScreen{padding:28px 18px 34px;justify-content:center;gap:18px}
+.brand{text-align:center;padding:8px 0 2px}
+.brand-mark{font-size:30px;color:var(--gold);filter:drop-shadow(0 0 14px rgba(212,175,55,.5))}
+.brand h1{font-size:30px;line-height:1.05;letter-spacing:.12em;font-weight:800}
+.brand h1 span{
+  background:linear-gradient(180deg,#f8e79c,#c9a227 60%,#8a6d1f);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.brand .tag{color:var(--dim);font-size:13px;margin:8px 0 0;letter-spacing:.06em;text-transform:uppercase}
+.panel{
+  background:linear-gradient(180deg,rgba(18,32,26,.92),rgba(9,15,12,.92));
+  border:1px solid var(--line);border-radius:18px;padding:16px;
+  box-shadow:0 24px 60px -30px #000 inset,0 10px 40px -24px #000;
+  display:flex;flex-direction:column;gap:14px;
+}
+.seg{display:flex;background:#0a120f;border:1px solid var(--line);border-radius:12px;padding:4px;gap:4px}
+.seg button{flex:1;padding:11px 8px;border-radius:9px;font-size:13.5px;font-weight:700;color:var(--dim)}
+.seg button.on{background:linear-gradient(180deg,#1d332a,#12211b);color:var(--gold-l);box-shadow:0 0 0 1px rgba(212,175,55,.35) inset}
+.seg.small button{font-size:12.5px;padding:9px 4px}
+.row{display:flex;align-items:center;gap:12px;font-size:13.5px;color:var(--dim)}
+.row>span{min-width:88px}
+.row b{color:var(--gold-l);min-width:44px;text-align:right;font-variant-numeric:tabular-nums}
+.row input[type=range]{flex:1}
+.row .seg{flex:1}
+input[type=range]{
+  -webkit-appearance:none;appearance:none;height:30px;background:transparent;
+}
+input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:6px;background:linear-gradient(90deg,#3b2f11,#1a2b22)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;margin-top:-9px;background:radial-gradient(circle at 35% 30%,#ffe89a,#c9a227 70%);border:1px solid #f0d98b;box-shadow:0 0 12px rgba(212,175,55,.55)}
+input[type=range]::-moz-range-track{height:6px;border-radius:6px;background:#1a2b22}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border:1px solid #f0d98b;border-radius:50%;background:#c9a227}
+
+/* ---------- game ---------- */
+#gameScreen{padding:0 10px 10px;gap:8px}
+.topbar{display:flex;align-items:center;gap:8px;padding:10px 2px 4px;position:sticky;top:0;z-index:5;background:linear-gradient(180deg,rgba(5,8,7,.96),rgba(5,8,7,.75) 70%,transparent)}
+.topbar .meta{flex:1;text-align:center;min-width:0}
+.topbar .icon{width:42px;height:42px;border-radius:12px;border:1px solid var(--line);background:#0d1714;font-size:17px;color:var(--dim);display:grid;place-items:center}
+#roundLabel{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.phase{font-size:15px;font-weight:800;color:var(--gold-l);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.phase.p-bid{color:#9fe8c4}.phase.p-select{color:#9fe8c4}.phase.p-payout{color:#ffd166}
+.phase.p-gameEnd{color:#ffd166}
+
+.goldbar{display:flex;align-items:center;gap:12px;background:linear-gradient(120deg,#101b16,#0a1210);border:1px solid var(--line);border-radius:var(--r);padding:8px 12px}
+.goldprice{display:flex;align-items:baseline;gap:7px;flex-shrink:0}
+.goldprice .lbl{font-size:10px;letter-spacing:.14em;color:var(--gold-d)}
+.goldprice b{font-size:20px;color:var(--gold-l);font-variant-numeric:tabular-nums}
+.delta{font-size:12px;font-weight:700;font-variant-numeric:tabular-nums}
+.delta.up{color:var(--good)}.delta.down{color:var(--bad)}.delta.flat{color:var(--dim)}
+#goldChart{flex:1;height:44px;min-width:60px}
+
+.seats{display:grid;gap:7px}
+.seats.n2,.seats.n3,.seats.n4{grid-template-columns:1fr 1fr}
+.seats.n5,.seats.n6{grid-template-columns:1fr 1fr 1fr}
+.seat{
+  position:relative;background:linear-gradient(180deg,#0f1a15,#0a1310);
+  border:1px solid var(--line);border-radius:12px;padding:8px 9px;overflow:hidden;
+  transition:border-color .2s,box-shadow .2s,transform .2s;
+}
+.seat.active{border-color:rgba(212,175,55,.75);box-shadow:0 0 0 1px rgba(212,175,55,.35) inset,0 0 22px -8px rgba(212,175,55,.6)}
+.seat.out{opacity:.42;filter:grayscale(.6)}
+.seat-top{display:flex;justify-content:space-between;align-items:center;gap:6px}
+.sname{font-size:12px;font-weight:700;color:#cfd8d2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sname .you{font-style:normal;font-size:9px;color:#0f1a15;background:var(--gold);padding:1px 5px;border-radius:5px;margin-left:4px;font-weight:800}
+.shand{font-size:10.5px;color:var(--dim)}
+.smoney{font-size:17px;font-weight:800;color:var(--gold-l);font-variant-numeric:tabular-nums;margin-top:2px}
+.sgold{font-size:10.5px;color:var(--dim);display:flex;align-items:center;gap:4px}
+.gold-dot{width:7px;height:7px;border-radius:50%;background:linear-gradient(180deg,#ffe89a,#b8912a);display:inline-block}
+.badges{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.badge{font-size:9.5px;padding:2px 6px;border-radius:6px;background:#16241e;border:1px solid var(--line);color:var(--dim)}
+.badge.bid{color:#0f1a15;background:var(--gold);border-color:#f0d98b;font-weight:800}
+.badge.debt{color:#ffc9c2;border-color:#4a2320}
+.badge.dead{color:#ffb4ac;border-color:#4a2320}
+.mini{display:flex;gap:2px;margin-top:5px;flex-wrap:wrap}
+.mcard{font-size:10px;font-weight:800;background:#132019;border:1px solid #263a30;border-radius:4px;padding:1px 4px;color:var(--gold-l)}
+.mcard i{font-style:normal;color:var(--dim);margin-left:1px}
+
+.tablemid{display:flex;align-items:center;gap:8px}
+.pile{flex:1;display:flex;flex-direction:column;align-items:center;gap:1px;padding:8px 4px;border-radius:12px;border:1px solid var(--line);background:linear-gradient(180deg,#0e1a15,#091310)}
+.pile.empty{opacity:.4}
+.pile-num{font-size:16px;font-weight:800;color:var(--gold-l);font-variant-numeric:tabular-nums}
+.pile-lbl{font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--dim)}
+.bankbox{flex:1.1;text-align:center;border-radius:12px;border:1px dashed #2b3d33;padding:8px 4px;background:#0a1310}
+.bankbox .lbl{display:block;font-size:9.5px;letter-spacing:.09em;color:var(--dim);text-transform:uppercase}
+.bankbox b{font-size:14px;color:#bfe8cf;font-variant-numeric:tabular-nums}
+
+.handwrap{background:linear-gradient(180deg,rgba(14,26,21,.7),rgba(7,12,10,.7));border:1px solid var(--line);border-radius:var(--r);padding:7px 9px 9px}
+.handhead{display:flex;justify-content:space-between;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
+.hand{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+.hand::-webkit-scrollbar{display:none}
+.card{
+  flex:0 0 auto;width:48px;height:68px;border-radius:9px;position:relative;
+  background:linear-gradient(165deg,#1a2620,#0c1512);border:1px solid #2c4034;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:var(--gold-l);font-weight:800;transition:transform .15s,box-shadow .15s,border-color .15s;
+}
+.card .r{font-size:19px;line-height:1}
+.card .s{font-size:14px;line-height:1;margin-top:1px}
+.card .pv{position:absolute;bottom:3px;font-size:8px;font-weight:600;color:var(--dim);letter-spacing:.02em}
+.card.red{color:#ff9c8f}
+.card.pickable{cursor:pointer}
+.card.pickable:active{transform:translateY(-3px)}
+.card.sel{border-color:var(--gold);box-shadow:0 0 0 2px rgba(212,175,55,.5),0 8px 20px -10px rgba(212,175,55,.8);transform:translateY(-5px)}
+.card.backmask{background:repeating-linear-gradient(45deg,#101d17,#101d17 5px,#0c1512 5px,#0c1512 10px);border-color:#233529;opacity:.7}
+
+.bottom{margin-top:auto;display:flex;flex-direction:column;gap:8px}
+.actionbar{padding:8px 2px 4px;display:flex;flex-direction:column;gap:8px;min-height:96px;justify-content:flex-end}
+.hint{font-size:12.5px;color:var(--dim);text-align:center;display:flex;align-items:center;justify-content:center;gap:7px}
+.dotpulse{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 1.1s infinite}
+@keyframes pulse{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:1;transform:scale(1.15)}}
+.bidrow{display:flex;justify-content:space-between;font-size:13px;color:var(--dim)}
+.bidrow b{font-size:19px;color:var(--gold-l);font-variant-numeric:tabular-nums}
+.quick{display:flex;gap:6px}
+.quick button{flex:1;padding:9px;border-radius:10px;border:1px solid var(--line);background:#0e1a15;font-size:12.5px;font-weight:700;color:var(--dim)}
+.quick button:active{background:#16241e;color:var(--gold-l)}
+
+/* ---------- overlay / sheet ---------- */
+.overlay{
+  position:fixed;inset:0;z-index:60;display:flex;align-items:flex-end;justify-content:center;
+  background:rgba(2,4,3,.72);backdrop-filter:blur(6px);
+  opacity:0;transition:opacity .18s ease;padding:0;
+}
+.overlay.in{opacity:1}
+.sheet{
+  width:100%;max-width:560px;max-height:92dvh;display:flex;flex-direction:column;
+  background:linear-gradient(180deg,#122019,#080e0b 40%);
+  border:1px solid var(--line);border-bottom:0;border-radius:20px 20px 0 0;
+  transform:translateY(22px);transition:transform .22s cubic-bezier(.2,.8,.3,1);
+  box-shadow:0 -20px 60px -20px #000;padding-bottom:env(safe-area-inset-bottom);
+}
+.overlay.in .sheet{transform:translateY(0)}
+.sh-head{padding:16px 18px 12px;font-size:16px;font-weight:800;color:var(--gold-l);display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:1px solid var(--line)}
+.sh-price{font-size:12px;color:var(--dim);font-weight:600}
+.sh-body{padding:14px 18px;overflow-y:auto;display:flex;flex-direction:column;gap:10px}
+.sh-foot{display:flex;gap:8px;padding:12px 18px 16px;border-top:1px solid var(--line)}
+.sh-foot .btn{flex:1}
+.lead{font-size:13.5px;color:#c3ccc6;margin:0}
+.kv{display:flex;justify-content:space-between;font-size:13px;color:var(--dim);padding:5px 0;border-bottom:1px dashed #1b2822}
+.kv b{color:var(--ink);font-variant-numeric:tabular-nums}
+.kv.total{border-bottom:0;padding-top:10px;font-size:14px}
+.kv.total b{color:var(--gold-l);font-size:17px}
+.warn{font-size:11.5px;color:#e0b25c;background:#1d1708;border:1px solid #3b2f11;border-radius:9px;padding:8px 10px}
+
+.sh-tabs{display:flex;gap:6px;padding:10px 18px 0}
+.tab{flex:1;padding:9px;border-radius:10px;border:1px solid var(--line);background:#0b1512;font-size:13px;font-weight:700;color:var(--dim)}
+.tab.on{background:linear-gradient(180deg,#1d332a,#12211b);color:var(--gold-l);border-color:rgba(212,175,55,.4)}
+.qtyrow{display:flex;align-items:center;gap:8px}
+.qtyrow input{flex:1}
+.stepbtn{width:40px;height:40px;border-radius:11px;border:1px solid var(--line);background:#101d17;font-size:18px;color:var(--gold-l)}
+.bigqty{text-align:center;font-size:26px;font-weight:800;color:var(--gold-l);font-variant-numeric:tabular-nums}
+.bigqty small{font-size:12px;color:var(--dim);font-weight:600}
+
+.dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(52px,1fr));gap:7px}
+.dcard{
+  position:relative;height:72px;border-radius:9px;border:1px solid #2c4034;
+  background:linear-gradient(165deg,#1a2620,#0c1512);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:var(--gold-l);font-weight:800;opacity:.45;
+}
+.dcard .r{font-size:18px;line-height:1}
+.dcard .s{font-size:13px;line-height:1}
+.dcard .pv{position:absolute;bottom:3px;font-size:8.5px;color:var(--dim);font-weight:600}
+.dcard.red{color:#ff9c8f}
+.dcard.buyable{opacity:1;border-color:rgba(212,175,55,.5);box-shadow:0 0 0 1px rgba(212,175,55,.15) inset}
+.dcard.buyable:active{transform:scale(.95)}
+.empty-note{color:var(--dim);font-size:13px;text-align:center;padding:18px 6px}
+
+.lenders{display:flex;gap:7px;flex-wrap:wrap}
+.lender{flex:1 1 44%;min-width:44%;display:flex;flex-direction:column;gap:2px;padding:10px;border-radius:11px;border:1px solid var(--line);background:#0b1512;text-align:left}
+.lender b{font-size:13px;color:var(--ink)}
+.lender span{font-size:10.5px;color:var(--dim)}
+.lender.on{border-color:rgba(212,175,55,.6);background:linear-gradient(180deg,#1d332a,#12211b)}
+.lender:disabled{opacity:.35}
+
+/* reveal */
+.rgrid{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.rcell{display:flex;flex-direction:column;align-items:center;gap:5px;min-width:62px;opacity:.85}
+.rcell.win{opacity:1}
+.rcell.cancelled{opacity:.5}
+.rname{font-size:11px;color:var(--dim);max-width:74px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rbid{font-size:10.5px;color:var(--dim);font-variant-numeric:tabular-nums}
+.rtag{font-size:9px;letter-spacing:.06em;color:var(--gold-l);height:12px;text-transform:uppercase;font-weight:800}
+.rcell.cancelled .rtag{color:#ff9c8f}
+.rcard{width:56px;height:80px;perspective:600px}
+.rcard .rin{position:relative;width:100%;height:100%;transform-style:preserve-3d;transform:rotateY(180deg);transition:transform .55s cubic-bezier(.2,.7,.3,1)}
+.rcard.go .rin{transform:rotateY(0)}
+.rcard .face{position:absolute;inset:0;border-radius:9px;backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800}
+.rcard .face.front{background:linear-gradient(165deg,#1e2b24,#0d1713);border:1px solid #33493c;color:var(--gold-l)}
+.rcard.red .face.front{color:#ff9c8f}
+.rcard .face.front .r{font-size:22px;line-height:1}
+.rcard .face.front .s{font-size:15px;line-height:1}
+.rcard .face.back{transform:rotateY(180deg);background:repeating-linear-gradient(45deg,#14241d,#14241d 5px,#0d1a15 5px,#0d1a15 10px);border:1px solid #2b4438}
+.rcell.win .rcard .face.front{box-shadow:0 0 0 2px var(--gold),0 0 26px -6px rgba(212,175,55,.9)}
+.payline{display:flex;justify-content:space-between;font-size:13px;color:var(--dim);padding:4px 0}
+.payline b{color:var(--ink);font-variant-numeric:tabular-nums}
+.payline.total{border-top:1px solid var(--line);margin-top:4px;padding-top:8px;font-size:14px}
+.payline.total b{color:var(--gold-l);font-size:17px}
+
+/* standings */
+.standlist{display:flex;flex-direction:column;gap:5px;margin-top:6px}
+.stand{display:grid;grid-template-columns:22px 1fr auto auto;gap:9px;align-items:center;font-size:13px;padding:8px 10px;border-radius:10px;background:#0c1613;border:1px solid var(--line)}
+.stand .pos{color:var(--gold-d);font-weight:800;font-size:12px}
+.stand .nm{color:#cfd8d2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.stand .cs{color:var(--gold-l);font-weight:700;font-variant-numeric:tabular-nums}
+.stand .gd{color:var(--dim);font-size:11px;min-width:52px;text-align:right}
+.stand.first{border-color:rgba(212,175,55,.55);background:linear-gradient(90deg,#1b2a22,#0c1613)}
+.stand.elim{opacity:.45}
+.champ{text-align:center;padding:6px 0 10px}
+.champ .crown{font-size:30px;color:var(--gold)}
+.champ .cname{font-size:20px;font-weight:800;color:var(--gold-l);margin-top:2px}
+.champ .ccash{font-size:15px;color:#bfe8cf;font-variant-numeric:tabular-nums}
+.champ .cnet{font-size:11.5px;color:var(--dim)}
+
+/* gate */
+.gate-sheet{text-align:center}
+.gate{padding:30px 22px 26px;display:flex;flex-direction:column;gap:12px;align-items:center}
+.gate-icon{font-size:34px;color:var(--gold);filter:drop-shadow(0 0 16px rgba(212,175,55,.6))}
+.gate h3{font-size:20px;color:var(--gold-l)}
+.gate p{color:var(--dim);font-size:14px;margin:0 0 8px}
+
+/* rules */
+.rules h4{color:var(--gold-l);font-size:13.5px;margin:12px 0 4px;letter-spacing:.03em}
+.rules h4:first-child{margin-top:0}
+.rules p{margin:0;font-size:13px;color:#c3ccc6;line-height:1.55}
+.menu{display:flex;flex-direction:column;gap:8px}
+.loglist{max-height:60dvh;gap:0}
+.logline{font-size:12.5px;color:#c3ccc6;padding:7px 0;border-bottom:1px solid #16211c;display:flex;gap:8px;line-height:1.4}
+.logline .lr{color:var(--gold-d);font-size:10.5px;flex:0 0 24px;padding-top:2px}
+.logline.k-gold{color:#e8d69a}
+.logline.k-win{color:#a9f0c4}
+.logline.k-bad{color:#ffb4ac}
+.logline.k-tie{color:#d8c9a0}
+.logline.k-loan{color:#a8c8ff}
+.logline.k-round{color:#9fe8c4}
+
+@media (min-width:520px){
+  .card{width:54px;height:76px}
+  .rcard{width:64px;height:92px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+}
+
+/* safe areas */
+#app{padding-top:env(safe-area-inset-top)}
+
+.topbar .logbtn{font-size:10px;font-weight:800;letter-spacing:.08em;color:var(--gold-d)}
+#gameScreen::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(60% 34% at 50% 62%,rgba(20,58,44,.55),transparent 70%);z-index:-1}
+
+.felt{flex:1;min-height:54px;display:grid;place-items:center;padding:6px 0;overflow:hidden}
+.felt-in{
+  width:92%;max-width:440px;height:100%;min-height:64px;
+  border-radius:50% / 46%;border:1px solid rgba(212,175,55,.16);
+  background:radial-gradient(ellipse at 50% 35%,rgba(24,70,52,.6),rgba(8,16,12,.15) 72%);
+  box-shadow:inset 0 0 70px rgba(0,0,0,.65);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+  text-align:center;padding:8px 20px;
+}
+.felt-in .ft{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-d)}
+.felt-in .fm{font-size:16px;color:var(--gold-l);letter-spacing:.02em}
+.felt-in .fs{font-size:11px;color:var(--dim)}
+
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- ============ MENU ============ -->
+  <section id="menuScreen" class="screen">
+    <div class="brand">
+      <div class="brand-mark">&#9830;</div>
+      <h1>GAME OF <span>WEALTH</span></h1>
+      <p class="tag">Bid &middot; Bluff &middot; Buy the dip</p>
+    </div>
+
+    <div class="panel">
+      <div class="seg" id="modeSeg">
+        <button data-mode="bots" class="on">Play vs Bots</button>
+        <button data-mode="local">Pass &amp; Play</button>
+      </div>
+
+      <label class="row"><span>Players</span>
+        <input type="range" id="cfgPlayers" min="2" max="6" step="1" value="4">
+        <b id="cfgPlayersVal">4</b>
+      </label>
+
+      <div class="row" id="botRow"><span>Bot skill</span>
+        <div class="seg small" id="diffSeg">
+          <button data-diff="easy">Easy</button>
+          <button data-diff="normal" class="on">Normal</button>
+          <button data-diff="hard">Hard</button>
+        </div>
+      </div>
+
+      <label class="row"><span>Starting cash</span>
+        <input type="range" id="cfgCash" min="1000" max="5000" step="500" value="2000">
+        <b id="cfgCashVal">2,000</b>
+      </label>
+
+      <button id="btnStart" class="btn primary wide">Deal me in</button>
+      <button id="btnContinue" class="btn ghost wide" hidden>Resume saved game</button>
+    </div>
+
+    <button id="btnRules" class="btn ghost wide">How to play</button>
+  </section>
+
+  <!-- ============ GAME ============ -->
+  <section id="gameScreen" class="screen" hidden>
+    <header class="topbar">
+      <button id="btnMenu" class="icon" aria-label="Menu">&#9776;</button>
+      <div class="meta">
+        <div id="roundLabel">Round 1 &middot; Match 1/4</div>
+        <div id="phaseBanner" class="phase">Round Start</div>
+      </div>
+      <button id="btnLog" class="icon logbtn" aria-label="Action log">LOG</button>
+    </header>
+
+    <div class="goldbar">
+      <div class="goldprice">
+        <span class="lbl">GOLD</span>
+        <b id="goldPrice">1,000</b>
+        <span id="goldDelta" class="delta flat">&mdash;</span>
+      </div>
+      <svg id="goldChart" viewBox="0 0 200 46" preserveAspectRatio="none"></svg>
+    </div>
+
+    <div class="seats n4" id="seats"></div>
+
+    <div class="tablemid">
+      <button class="pile" id="deckPile">
+        <span class="pile-num" id="deckCount">0</span>
+        <span class="pile-lbl">Draw Deck</span>
+      </button>
+      <div class="bankbox"><span class="lbl">Bank</span><b id="bankCash">&mdash;</b></div>
+      <button class="pile" id="discardPile">
+        <span class="pile-num" id="discardCount">0</span>
+        <span class="pile-lbl">Cards Space</span>
+      </button>
+    </div>
+
+    <div class="felt"><div class="felt-in">
+      <span id="feltTop" class="ft"></span>
+      <b id="feltMain" class="fm"></b>
+      <span id="feltSub" class="fs"></span>
+    </div></div>
+
+    <div class="bottom">
+    <div class="handwrap">
+      <div class="handhead"><span id="handOwner">Your hand</span><span id="handCount" class="dim"></span></div>
+      <div class="hand" id="hand"></div>
+    </div>
+
+    <div class="actionbar" id="actionbar"></div>
+    </div>
+  </section>
+
+  <div id="overlay" class="overlay" hidden><div class="sheet" id="sheet"></div></div>
+</div>
+
+<noscript><p style="padding:24px;text-align:center">Game of Wealth needs JavaScript enabled.</p></noscript>
+<script>
+/* Game of Wealth - engine.js + bots.js + app.js in one bundle */
+/* =====================================================================
+   GAME OF WEALTH — PURE ENGINE
+   No DOM, no timers, no globals mutated outside the state object.
+   Every random draw goes through state.rng (seeded) so a game is
+   fully reproducible and the same engine can drive a server later.
+   ===================================================================== */
+const Engine = (function () {
+  'use strict';
+
+  /* ---------- constants ---------- */
+  const RANKS = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+  const RANK_LABEL = { 2:'2',3:'3',4:'4',5:'5',6:'6',7:'7',8:'8',9:'9',10:'10',11:'J',12:'Q',13:'K',14:'A' };
+  const SUITS = ['\u2660', '\u2665', '\u2666', '\u2663'];
+  const CARD_PRICE = { 2:50,3:75,4:100,5:125,6:150,7:175,8:200,9:225,10:250,11:300,12:500,13:700,14:1000 };
+
+  const MIN_BID = 100;
+  const HAND_REFILL = 5;
+  const HAND_LIMIT = 7;
+  const BANK_LOAN_CAP = 2000;
+  const GOLD_MIN = 1000;
+  const GOLD_MAX = 5000;
+  const GOLD_START = 1000;
+
+  /* ---------- tiny helpers ---------- */
+  function mulberry32(a) {
+    return function () {
+      a |= 0; a = (a + 0x6D2B79F5) | 0;
+      let t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  function shuffle(arr, rng) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(rng() * (i + 1));
+      const t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+    }
+    return arr;
+  }
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const money = (n) => Math.round(n).toLocaleString('en-IN');
+
+  function activePlayers(s) { return s.players.filter(p => !p.eliminated); }
+  function byId(s, id) { return s.players.find(p => p.id === id) || null; }
+  function cardLabel(c) { return RANK_LABEL[c.r] + SUITS[c.s]; }
+  function cardName(c) { return RANK_LABEL[c.r]; }
+  function priceOf(c) { return CARD_PRICE[c.r]; }
+
+  function log(s, text, kind) {
+    s.log.unshift({ round: s.round, text: text, kind: kind || 'info', n: ++s.logSeq });
+    if (s.log.length > 260) s.log.pop();
+  }
+
+  /* ---------- new game ---------- */
+  function newGame(opts) {
+    opts = opts || {};
+    const players = opts.players || [{ name: 'You', isBot: false }];
+    const startingCash = opts.startingCash != null ? opts.startingCash : 2000;
+    const seed = (opts.seed != null) ? opts.seed : (Date.now() >>> 0);
+    const rng = mulberry32(seed >>> 0);
+
+    let cid = 0;
+    const deck = [];
+    for (let sIdx = 0; sIdx < 4; sIdx++) {
+      for (let r = 0; r < RANKS.length; r++) deck.push({ id: 'c' + (cid++), r: RANKS[r], s: sIdx });
+    }
+    shuffle(deck, rng);
+
+    const ps = players.map((p, i) => ({
+      id: 'p' + i,
+      seat: i,
+      name: p.name || ('Player ' + (i + 1)),
+      isBot: !!p.isBot,
+      bot: p.bot || 'normal',
+      cash: startingCash,
+      gold: 0,
+      hand: [],
+      eliminated: false,
+      wins: 0,
+      spent: 0,
+      goldBought: 0,
+      goldSold: 0
+    }));
+
+    const s = {
+      seed: seed,
+      rng: rng,
+      startingCash: startingCash,
+      players: ps,
+      deck: deck,
+      discard: [],
+      bank: { cash: 200000 },
+      goldPrice: GOLD_START,
+      goldTrend: 0,
+      priceHistory: [{ round: 1, price: GOLD_START }],
+      round: 1,
+      matchIndex: 0,
+      matchesThisRound: 0,
+      phase: 'idle',
+      step: null,
+      queue: [],
+      queueIdx: 0,
+      actor: null,
+      matchPlayers: [],
+      bids: {},
+      plays: {},
+      lastMatch: null,
+      loans: [],
+      loanQueue: [],
+      loanIdx: 0,
+      loanPending: null,
+      log: [],
+      logSeq: 0,
+      roundEndInfo: null,
+      results: null,
+      finished: false,
+      version: 1
+    };
+
+    ps.forEach(p => {
+      for (let i = 0; i < HAND_REFILL; i++) p.hand.push(s.deck.pop());
+    });
+
+    log(s, 'Table opened. Each player starts with ' + money(startingCash) + ' cash and 5 cards.', 'good');
+    startRound(s);
+    return s;
+  }
+
+  /* ---------- gold market ---------- */
+  function rollGoldPrice(s) {
+    const p = s.goldPrice;
+    let trend = s.goldTrend;
+    if (s.rng() < 0.45) trend = [-1, 0, 1][Math.floor(s.rng() * 3)];
+    const dir = trend === 0 ? (s.rng() < 0.5 ? -1 : 1) : trend;
+    let mag = 0.02 + s.rng() * 0.09;
+    if (s.rng() < 0.12) mag = 0.18 + s.rng() * 0.22;      // spike / crash
+    let np = Math.round((p * (1 + dir * mag)) / 10) * 10;
+    np = clamp(np, GOLD_MIN, GOLD_MAX);
+    if (np === p) np = clamp(p + dir * 10, GOLD_MIN, GOLD_MAX);
+    s.goldTrend = trend;
+    return np;
+  }
+
+  function startRound(s) {
+    if (s.finished) return s;
+    s.matchIndex = 0;
+    s.bids = {}; s.plays = {}; s.lastMatch = null; s.roundEndInfo = null;
+    // A round is N matches (N = active players). A hand only holds 5 cards and
+    // one card is spent per match, so the round is capped at 5 matches to keep
+    // every seat able to play every match of the round.
+    s.matchesThisRound = Math.min(activePlayers(s).length, HAND_REFILL);
+
+    if (s.round > 1) {
+      const prev = s.goldPrice;
+      const np = rollGoldPrice(s);
+      s.goldPrice = np;
+      s.priceHistory.push({ round: s.round, price: np });
+      const dir = np > prev ? 'up' : (np < prev ? 'down' : 'flat');
+      log(s, 'Gold ' + (dir === 'up' ? '\u25B2' : dir === 'down' ? '\u25BC' : '\u25AC') +
+        ' ' + money(np) + ' per biscuit (was ' + money(prev) + ').', dir === 'up' ? 'gold' : 'gold');
+    } else {
+      log(s, 'Round 1. Gold opens at ' + money(s.goldPrice) + ' per biscuit.', 'gold');
+    }
+
+    s.phase = 'roundStart';
+    s.step = 'gold';
+    s.queue = activePlayers(s).map(p => p.id);
+    s.queueIdx = 0;
+    s.actor = s.queue[0] || null;
+    return s;
+  }
+
+  /* ---------- step 2: gold trading ---------- */
+  function buyGold(s, pid, qty) {
+    const p = byId(s, pid);
+    qty = Math.floor(qty);
+    if (!p || p.eliminated || s.step !== 'gold') return false;
+    if (qty <= 0) return false;
+    const cost = qty * s.goldPrice;
+    if (cost > p.cash) return false;
+    p.cash -= cost;
+    p.gold += qty;
+    p.goldBought += qty;
+    s.bank.cash += cost;
+    log(s, p.name + ' bought ' + qty + ' gold @ ' + money(s.goldPrice) + ' for ' + money(cost) + '.', 'gold');
+    return true;
+  }
+
+  function sellGold(s, pid, qty) {
+    const p = byId(s, pid);
+    qty = Math.floor(qty);
+    if (!p || p.eliminated || s.step !== 'gold') return false;
+    if (qty <= 0 || qty > p.gold) return false;
+    const gain = qty * s.goldPrice;
+    p.gold -= qty;
+    p.cash += gain;
+    p.goldSold += qty;
+    s.bank.cash -= gain;
+    log(s, p.name + ' sold ' + qty + ' gold @ ' + money(s.goldPrice) + ' for ' + money(gain) + '.', 'gold');
+    return true;
+  }
+
+  function endGoldTurn(s) {
+    if (s.step !== 'gold') return s;
+    s.queueIdx++;
+    if (s.queueIdx < s.queue.length) {
+      s.actor = s.queue[s.queueIdx];
+    } else {
+      beginCardStep(s);
+    }
+    return s;
+  }
+
+  /* ---------- step 3: buying from the Cards Space ---------- */
+  function beginCardStep(s) {
+    s.step = 'cards';
+    s.queue = activePlayers(s).map(p => p.id);
+    s.queueIdx = 0;
+    s.actor = s.queue[0] || null;
+    if (!s.actor) beginLoanStep(s);
+    return s;
+  }
+
+  function buyDiscardCard(s, pid, cardId) {
+    const p = byId(s, pid);
+    if (!p || p.eliminated || s.step !== 'cards') return false;
+    if (p.hand.length >= HAND_LIMIT) return false;
+    const idx = s.discard.findIndex(c => c.id === cardId);
+    if (idx < 0) return false;
+    const card = s.discard[idx];
+    const price = priceOf(card);
+    if (p.cash < price) return false;
+    s.discard.splice(idx, 1);
+    p.hand.push(card);
+    p.cash -= price;
+    p.spent += price;
+    s.bank.cash += price;
+    log(s, p.name + ' bought ' + cardLabel(card) + ' from the Cards Space for ' + money(price) + '.', 'buy');
+    return true;
+  }
+
+  function endCardTurn(s) {
+    if (s.step !== 'cards') return s;
+    s.queueIdx++;
+    if (s.queueIdx < s.queue.length) {
+      s.actor = s.queue[s.queueIdx];
+    } else {
+      beginLoanStep(s);
+    }
+    return s;
+  }
+
+  /* ---------- step 4: loans & elimination ---------- */
+  function eliminate(s, pid, reason) {
+    const p = byId(s, pid);
+    if (!p || p.eliminated) return;
+    p.eliminated = true;
+    p.hand.forEach(c => s.discard.push(c));
+    p.hand = [];
+    s.loans.forEach(l => {
+      if (l.borrowerId === pid) {
+        const lender = l.lenderId === 'bank' ? null : byId(s, l.lenderId);
+        log(s, (lender ? lender.name : 'The bank') + ' writes off ' + money(l.amount) + ' lent to ' + p.name + '.', 'bad');
+      }
+    });
+    s.loans = s.loans.filter(l => l.borrowerId !== pid);
+    log(s, p.name + ' is eliminated \u2014 ' + reason, 'bad');
+  }
+
+  function beginLoanStep(s) {
+    s.step = 'loans';
+    processDues(s);
+    s.loanQueue = activePlayers(s).filter(p => p.cash < MIN_BID).map(p => p.id);
+    s.loanIdx = 0;
+    nextLoanCase(s);
+    return s;
+  }
+
+  function processDues(s) {
+    const due = s.loans.filter(l => l.dueRound <= s.round);
+    due.forEach(l => {
+      const b = byId(s, l.borrowerId);
+      if (!b || b.eliminated) { s.loans = s.loans.filter(x => x !== l); return; }
+      let need = l.amount;
+      if (b.cash < need && b.gold > 0) {
+        const goldNeeded = Math.ceil((need - b.cash) / s.goldPrice);
+        const sell = Math.min(goldNeeded, b.gold);
+        if (sell > 0) {
+          b.gold -= sell; b.cash += sell * s.goldPrice; b.goldSold += sell;
+          s.bank.cash -= sell * s.goldPrice;
+          log(s, b.name + ' sold ' + sell + ' gold @ ' + money(s.goldPrice) + ' to service the loan.', 'gold');
+        }
+      }
+      if (b.cash >= need) {
+        b.cash -= need;
+        if (l.lenderId === 'bank') s.bank.cash += need;
+        else { const L = byId(s, l.lenderId); if (L) L.cash += need; }
+        log(s, b.name + ' repaid ' + money(need) + ' to ' + (l.lenderId === 'bank' ? 'the bank' : byId(s, l.lenderId).name) + '.', 'loan');
+        s.loans = s.loans.filter(x => x !== l);
+      } else {
+        s.loans = s.loans.filter(x => x !== l);
+        eliminate(s, b.id, 'could not repay a ' + money(need) + ' loan.');
+      }
+    });
+  }
+
+  function nextLoanCase(s) {
+    if (s.loanIdx >= s.loanQueue.length) { startMatch(s); return; }
+    const pid = s.loanQueue[s.loanIdx];
+    const p = byId(s, pid);
+    if (!p || p.eliminated || p.cash >= MIN_BID) { s.loanIdx++; nextLoanCase(s); return; }
+    s.step = 'loanRequest';
+    s.actor = pid;
+    s.loanPending = { borrower: pid, amount: null, lender: null, stage: 'request', rejected: [] };
+  }
+
+  function requestLoan(s, pid, amount, lenderId) {
+    if (s.step !== 'loanRequest' || s.actor !== pid || !s.loanPending) return false;
+    const p = byId(s, pid);
+    amount = Math.round(amount);
+    if (amount < MIN_BID - p.cash) return false;
+    if (lenderId === 'bank') {
+      if (amount > BANK_LOAN_CAP) return false;
+      if (amount > s.bank.cash) return false;
+      finalizeLoan(s, pid, amount, 'bank');
+      return true;
+    }
+    const L = byId(s, lenderId);
+    if (!L || L.eliminated || L.id === pid || L.cash < amount) return false;
+    s.loanPending.amount = amount;
+    s.loanPending.lender = lenderId;
+    s.loanPending.stage = 'offer';
+    s.step = 'loanOffer';
+    s.actor = lenderId;
+    return true;
+  }
+
+  function answerLoanOffer(s, lenderId, accept) {
+    if (s.step !== 'loanOffer' || s.actor !== lenderId || !s.loanPending) return false;
+    const lp = s.loanPending;
+    if (accept) { finalizeLoan(s, lp.borrower, lp.amount, lenderId); return true; }
+    lp.rejected.push(lenderId);
+    lp.stage = 'request';
+    lp.amount = null;
+    lp.lender = null;
+    s.step = 'loanRequest';
+    s.actor = lp.borrower;
+    const b = byId(s, lp.borrower);
+    log(s, byId(s, lenderId).name + ' declined to lend ' + b.name + ' money.', 'loan');
+    return true;
+  }
+
+  function finalizeLoan(s, borrowerId, amount, lenderId) {
+    const b = byId(s, borrowerId);
+    b.cash += amount;
+    if (lenderId === 'bank') s.bank.cash -= amount;
+    else { const L = byId(s, lenderId); L.cash -= amount; }
+    s.loans.push({
+      id: 'L' + (++s.logSeq) + '_' + s.round,
+      borrowerId: borrowerId,
+      lenderId: lenderId,
+      amount: amount,
+      takenRound: s.round,
+      dueRound: s.round + 1
+    });
+    log(s, b.name + ' borrowed ' + money(amount) + ' from ' +
+      (lenderId === 'bank' ? 'the bank' : byId(s, lenderId).name) +
+      '. Repayable at the start of round ' + (s.round + 1) + '.', 'loan');
+    s.loanPending = null;
+    s.loanIdx++;
+    nextLoanCase(s);
+  }
+
+  function declineLoan(s, pid) {
+    if (s.step !== 'loanRequest' || s.actor !== pid) return false;
+    s.loanPending = null;
+    s.loanIdx++;
+    eliminate(s, pid, 'had under ' + money(MIN_BID) + ' and took no loan.');
+    nextLoanCase(s);
+    return true;
+  }
+
+  function bankLoanMax(s, pid) {
+    const p = byId(s, pid);
+    if (!p) return 0;
+    return Math.min(BANK_LOAN_CAP, s.bank.cash, Math.max(0, BANK_LOAN_CAP));
+  }
+
+  /* ---------- matches ---------- */
+  function startMatch(s) {
+    if (s.finished) return s;
+    let pool = activePlayers(s).filter(p => p.cash >= MIN_BID).map(p => p.id);
+    // a player whose hand is empty gets one card off the top (only reachable
+    // when a round has more matches than a hand holds cards)
+    pool.forEach(pid => {
+      const p = byId(s, pid);
+      if (p.hand.length === 0 && s.deck.length) p.hand.push(s.deck.pop());
+    });
+    pool = pool.filter(pid => byId(s, pid).hand.length > 0);
+    if (pool.length < 2) { endRound(s, pool.length === 1 ? 'Only one player could still bid.' : 'Nobody could bid.'); return s; }
+
+    s.matchIndex++;
+    s.matchPlayers = pool;
+    s.bids = {};
+    s.plays = {};
+    s.phase = 'bid';
+    s.step = null;
+    s.queue = pool.slice();
+    s.queueIdx = 0;
+    s.actor = s.queue[0];
+    log(s, 'Match ' + s.matchIndex + ' of ' + s.matchesThisRound + ' \u2014 bids are open.', 'match');
+    return s;
+  }
+
+  function placeBid(s, pid, amount) {
+    if (s.phase !== 'bid') return false;
+    if (s.matchPlayers.indexOf(pid) < 0) return false;
+    if (s.bids[pid] != null) return false;
+    const p = byId(s, pid);
+    amount = Math.round(amount);
+    if (!p || amount < MIN_BID || amount > p.cash) return false;
+    s.bids[pid] = amount;
+    advance(s, function () {
+      s.phase = 'handReveal';
+      s.actor = null;
+      log(s, 'All bids locked. Hands revealed for this match.', 'match');
+    });
+    return true;
+  }
+
+  function advance(s, done) {
+    s.queueIdx++;
+    if (s.queueIdx < s.queue.length) s.actor = s.queue[s.queueIdx];
+    else { s.actor = null; done(); }
+  }
+
+  function revealDone(s) {
+    if (s.phase !== 'handReveal') return s;
+    s.phase = 'select';
+    s.queue = s.matchPlayers.slice();
+    s.queueIdx = 0;
+    s.actor = s.queue[0] || null;
+    return s;
+  }
+
+  function playCard(s, pid, cardId) {
+    if (s.phase !== 'select') return false;
+    if (s.matchPlayers.indexOf(pid) < 0) return false;
+    if (s.plays[pid]) return false;
+    const p = byId(s, pid);
+    const idx = p.hand.findIndex(c => c.id === cardId);
+    if (idx < 0) return false;
+    const card = p.hand.splice(idx, 1)[0];
+    s.plays[pid] = card;
+    advance(s, function () { resolveMatch(s); });
+    return true;
+  }
+
+  function resolveMatch(s) {
+    const entries = s.matchPlayers.map(pid => ({ pid: pid, card: s.plays[pid] }));
+    entries.forEach(e => s.discard.push(e.card));
+    s.plays = {};
+
+    let pool = entries.slice();
+    const cancelled = [];
+    let winner = null;
+    while (pool.length) {
+      const maxR = Math.max.apply(null, pool.map(e => e.card.r));
+      const top = pool.filter(e => e.card.r === maxR);
+      if (top.length === 1) { winner = top[0]; break; }
+      top.forEach(e => cancelled.push(e.pid));
+      pool = pool.filter(e => e.card.r !== maxR);
+    }
+
+    const result = {
+      entries: entries,
+      cancelled: cancelled,
+      winner: winner ? winner.pid : null,
+      bids: Object.assign({}, s.bids),
+      pot: 0,
+      bonus: 0,
+      returned: false
+    };
+
+    if (winner) {
+      let pot = 0;
+      s.matchPlayers.forEach(pid => {
+        if (pid !== winner.pid) {
+          const b = s.bids[pid] || 0;
+          byId(s, pid).cash -= b;
+          pot += b;
+        }
+      });
+      const wb = s.bids[winner.pid] || 0;
+      const bonus = wb > MIN_BID ? Math.floor(wb / 2) : 0;
+      byId(s, winner.pid).cash += pot + bonus;
+      byId(s, winner.pid).wins++;
+      result.pot = pot;
+      result.bonus = bonus;
+      const wp = byId(s, winner.pid);
+      log(s, wp.name + ' wins with ' + cardLabel(winner.card) +
+        ' \u2014 collects ' + money(pot) + ' from bids' +
+        (bonus ? ' + ' + money(bonus) + ' bank bonus' : '') + '.', 'win');
+      if (cancelled.length) {
+        log(s, 'Cancelled on a tie: ' + cancelled.map(id => byId(s, id).name).join(', ') + '.', 'tie');
+      }
+    } else {
+      result.returned = true;
+      log(s, 'Every player tied on the top rank \u2014 nobody wins, all bids returned.', 'tie');
+    }
+
+    s.lastMatch = result;
+    s.phase = 'payout';
+    s.actor = null;
+    return result;
+  }
+
+  function payoutDone(s) {
+    if (s.phase !== 'payout') return s;
+    if (s.matchIndex >= s.matchesThisRound) endRound(s, null);
+    else startMatch(s);
+    return s;
+  }
+
+  /* ---------- round end ---------- */
+  function endRound(s, reason) {
+    s.phase = 'roundEnd';
+    s.actor = null;
+    activePlayers(s).forEach(p => {
+      while (p.hand.length < HAND_REFILL && s.deck.length) p.hand.push(s.deck.pop());
+    });
+    s.roundEndInfo = {
+      reason: reason || null,
+      deckLeft: s.deck.length,
+      standings: activePlayers(s).map(p => ({ id: p.id, name: p.name, cash: p.cash, gold: p.gold }))
+        .sort((a, b) => (b.cash + b.gold * s.goldPrice) - (a.cash + a.gold * s.goldPrice))
+    };
+    log(s, 'Round ' + s.round + ' complete. Cards refilled. Draw deck: ' + s.deck.length + '.', 'round');
+    return s;
+  }
+
+  function nextRound(s) {
+    if (s.phase !== 'roundEnd') return s;
+    if (s.deck.length === 0 || activePlayers(s).length < 2) { finalPhase(s); return s; }
+    s.round++;
+    startRound(s);
+    return s;
+  }
+
+  /* ---------- final gold sale & results ---------- */
+  function finalPhase(s) {
+    s.phase = 'finalSell';
+    s.step = 'finalSell';
+    s.queue = activePlayers(s).map(p => p.id);
+    s.queueIdx = 0;
+    s.actor = s.queue[0] || null;
+    log(s, 'The draw deck is empty. Final gold sale at ' + money(s.goldPrice) + ' per biscuit.', 'gold');
+    if (!s.actor) finishGame(s);
+    return s;
+  }
+
+  function sellFinal(s, pid, qty) {
+    if (s.step !== 'finalSell' || s.actor !== pid) return false;
+    const p = byId(s, pid);
+    qty = Math.floor(qty);
+    if (qty < 0 || qty > p.gold) return false;
+    if (qty > 0) {
+      const gain = qty * s.goldPrice;
+      p.gold -= qty; p.cash += gain; p.goldSold += qty;
+      log(s, p.name + ' sold ' + qty + ' gold in the final sale for ' + money(gain) + '.', 'gold');
+    }
+    s.queueIdx++;
+    if (s.queueIdx < s.queue.length) s.actor = s.queue[s.queueIdx];
+    else { s.actor = null; finishGame(s); }
+    return true;
+  }
+
+  function finishGame(s) {
+    s.finished = true;
+    s.phase = 'gameEnd';
+    s.actor = null;
+    s.players.forEach(p => { p.hand.forEach(c => s.discard.push(c)); p.hand = []; });
+    const rows = s.players.map(p => ({
+      id: p.id,
+      name: p.name,
+      eliminated: p.eliminated,
+      cash: p.cash,
+      gold: p.gold,
+      goldSold: p.goldSold,
+      netWorth: p.cash + p.gold * s.goldPrice,
+      wins: p.wins
+    })).sort((a, b) => {
+      if (a.eliminated !== b.eliminated) return a.eliminated ? 1 : -1;
+      return b.cash - a.cash;
+    });
+    rows.forEach((r, i) => { r.rank = i + 1; });
+    s.results = { rows: rows, goldPrice: s.goldPrice, rounds: s.round };
+    log(s, 'Game over. ' + rows[0].name + ' takes the table with ' + money(rows[0].cash) + ' cash.', 'good');
+    return s;
+  }
+
+  /* ---------- queries used by the UI ---------- */
+  function phaseLabel(s) {
+    if (s.phase === 'gameEnd') return 'Game Over';
+    if (s.phase === 'roundEnd') return 'Round Complete';
+    if (s.phase === 'roundStart') {
+      return s.step === 'gold' ? 'Round Start \u2014 Gold Market'
+        : s.step === 'cards' ? 'Round Start \u2014 Cards Space'
+        : 'Round Start \u2014 Loans';
+    }
+    if (s.phase === 'bid') return 'Bidding';
+    if (s.phase === 'handReveal') return 'Hand Reveal';
+    if (s.phase === 'select') return 'Select Card';
+    if (s.phase === 'payout') return 'Reveal \u2014 Payout';
+    if (s.phase === 'finalSell') return 'Final Gold Sale';
+    return 'Table';
+  }
+
+  function legalBidRange(s, pid) {
+    const p = byId(s, pid);
+    if (!p) return { min: MIN_BID, max: MIN_BID };
+    return { min: MIN_BID, max: Math.max(MIN_BID, Math.floor(p.cash)) };
+  }
+
+  function loanOptions(s, pid) {
+    const p = byId(s, pid);
+    const out = [{ id: 'bank', name: 'The Bank', max: bankLoanMax(s, pid) }];
+    activePlayers(s).forEach(o => {
+      if (o.id !== pid && o.cash >= MIN_BID - p.cash) out.push({ id: o.id, name: o.name, max: o.cash });
+    });
+    return out;
+  }
+
+  function netWorth(s, p) { return p.cash + p.gold * s.goldPrice; }
+
+  return {
+    RANKS: RANKS, RANK_LABEL: RANK_LABEL, SUITS: SUITS, CARD_PRICE: CARD_PRICE,
+    MIN_BID: MIN_BID, HAND_REFILL: HAND_REFILL, HAND_LIMIT: HAND_LIMIT,
+    BANK_LOAN_CAP: BANK_LOAN_CAP, GOLD_MIN: GOLD_MIN, GOLD_MAX: GOLD_MAX,
+    newGame: newGame,
+    startRound: startRound,
+    buyGold: buyGold, sellGold: sellGold, endGoldTurn: endGoldTurn,
+    buyDiscardCard: buyDiscardCard, endCardTurn: endCardTurn,
+    requestLoan: requestLoan, answerLoanOffer: answerLoanOffer, declineLoan: declineLoan,
+    loanOptions: loanOptions, bankLoanMax: bankLoanMax,
+    placeBid: placeBid, revealDone: revealDone, playCard: playCard,
+    payoutDone: payoutDone, nextRound: nextRound,
+    sellFinal: sellFinal, finishGame: finishGame,
+    activePlayers: activePlayers, byId: byId, phaseLabel: phaseLabel,
+    cardLabel: cardLabel, cardName: cardName, priceOf: priceOf,
+    legalBidRange: legalBidRange, netWorth: netWorth,
+    money: money, log: log
+  };
+})();
+
+
+/* =====================================================================
+   BOT AI — sits on top of the engine, reads state, returns a decision.
+   Easy  : random.
+   Normal: bids by hand strength, buys gold low / sells high.
+   Hard  : also tracks the Cards Space and plays around the cards left.
+   ===================================================================== */
+const Bots = (function () {
+  'use strict';
+
+  function rng(s) { return s.rng(); }
+  function randInt(s, a, b) { return a + Math.floor(rng(s) * (b - a + 1)); }
+
+  function handStrength(hand) {
+    if (!hand.length) return 0;
+    const ranks = hand.map(c => c.r).sort((a, b) => b - a);
+    const top = ranks.slice(0, 2);
+    const avg = top.reduce((a, b) => a + b, 0) / top.length;
+    return Math.max(0, Math.min(1, (avg - 2) / 12));
+  }
+
+  /* highest rank still live in opponents' hands (all hands were revealed) */
+  function bestOpponentRank(s, p) {
+    let m = 0;
+    s.players.forEach(o => {
+      if (o.id !== p.id && !o.eliminated && s.matchPlayers.indexOf(o.id) >= 0) {
+        o.hand.forEach(c => { if (c.r > m) m = c.r; });
+        const played = s.plays[o.id];
+        if (played && played.r > m) m = played.r;
+      }
+    });
+    return m;
+  }
+
+  /* how many high cards are already dead in the Cards Space */
+  function discardPressure(s) {
+    let high = 0;
+    s.discard.forEach(c => { if (c.r >= 12) high++; });
+    return high;
+  }
+
+  /* ---------------- gold ---------------- */
+  function goldMove(s, p) {
+    const price = s.goldPrice;
+    const hist = s.priceHistory.map(h => h.price);
+    const avg = hist.reduce((a, b) => a + b, 0) / hist.length;
+    const lvl = p.bot;
+
+    if (lvl === 'easy') {
+      const r = rng(s);
+      if (r < 0.18 && p.gold > 0) return { sell: Math.max(1, Math.floor(p.gold * 0.5)) };
+      if (r < 0.40 && p.cash > 600) {
+        const q = Math.max(1, Math.floor((p.cash * 0.25) / price));
+        return { buy: q };
+      }
+      return null;
+    }
+
+    const cheapAt = lvl === 'hard' ? 0.94 : 0.90;
+    const dearAt = lvl === 'hard' ? 1.08 : 1.15;
+
+    if (price >= avg * dearAt && p.gold > 0) {
+      return { sell: p.gold };
+    }
+    if (price <= avg * cheapAt && p.cash > 500) {
+      const reserve = lvl === 'hard' ? 400 : 600;
+      const budget = Math.max(0, p.cash - reserve);
+      const q = Math.floor(budget / price);
+      if (q > 0) return { buy: q };
+    }
+    // hard bot also buys a little when the trend is clearly up
+    if (lvl === 'hard' && s.goldTrend > 0 && price < avg * 1.02 && p.cash > 900) {
+      const q = Math.floor((p.cash - 800) / price);
+      if (q > 0) return { buy: Math.max(1, Math.floor(q * 0.6)) };
+    }
+    return null;
+  }
+
+  /* ---------------- buying from the Cards Space ---------------- */
+  function cardWish(s, p) {
+    if (p.hand.length >= Engine.HAND_LIMIT) return null;
+    const lvl = p.bot;
+    const affordable = s.discard.filter(c => Engine.priceOf(c) <= p.cash);
+    if (!affordable.length) return null;
+    if (lvl === 'easy') {
+      if (rng(s) < 0.45) return affordable[Math.floor(rng(s) * affordable.length)];
+      return null;
+    }
+    const sorted = affordable.slice().sort((a, b) => b.r - a.r);
+    const best = sorted[0];
+    const reserve = lvl === 'hard' ? 300 : 500;
+    if (best.r < (lvl === 'hard' ? 11 : 12)) return null;
+    if (p.cash - Engine.priceOf(best) < reserve) return null;
+    if (p.hand.length >= 6) return null;
+    return best;
+  }
+
+  /* ---------------- bidding ---------------- */
+  function bid(s, p) {
+    const cash = Math.floor(p.cash);
+    if (cash < Engine.MIN_BID) return null;
+    const lvl = p.bot;
+
+    if (lvl === 'easy') {
+      return Math.min(cash, randInt(s, Engine.MIN_BID, Math.min(cash, 400)));
+    }
+
+    const strength = handStrength(p.hand);
+    let cap = Math.floor(cash * (lvl === 'hard' ? 0.42 : 0.34));
+    cap = Math.max(Engine.MIN_BID, Math.min(cash, cap));
+
+    let value = Engine.MIN_BID + Math.pow(strength, 1.4) * (cap - Engine.MIN_BID);
+
+    if (lvl === 'hard') {
+      // if the high cards are already burnt in the Cards Space, my middling
+      // hand is worth more; if lots of high cards are still live, bid less
+      const dead = discardPressure(s);
+      value *= 1 + Math.min(0.25, dead * 0.04);
+    }
+    // a little noise so bots are not readable
+    value *= 0.9 + rng(s) * 0.2;
+    return Math.max(Engine.MIN_BID, Math.min(cash, Math.round(value / 10) * 10));
+  }
+
+  /* ---------------- card selection ---------------- */
+  function pick(s, p) {
+    const hand = p.hand.slice();
+    if (!hand.length) return null;
+    const lvl = p.bot;
+
+    if (lvl === 'easy') return hand[Math.floor(rng(s) * hand.length)].id;
+
+    const byRankAsc = hand.slice().sort((a, b) => a.r - b.r);
+
+    if (lvl === 'hard') {
+      const oppMax = bestOpponentRank(s, p);
+      const winning = byRankAsc.filter(c => c.r > oppMax);
+      if (winning.length) return winning[0].id;   // cheapest card that beats them all
+      // can't win: dump the lowest card and keep the big ones
+      return byRankAsc[0].id;
+    }
+
+    // normal: play strong, occasionally sandbag
+    const r = rng(s);
+    if (r < 0.72) return byRankAsc[byRankAsc.length - 1].id;
+    if (r < 0.9 && byRankAsc.length > 1) return byRankAsc[byRankAsc.length - 2].id;
+    return byRankAsc[0].id;
+  }
+
+  /* ---------------- loans ---------------- */
+  function loanRequest(s, p) {
+    const need = Engine.MIN_BID - p.cash;
+    const bankMax = Engine.bankLoanMax(s, p.id);
+    const lvl = p.bot;
+    if (lvl === 'easy') {
+      if (bankMax >= need && rng(s) < 0.8) return { lender: 'bank', amount: Math.max(need, Math.min(bankMax, 200)) };
+      return { decline: true };
+    }
+    // aim for a working stack, not just the bare minimum
+    const target = Math.min(bankMax, Math.max(need, Math.round((p.cash + 600) / 100) * 100));
+    if (bankMax >= need) return { lender: 'bank', amount: target };
+    const others = Engine.loanOptions(s, p.id).filter(o => o.id !== 'bank' && o.max >= need);
+    if (others.length) {
+      others.sort((a, b) => b.max - a.max);
+      return { lender: others[0].id, amount: Math.min(others[0].max, Math.max(need, 400)) };
+    }
+    return { decline: true };
+  }
+
+  function loanOffer(s, lender, borrowerId, amount) {
+    const lvl = lender.bot;
+    if (lvl === 'easy') return rng(s) < 0.6;
+    if (lvl === 'hard') return lender.cash - amount > 300;
+    return lender.cash - amount > 500;
+  }
+
+  /* ---------------- final sale ---------------- */
+  function finalSale(s, p) {
+    const hist = s.priceHistory.map(h => h.price);
+    const avg = hist.reduce((a, b) => a + b, 0) / hist.length;
+    if (p.gold === 0) return 0;
+    if (p.bot === 'easy') return rng(s) < 0.7 ? p.gold : 0;
+    if (p.bot === 'hard') return s.goldPrice >= avg ? p.gold : Math.floor(p.gold * 0.6);
+    return p.gold;
+  }
+
+  return {
+    handStrength: handStrength,
+    goldMove: goldMove,
+    cardWish: cardWish,
+    bid: bid,
+    pick: pick,
+    loanRequest: loanRequest,
+    loanOffer: loanOffer,
+    finalSale: finalSale
+  };
+})();
+
+
+/* =====================================================================
+   UI LAYER — reads the engine state, renders, sends intents back.
+   ===================================================================== */
+(function () {
+  'use strict';
+  const E = Engine, B = Bots;
+  const $ = function (id) { return document.getElementById(id); };
+  const fmt = function (n) { return '\u20B9' + Math.round(n).toLocaleString('en-IN'); };
+  const esc = function (t) { return String(t).replace(/[&<>"]/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]; }); };
+
+  let S = null;
+  const UI = {
+    mode: 'bots', diff: 'normal', players: 4, cash: 2000,
+    gateDone: null, gateShowing: null, actionKey: null, sheetKey: null,
+    handTimer: null, botTimer: null, selected: null, saved: null,
+    bidValue: 100, revealShown: false, sheetOpen: false, loanKey: null, lastActor: null
+  };
+
+  /* ---------------- screens ---------------- */
+  function showScreen(name) {
+    $('menuScreen').hidden = name !== 'menu';
+    $('gameScreen').hidden = name !== 'game';
+  }
+
+  /* ---------------- sheet (modal) ---------------- */
+  function openSheet(html, cls) {
+    const ov = $('overlay');
+    $('sheet').className = 'sheet ' + (cls || '');
+    $('sheet').innerHTML = html;
+    ov.hidden = false;
+    UI.sheetOpen = true;
+    requestAnimationFrame(function () { ov.classList.add('in'); });
+  }
+  function closeSheet() {
+    const ov = $('overlay');
+    ov.classList.remove('in');
+    UI.sheetOpen = false;
+    setTimeout(function () { if (!UI.sheetOpen) { ov.hidden = true; $('sheet').innerHTML = ''; } }, 180);
+  }
+  function sheetOpen() { return UI.sheetOpen; }
+
+  /* ---------------- new game ---------------- */
+  function startGame() {
+    const list = [];
+    if (UI.mode === 'bots') {
+      list.push({ name: 'You', isBot: false });
+      for (let i = 1; i < UI.players; i++) list.push({ name: 'Bot ' + i, isBot: true, bot: UI.diff });
+    } else {
+      for (let i = 0; i < UI.players; i++) list.push({ name: 'Player ' + (i + 1), isBot: false });
+    }
+    clearTimeout(UI.botTimer); UI.botTimer = null;
+    S = E.newGame({ players: list, startingCash: UI.cash });
+    UI.saved = null;
+    resetTurnUI();
+    showScreen('game');
+    render();
+  }
+
+  function resetTurnUI() {
+    UI.gateDone = null; UI.gateShowing = null; UI.actionKey = null;
+    UI.sheetKey = null; UI.selected = null; UI.revealShown = false;
+    clearTimeout(UI.handTimer); UI.handTimer = null;
+    closeSheet();
+  }
+
+  /* ---------------- viewer ---------------- */
+  function viewerId() {
+    if (!S) return null;
+    if (UI.mode === 'bots') return 'p0';
+    if (UI.gateShowing) return null;
+    return S.actor;
+  }
+
+  function privatePhase(s) {
+    if (s.phase === 'bid' || s.phase === 'select') return true;
+    if (s.step === 'gold' || s.step === 'cards' || s.step === 'loanRequest' ||
+      s.step === 'loanOffer' || s.step === 'finalSell') return true;
+    return false;
+  }
+  function gateKey(s, p) {
+    return p.id + '|' + s.phase + '|' + (s.step || '') + '|' + s.round + '|' + s.matchIndex;
+  }
+
+  /* ---------------- tick: drive gates, bots, auto-advance ---------------- */
+  function tick() {
+    if (!S) return;
+    const s = S;
+
+    if (s.phase === 'payout') {
+      if (!UI.revealShown) { UI.revealShown = true; showReveal(); }
+      return;
+    }
+    if (s.phase === 'handReveal') { armHandReveal(); return; }
+    if (s.phase === 'roundEnd') { if (UI.sheetKey !== 'roundEnd' + s.round) { UI.sheetKey = 'roundEnd' + s.round; showRoundEnd(); } return; }
+    if (s.phase === 'gameEnd') { if (UI.sheetKey !== 'gameEnd') { UI.sheetKey = 'gameEnd'; showResults(); } return; }
+
+    const p = s.actor ? E.byId(s, s.actor) : null;
+    if (!p) return;
+
+    if (UI.mode === 'local' && !p.isBot && privatePhase(s)) {
+      const k = gateKey(s, p);
+      if (UI.gateDone !== k) {
+        if (UI.gateShowing !== k) { UI.gateShowing = k; showGate(p, k); }
+        return;
+      }
+    }
+
+    if (p.isBot) {
+      if (!UI.botTimer) {
+        UI.botTimer = setTimeout(function () { UI.botTimer = null; botAct(); }, 430);
+      }
+      return;
+    }
+
+    if (s.step === 'loanRequest') {
+      const k2 = 'loanReq|' + p.id + '|' + s.round;
+      if (UI.loanKey !== k2 || !sheetOpen()) { UI.loanKey = k2; openLoanSheet(); }
+      return;
+    }
+    if (s.step === 'loanOffer') {
+      const k3 = 'loanOffer|' + p.id + '|' + s.round + '|' + (s.loanPending ? s.loanPending.amount : 0);
+      if (UI.loanKey !== k3 || !sheetOpen()) { UI.loanKey = k3; openLoanOfferSheet(s.loanPending); }
+      return;
+    }
+  }
+
+  function armHandReveal() {
+    if (UI.handTimer) return;
+    UI.handTimer = setTimeout(function () {
+      UI.handTimer = null;
+      if (S && S.phase === 'handReveal') { E.revealDone(S); render(); }
+    }, 4200);
+  }
+
+  function skipHandReveal() {
+    clearTimeout(UI.handTimer); UI.handTimer = null;
+    if (S && S.phase === 'handReveal') { E.revealDone(S); render(); }
+  }
+
+  /* ---------------- bot turn ---------------- */
+  function botAct() {
+    if (!S) return;
+    const s = S;
+    const p = s.actor ? E.byId(s, s.actor) : null;
+    if (!p) return;
+
+    if (s.step === 'gold') {
+      const mv = B.goldMove(s, p);
+      if (mv) {
+        if (mv.buy) E.buyGold(s, p.id, Math.min(mv.buy, Math.floor(p.cash / s.goldPrice)));
+        if (mv.sell) E.sellGold(s, p.id, Math.min(mv.sell, p.gold));
+      }
+      E.endGoldTurn(s);
+    } else if (s.step === 'cards') {
+      const wish = B.cardWish(s, p);
+      if (wish) E.buyDiscardCard(s, p.id, wish.id);
+      E.endCardTurn(s);
+    } else if (s.step === 'loanRequest') {
+      const d = B.loanRequest(s, p);
+      if (d.decline) E.declineLoan(s, p.id);
+      else if (!E.requestLoan(s, p.id, d.amount, d.lender)) E.declineLoan(s, p.id);
+    } else if (s.step === 'loanOffer') {
+      const lp = s.loanPending;
+      const ok = lp ? B.loanOffer(s, p, lp.borrower, lp.amount) : false;
+      E.answerLoanOffer(s, p.id, ok);
+    } else if (s.phase === 'bid') {
+      const v = B.bid(s, p);
+      if (v == null || !E.placeBid(s, p.id, v)) E.placeBid(s, p.id, Math.max(E.MIN_BID, Math.min(p.cash, E.MIN_BID)));
+    } else if (s.phase === 'select') {
+      const c = B.pick(s, p);
+      if (c == null || !E.playCard(s, p.id, c)) {
+        const any = p.hand[0];
+        if (any) E.playCard(s, p.id, any.id);
+      }
+    } else if (s.step === 'finalSell') {
+      E.sellFinal(s, p.id, B.finalSale(s, p));
+    }
+    render();
+  }
+
+  /* ---------------- main render ---------------- */
+  function render() {
+    if (!S) return;
+    const s = S;
+    if (UI.lastActor !== s.actor) { UI.lastActor = s.actor; UI.selected = null; }
+    $('roundLabel').textContent = 'Round ' + s.round + ' \u00B7 Match ' +
+      Math.min(Math.max(s.matchIndex, 0), s.matchesThisRound || 0) + '/' + (s.matchesThisRound || 0);
+    $('phaseBanner').textContent = E.phaseLabel(s);
+    $('phaseBanner').className = 'phase p-' + s.phase;
+
+    renderGold();
+    renderFelt();
+    renderSeats();
+    renderPiles();
+    renderHand();
+    renderActionBar();
+    tick();
+  }
+
+  /* ---------------- gold widget ---------------- */
+  function renderGold() {
+    const s = S;
+    const hist = s.priceHistory;
+    $('goldPrice').textContent = Math.round(s.goldPrice).toLocaleString('en-IN');
+    const prev = hist.length > 1 ? hist[hist.length - 2].price : s.goldPrice;
+    const d = s.goldPrice - prev;
+    const delta = $('goldDelta');
+    if (d > 0) { delta.textContent = '\u25B2 ' + Math.abs(d).toLocaleString('en-IN'); delta.className = 'delta up'; }
+    else if (d < 0) { delta.textContent = '\u25BC ' + Math.abs(d).toLocaleString('en-IN'); delta.className = 'delta down'; }
+    else { delta.textContent = '\u25AC flat'; delta.className = 'delta flat'; }
+
+    const data = hist.slice(-16).map(function (x) { return x.price; });
+    const svg = $('goldChart');
+    if (data.length < 2) { svg.innerHTML = '<line x1="0" y1="30" x2="200" y2="30" stroke="#3a4a41" stroke-width="1" stroke-dasharray="4 4"/>'; return; }
+    const w = 200, h = 46;
+    const mn = Math.min.apply(null, data), mx = Math.max.apply(null, data);
+    const span = Math.max(20, mx - mn);
+    const pts = data.map(function (v, i) {
+      const px = (i / (data.length - 1)) * w;
+      const py = (h - 5) - ((v - mn) / span) * (h - 12);
+      return px.toFixed(1) + ',' + py.toFixed(1);
+    });
+    const up = data[data.length - 1] >= data[0];
+    const col = up ? '#4ade80' : '#ef4444';
+    const gid = up ? 'gu' : 'gd';
+    svg.innerHTML =
+      '<defs><linearGradient id="gu" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4ade80" stop-opacity=".35"/><stop offset="1" stop-color="#4ade80" stop-opacity="0"/></linearGradient>' +
+      '<linearGradient id="gd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ef4444" stop-opacity=".35"/><stop offset="1" stop-color="#ef4444" stop-opacity="0"/></linearGradient></defs>' +
+      '<polygon points="0,' + h + ' ' + pts.join(' ') + ' ' + w + ',' + h + '" fill="url(#' + gid + ')"/>' +
+      '<polyline points="' + pts.join(' ') + '" fill="none" stroke="' + col + '" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>' +
+      '<circle cx="' + pts[pts.length - 1].split(',')[0] + '" cy="' + pts[pts.length - 1].split(',')[1] + '" r="2.4" fill="' + col + '"/>';
+  }
+
+  /* ---------------- felt (centre of the table) ---------------- */
+  function renderFelt() {
+    const s = S;
+    const total = s.matchPlayers ? s.matchPlayers.length : 0;
+    let top = '', main = '', sub = '';
+    if (s.phase === 'roundStart') {
+      top = 'Round ' + s.round;
+      if (s.step === 'gold') { main = 'Gold Market'; sub = 'trade at ' + fmt(s.goldPrice) + ' a biscuit'; }
+      else if (s.step === 'cards') { main = 'Cards Space'; sub = 'buy a card, hand limit ' + E.HAND_LIMIT; }
+      else if (s.step === 'loans') { main = 'Loans'; sub = 'due this round'; }
+      else { main = 'Round start'; sub = ''; }
+      if (s.actor) {
+        const a = E.byId(s, s.actor);
+        if (a) sub = a.name + ' \u2014 ' + sub;
+      }
+    } else if (s.phase === 'bid') {
+      top = 'Match ' + s.matchIndex + ' of ' + s.matchesThisRound;
+      main = 'Bidding';
+      sub = Object.keys(s.bids).length + ' of ' + total + ' bids locked';
+    } else if (s.phase === 'handReveal') {
+      top = 'Match ' + s.matchIndex + ' of ' + s.matchesThisRound;
+      main = 'Hands revealed';
+      sub = 'memorise, then play one card';
+    } else if (s.phase === 'select') {
+      top = 'Match ' + s.matchIndex + ' of ' + s.matchesThisRound;
+      main = 'Choose a card';
+      sub = Object.keys(s.plays).length + ' of ' + total + ' played';
+    } else if (s.phase === 'payout') {
+      top = 'Match ' + s.matchIndex + ' of ' + s.matchesThisRound;
+      main = 'Reveal';
+      sub = '';
+    } else if (s.phase === 'roundEnd') {
+      top = 'Round ' + s.round;
+      main = 'Round complete';
+      sub = s.deck.length + ' cards left in the deck';
+    } else if (s.phase === 'finalSell') {
+      top = 'Game end';
+      main = 'Final gold sale';
+      sub = fmt(s.goldPrice) + ' a biscuit';
+    } else if (s.phase === 'gameEnd') {
+      top = 'Game over'; main = 'Results'; sub = '';
+    }
+    $('feltTop').textContent = top;
+    $('feltMain').textContent = main;
+    $('feltSub').textContent = sub;
+  }
+
+  /* ---------------- seats ---------------- */
+  function renderSeats() {
+    const s = S;
+    const reveal = s.phase === 'handReveal';
+    const inMatch = s.matchPlayers || [];
+    const bidding = s.phase === 'bid';
+    const html = s.players.map(function (p) {
+      const cls = ['seat'];
+      if (p.eliminated) cls.push('out');
+      if (s.actor === p.id) cls.push('active');
+      if (p.isBot) cls.push('botseat');
+      const isYou = (UI.mode === 'bots' && p.id === 'p0');
+      let badges = '';
+      // bids stay secret until every bid is locked
+      if (s.bids[p.id] != null && !bidding) badges += '<span class="badge bid">bid ' + fmt(s.bids[p.id]) + '</span>';
+      else if (bidding && inMatch.indexOf(p.id) >= 0 && s.actor === p.id) badges += '<span class="badge">bidding\u2026</span>';
+      const loan = (s.loans || []).find(function (l) { return l.borrowerId === p.id; });
+      if (loan) badges += '<span class="badge debt">owes ' + fmt(loan.amount) + '</span>';
+      if (p.eliminated) badges += '<span class="badge dead">out</span>';
+
+      let mini = '';
+      if (reveal && !p.eliminated) {
+        mini = '<div class="mini">' + p.hand.map(function (c) {
+          return '<span class="mcard">' + E.RANK_LABEL[c.r] + '<i>' + E.SUITS[c.s] + '</i></span>';
+        }).join('') + '</div>';
+      }
+
+      return '<div class="' + cls.join(' ') + '">' +
+        '<div class="seat-top"><span class="sname">' + esc(p.name) + (isYou ? ' <i class="you">you</i>' : '') + '</span>' +
+        '<span class="shand">' + (p.eliminated ? '' : p.hand.length + '\u2660') + '</span></div>' +
+        '<div class="smoney">' + fmt(p.cash) + '</div>' +
+        '<div class="sgold"><span class="gold-dot"></span>' + p.gold + ' gold</div>' +
+        (badges ? '<div class="badges">' + badges + '</div>' : '') + mini +
+        '</div>';
+    }).join('');
+    $('seats').innerHTML = html;
+    $('seats').className = 'seats n' + s.players.length;
+  }
+
+  /* ---------------- piles ---------------- */
+  function renderPiles() {
+    const s = S;
+    $('deckCount').textContent = s.deck.length;
+    $('discardCount').textContent = s.discard.length;
+    $('bankCash').textContent = fmt(s.bank.cash);
+    $('deckPile').classList.toggle('empty', s.deck.length === 0);
+  }
+
+  /* ---------------- hand ---------------- */
+  function renderHand() {
+    const s = S;
+    const vid = viewerId();
+    const p = vid ? E.byId(s, vid) : null;
+    const canPick = p && !p.isBot && s.phase === 'select' && s.actor === p.id;
+    if (p && p.eliminated) {
+      $('handOwner').textContent = 'You are out \u2014 spectating';
+      $('handCount').textContent = '';
+      $('hand').innerHTML = new Array(5).fill('<span class="card backmask"></span>').join('');
+      return;
+    }
+    $('handOwner').textContent = p ? (p.name === 'You' ? 'Your hand' : p.name + "'s hand") : 'Hand hidden';
+    $('handCount').textContent = p ? p.hand.length + ' / ' + E.HAND_LIMIT : '';
+    const hand = p ? p.hand : [];
+    if (!p) {
+      $('hand').innerHTML = new Array(5).fill('<span class="card backmask"></span>').join('');
+      return;
+    }
+    $('hand').innerHTML = hand.map(function (c) {
+      const sel = UI.selected === c.id ? ' sel' : '';
+      const red = (c.s === 1 || c.s === 2) ? ' red' : '';
+      return '<button class="card' + sel + red + (canPick ? ' pickable' : '') + '" data-card="' + c.id + '">' +
+        '<span class="r">' + E.RANK_LABEL[c.r] + '</span><span class="s">' + E.SUITS[c.s] + '</span>' +
+        '<span class="pv">' + (E.CARD_PRICE[c.r] ? fmt(E.CARD_PRICE[c.r]) : '') + '</span></button>';
+    }).join('');
+  }
+
+  /* ---------------- action bar ---------------- */
+  function actionKey() {
+    const s = S;
+    return [s.phase, s.step || '', s.actor || '', s.round, s.matchIndex, s.queueIdx,
+      UI.gateDone || '-', UI.selected ? 'sel' : ''].join('|');
+  }
+
+  function renderActionBar() {
+    const s = S;
+    const k = actionKey();
+    if (k === UI.actionKey) { updateActionLive(); return; }
+    UI.actionKey = k;
+    const bar = $('actionbar');
+    const p = s.actor ? E.byId(s, s.actor) : null;
+    const humanTurn = p && !p.isBot;
+
+    if (s.phase === 'gameEnd') { bar.innerHTML = '<div class="hint">Game over.</div>'; return; }
+    if (s.phase === 'payout') { bar.innerHTML = '<div class="hint">Resolving the match\u2026</div>'; return; }
+    if (s.phase === 'handReveal') {
+      bar.innerHTML = '<button class="btn ghost wide" id="btnSkipReveal">Hands revealed \u2014 memorise, then continue</button>';
+      var b1 = $('btnSkipReveal'); if (b1) b1.onclick = skipHandReveal;
+      return;
+    }
+    if (s.phase === 'roundEnd') { bar.innerHTML = '<div class="hint">Round complete.</div>'; return; }
+
+    if (!p) { bar.innerHTML = '<div class="hint">\u2026</div>'; return; }
+
+    if (p.isBot) {
+      bar.innerHTML = '<div class="hint"><span class="dotpulse"></span>' + esc(p.name) + ' is thinking\u2026</div>';
+      return;
+    }
+
+    if (UI.mode === 'local' && UI.gateDone !== gateKey(s, p)) {
+      bar.innerHTML = '<div class="hint">Pass the device to ' + esc(p.name) + '.</div>';
+      return;
+    }
+
+    if (s.step === 'gold') {
+      bar.innerHTML =
+        '<div class="hint">' + esc(p.name) + ' \u2014 gold market is open. Buy low, sell high.</div>' +
+        '<div class="btnrow"><button class="btn" id="btnBuyGold">Buy gold</button>' +
+        '<button class="btn" id="btnSellGold">Sell gold</button>' +
+        '<button class="btn primary" id="btnGoldDone">Done</button></div>';
+      $('btnBuyGold').onclick = function () { openGoldSheet('buy'); };
+      $('btnSellGold').onclick = function () { openGoldSheet('sell'); };
+      $('btnGoldDone').onclick = function () { E.endGoldTurn(S); UI.selected = null; render(); };
+      return;
+    }
+
+    if (s.step === 'cards') {
+      const canBuy = p.cash >= 50 && p.hand.length < E.HAND_LIMIT;
+      bar.innerHTML =
+        '<div class="hint">Buy from the Cards Space \u2014 hand ' + p.hand.length + '/' + E.HAND_LIMIT + '.</div>' +
+        '<div class="btnrow"><button class="btn" id="btnBrowse"' + (canBuy ? '' : ' disabled') + '>Browse Cards Space</button>' +
+        '<button class="btn primary" id="btnCardsDone">Done</button></div>';
+      $('btnBrowse').onclick = function () { openDiscardSheet(true); };
+      $('btnCardsDone').onclick = function () { E.endCardTurn(S); render(); };
+      return;
+    }
+
+    if (s.phase === 'bid') {
+      const rng = E.legalBidRange(s, p.id);
+      const step = rng.max > 4000 ? 50 : 10;
+      UI.bidValue = Math.max(rng.min, Math.min(rng.max, UI.bidValue));
+      bar.innerHTML =
+        '<div class="bidrow"><span>Your bid</span><b id="bidVal">' + fmt(UI.bidValue) + '</b></div>' +
+        '<input type="range" id="bidRange" min="' + rng.min + '" max="' + rng.max + '" step="' + step + '" value="' + UI.bidValue + '">' +
+        '<div class="quick">' +
+        '<button data-q="min">Min</button><button data-q="2x">2\u00D7</button><button data-q="all">All-in</button>' +
+        '</div>' +
+        '<button class="btn primary wide" id="btnLockBid">Lock bid</button>';
+      const range = $('bidRange'), val = $('bidVal');
+      range.oninput = function () { UI.bidValue = +range.value; val.textContent = fmt(UI.bidValue); };
+      bar.querySelectorAll('.quick button').forEach(function (b) {
+        b.onclick = function () {
+          let v = UI.bidValue;
+          if (b.dataset.q === 'min') v = rng.min;
+          if (b.dataset.q === '2x') v = Math.min(rng.max, rng.min * 2);
+          if (b.dataset.q === 'all') v = rng.max;
+          UI.bidValue = v; range.value = v; val.textContent = fmt(v);
+        };
+      });
+      $('btnLockBid').onclick = function () {
+        if (E.placeBid(S, p.id, UI.bidValue)) { UI.selected = null; render(); }
+      };
+      return;
+    }
+
+    if (s.phase === 'select') {
+      bar.innerHTML =
+        '<div class="hint">Pick a card to play face down. Highest rank wins \u2014 ties cancel.</div>' +
+        '<button class="btn primary wide" id="btnPlayCard"' + (UI.selected ? '' : ' disabled') + '>' +
+        (UI.selected ? 'Play this card' : 'Tap a card above') + '</button>';
+      $('btnPlayCard').onclick = function () {
+        if (!UI.selected) return;
+        const cid = UI.selected; UI.selected = null;
+        if (E.playCard(S, p.id, cid)) render();
+      };
+      return;
+    }
+
+    if (s.step === 'finalSell') {
+      bar.innerHTML =
+        '<div class="hint">Final sale \u2014 ' + p.gold + ' gold at ' + fmt(s.goldPrice) + '.</div>' +
+        '<div class="btnrow"><button class="btn" id="btnSellFinal">Sell gold</button>' +
+        '<button class="btn primary" id="btnFinalDone">Keep it</button></div>';
+      $('btnSellFinal').onclick = function () { openFinalSheet(); };
+      $('btnFinalDone').onclick = function () { E.sellFinal(S, p.id, 0); render(); };
+      return;
+    }
+
+    bar.innerHTML = '<div class="hint">\u2026</div>';
+  }
+
+  function updateActionLive() {
+    const s = S;
+    const p = s.actor ? E.byId(s, s.actor) : null;
+    if (!p || p.isBot) return;
+    if (s.phase === 'select') {
+      const btn = $('btnPlayCard');
+      if (btn) {
+        btn.disabled = !UI.selected;
+        btn.textContent = UI.selected ? 'Play this card' : 'Tap a card above';
+      }
+    }
+  }
+
+  /* ---------------- gate (pass and play) ---------------- */
+  function showGate(p, k) {
+    openSheet(
+      '<div class="gate">' +
+      '<div class="gate-icon">\u25C8</div>' +
+      '<h3>Pass the device</h3>' +
+      '<p>' + esc(p.name) + ', it\u2019s your turn.</p>' +
+      '<button class="btn primary wide" id="btnGate">I\u2019m ' + esc(p.name) + '</button>' +
+      '</div>', 'gate-sheet');
+    $('btnGate').onclick = function () {
+      UI.gateDone = k; UI.gateShowing = null; closeSheet(); render();
+    };
+  }
+
+  /* ---------------- gold sheet ---------------- */
+  function openGoldSheet(dir) {
+    const s = S, p = E.byId(s, s.actor);
+    let mode = dir || 'buy';
+    let qty = 1;
+
+    function maxQty() {
+      return mode === 'buy' ? Math.floor(p.cash / s.goldPrice) : p.gold;
+    }
+    function draw() {
+      const mx = maxQty();
+      qty = Math.max(0, Math.min(mx, qty));
+      const cost = qty * s.goldPrice;
+      openSheet(
+        '<div class="sh-head">Gold Market <span class="sh-price">' + fmt(s.goldPrice) + ' / biscuit</span></div>' +
+        '<div class="sh-tabs"><button class="tab' + (mode === 'buy' ? ' on' : '') + '" data-t="buy">Buy</button>' +
+        '<button class="tab' + (mode === 'sell' ? ' on' : '') + '" data-t="sell">Sell</button></div>' +
+        '<div class="sh-body">' +
+        '<div class="kv"><span>Your cash</span><b>' + fmt(p.cash) + '</b></div>' +
+        '<div class="kv"><span>Your gold</span><b>' + p.gold + (p.gold === 1 ? ' biscuit' : ' biscuits') + '</b></div>' +
+        '<div class="qtyrow">' +
+        '<button class="stepbtn" data-d="-1">\u2212</button>' +
+        '<input type="range" id="qRange" min="0" max="' + Math.max(1, mx) + '" value="' + qty + '" step="1">' +
+        '<button class="stepbtn" data-d="1">+</button>' +
+        '</div>' +
+        '<div class="bigqty">' + qty + ' <small>biscuits</small></div>' +
+        '<div class="kv total"><span>' + (mode === 'buy' ? 'Total cost' : 'You receive') + '</span><b>' + fmt(cost) + '</b></div>' +
+        (mx === 0 ? '<div class="warn">' + (mode === 'buy' ? 'Not enough cash.' : 'No gold to sell.') + '</div>' : '') +
+        '</div>' +
+        '<div class="sh-foot"><button class="btn ghost" id="gClose">Close</button>' +
+        '<button class="btn primary" id="gDo"' + (qty <= 0 ? ' disabled' : '') + '>' + (mode === 'buy' ? 'Buy' : 'Sell') + '</button></div>'
+        , 'gold-sheet');
+      const r = $('qRange');
+      r.oninput = function () { qty = +r.value; draw(); };
+      document.querySelectorAll('.gold-sheet .tab').forEach(function (t) {
+        t.onclick = function () { mode = t.dataset.t; qty = 1; draw(); };
+      });
+      document.querySelectorAll('.gold-sheet .stepbtn').forEach(function (b) {
+        b.onclick = function () { qty += +b.dataset.d; draw(); };
+      });
+      $('gClose').onclick = closeSheet;
+      $('gDo').onclick = function () {
+        if (qty <= 0) return;
+        if (mode === 'buy') E.buyGold(s, p.id, qty); else E.sellGold(s, p.id, qty);
+        qty = 1; render(); draw();
+      };
+    }
+    draw();
+  }
+
+  /* ---------------- discard browser ---------------- */
+  function openDiscardSheet(buying) {
+    const s = S;
+    const p = s.actor ? E.byId(s, s.actor) : null;
+    const canBuy = buying && p && !p.isBot && s.step === 'cards';
+    const cards = s.discard.slice().sort(function (a, b) { return b.r - a.r || a.s - b.s; });
+
+    function draw() {
+      const body = cards.length === 0
+        ? '<div class="empty-note">The Cards Space is empty. Played cards land here.</div>'
+        : '<div class="dgrid">' + cards.map(function (c) {
+          const price = E.priceOf(c);
+          const afford = canBuy && p.cash >= price && p.hand.length < E.HAND_LIMIT;
+          return '<button class="dcard' + (afford ? ' buyable' : '') + ((c.s === 1 || c.s === 2) ? ' red' : '') + '" data-id="' + c.id + '"' + (afford ? '' : ' disabled') + '>' +
+            '<span class="r">' + E.RANK_LABEL[c.r] + '</span><span class="s">' + E.SUITS[c.s] + '</span>' +
+            '<span class="pv">' + fmt(price) + '</span></button>';
+        }).join('') + '</div>';
+      openSheet(
+        '<div class="sh-head">Cards Space <span class="sh-price">' + cards.length + ' cards</span></div>' +
+        '<div class="sh-body">' + (canBuy ? '<div class="kv"><span>Your cash</span><b>' + fmt(p.cash) + '</b></div><div class="kv"><span>Hand</span><b>' + p.hand.length + ' / ' + E.HAND_LIMIT + '</b></div>' : '') + body + '</div>' +
+        '<div class="sh-foot"><button class="btn primary" id="dClose">' + (canBuy ? 'Done buying' : 'Close') + '</button></div>', 'discard-sheet');
+      $('dClose').onclick = function () { closeSheet(); render(); };
+      document.querySelectorAll('.discard-sheet .dcard').forEach(function (b) {
+        b.onclick = function () {
+          if (!canBuy) return;
+          if (E.buyDiscardCard(s, p.id, b.dataset.id)) {
+            const i = cards.findIndex(function (c) { return c.id === b.dataset.id; });
+            if (i >= 0) cards.splice(i, 1);
+            render(); draw();
+          }
+        };
+      });
+    }
+    draw();
+  }
+
+  /* ---------------- loan sheet ---------------- */
+  function openLoanSheet() {
+    const s = S, p = E.byId(s, s.actor);
+    const opts = E.loanOptions(s, p.id);
+    const need = Math.max(1, E.MIN_BID - p.cash);
+    let lender = opts[0].id;
+    let amount = Math.min(opts[0].max, Math.max(need, 400));
+
+    function draw() {
+      const o = opts.find(function (x) { return x.id === lender; }) || opts[0];
+      lender = o.id;
+      amount = Math.max(need, Math.min(o.max, amount));
+      const ok = amount >= need && amount <= o.max;
+      openSheet(
+        '<div class="sh-head">Loan needed</div>' +
+        '<div class="sh-body">' +
+        '<p class="lead">' + esc(p.name) + ' has ' + fmt(p.cash) + ' \u2014 under the ' + fmt(E.MIN_BID) + ' minimum bid. Borrow or fold.</p>' +
+        '<div class="lenders">' + opts.map(function (x) {
+          return '<button class="lender' + (x.id === lender ? ' on' : '') + '" data-l="' + x.id + '"' + (x.max < need ? ' disabled' : '') + '>' +
+            '<b>' + esc(x.name) + '</b><span>up to ' + fmt(x.max) + '</span></button>';
+        }).join('') + '</div>' +
+        '<input type="range" id="lRange" min="' + need + '" max="' + Math.max(need, o.max) + '" step="50" value="' + amount + '">' +
+        '<div class="bigqty">' + fmt(amount) + '</div>' +
+        '<div class="warn">Repayable at the start of round ' + (s.round + 1) + ' or you are out.</div>' +
+        '</div>' +
+        '<div class="sh-foot"><button class="btn ghost" id="lFold">Fold</button>' +
+        '<button class="btn primary" id="lGo"' + (ok ? '' : ' disabled') + '>Request loan</button></div>', 'loan-sheet');
+      document.querySelectorAll('.loan-sheet .lender').forEach(function (b) {
+        b.onclick = function () {
+          lender = b.dataset.l;
+          const nx = opts.find(function (x) { return x.id === lender; });
+          amount = Math.max(need, Math.min(nx ? nx.max : need, amount));
+          draw();
+        };
+      });
+      const r = $('lRange');
+      r.oninput = function () { amount = +r.value; draw(); };
+      $('lFold').onclick = function () { E.declineLoan(s, p.id); closeSheet(); render(); };
+      $('lGo').onclick = function () {
+        if (E.requestLoan(s, p.id, amount, lender)) { closeSheet(); render(); }
+      };
+    }
+    draw();
+  }
+
+  function openLoanOfferSheet(lp) {
+    const s = S;
+    const b = E.byId(s, lp.borrower);
+    const L = E.byId(s, s.actor);
+    openSheet(
+      '<div class="sh-head">Loan request</div>' +
+      '<div class="sh-body">' +
+      '<p class="lead">' + esc(b.name) + ' wants to borrow <b>' + fmt(lp.amount) + '</b> from you. It is due at the start of round ' + (s.round + 1) + '.</p>' +
+      '<div class="kv"><span>Your cash</span><b>' + fmt(L.cash) + '</b></div>' +
+      '<div class="kv"><span>After lending</span><b>' + fmt(L.cash - lp.amount) + '</b></div>' +
+      '</div>' +
+      '<div class="sh-foot"><button class="btn ghost" id="oNo">Decline</button>' +
+      '<button class="btn primary" id="oYes">Lend ' + fmt(lp.amount) + '</button></div>', 'loan-sheet');
+    $('oNo').onclick = function () { E.answerLoanOffer(s, L.id, false); closeSheet(); render(); };
+    $('oYes').onclick = function () { E.answerLoanOffer(s, L.id, true); closeSheet(); render(); };
+  }
+
+  /* ---------------- final sale ---------------- */
+  function openFinalSheet() {
+    const s = S, p = E.byId(s, s.actor);
+    let qty = p.gold;
+    function draw() {
+      openSheet(
+        '<div class="sh-head">Final Gold Sale <span class="sh-price">' + fmt(s.goldPrice) + ' / biscuit</span></div>' +
+        '<div class="sh-body">' +
+        '<input type="range" id="fRange" min="0" max="' + Math.max(1, p.gold) + '" value="' + qty + '" step="1">' +
+        '<div class="bigqty">' + qty + ' <small>' + (qty === 1 ? 'biscuit' : 'biscuits') + '</small></div>' +
+        '<div class="kv total"><span>You receive</span><b>' + fmt(qty * s.goldPrice) + '</b></div>' +
+        '</div>' +
+        '<div class="sh-foot"><button class="btn ghost" id="fSkip">Keep all</button>' +
+        '<button class="btn primary" id="fGo">Sell ' + qty + '</button></div>', 'gold-sheet');
+      const r = $('fRange');
+      r.oninput = function () { qty = +r.value; draw(); };
+      $('fSkip').onclick = function () { E.sellFinal(s, p.id, 0); closeSheet(); render(); };
+      $('fGo').onclick = function () { E.sellFinal(s, p.id, qty); closeSheet(); render(); };
+    }
+    draw();
+  }
+
+  /* ---------------- reveal ---------------- */
+  function showReveal() {
+    const s = S, m = s.lastMatch;
+    if (!m) return;
+    const rows = m.entries.map(function (e) {
+      const p = E.byId(s, e.pid);
+      const isWin = m.winner === e.pid;
+      const isCan = m.cancelled.indexOf(e.pid) >= 0;
+      const cls = 'rcell' + (isWin ? ' win' : '') + (isCan ? ' cancelled' : '');
+      const red = (e.card.s === 1 || e.card.s === 2) ? ' red' : '';
+      return '<div class="' + cls + '">' +
+        '<div class="rname">' + esc(p.name) + '</div>' +
+        '<div class="rcard' + red + '"><div class="rin"><div class="face front">' +
+        '<span class="r">' + E.RANK_LABEL[e.card.r] + '</span><span class="s">' + E.SUITS[e.card.s] + '</span>' +
+        '</div><div class="face back"></div></div></div>' +
+        '<div class="rbid">' + fmt(m.bids[e.pid]) + '</div>' +
+        '<div class="rtag">' + (isWin ? 'WINNER' : isCan ? 'tied \u2014 cancelled' : '') + '</div>' +
+        '</div>';
+    }).join('');
+
+    let payout = '';
+    if (m.winner) {
+      const w = E.byId(s, m.winner);
+      payout = '<div class="payline"><span>' + esc(w.name) + ' collects</span><b>' + fmt(m.pot) + '</b></div>' +
+        (m.bonus ? '<div class="payline"><span>Bank bonus</span><b>+' + fmt(m.bonus) + '</b></div>' : '') +
+        '<div class="payline total"><span>Added to balance</span><b>' + fmt(m.pot + m.bonus) + '</b></div>';
+    } else {
+      payout = '<div class="payline total"><span>All tied \u2014 bids returned</span><b>' + fmt(0) + '</b></div>';
+    }
+
+    openSheet(
+      '<div class="sh-head">Match ' + s.matchIndex + ' \u2014 reveal</div>' +
+      '<div class="sh-body"><div class="rgrid n' + m.entries.length + '">' + rows + '</div>' + payout + '</div>' +
+      '<div class="sh-foot"><button class="btn primary wide" id="rNext">Continue</button></div>', 'reveal-sheet');
+    setTimeout(function () {
+      document.querySelectorAll('.reveal-sheet .rcard').forEach(function (c, i) {
+        setTimeout(function () { c.classList.add('go'); }, i * 90);
+      });
+    }, 40);
+    $('rNext').onclick = function () {
+      closeSheet();
+      UI.revealShown = false;
+      UI.actionKey = null;
+      UI.selected = null;
+      E.payoutDone(S);
+      render();
+    };
+  }
+
+  /* ---------------- round end ---------------- */
+  function showRoundEnd() {
+    const s = S, info = s.roundEndInfo;
+    const rows = (info ? info.standings : []).map(function (r, i) {
+      return '<div class="stand"><span class="pos">' + (i + 1) + '</span><span class="nm">' + esc(r.name) + '</span>' +
+        '<span class="cs">' + fmt(r.cash) + '</span><span class="gd">' + r.gold + 'g</span></div>';
+    }).join('');
+    openSheet(
+      '<div class="sh-head">Round ' + s.round + ' complete</div>' +
+      '<div class="sh-body">' + (info && info.reason ? '<p class="lead">' + esc(info.reason) + '</p>' : '') +
+      '<div class="kv"><span>Draw deck left</span><b>' + s.deck.length + ' cards</b></div>' +
+      '<div class="standlist">' + rows + '</div></div>' +
+      '<div class="sh-foot"><button class="btn primary wide" id="reNext">' + (s.deck.length === 0 ? 'Final gold sale' : 'Next round') + '</button></div>', 'round-sheet');
+    $('reNext').onclick = function () { closeSheet(); UI.actionKey = null; E.nextRound(S); render(); };
+  }
+
+  /* ---------------- results ---------------- */
+  function showResults() {
+    const s = S, res = s.results;
+    const rows = res.rows.map(function (r) {
+      return '<div class="stand res' + (r.rank === 1 ? ' first' : '') + (r.eliminated ? ' elim' : '') + '">' +
+        '<span class="pos">' + r.rank + '</span><span class="nm">' + esc(r.name) + '</span>' +
+        '<span class="cs">' + fmt(r.cash) + '</span>' +
+        '<span class="gd">' + (r.goldSold ? r.goldSold + 'g sold' : '') + '</span></div>';
+    }).join('');
+    const champ = res.rows[0];
+    openSheet(
+      '<div class="sh-head">Game over</div>' +
+      '<div class="sh-body">' +
+      '<div class="champ"><div class="crown">\u265B</div><div class="cname">' + esc(champ.name) + '</div>' +
+      '<div class="ccash">' + fmt(champ.cash) + ' cash</div>' +
+      '<div class="cnet">net worth ' + fmt(champ.netWorth) + '</div></div>' +
+      '<div class="kv"><span>Rounds played</span><b>' + res.rounds + '</b></div>' +
+      '<div class="kv"><span>Closing gold price</span><b>' + fmt(res.goldPrice) + '</b></div>' +
+      '<div class="standlist">' + rows + '</div>' +
+      '</div>' +
+      '<div class="sh-foot"><button class="btn ghost" id="resMenu">Menu</button>' +
+      '<button class="btn primary" id="resAgain">Play again</button></div>', 'result-sheet');
+    $('resMenu').onclick = function () { closeSheet(); S = null; showScreen('menu'); refreshMenu(); };
+    $('resAgain').onclick = function () { closeSheet(); startGame(); };
+  }
+
+  /* ---------------- rules ---------------- */
+  function showRules() {
+    openSheet(
+      '<div class="sh-head">How to play</div>' +
+      '<div class="sh-body rules">' +
+      '<h4>The table</h4><p>2\u20136 players. Everyone starts with cash and 5 cards from a shuffled 52-card deck. Rank wins: 2 low, Ace high. Suits mean nothing.</p>' +
+      '<h4>Gold</h4><p>Gold opens at \u20B91,000 a biscuit and moves between \u20B91,000 and \u20B95,000 at the start of every round \u2014 trends, spikes and crashes included. You can only trade at the start of a round, never mid-round.</p>' +
+      '<h4>A round</h4><p>Round start runs in order: new gold price \u2192 buy/sell gold \u2192 buy cards from the Cards Space \u2192 loans come due. Then the matches are played.</p>' +
+      '<h4>A match</h4><p>Everyone locks a bid of at least \u20B9100 (hidden until all are in). Hands are revealed for that match, then hidden. Everyone plays one card face down. Highest rank wins. Anyone tied on the top rank is cancelled \u2014 their cards go to the Cards Space \u2014 and the next highest rank wins. If everyone ties, all bids come back.</p>' +
+      '<h4>Payout</h4><p>The winner takes every opponent\u2019s bid. If the winner bid more than \u20B9100, the bank also pays them half their bid (\u20B9200 \u2192 +\u20B9100). Played cards go to the Cards Space for good.</p>' +
+      '<h4>Buying cards</h4><p>At round start you can buy cards out of the Cards Space: J \u20B9300, Q \u20B9500, K \u20B9700, A \u20B91,000; number cards \u20B950 to \u20B9250 by rank. Hand limit 7. Cash goes to the bank.</p>' +
+      '<h4>Loans</h4><p>Under \u20B9100 you cannot bid. Borrow from the bank (up to \u20B92,000) or from another player, who must agree. Repay at the start of the next round \u2014 gold is sold at the current price if cash is short. If you cannot repay, or you take no loan, you are out.</p>' +
+      '<h4>Game end</h4><p>When the draw deck is empty the game ends. Everyone gets one last chance to sell gold at the closing price. Highest cash wins.</p>' +
+      '</div>' +
+      '<div class="sh-foot"><button class="btn primary wide" id="ruClose">Got it</button></div>', 'rules-sheet');
+    $('ruClose').onclick = closeSheet;
+  }
+
+  /* ---------------- log ---------------- */
+  function showLog() {
+    const s = S;
+    const items = s.log.slice(0, 120).map(function (l) {
+      return '<div class="logline k-' + l.kind + '"><span class="lr">R' + l.round + '</span>' + esc(l.text) + '</div>';
+    }).join('');
+    openSheet('<div class="sh-head">Action log</div><div class="sh-body loglist">' + (items || '<div class="empty-note">Nothing yet.</div>') + '</div>' +
+      '<div class="sh-foot"><button class="btn primary wide" id="lgClose">Close</button></div>', 'log-sheet');
+    $('lgClose').onclick = closeSheet;
+  }
+
+  /* ---------------- in game menu ---------------- */
+  function showGameMenu() {
+    openSheet(
+      '<div class="sh-head">Menu</div>' +
+      '<div class="sh-body menu">' +
+      '<button class="btn wide" id="mRules">Rules</button>' +
+      '<button class="btn wide" id="mLog">Action log</button>' +
+      '<button class="btn wide" id="mSave">Save &amp; exit to menu</button>' +
+      '<button class="btn wide danger" id="mNew">Abandon &amp; start over</button>' +
+      '</div>' +
+      '<div class="sh-foot"><button class="btn primary wide" id="mClose">Back to the table</button></div>', 'menu-sheet');
+    $('mRules').onclick = showRules;
+    $('mLog').onclick = showLog;
+    $('mSave').onclick = function () { UI.saved = S; closeSheet(); S = null; showScreen('menu'); refreshMenu(); };
+    $('mNew').onclick = function () {
+      if (confirm('Abandon this game and return to setup?')) { S = null; closeSheet(); showScreen('menu'); refreshMenu(); }
+    };
+    $('mClose').onclick = closeSheet;
+  }
+
+  /* ---------------- menu wiring ---------------- */
+  function refreshMenu() {
+    $('btnContinue').hidden = !UI.saved;
+    $('botRow').style.display = UI.mode === 'bots' ? '' : 'none';
+    $('cfgPlayersVal').textContent = UI.players;
+    $('cfgPlayers').value = UI.players;
+    $('cfgCashVal').textContent = UI.cash.toLocaleString('en-IN');
+    $('cfgCash').value = UI.cash;
+  }
+
+  function bindMenu() {
+    document.querySelectorAll('#modeSeg button').forEach(function (b) {
+      b.onclick = function () {
+        UI.mode = b.dataset.mode;
+        document.querySelectorAll('#modeSeg button').forEach(function (x) { x.classList.toggle('on', x === b); });
+        refreshMenu();
+      };
+    });
+    document.querySelectorAll('#diffSeg button').forEach(function (b) {
+      b.onclick = function () {
+        UI.diff = b.dataset.diff;
+        document.querySelectorAll('#diffSeg button').forEach(function (x) { x.classList.toggle('on', x === b); });
+      };
+    });
+    $('cfgPlayers').oninput = function () { UI.players = +this.value; refreshMenu(); };
+    $('cfgCash').oninput = function () { UI.cash = +this.value; refreshMenu(); };
+    $('btnStart').onclick = startGame;
+    $('btnContinue').onclick = function () {
+      if (!UI.saved) return;
+      S = UI.saved; UI.saved = null;
+      resetTurnUI();
+      showScreen('game'); render();
+    };
+    $('btnRules').onclick = showRules;
+  }
+
+  /* ---------------- board wiring ---------------- */
+  function bindBoard() {
+    $('btnMenu').onclick = showGameMenu;
+    $('btnLog').onclick = showLog;
+    $('deckPile').onclick = function () {
+      openSheet('<div class="sh-head">Draw deck</div><div class="sh-body"><p class="lead">' + S.deck.length +
+        ' cards left. When it hits zero the game is over.</p></div><div class="sh-foot"><button class="btn primary wide" id="dkC">Close</button></div>', 'log-sheet');
+      $('dkC').onclick = closeSheet;
+    };
+    $('discardPile').onclick = function () {
+      const buying = S.step === 'cards' && S.actor && !E.byId(S, S.actor).isBot;
+      openDiscardSheet(buying);
+    };
+    $('hand').addEventListener('click', function (ev) {
+      const btn = ev.target.closest('[data-card]');
+      if (!btn) return;
+      const s = S;
+      const vid = viewerId();
+      const p = vid ? E.byId(s, vid) : null;
+      if (!p || p.isBot || s.phase !== 'select' || s.actor !== p.id) return;
+      UI.selected = (UI.selected === btn.dataset.card) ? null : btn.dataset.card;
+      renderHand();
+      updateActionLive();
+    });
+    $('overlay').addEventListener('click', function (ev) {
+      if (ev.target !== $('overlay')) return;
+      // these sheets are blocking steps of the game - a stray tap must not skip them
+      const keep = ['gate-sheet', 'reveal-sheet', 'round-sheet', 'result-sheet'];
+      if (keep.some(function (c) { return $('sheet').classList.contains(c); })) return;
+      closeSheet();
+    });
+  }
+
+  /* ---------------- boot ---------------- */
+  function boot() {
+    bindMenu();
+    bindBoard();
+    refreshMenu();
+    showScreen('menu');
+  }
+  document.addEventListener('DOMContentLoaded', boot);
+  if (document.readyState !== 'loading') boot();
+
+  window.GOW = { get state() { return S; }, UI: UI, Engine: E };
+})();
+
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('./sw.js').catch(function () {});
+  });
+}
+</script>
+</body>
+</html>
