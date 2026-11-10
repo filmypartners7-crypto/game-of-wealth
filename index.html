@@ -649,7 +649,10 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 /* ================= TABLE SELECT ================= */
 .ts-txt{position:absolute;z-index:4;display:flex;align-items:center;justify-content:center;
   font-family:'Baloo 2',system-ui,sans-serif;font-weight:800;color:#fff;line-height:1;white-space:nowrap}
-.ts-count{left:700px;width:200px;height:44px;font-size:31px;justify-content:flex-start;text-shadow:0 2px 3px rgba(0,0,0,.45)}
+.ts-count{position:absolute;left:558px;width:352px;height:44px;display:flex;align-items:center;justify-content:center;gap:12px;
+  font-family:'Baloo 2',system-ui,sans-serif;font-weight:800;color:#fff}
+.ts-count img{width:47px;height:36px;display:block}
+.ts-count span{font-size:31px;line-height:1;white-space:nowrap;text-shadow:0 2px 3px rgba(0,0,0,.45)}
 #cnt0{top:440px}
 #cnt1{top:742px}
 #cnt2{top:1062px}
@@ -670,7 +673,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .ts-prolock.on{display:flex}
 .ts-prolock::before{content:"";position:absolute;inset:0;background:rgba(8,16,40,.35);border-radius:46px}
 .ts-prolock img{position:absolute;left:505px;top:92px;width:66px;height:72px;filter:drop-shadow(0 3px 5px rgba(0,0,0,.4))}
-.ts-prolock span{position:absolute;left:470px;top:256px;width:360px;height:42px;border-radius:25px;
+.ts-prolock span{position:absolute;left:470px;top:254px;width:360px;height:42px;border-radius:25px;
   display:flex;align-items:center;justify-content:center;
   background:linear-gradient(180deg,#a8271a,#8b0201);border:2px solid #d9695a;color:#fff;
   font-family:'Baloo 2',system-ui,sans-serif;font-size:25px;font-weight:800;white-space:nowrap;
@@ -819,9 +822,9 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
         <div class="ts-outline" id="tsOutline"></div>
 
-        <span class="ts-txt ts-count" id="cnt0">128</span>
-        <span class="ts-txt ts-count" id="cnt1">64</span>
-        <span class="ts-txt ts-count" id="cnt2">12</span>
+        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp" alt=""><span>128 playing</span></div>
+        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp" alt=""><span>64 playing</span></div>
+        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp" alt=""><span>12 playing</span></div>
 
         <div class="ts-dim" id="tsRankedDim"></div>
         <div class="ts-prolock" id="tsProLock">
@@ -3157,14 +3160,16 @@ const Bots = (function () {
     });
 
     $('tsRankedDim').style.opacity = TS.mode === 'friendly' ? '1' : '0';
-    $('tsProLock').classList.toggle('on', wallet < 5000);
+    const proLocked = wallet < 5000;
+    $('tsProLock').classList.toggle('on', proLocked);
+    $('cnt1').style.display = proLocked ? 'none' : '';
     fitHome();
   }
 
   function setCounts() {
     for (let i = 0; i < 3; i++) {
       const el = $('cnt' + i);
-      if (el) el.textContent = TS.counts[i] + ' playing';
+      if (el) el.querySelector('span').textContent = TS.counts[i] + ' playing';
     }
   }
 
