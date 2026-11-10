@@ -649,7 +649,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 /* ================= TABLE SELECT ================= */
 .ts-txt{position:absolute;z-index:4;display:flex;align-items:center;justify-content:center;
   font-family:'Baloo 2',system-ui,sans-serif;font-weight:800;color:#fff;line-height:1;white-space:nowrap}
-.ts-count{left:644px;width:162px;height:44px;font-size:34px;text-shadow:0 2px 3px rgba(0,0,0,.45)}
+.ts-count{left:644px;width:238px;height:44px;font-size:34px;text-shadow:0 2px 3px rgba(0,0,0,.45)}
 #cnt0{top:440px}
 #cnt1{top:742px}
 #cnt2{top:1062px}
@@ -669,7 +669,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .ts-prolock.on{display:flex}
 .ts-prolock::before{content:"";position:absolute;inset:0;background:rgba(8,16,40,.35);border-radius:46px}
 .ts-prolock img{position:absolute;left:520px;top:118px;width:64px;height:64px;filter:drop-shadow(0 3px 5px rgba(0,0,0,.4))}
-.ts-prolock span{position:absolute;left:470px;top:222px;padding:8px 26px;border-radius:22px;
+.ts-prolock span{position:absolute;left:470px;top:268px;padding:8px 26px;border-radius:22px;
   background:linear-gradient(180deg,#e8402a,#a81b0c);border:3px solid #ffd8d0;color:#fff;
   font-family:'Baloo 2',system-ui,sans-serif;font-size:24px;font-weight:800;white-space:nowrap;
   text-shadow:0 2px 0 rgba(0,0,0,.3);box-shadow:0 4px 10px rgba(0,0,0,.35)}
@@ -3139,9 +3139,7 @@ const Bots = (function () {
   function renderTableSelect() {
     const wallet = PROFILE.cash;
     $('tsBg').src = wallet >= 10000 ? 'assets/ts/ts-unlocked.webp' : 'assets/ts/ts-locked.webp';
-    $('cnt0').textContent = TS.counts[0];
-    $('cnt1').textContent = TS.counts[1];
-    $('cnt2').textContent = TS.counts[2];
+    setCounts();
 
     const t = TIERS[TS.tier];
     const ol = $('tsOutline');
@@ -3158,6 +3156,13 @@ const Bots = (function () {
     $('tsRankedDim').style.opacity = TS.mode === 'friendly' ? '1' : '0';
     $('tsProLock').classList.toggle('on', wallet < 5000);
     fitHome();
+  }
+
+  function setCounts() {
+    for (let i = 0; i < 3; i++) {
+      const el = $('cnt' + i);
+      if (el) el.textContent = TS.counts[i] + ' playing';
+    }
   }
 
   function selectTier(k) {
@@ -3252,11 +3257,7 @@ const Bots = (function () {
       TS.counts = TS.counts.map(function (c) {
         return Math.max(3, c + (Math.random() < 0.5 ? -1 : 1) * Math.floor(Math.random() * 3));
       });
-      if (!$('tableSelectScreen').hidden) {
-        $('cnt0').textContent = TS.counts[0];
-        $('cnt1').textContent = TS.counts[1];
-        $('cnt2').textContent = TS.counts[2];
-      }
+      if (!$('tableSelectScreen').hidden) setCounts();
     }, 3200);
   }
 
