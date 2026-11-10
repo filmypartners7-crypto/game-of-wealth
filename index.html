@@ -576,7 +576,8 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .h-chip-cash{width:calc(var(--u)*124)}
 .h-chip-cash b{left:64%;top:52%}
 .h-chip-rix{width:calc(var(--u)*112)}
-.h-chip-rix b{left:55%;top:52%}
+.h-chip-rix b{left:55.5%;top:52%}
+.h-chip b{font-size:calc(var(--u)*13.5);font-weight:800;line-height:1}
 .h-plus{
   position:absolute;left:81%;top:50%;transform:translate(-50%,-50%);
   width:17%;aspect-ratio:1;border-radius:50%;background:transparent;
@@ -598,7 +599,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
 /* stage */
 .h-stage{position:relative;z-index:4;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
-  min-height:0;padding-bottom:calc(var(--u)*2)}
+  min-height:0;padding-bottom:18px}
 .h-hero{position:relative;display:flex;align-items:flex-end;justify-content:center;min-height:0}
 .h-glow{
   position:absolute;left:50%;top:52%;width:calc(var(--u)*250);height:calc(var(--u)*250);
@@ -613,6 +614,18 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
   animation:heroBob 3s ease-in-out infinite;
 }
 @keyframes heroBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.h-feet{
+  position:absolute;left:50%;bottom:calc(var(--u)*-4);transform:translateX(-50%);
+  width:calc(var(--u)*132);height:calc(var(--u)*34);pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse at 50% 50%,rgba(255,226,120,.92) 0%,rgba(255,206,70,.45) 42%,rgba(255,206,70,0) 74%);
+  filter:blur(3px);
+}
+.h-feet::after{
+  content:"";position:absolute;left:50%;top:56%;transform:translate(-50%,-50%);
+  width:56%;height:34%;border-radius:50%;
+  background:radial-gradient(ellipse at 50% 50%,rgba(90,60,10,.55) 0%,rgba(90,60,10,.22) 55%,rgba(90,60,10,0) 78%);
+  filter:blur(2px);
+}
 .h-sparkles{position:absolute;inset:0;pointer-events:none}
 .spark{
   position:absolute;width:calc(var(--u)*10);height:calc(var(--u)*10);
@@ -622,7 +635,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 }
 @keyframes sparkTwinkle{0%,100%{opacity:0;transform:scale(.4) rotate(0deg)}50%{opacity:1;transform:scale(1) rotate(45deg)}}
 .h-nameplate{
-  position:relative;margin-top:calc(var(--u)*-2);padding:calc(var(--u)*4) calc(var(--u)*22);
+  position:relative;margin-top:0;padding:calc(var(--u)*4) calc(var(--u)*22);
   border-radius:calc(var(--u)*12);font-size:calc(var(--u)*15);font-weight:800;color:#fff;
   background:linear-gradient(180deg,#a855f7,#6d28d9);border:3px solid #ffd23f;
   box-shadow:0 4px 0 #4c1d95,inset 0 2px 0 rgba(255,255,255,.35);
@@ -651,12 +664,20 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
   border-radius:calc(var(--u)*16);border:3px solid #ffd23f;
   background:linear-gradient(180deg,rgba(46,74,110,.94),rgba(21,40,64,.96));
   box-shadow:0 5px 0 #16304c,0 8px 16px rgba(0,0,0,.28),inset 0 2px 0 rgba(255,255,255,.22)}
-.h-nav button{flex:1;min-width:0;padding:calc(var(--u)*7) 1px;border-radius:calc(var(--u)*11);
+.h-nav{position:relative;overflow:hidden}
+.h-nav-img{display:none;width:100%;height:auto}
+.h-nav[data-art="1"]{padding:0;border:0;background:none;box-shadow:none;margin:0 calc(var(--u)*4) calc(var(--u)*4)}
+.h-nav[data-art="1"] .h-nav-img{display:block}
+.h-nav[data-art="1"] .h-nav-taps{position:absolute;inset:0;display:flex;background:none;padding:0;border:0;box-shadow:none;border-radius:0}
+.h-nav[data-art="1"] .h-nav-taps button{background:none!important;box-shadow:none!important;color:transparent!important}
+.h-nav[data-art="1"] .h-nav-taps button span{opacity:0}
+.h-nav-taps{display:flex;flex:1;gap:2px}
+.h-nav-taps button{flex:1;min-width:0;padding:calc(var(--u)*7) 1px;border-radius:calc(var(--u)*11);
   font-size:calc(var(--u)*8.5);font-weight:800;color:#fff;letter-spacing:.01em;
   text-shadow:0 1px 2px rgba(0,0,0,.45);transition:transform .09s}
-.h-nav button span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.h-nav button:active{transform:scale(.95)}
-.h-nav button.on{background:linear-gradient(180deg,#ffd968,#e0a51e);color:#4a3200;text-shadow:none;
+.h-nav-taps button span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.h-nav-taps button:active{transform:scale(.95)}
+.h-nav-taps button.on{background:linear-gradient(180deg,#ffd968,#e0a51e);color:#4a3200;text-shadow:none;
   box-shadow:0 2px 0 #a8740c}
 
 /* toast */
@@ -767,6 +788,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <div class="h-stage">
       <div class="h-hero">
         <div class="h-glow"></div>
+        <div class="h-feet"></div>
         <img class="h-char" src="assets/home/character.webp" alt="">
         <div class="h-sparkles" id="sparkles" aria-hidden="true"></div>
       </div>
@@ -782,12 +804,15 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
       </div>
     </div>
 
-    <nav class="h-nav" id="homeNav">
-      <button data-hnav="home" class="on"><span>Home</span></button>
-      <button data-hnav="shop"><span>Shop</span></button>
-      <button data-hnav="profile"><span>Profile</span></button>
-      <button data-hnav="leaderboard"><span>Leaderboard</span></button>
-      <button data-hnav="rules"><span>Rules</span></button>
+    <nav class="h-nav" id="homeNav" data-art="0">
+      <img class="h-nav-img" id="navImg" src="assets/home/bottom-nav.webp" alt="Home, Shop, Profile, Leaderboard, Rules">
+      <div class="h-nav-taps">
+        <button data-hnav="home" class="on" aria-label="Home"><span>Home</span></button>
+        <button data-hnav="shop" aria-label="Shop"><span>Shop</span></button>
+        <button data-hnav="profile" aria-label="Profile"><span>Profile</span></button>
+        <button data-hnav="leaderboard" aria-label="Leaderboard"><span>Leaderboard</span></button>
+        <button data-hnav="rules" aria-label="Rules"><span>Rules</span></button>
+      </div>
     </nav>
   </section>
 
@@ -3015,13 +3040,23 @@ const Bots = (function () {
     $('tselStart').onclick = function () { openSetup(); };
     $('tselBack').onclick = function () { goHome(); };
 
-    document.querySelectorAll('.h-nav button').forEach(function (b) {
+    document.querySelectorAll('.h-nav-taps button').forEach(function (b) {
       b.onclick = function () {
-        document.querySelectorAll('.h-nav button').forEach(function (x) { x.classList.toggle('on', x === b); });
+        document.querySelectorAll('.h-nav-taps button').forEach(function (x) { x.classList.toggle('on', x === b); });
         if (b.dataset.hnav === 'home') return;
         toast('Coming soon');
       };
     });
+
+    const navImg = $('navImg');
+    if (navImg) {
+      const setArt = function (ok) {
+        const nav = $('homeNav');
+        if (nav) nav.dataset.art = ok ? '1' : '0';
+      };
+      if (navImg.complete && navImg.naturalWidth > 0) setArt(true);
+      else { navImg.addEventListener('load', function () { setArt(true); }); navImg.addEventListener('error', function () { setArt(false); }); }
+    }
 
     const homeEl = $('homeScreen');
     homeEl.addEventListener('pointerdown', function (ev) {
