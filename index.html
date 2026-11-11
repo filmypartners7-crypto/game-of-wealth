@@ -100,7 +100,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 #gameScreen{padding:0 8px;gap:4px;
   background:
     linear-gradient(180deg,rgba(255,255,255,.42) 0%,rgba(214,244,255,.30) 40%,rgba(200,240,200,.42) 100%),
-    url('assets/tablebg.webp?v=38') center/cover no-repeat fixed}
+    url('assets/tablebg.webp?v=39') center/cover no-repeat fixed}
 
 .topbar{display:flex;align-items:center;gap:8px;padding:8px 0 2px}
 .topbar .icon{
@@ -252,7 +252,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .hand .card.sel{
   border-color:#63e06b;box-shadow:0 0 0 3px #63e06b,0 12px 22px rgba(0,0,0,.35);z-index:20!important;
 }
-.hand .card.ghost{background:url('assets/cardback.webp?v=38') center/cover;border-color:#fff}
+.hand .card.ghost{background:url('assets/cardback.webp?v=39') center/cover;border-color:#fff}
 
 /* ---------- action panel ---------- */
 .actionpanel{
@@ -394,7 +394,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .rcard.red .face.front{color:#d02a1e}
 .rcard .face.front .r{font-size:24px;line-height:1;font-family:Georgia,serif}
 .rcard .face.front .s{font-size:16px;line-height:1}
-.rcard .face.back{transform:rotateY(180deg);background:url('assets/cardback.webp?v=38') center/cover;border:2px solid #fff}
+.rcard .face.back{transform:rotateY(180deg);background:url('assets/cardback.webp?v=39') center/cover;border:2px solid #fff}
 .rcell.win .rcard .face.front{box-shadow:0 0 0 3px #63e06b,0 0 26px rgba(99,224,107,.9)}
 .rcell.win{animation:winglow 1.4s ease-in-out infinite alternate}
 @keyframes winglow{from{transform:scale(1)}to{transform:scale(1.05)}}
@@ -479,7 +479,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
 /* ================= SPLASH ================= */
 @font-face{font-family:'Baloo 2';font-style:normal;font-weight:400 800;font-display:swap;
-  src:url('assets/baloo.woff2?v=38') format('woff2')}
+  src:url('assets/baloo.woff2?v=39') format('woff2')}
 #splashScreen{font-family:'Baloo 2',system-ui,sans-serif}
 
 .splash{position:relative;height:100dvh;min-height:100dvh;width:100%;overflow:hidden;
@@ -556,7 +556,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .hs-skyext{display:none}
 
 .hs-crop{position:absolute;background-repeat:no-repeat;background-size:941px 1672px;
-  background-image:url('assets/home/home-base.webp?v=38');will-change:transform;z-index:2}
+  background-image:url('assets/home/home-base.webp?v=39');will-change:transform;z-index:2}
 .hs-char{left:345px;top:150px;width:267px;height:585px;background-position:-345px -150px;
   animation:hsBob 3s ease-in-out infinite}
 @keyframes hsBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
@@ -773,7 +773,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
   text-shadow:0 3px 0 rgba(8,20,45,.85),0 0 8px rgba(8,20,45,.6)}
 .tb-round{left:414px;top:109px;font-size:30px}
 .tb-gold{left:722px;top:109px;font-size:30px}
-.tb-gico{position:absolute;left:626px;top:109px;transform:translate(-50%,-50%);width:30px;height:38px;z-index:6}
+.tb-gico{position:absolute;left:626px;top:109px;transform:translate(-50%,-50%);width:34px;height:auto;object-fit:contain;z-index:6}
 .tb-tri{position:absolute;left:800px;top:109px;transform:translate(-50%,-50%);z-index:6;
   width:0;height:0;border-left:13px solid transparent;border-right:13px solid transparent;border-bottom:22px solid #57d94a;
   filter:drop-shadow(0 2px 2px rgba(0,0,0,.4))}
@@ -792,7 +792,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
   font-family:'Baloo 2';font-weight:800;font-size:24px;color:#fff;white-space:nowrap;
   text-shadow:0 2px 0 rgba(8,20,45,.9)}
 .tb-base img.note{width:26px;height:20px;margin-right:6px}
-.tb-base img.bar{width:20px;height:26px;margin-left:8px;margin-right:4px}
+.tb-base img.bar{width:26px;height:auto;object-fit:contain;margin-left:8px;margin-right:4px}
 
 .tb-lock{position:absolute;transform:translate(-50%,-50%);z-index:10;display:none;
   align-items:center;justify-content:center;gap:5px;width:120px;height:34px;border-radius:17px;
@@ -871,9 +871,9 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
   <!-- ============ SPLASH / LOGIN ============ -->
   <section id="splashScreen" class="screen splash">
-    <img class="splash-bg" src="assets/bg-garden.webp?v=38" alt="">
+    <img class="splash-bg" src="assets/bg-garden.webp?v=39" alt="">
     <div class="floaties" id="floaties" aria-hidden="true"></div>
-    <img class="splash-logo" src="assets/logo.webp?v=38" alt="Game of Wealth">
+    <img class="splash-logo" src="assets/logo.webp?v=39" alt="Game of Wealth">
 
     <div class="splash-bottom">
       <div class="splash-actions" id="splashActions">
@@ -909,7 +909,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <div class="hs-wrap" id="hsWrap">
       <div class="hs-stage" id="hsStage">
         <div class="hs-skyext"></div>
-        <img class="hs-bg" src="assets/home/home-base.webp?v=38" alt="">
+        <img class="hs-bg" src="assets/home/home-base.webp?v=39" alt="">
         <div class="hs-crop hs-char" id="hsChar"></div>
         <div class="hs-crop hs-play" id="hsPlay"></div>
         <div class="hs-shimmer"></div>
@@ -944,18 +944,18 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
   <section id="tableSelectScreen" class="screen home3" hidden>
     <div class="hs-wrap">
       <div class="hs-stage" id="tsStage">
-        <img class="hs-bg" id="tsBg" src="assets/ts/ts-base.webp?v=38" alt="">
+        <img class="hs-bg" id="tsBg" src="assets/ts/ts-base.webp?v=39" alt="">
 
         <div class="ts-dim" id="dimPro"></div>
         <div class="ts-dim" id="dimHigh"></div>
         <div class="ts-outline" id="tsOutline"></div>
 
-        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp?v=38" alt=""><span>128 playing</span></div>
-        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp?v=38" alt=""><span>64 playing</span></div>
-        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp?v=38" alt=""><span>12 playing</span></div>
+        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp?v=39" alt=""><span>128 playing</span></div>
+        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp?v=39" alt=""><span>64 playing</span></div>
+        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp?v=39" alt=""><span>12 playing</span></div>
 
-        <img class="ts-lock" id="lockPro" src="assets/ic-lock.webp?v=38" alt="">
-        <img class="ts-lock" id="lockHigh" src="assets/ic-lock.webp?v=38" alt="">
+        <img class="ts-lock" id="lockPro" src="assets/ic-lock.webp?v=39" alt="">
+        <img class="ts-lock" id="lockHigh" src="assets/ic-lock.webp?v=39" alt="">
         <span class="ts-need" id="needPro">Need 5,000 cash</span>
         <span class="ts-need" id="needHigh">Need 10,000 cash</span>
 
@@ -983,7 +983,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <div class="bi-overlay" id="biOverlay" hidden>
       <div class="bi-sheet" id="biSheet">
         <div class="bi-inner" id="biInner">
-          <img class="bi-img" src="assets/ts/buyin-popup.webp?v=38" alt="">
+          <img class="bi-img" src="assets/ts/buyin-popup.webp?v=39" alt="">
 
           <span class="bi-amount" id="biAmount">2,000</span>
 
@@ -1011,11 +1011,11 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
   <section id="tableScreen" class="screen home3" hidden>
     <div class="hs-wrap">
       <div class="hs-stage" id="tblStage">
-        <img class="hs-bg" src="assets/game/table-base.webp?v=38" alt="">
+        <img class="hs-bg" src="assets/game/table-base.webp?v=39" alt="">
 
         <button class="tb-hit tb-gear" id="tbGear" aria-label="Settings"></button>
         <span class="tb-t tb-round" id="tbRound"></span>
-        <img class="tb-gico" src="assets/game/ic-gold.webp?v=38" alt="">
+        <img class="tb-gico" src="assets/game/ic-gold.webp?v=39" alt="">
         <span class="tb-t tb-gold" id="tbGold"></span>
         <i class="tb-tri" id="tbTri"></i>
 
@@ -3242,7 +3242,7 @@ const Bots = (function () {
     const wrap = $('floaties');
     if (!wrap) return;
     wrap.innerHTML = '';
-    const kinds = ['assets/ic-cash1.webp?v=38', 'assets/ic-gold1.webp?v=38'];
+    const kinds = ['assets/ic-cash1.webp?v=39', 'assets/ic-gold1.webp?v=39'];
     for (let i = 0; i < 8; i++) {
       const img = document.createElement('img');
       img.className = 'flimg';
@@ -3588,9 +3588,9 @@ const Bots = (function () {
       const base = document.createElement('div');
       base.className = 'tb-base';
       base.style.top = (h * 0.56) + 'px';
-      base.innerHTML = '<img class="note" src="assets/game/ic-cash1.webp?v=38" alt="">' +
+      base.innerHTML = '<img class="note" src="assets/game/ic-cash1.webp?v=39" alt="">' +
         Math.round(p.cash).toLocaleString('en-IN') +
-        '<img class="bar" src="assets/game/ic-gold.webp?v=38" alt="">' + p.gold;
+        '<img class="bar" src="assets/game/ic-gold.webp?v=39" alt="">' + p.gold;
       d.appendChild(base);
       if (LOCKS[p.name]) {
         const lc = LOCKS[p.name];
@@ -3601,7 +3601,7 @@ const Bots = (function () {
         const revealed = s.phase !== 'bid' && s.phase !== 'handReveal';
         lk.innerHTML = revealed && locked
           ? Math.round(s.bids[p.id]).toLocaleString('en-IN')
-          : '<img src="assets/game/ui-lock.webp?v=38" alt="">Bid Locked';
+          : '<img src="assets/game/ui-lock.webp?v=39" alt="">Bid Locked';
         d.appendChild(lk);
       }
       seats.appendChild(d);
@@ -3624,9 +3624,9 @@ const Bots = (function () {
       'background:linear-gradient(180deg,#1b3466,#14284F);border:2px solid #d9a441;' +
       'display:flex;align-items:center;justify-content:center;gap:0;' +
       'font-family:\'Baloo 2\';font-weight:800;font-size:24px;color:#fff;text-shadow:0 2px 0 rgba(8,20,45,.9)">' +
-      '<img src="assets/game/ic-cash1.webp?v=38" style="width:30px;height:22px;margin-right:6px" alt="">' +
+      '<img src="assets/game/ic-cash1.webp?v=39" style="width:30px;height:22px;margin-right:6px" alt="">' +
       Math.round(me0.cash).toLocaleString('en-IN') +
-      '<img src="assets/game/ic-gold.webp?v=38" style="width:22px;height:26px;margin-left:8px;margin-right:4px" alt="">' +
+      '<img src="assets/game/ic-gold.webp?v=39" style="width:26px;height:auto;object-fit:contain;margin-left:8px;margin-right:4px" alt="">' +
       me0.gold + '</div>' +
       '<div style="position:absolute;left:50%;top:2px;transform:translateX(-50%);' +
       'font-family:\'Baloo 2\';font-weight:800;font-size:24px;color:#fff;text-shadow:0 2px 0 rgba(8,20,45,.9)">You</div>';
@@ -3634,7 +3634,7 @@ const Bots = (function () {
     const piles = $('tbPiles'); piles.innerHTML = '';
     for (let i = 0; i < 3; i++) {
       const b = cardImg({ r: 2, s: 0 }, 'tb-pilecard');
-      b.innerHTML = '<img src="assets/game/back.webp?v=38" alt="" style="width:90px;display:block;border-radius:8px">';
+      b.innerHTML = '<img src="assets/game/back.webp?v=39" alt="" style="width:90px;display:block;border-radius:8px">';
       b.style.left = (345 - i * 4) + 'px';
       b.style.top = (745 - i * 4) + 'px';
       piles.appendChild(b);
@@ -3955,7 +3955,7 @@ const Bots = (function () {
 </script>
 <script>
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js?v=38').catch(function(){}); });
+  window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js?v=39').catch(function(){}); });
 }
 </script>
 </body>
