@@ -100,7 +100,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 #gameScreen{padding:0 8px;gap:4px;
   background:
     linear-gradient(180deg,rgba(255,255,255,.42) 0%,rgba(214,244,255,.30) 40%,rgba(200,240,200,.42) 100%),
-    url('assets/tablebg.webp?v=26') center/cover no-repeat fixed}
+    url('assets/tablebg.webp?v=27') center/cover no-repeat fixed}
 
 .topbar{display:flex;align-items:center;gap:8px;padding:8px 0 2px}
 .topbar .icon{
@@ -252,7 +252,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .hand .card.sel{
   border-color:#63e06b;box-shadow:0 0 0 3px #63e06b,0 12px 22px rgba(0,0,0,.35);z-index:20!important;
 }
-.hand .card.ghost{background:url('assets/cardback.webp?v=26') center/cover;border-color:#fff}
+.hand .card.ghost{background:url('assets/cardback.webp?v=27') center/cover;border-color:#fff}
 
 /* ---------- action panel ---------- */
 .actionpanel{
@@ -394,7 +394,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .rcard.red .face.front{color:#d02a1e}
 .rcard .face.front .r{font-size:24px;line-height:1;font-family:Georgia,serif}
 .rcard .face.front .s{font-size:16px;line-height:1}
-.rcard .face.back{transform:rotateY(180deg);background:url('assets/cardback.webp?v=26') center/cover;border:2px solid #fff}
+.rcard .face.back{transform:rotateY(180deg);background:url('assets/cardback.webp?v=27') center/cover;border:2px solid #fff}
 .rcell.win .rcard .face.front{box-shadow:0 0 0 3px #63e06b,0 0 26px rgba(99,224,107,.9)}
 .rcell.win{animation:winglow 1.4s ease-in-out infinite alternate}
 @keyframes winglow{from{transform:scale(1)}to{transform:scale(1.05)}}
@@ -479,7 +479,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
 /* ================= SPLASH ================= */
 @font-face{font-family:'Baloo 2';font-style:normal;font-weight:400 800;font-display:swap;
-  src:url('assets/baloo.woff2?v=26') format('woff2')}
+  src:url('assets/baloo.woff2?v=27') format('woff2')}
 #splashScreen{font-family:'Baloo 2',system-ui,sans-serif}
 
 .splash{position:relative;height:100dvh;min-height:100dvh;width:100%;overflow:hidden;
@@ -556,7 +556,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .hs-skyext{display:none}
 
 .hs-crop{position:absolute;background-repeat:no-repeat;background-size:941px 1672px;
-  background-image:url('assets/home/home-base.webp?v=26');will-change:transform;z-index:2}
+  background-image:url('assets/home/home-base.webp?v=27');will-change:transform;z-index:2}
 .hs-char{left:345px;top:150px;width:267px;height:585px;background-position:-345px -150px;
   animation:hsBob 3s ease-in-out infinite}
 @keyframes hsBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
@@ -766,18 +766,20 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 /* ================= GAME TABLE ================= */
 #tableScreen .hs-stage{left:50%;top:auto;bottom:0;transform-origin:bottom center;
   transform:translateX(-50%) scale(1);width:852px;height:1846px}
-.tb-gear{position:absolute;left:24px;top:34px;width:88px;height:87px;z-index:8}
-.tb-pill{position:absolute;top:38px;height:88px;z-index:6;display:flex;align-items:center;justify-content:center;
-  border:16px solid transparent;border-image:url('assets/game/ui-pill-navy.webp?v=26') 34% fill stretch;
-  font-family:'Baloo 2',system-ui,sans-serif;font-weight:800;color:#fff;font-size:34px;white-space:nowrap;
+.tb-top{position:absolute;top:0;left:0;right:0;height:62px;z-index:30;display:flex;align-items:center;
+  gap:8px;padding:8px 10px;box-sizing:border-box}
+.tb-gear{width:44px;height:44px;flex:0 0 44px}
+.tb-pill{height:44px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;
+  border:9px solid transparent;border-image:url('assets/game/ui-pill-navy.webp?v=27') 34% fill stretch;
+  font-family:'Baloo 2',system-ui,sans-serif;font-weight:800;color:#fff;font-size:15px;white-space:nowrap;
   text-shadow:0 2px 3px rgba(0,0,0,.45);box-sizing:content-box}
-.tb-round{left:196px;width:392px;transform:translateY(0)}
-.tb-gold{left:598px;width:238px}
+.tb-round{flex:1;min-width:0}
+.tb-gold{width:26%}
 
 .tb-seat{position:absolute;z-index:7;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center}
 .tb-av{width:96px;height:96px;border-radius:50%;object-fit:cover;display:block;margin-bottom:-34px;z-index:2;position:relative}
 .tb-plate{width:200px;height:74px;padding-top:26px;border:15px solid transparent;
-  border-image:url('assets/game/ui-pill-navy.webp?v=26') 34% fill stretch;box-sizing:content-box;
+  border-image:url('assets/game/ui-pill-navy.webp?v=27') 34% fill stretch;box-sizing:content-box;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
 .tb-nm{font-family:'Baloo 2',system-ui,sans-serif;font-weight:800;color:#fff;font-size:26px;line-height:1;
   text-shadow:0 2px 3px rgba(0,0,0,.5)}
@@ -786,7 +788,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .tb-money img{width:26px;height:23px;display:block}
 .tb-status{position:absolute;top:100%;margin-top:14px;display:none;align-items:center;gap:6px;
   height:44px;padding:0 12px;border:12px solid transparent;
-  border-image:url('assets/game/ui-pill-grey.webp?v=26') 34% fill stretch;box-sizing:content-box;
+  border-image:url('assets/game/ui-pill-grey.webp?v=27') 34% fill stretch;box-sizing:content-box;
   font-family:'Baloo 2',system-ui,sans-serif;font-weight:800;font-size:20px;color:#fff;
   text-shadow:0 2px 2px rgba(0,0,0,.5);white-space:nowrap}
 .tb-status.on{display:flex}
@@ -809,11 +811,11 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
 .tb-panel{position:absolute;left:426px;top:1682px;transform:translate(-50%,-50%);
   width:784px;height:224px;border:18px solid transparent;
-  border-image:url('assets/game/ui-panel-cream.webp?v=26') 20% fill stretch;box-sizing:content-box;
+  border-image:url('assets/game/ui-panel-cream.webp?v=27') 20% fill stretch;box-sizing:content-box;
   display:flex;flex-direction:column;justify-content:space-between;z-index:8}
 .tb-header{position:absolute;left:50%;top:-34px;transform:translateX(-50%);height:74px;padding:0 30px;
   display:flex;align-items:center;border:14px solid transparent;
-  border-image:url('assets/game/ui-pill-yellow.webp?v=26') 34% fill stretch;box-sizing:content-box;
+  border-image:url('assets/game/ui-pill-yellow.webp?v=27') 34% fill stretch;box-sizing:content-box;
   font-family:'Baloo 2';font-weight:800;font-size:30px;color:#5A3410;white-space:nowrap}
 .tb-row1{display:flex;align-items:center;gap:14px;margin-top:26px}
 .tb-slot{position:relative;flex:1;height:100px;border:3px dashed #b08a4a;border-radius:14px;
@@ -822,11 +824,11 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .tb-hit{width:100px;height:100px;background:transparent;border:3px dashed #b08a4a;border-radius:14px}
 .tb-row2{display:flex;align-items:center;gap:12px}
 .tb-blue{flex:1;height:84px;border:14px solid transparent;
-  border-image:url('assets/game/ui-pill-blue.webp?v=26') 34% fill stretch;box-sizing:content-box;
+  border-image:url('assets/game/ui-pill-blue.webp?v=27') 34% fill stretch;box-sizing:content-box;
   font-family:'Baloo 2';font-weight:800;font-size:26px;color:#fff;text-shadow:0 2px 3px rgba(0,0,0,.5);
   background:none;padding:0}
 .tb-green{flex:1.7;height:96px;border:16px solid transparent;
-  border-image:url('assets/game/ui-pill-green.webp?v=26') 34% fill stretch;box-sizing:content-box;
+  border-image:url('assets/game/ui-pill-green.webp?v=27') 34% fill stretch;box-sizing:content-box;
   font-family:'Baloo 2';font-weight:800;font-size:38px;color:#fff;text-shadow:0 3px 4px rgba(0,0,0,.55);
   background:none;padding:0}
 .tb-blue:active,.tb-green:active{transform:scale(.97)}
@@ -838,12 +840,12 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .tb-overlay{position:absolute;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;
   background:rgba(6,12,26,.55)}
 .tb-overlay[hidden]{display:none}
-.tb-obox{width:600px;border:18px solid transparent;border-image:url('assets/game/ui-panel-cream.webp?v=26') 20% fill stretch;
+.tb-obox{width:600px;border:18px solid transparent;border-image:url('assets/game/ui-panel-cream.webp?v=27') 20% fill stretch;
   box-sizing:content-box;padding:26px;font-family:'Baloo 2';color:#5A3410;text-align:center}
 .tb-obox h3{margin:0 0 10px;font-size:34px}
 .tb-obox p{margin:4px 0;font-size:22px;font-weight:700}
 .tb-obox button{margin-top:16px;width:100%;height:92px;border:14px solid transparent;
-  border-image:url('assets/game/ui-pill-green.webp?v=26') 34% fill stretch;box-sizing:content-box;background:none;
+  border-image:url('assets/game/ui-pill-green.webp?v=27') 34% fill stretch;box-sizing:content-box;background:none;
   font-family:'Baloo 2';font-weight:800;font-size:30px;color:#fff;text-shadow:0 2px 3px rgba(0,0,0,.5)}
 
 </style>
@@ -854,9 +856,9 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
   <!-- ============ SPLASH / LOGIN ============ -->
   <section id="splashScreen" class="screen splash">
-    <img class="splash-bg" src="assets/bg-garden.webp?v=26" alt="">
+    <img class="splash-bg" src="assets/bg-garden.webp?v=27" alt="">
     <div class="floaties" id="floaties" aria-hidden="true"></div>
-    <img class="splash-logo" src="assets/logo.webp?v=26" alt="Game of Wealth">
+    <img class="splash-logo" src="assets/logo.webp?v=27" alt="Game of Wealth">
 
     <div class="splash-bottom">
       <div class="splash-actions" id="splashActions">
@@ -892,7 +894,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <div class="hs-wrap" id="hsWrap">
       <div class="hs-stage" id="hsStage">
         <div class="hs-skyext"></div>
-        <img class="hs-bg" src="assets/home/home-base.webp?v=26" alt="">
+        <img class="hs-bg" src="assets/home/home-base.webp?v=27" alt="">
         <div class="hs-crop hs-char" id="hsChar"></div>
         <div class="hs-crop hs-play" id="hsPlay"></div>
         <div class="hs-shimmer"></div>
@@ -927,18 +929,18 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
   <section id="tableSelectScreen" class="screen home3" hidden>
     <div class="hs-wrap">
       <div class="hs-stage" id="tsStage">
-        <img class="hs-bg" id="tsBg" src="assets/ts/ts-base.webp?v=26" alt="">
+        <img class="hs-bg" id="tsBg" src="assets/ts/ts-base.webp?v=27" alt="">
 
         <div class="ts-dim" id="dimPro"></div>
         <div class="ts-dim" id="dimHigh"></div>
         <div class="ts-outline" id="tsOutline"></div>
 
-        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp?v=26" alt=""><span>128 playing</span></div>
-        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp?v=26" alt=""><span>64 playing</span></div>
-        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp?v=26" alt=""><span>12 playing</span></div>
+        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp?v=27" alt=""><span>128 playing</span></div>
+        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp?v=27" alt=""><span>64 playing</span></div>
+        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp?v=27" alt=""><span>12 playing</span></div>
 
-        <img class="ts-lock" id="lockPro" src="assets/ic-lock.webp?v=26" alt="">
-        <img class="ts-lock" id="lockHigh" src="assets/ic-lock.webp?v=26" alt="">
+        <img class="ts-lock" id="lockPro" src="assets/ic-lock.webp?v=27" alt="">
+        <img class="ts-lock" id="lockHigh" src="assets/ic-lock.webp?v=27" alt="">
         <span class="ts-need" id="needPro">Need 5,000 cash</span>
         <span class="ts-need" id="needHigh">Need 10,000 cash</span>
 
@@ -966,7 +968,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <div class="bi-overlay" id="biOverlay" hidden>
       <div class="bi-sheet" id="biSheet">
         <div class="bi-inner" id="biInner">
-          <img class="bi-img" src="assets/ts/buyin-popup.webp?v=26" alt="">
+          <img class="bi-img" src="assets/ts/buyin-popup.webp?v=27" alt="">
 
           <span class="bi-amount" id="biAmount">2,000</span>
 
@@ -993,18 +995,20 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
   <!-- ============ GAME TABLE ============ -->
   <section id="tableScreen" class="screen home3" hidden>
     <div class="hs-wrap">
-      <div class="hs-stage" id="tblStage">
-        <img class="hs-bg" src="assets/game/table-bg.webp?v=26" alt="">
-
-        <img class="tb-gear" id="tbGear" src="assets/game/ui-gear.webp?v=26" alt="">
+      <div class="tb-top">
+        <img class="tb-gear" id="tbGear" src="assets/game/ui-gear.webp?v=27" alt="">
         <div class="tb-pill tb-round" id="tbRound"></div>
         <div class="tb-pill tb-gold" id="tbGold"></div>
+      </div>
+      <div class="hs-stage" id="tblStage">
+        <img class="hs-bg" src="assets/game/table-bg.webp?v=27" alt="">
+
 
         <div id="tbSeats"></div>
 
-        <img class="tb-pile" id="tbDraw" src="assets/game/back.webp?v=26" alt="">
+        <img class="tb-pile" id="tbDraw" src="assets/game/back.webp?v=27" alt="">
         <div class="tb-count" id="tbDrawCount"></div>
-        <img class="tb-pile tb-disc" id="tbDisc" src="assets/game/back.webp?v=26" alt="">
+        <img class="tb-pile tb-disc" id="tbDisc" src="assets/game/back.webp?v=27" alt="">
         <div class="tb-count" id="tbDiscCount"></div>
 
         <div class="tb-hand" id="tbHand"></div>
@@ -3233,7 +3237,7 @@ const Bots = (function () {
     const wrap = $('floaties');
     if (!wrap) return;
     wrap.innerHTML = '';
-    const kinds = ['assets/ic-cash1.webp?v=26', 'assets/ic-gold1.webp?v=26'];
+    const kinds = ['assets/ic-cash1.webp?v=27', 'assets/ic-gold1.webp?v=27'];
     for (let i = 0; i < 8; i++) {
       const img = document.createElement('img');
       img.className = 'flimg';
@@ -3558,13 +3562,13 @@ const Bots = (function () {
       const plate = document.createElement('div');
       plate.className = 'tb-plate';
       plate.innerHTML = '<span class="tb-nm">' + p.name + '</span>' +
-        '<span class="tb-money"><img src="assets/game/ui-cash.webp?v=26" alt="">' +
+        '<span class="tb-money"><img src="assets/game/ui-cash.webp?v=27" alt="">' +
         Math.round(p.cash).toLocaleString('en-IN') + ' \u00B7 <b style="color:#f7d24a">' + p.gold + 'g</b></span>';
       d.appendChild(av); d.appendChild(plate);
       if (s.phase === 'bid' && s.bids && s.bids[p.id] != null) {
         const st = document.createElement('span');
         st.className = 'tb-status on';
-        st.innerHTML = '<img src="assets/game/ui-lock.webp?v=26" alt="">Bid Locked';
+        st.innerHTML = '<img src="assets/game/ui-lock.webp?v=27" alt="">Bid Locked';
         d.appendChild(st);
       }
       seats.appendChild(d);
@@ -3575,7 +3579,7 @@ const Bots = (function () {
     const top = s.discard[s.discard.length - 1];
     const disc = $('tbDisc');
     if (top && CARD_OK[cardFace(top.r, top.s)]) disc.src = 'assets/game/' + cardFace(top.r, top.s) + '.webp';
-    else disc.src = 'assets/game/back.webp?v=26';
+    else disc.src = 'assets/game/back.webp?v=27';
 
     const hand = $('tbHand');
     hand.innerHTML = '';
@@ -3819,7 +3823,7 @@ const Bots = (function () {
 </script>
 <script>
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js?v=26').catch(function(){}); });
+  window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js?v=27').catch(function(){}); });
 }
 </script>
 </body>
