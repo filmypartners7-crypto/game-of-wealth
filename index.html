@@ -100,7 +100,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 #gameScreen{padding:0 8px;gap:4px;
   background:
     linear-gradient(180deg,rgba(255,255,255,.42) 0%,rgba(214,244,255,.30) 40%,rgba(200,240,200,.42) 100%),
-    url('assets/tablebg.webp?v=43') center/cover no-repeat fixed}
+    url('assets/tablebg.webp?v=44') center/cover no-repeat fixed}
 
 .topbar{display:flex;align-items:center;gap:8px;padding:8px 0 2px}
 .topbar .icon{
@@ -252,7 +252,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .hand .card.sel{
   border-color:#63e06b;box-shadow:0 0 0 3px #63e06b,0 12px 22px rgba(0,0,0,.35);z-index:20!important;
 }
-.hand .card.ghost{background:url('assets/cardback.webp?v=43') center/cover;border-color:#fff}
+.hand .card.ghost{background:url('assets/cardback.webp?v=44') center/cover;border-color:#fff}
 
 /* ---------- action panel ---------- */
 .actionpanel{
@@ -394,7 +394,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .rcard.red .face.front{color:#d02a1e}
 .rcard .face.front .r{font-size:24px;line-height:1;font-family:Georgia,serif}
 .rcard .face.front .s{font-size:16px;line-height:1}
-.rcard .face.back{transform:rotateY(180deg);background:url('assets/cardback.webp?v=43') center/cover;border:2px solid #fff}
+.rcard .face.back{transform:rotateY(180deg);background:url('assets/cardback.webp?v=44') center/cover;border:2px solid #fff}
 .rcell.win .rcard .face.front{box-shadow:0 0 0 3px #63e06b,0 0 26px rgba(99,224,107,.9)}
 .rcell.win{animation:winglow 1.4s ease-in-out infinite alternate}
 @keyframes winglow{from{transform:scale(1)}to{transform:scale(1.05)}}
@@ -479,7 +479,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
 /* ================= SPLASH ================= */
 @font-face{font-family:'Baloo 2';font-style:normal;font-weight:400 800;font-display:swap;
-  src:url('assets/baloo.woff2?v=43') format('woff2')}
+  src:url('assets/baloo.woff2?v=44') format('woff2')}
 #splashScreen{font-family:'Baloo 2',system-ui,sans-serif}
 
 .splash{position:relative;height:100dvh;min-height:100dvh;width:100%;overflow:hidden;
@@ -556,7 +556,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .hs-skyext{display:none}
 
 .hs-crop{position:absolute;background-repeat:no-repeat;background-size:941px 1672px;
-  background-image:url('assets/home/home-base.webp?v=43');will-change:transform;z-index:2}
+  background-image:url('assets/home/home-base.webp?v=44');will-change:transform;z-index:2}
 .hs-char{left:345px;top:150px;width:267px;height:585px;background-position:-345px -150px;
   animation:hsBob 3s ease-in-out infinite}
 @keyframes hsBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
@@ -764,32 +764,35 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .lobby-card p{font-family:'Baloo 2',system-ui,sans-serif;font-size:14px;font-weight:700;color:#8a7442;margin:8px 0 18px}
 
 /* ================= GAME TABLE ================= */
-#tableScreen{background:#c98a5a}
-#tableScreen .hs-stage{left:0;top:0;transform-origin:top left;width:852px;height:1846px}
+#tableScreen{background:#e9b9a8;position:relative;overflow:hidden}
+.tb-blur{position:absolute;inset:-8%;z-index:0;
+  background:url('assets/game/table-empty.webp?v=44') center/cover no-repeat;
+  filter:blur(22px) saturate(1.15) brightness(1.02);opacity:.95}
+.tb-veil{position:absolute;inset:0;z-index:1;background:rgba(255,225,205,.22)}
+#tableScreen .hs-stage{left:0;top:0;transform-origin:top left;width:852px;height:1846px;z-index:2}
 #tableScreen .hs-bg{width:852px;height:1846px}
 
-/* --- seats --- */
+/* seats */
 .tb-seatbox{position:absolute;transform:translate(-50%,-100%);z-index:4}
 .tb-char{display:block;width:280px;height:auto;filter:drop-shadow(0 10px 16px rgba(0,0,0,.45))}
 .tb-seatbox.me .tb-char{width:340px}
-.tb-plate{position:absolute;left:50%;transform:translate(-50%,26%);bottom:0;width:240px;z-index:7}
+.tb-plate{position:absolute;left:50%;transform:translate(-50%,24%);bottom:0;width:250px;z-index:8}
 .tb-seatbox.me .tb-plate{width:300px}
 .tb-plateimg{display:block;width:100%;height:auto}
-.tb-plate-txt{position:absolute;left:6%;right:6%;top:16%;bottom:14%;display:flex;flex-direction:column;
+.tb-plate-txt{position:absolute;left:7%;right:7%;top:15%;bottom:13%;display:flex;flex-direction:column;
   align-items:center;justify-content:center;gap:0;font-family:'Baloo 2',system-ui,sans-serif;color:#fff}
-.tb-nm{font-weight:800;font-size:22px;line-height:1;text-shadow:0 2px 0 rgba(8,20,45,.9);white-space:nowrap}
-.tb-row2{display:flex;align-items:center;gap:5px;font-weight:800;font-size:17px;line-height:1;
+.tb-nm{font-weight:800;font-size:22px;line-height:1.05;text-shadow:0 2px 0 rgba(8,20,45,.9);white-space:nowrap}
+.tb-row2{display:flex;align-items:center;gap:6px;font-weight:800;font-size:20px;line-height:1.05;
   text-shadow:0 2px 0 rgba(8,20,45,.9);white-space:nowrap}
-.tb-row2 img.note{width:20px;height:auto}
-.tb-row2 img.bar{width:16px;height:auto}
-.tb-lock{position:absolute;left:50%;top:-26px;transform:translateX(-50%);display:none;align-items:center;gap:4px;
+.tb-row2 img.note{width:22px;height:auto}
+.tb-row2 img.bar{width:18px;height:auto}
+.tb-lock{position:absolute;left:50%;top:-28px;transform:translateX(-50%);display:none;align-items:center;gap:4px;
   height:34px;padding:0 12px;border-radius:17px;background:linear-gradient(180deg,#4a5a6e,#2c3a4c);
-  border:2px solid #7f93ab;font-family:'Baloo 2';font-weight:800;font-size:17px;color:#fff;white-space:nowrap;
-  text-shadow:0 1px 0 rgba(0,0,0,.6);z-index:6}
+  border:2px solid #7f93ab;font-family:'Baloo 2';font-weight:800;font-size:17px;color:#fff;white-space:nowrap;z-index:9}
 .tb-lock.on{display:flex}
 .tb-lock img{width:14px;height:17px}
 
-/* --- piles & played --- */
+/* piles */
 .tb-pilecard{position:absolute;transform:translate(-50%,-50%);z-index:3;width:78px;height:113px;
   filter:drop-shadow(0 4px 7px rgba(0,0,0,.4))}
 .tb-pilecard img{width:100%;height:100%;object-fit:contain;display:block}
@@ -799,71 +802,66 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
   font-family:'Baloo 2';font-weight:800;font-size:18px;color:#fff;
   min-width:36px;height:28px;display:flex;align-items:center;justify-content:center;padding:0 8px;
   border-radius:14px;border:2px solid #4b7fd4;background:linear-gradient(180deg,#1d3f7a,#12294f)}
-.tb-played{position:absolute;transform:translate(-50%,-50%);z-index:3;width:66px;height:96px;
-  filter:drop-shadow(0 4px 7px rgba(0,0,0,.4))}
-.tb-played img{width:100%;height:100%;object-fit:contain;display:block}
 
-/* --- hand --- */
-.tb-hand{position:absolute;left:423px;top:1170px;width:0;height:0;z-index:6}
+/* hand */
+.tb-hand{position:absolute;left:423px;top:1128px;width:0;height:0;z-index:7}
 .tb-card{position:absolute;left:-44px;top:0;width:88px;cursor:pointer;
   transition:transform .16s ease,filter .16s ease;filter:drop-shadow(0 6px 10px rgba(0,0,0,.45))}
 .tb-card.sel{filter:drop-shadow(0 0 14px rgba(255,215,80,1))}
 .tb-card img{width:100%;display:block;border-radius:7px}
 
-/* --- top bar --- */
-.tb-roundbar{position:absolute;left:426px;top:96px;transform:translate(-50%,-50%);width:300px;z-index:7}
+/* top bar */
+.tb-roundbar{position:absolute;left:413px;top:109px;transform:translate(-50%,-50%);width:337px;z-index:9}
 .tb-rbimg{display:block;width:100%;height:auto}
 .tb-rbtext{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  font-family:'Baloo 2';font-weight:800;font-size:20px;color:#fff;text-shadow:0 2px 0 rgba(8,20,45,.85);white-space:nowrap}
-.tb-goldpill{position:absolute;left:700px;top:96px;transform:translate(-50%,-50%);width:200px;height:64px;z-index:7;
+  font-family:'Baloo 2';font-weight:800;font-size:21px;color:#fff;text-shadow:0 2px 0 rgba(8,20,45,.85);white-space:nowrap}
+.tb-goldpill{position:absolute;left:711px;top:110px;transform:translate(-50%,-50%);width:217px;height:64px;z-index:9;
   display:flex;align-items:center;justify-content:center;gap:8px;
   border-radius:32px;background:linear-gradient(180deg,#2f6fd0,#123a7c);border:3px solid #f2b93b;
   box-shadow:inset 0 3px 0 rgba(255,255,255,.35),0 4px 8px rgba(0,0,0,.35)}
 .tb-gbico{width:34px;height:auto}
 .tb-gbtext{font-family:'Baloo 2';font-weight:800;font-size:26px;color:#fff;text-shadow:0 2px 0 rgba(8,20,45,.85)}
-.tb-tri{width:0;height:0;border-left:9px solid transparent;border-right:9px solid transparent;
-  border-bottom:15px solid #57d94a}
+.tb-tri{width:0;height:0;border-left:9px solid transparent;border-right:9px solid transparent;border-bottom:15px solid #57d94a}
 .tb-tri.down{border-bottom:0;border-top:15px solid #ff6b5a}
 .tb-tri.hide{display:none}
 
-.tb-hit{position:absolute;background:transparent;border:0;padding:0;z-index:9;
+.tb-hit{position:absolute;background:transparent;border:0;padding:0;z-index:10;
   font-family:'Baloo 2',system-ui,sans-serif}
-.tb-gear{left:60px;top:96px;width:96px;height:96px;transform:translate(-50%,-50%);border-radius:50%;
+.tb-gear{left:55px;top:105px;width:110px;height:110px;transform:translate(-50%,-50%);border-radius:50%;
   background:radial-gradient(circle at 35% 30%,#5aa0ff,#1b57b8 70%);border:3px solid #f2b93b;
   box-shadow:0 4px 0 rgba(0,0,0,.25)}
-.tb-gear::after{content:'';position:absolute;inset:26%;border-radius:50%;
-  border:7px solid #fff;box-sizing:border-box}
+.tb-gear::after{content:'';position:absolute;inset:26%;border-radius:50%;border:7px solid #fff;box-sizing:border-box}
 
-/* --- bid panel --- */
-.tb-panel{position:absolute;left:426px;top:1616px;transform:translate(-50%,-50%);width:700px;z-index:8}
-.tb-pimg{display:block;width:100%;height:auto}
-.tb-ptitle{position:absolute;left:50%;top:2px;transform:translateX(-50%);width:330px;text-align:center;
-  font-family:'Baloo 2';font-weight:800;font-size:26px;color:#7a4a00;text-shadow:0 2px 0 rgba(255,255,255,.55)}
-.tb-pbid{position:absolute;left:50%;top:74px;transform:translateX(-50%);
-  font-family:'Baloo 2';font-weight:800;font-size:34px;color:#5A3410;
-  padding:2px 18px;border-radius:12px;
+/* bid panel */
+.tb-panel{position:absolute;left:12px;top:1395px;width:814px;height:305px;z-index:8}
+.tb-pimg{display:block;width:100%;height:100%}
+.tb-ptitle{position:absolute;left:406px;top:12px;transform:translate(-50%,-50%);width:330px;text-align:center;
+  font-family:'Baloo 2';font-weight:800;font-size:26px;color:#7a4a00;z-index:9;
+  text-shadow:0 2px 0 rgba(255,255,255,.55)}
+.tb-pbid{position:absolute;left:407px;top:60px;transform:translate(-50%,-50%);z-index:9;
+  font-family:'Baloo 2';font-weight:800;font-size:36px;color:#5A3410;padding:2px 18px;border-radius:12px;
   background:radial-gradient(ellipse at center,rgba(255,226,140,.9) 0%,rgba(255,214,110,.45) 65%,rgba(255,214,110,0) 100%)}
-.tb-slider{position:absolute;left:96px;top:112px;width:508px;height:96px;z-index:9}
-.tb-slider i{position:absolute;left:0;top:40px;bottom:40px;border-radius:8px;
+.tb-slider{position:absolute;left:123px;top:64px;width:560px;height:112px;z-index:9}
+.tb-slider i{position:absolute;left:0;top:48px;bottom:48px;border-radius:8px;
   background:linear-gradient(180deg,#7BE04A,#2FA81F)}
 .tb-slider b{position:absolute;top:50%;width:40px;height:40px;border-radius:50%;transform:translate(-50%,-50%);
   background:radial-gradient(circle at 34% 28%,#fff6c9,#ffd54a 45%,#e0a51e 78%,#b57d0d);
   border:3px solid #fff8e0;box-shadow:0 3px 8px rgba(0,0,0,.45);pointer-events:none;z-index:2}
-.tb-minus,.tb-plus{width:96px;height:96px;border-radius:50%;top:112px;
+.tb-minus,.tb-plus{width:110px;height:110px;border-radius:50%;top:62px;
   background:radial-gradient(circle at 35% 30%,#5aa0ff,#1b57b8 70%);border:3px solid #f2b93b;
-  color:#fff;font-size:38px;font-weight:800;line-height:1;display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:40px;font-weight:800;line-height:1;display:flex;align-items:center;justify-content:center;
   box-shadow:0 3px 0 rgba(0,0,0,.25)}
-.tb-minus{left:8px}.tb-plus{left:596px}
-.tb-min,.tb-2x,.tb-all{top:186px;height:100px;border-radius:18px;
+.tb-minus{left:13px}.tb-plus{left:682px}
+.tb-min,.tb-2x,.tb-all{top:168px;height:110px;border-radius:18px;
   background:linear-gradient(180deg,#4f9bff,#1f5fc8);border:3px solid #f2b93b;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;color:#fff;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;color:#fff;
   box-shadow:0 4px 0 rgba(0,0,0,.22)}
-.tb-min span,.tb-2x span,.tb-all span{font-size:19px;font-weight:800;line-height:1}
-.tb-min b,.tb-2x b,.tb-all b{font-size:19px;font-weight:800;line-height:1}
-.tb-min{left:24px;width:150px}.tb-2x{left:184px;width:140px}.tb-all{left:334px;width:170px}
-.tb-bidbtn{left:512px;top:180px;width:170px;height:110px;border-radius:22px;
+.tb-min span,.tb-2x span,.tb-all span{font-size:20px;font-weight:800;line-height:1}
+.tb-min b,.tb-2x b,.tb-all b{font-size:20px;font-weight:800;line-height:1}
+.tb-min{left:23px;width:160px}.tb-2x{left:198px;width:158px}.tb-all{left:373px;width:172px}
+.tb-bidbtn{left:560px;top:168px;width:248px;height:110px;border-radius:22px;
   background:linear-gradient(180deg,#6fe04a,#2fa81f);border:3px solid #f2b93b;
-  color:#fff;font-size:32px;font-weight:800;text-shadow:0 2px 0 rgba(0,0,0,.3);
+  color:#fff;font-size:34px;font-weight:800;text-shadow:0 2px 0 rgba(0,0,0,.3);
   box-shadow:0 4px 0 rgba(0,0,0,.22)}
 
 .tb-overlay{position:absolute;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;
@@ -874,8 +872,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .tb-obox h3{margin:0 0 10px;font-size:34px}
 .tb-obox p{margin:5px 0;font-size:22px;font-weight:700}
 .tb-obox button{margin-top:14px;width:100%;height:86px;border-radius:22px;border:0;
-  background:linear-gradient(180deg,#6fe04a,#2fa81f);color:#fff;font-family:'Baloo 2';
-  font-weight:800;font-size:28px}
+  background:linear-gradient(180deg,#6fe04a,#2fa81f);color:#fff;font-family:'Baloo 2';font-weight:800;font-size:28px}
 
 </style>
 </head>
@@ -885,9 +882,9 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
   <!-- ============ SPLASH / LOGIN ============ -->
   <section id="splashScreen" class="screen splash">
-    <img class="splash-bg" src="assets/bg-garden.webp?v=43" alt="">
+    <img class="splash-bg" src="assets/bg-garden.webp?v=44" alt="">
     <div class="floaties" id="floaties" aria-hidden="true"></div>
-    <img class="splash-logo" src="assets/logo.webp?v=43" alt="Game of Wealth">
+    <img class="splash-logo" src="assets/logo.webp?v=44" alt="Game of Wealth">
 
     <div class="splash-bottom">
       <div class="splash-actions" id="splashActions">
@@ -923,7 +920,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <div class="hs-wrap" id="hsWrap">
       <div class="hs-stage" id="hsStage">
         <div class="hs-skyext"></div>
-        <img class="hs-bg" src="assets/home/home-base.webp?v=43" alt="">
+        <img class="hs-bg" src="assets/home/home-base.webp?v=44" alt="">
         <div class="hs-crop hs-char" id="hsChar"></div>
         <div class="hs-crop hs-play" id="hsPlay"></div>
         <div class="hs-shimmer"></div>
@@ -958,18 +955,18 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
   <section id="tableSelectScreen" class="screen home3" hidden>
     <div class="hs-wrap">
       <div class="hs-stage" id="tsStage">
-        <img class="hs-bg" id="tsBg" src="assets/ts/ts-base.webp?v=43" alt="">
+        <img class="hs-bg" id="tsBg" src="assets/ts/ts-base.webp?v=44" alt="">
 
         <div class="ts-dim" id="dimPro"></div>
         <div class="ts-dim" id="dimHigh"></div>
         <div class="ts-outline" id="tsOutline"></div>
 
-        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp?v=43" alt=""><span>128 playing</span></div>
-        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp?v=43" alt=""><span>64 playing</span></div>
-        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp?v=43" alt=""><span>12 playing</span></div>
+        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp?v=44" alt=""><span>128 playing</span></div>
+        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp?v=44" alt=""><span>64 playing</span></div>
+        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp?v=44" alt=""><span>12 playing</span></div>
 
-        <img class="ts-lock" id="lockPro" src="assets/ic-lock.webp?v=43" alt="">
-        <img class="ts-lock" id="lockHigh" src="assets/ic-lock.webp?v=43" alt="">
+        <img class="ts-lock" id="lockPro" src="assets/ic-lock.webp?v=44" alt="">
+        <img class="ts-lock" id="lockHigh" src="assets/ic-lock.webp?v=44" alt="">
         <span class="ts-need" id="needPro">Need 5,000 cash</span>
         <span class="ts-need" id="needHigh">Need 10,000 cash</span>
 
@@ -997,7 +994,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <div class="bi-overlay" id="biOverlay" hidden>
       <div class="bi-sheet" id="biSheet">
         <div class="bi-inner" id="biInner">
-          <img class="bi-img" src="assets/ts/buyin-popup.webp?v=43" alt="">
+          <img class="bi-img" src="assets/ts/buyin-popup.webp?v=44" alt="">
 
           <span class="bi-amount" id="biAmount">2,000</span>
 
@@ -1023,22 +1020,24 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
   <!-- ============ GAME TABLE ============ -->
   <section id="tableScreen" class="screen home3" hidden>
+    <div class="tb-blur"></div>
+    <div class="tb-veil"></div>
     <div class="hs-wrap">
       <div class="hs-stage" id="tblStage">
-        <img class="hs-bg" id="tblBg" src="assets/game/table-empty.webp?v=43" alt="">
+        <img class="hs-bg" id="tblBg" src="assets/game/table-empty.webp?v=44" alt="">
 
         <div id="tbSeats"></div>
         <div id="tbPiles"></div>
         <div class="tb-hand" id="tbHand"></div>
 
         <button class="tb-hit tb-gear" id="tbGear" aria-label="Settings"></button>
-        <div class="tb-roundbar"><img class="tb-rbimg" src="assets/game/ui-round-bar.webp?v=43" alt="">
+        <div class="tb-roundbar"><img class="tb-rbimg" src="assets/game/ui-round-bar.webp?v=44" alt="">
           <span class="tb-rbtext" id="tbRound">Round 1 - Match 1/6</span></div>
-        <div class="tb-goldpill"><img class="tb-gbico" src="assets/game/ic-gold.webp?v=43" alt="">
+        <div class="tb-goldpill"><img class="tb-gbico" src="assets/game/ic-gold.webp?v=44" alt="">
           <span class="tb-gbtext" id="tbGold">1,000</span><i class="tb-tri hide" id="tbTri"></i></div>
 
         <div class="tb-panel">
-          <img class="tb-pimg" src="assets/game/ui-bid-panel.webp?v=43" alt="">
+          <img class="tb-pimg" src="assets/game/ui-bid-panel.webp?v=44" alt="">
           <span class="tb-ptitle" id="tbBanner">Place Your Bid</span>
           <span class="tb-pbid" id="tbBidVal">Your Bid: 100</span>
           <div class="tb-slider" id="tbSlider"><i id="tbFill"></i><b id="tbKnob"></b></div>
@@ -1065,7 +1064,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
     <!-- round start sheet -->
     <div class="pv" id="rsOv" hidden><div class="pv-sheet" id="rsSheet">
-      <img class="pv-img" src="assets/game/roundstart-sheet.webp?v=43" alt="">
+      <img class="pv-img" src="assets/game/roundstart-sheet.webp?v=44" alt="">
       <div class="pv-layer" id="rsLayer">
         <span class="pv-title" id="rsTitle" style="left:555px;top:240px;max-width:640px">Round 2 Begins</span>
         <button class="pv-x" id="rsClose" style="left:970px;top:172px;width:122px;height:120px" aria-label="Close"></button>
@@ -1081,7 +1080,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
     <!-- settings -->
     <div class="pv" id="setOv" hidden><div class="pv-sheet" id="setSheet">
-      <img class="pv-img" src="assets/game/popup-frame.webp?v=43" alt="">
+      <img class="pv-img" src="assets/game/popup-frame.webp?v=44" alt="">
       <div class="pv-layer" id="setLayer">
         <span class="pv-title" style="left:485px;top:245px;max-width:520px">Settings</span>
         <button class="pv-x" id="setClose" style="left:840px;top:176px;width:122px;height:119px" aria-label="Close"></button>
@@ -1091,7 +1090,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
     <!-- how to play -->
     <div class="pv" id="howOv" hidden><div class="pv-sheet" id="howSheet">
-      <img class="pv-img" src="assets/game/popup-frame.webp?v=43" alt="">
+      <img class="pv-img" src="assets/game/popup-frame.webp?v=44" alt="">
       <div class="pv-layer" id="howLayer">
         <span class="pv-title" style="left:485px;top:245px;max-width:520px">How to Play</span>
         <button class="pv-x" id="howClose" style="left:840px;top:176px;width:122px;height:119px" aria-label="Close"></button>
@@ -1101,7 +1100,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
     <!-- game over -->
     <div class="pv" id="goOv" hidden><div class="pv-sheet" id="goSheet">
-      <img class="pv-img" src="assets/game/popup-frame.webp?v=43" alt="">
+      <img class="pv-img" src="assets/game/popup-frame.webp?v=44" alt="">
       <div class="pv-layer" id="goLayer">
         <span class="pv-title" style="left:485px;top:245px;max-width:520px">Game Over</span>
         <div class="pv-body pv-rows" id="goBody" style="left:54px;top:397px;width:864px;height:1046px"></div>
@@ -1110,7 +1109,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
     <!-- leave confirm -->
     <div class="pv" id="leaveOv" hidden><div class="pv-sheet" id="leaveSheet">
-      <img class="pv-img" src="assets/game/popup-frame.webp?v=43" alt="">
+      <img class="pv-img" src="assets/game/popup-frame.webp?v=44" alt="">
       <div class="pv-layer" id="leaveLayer">
         <span class="pv-title" style="left:485px;top:245px;max-width:520px">Leave Game?</span>
         <button class="pv-x" id="leaveNo" style="left:840px;top:176px;width:122px;height:119px" aria-label="Close"></button>
@@ -3345,7 +3344,7 @@ const Bots = (function () {
     const wrap = $('floaties');
     if (!wrap) return;
     wrap.innerHTML = '';
-    const kinds = ['assets/ic-cash1.webp?v=43', 'assets/ic-gold1.webp?v=43'];
+    const kinds = ['assets/ic-cash1.webp?v=44', 'assets/ic-gold1.webp?v=44'];
     for (let i = 0; i < 8; i++) {
       const img = document.createElement('img');
       img.className = 'flimg';
@@ -3586,8 +3585,8 @@ const Bots = (function () {
   const BOT_AV = ['av-rohan','av-diya','av-arjun','av-varun','av-ananya'];
 
   const SEATS = [
-    { x: 423, y: 1355 }, { x: 72,  y: 900 }, { x: 88,  y: 600 },
-    { x: 427, y: 500 },  { x: 762, y: 600 }, { x: 778, y: 890 }
+    { x: 423, y: 1355 }, { x: 150, y: 900 }, { x: 150, y: 600 },
+    { x: 427, y: 500 },  { x: 700, y: 600 }, { x: 700, y: 890 }
   ];
   const USED_BY_N = {
     2: [0, 3], 3: [0, 2, 4], 4: [0, 1, 3, 5], 5: [0, 1, 2, 4, 5], 6: [0, 1, 2, 3, 4, 5]
@@ -3601,7 +3600,7 @@ const Bots = (function () {
     const vv = window.visualViewport;
     const vw = vv ? vv.width : window.innerWidth;
     const vh = vv ? vv.height : window.innerHeight;
-    const sc = Math.max(vw / 852, vh / 1846);
+    const sc = Math.min(vw / 852, vh / 1846);
     const dx = (vw - 852 * sc) / 2, dy = (vh - 1846 * sc) / 2;
     st.style.left = '0px'; st.style.top = '0px';
     st.style.transform = 'translate(' + dx + 'px,' + dy + 'px) scale(' + sc + ')';
@@ -3684,15 +3683,15 @@ const Bots = (function () {
 
       const plate = document.createElement('div');
       plate.className = 'tb-plate';
-      plate.innerHTML = '<img class="tb-plateimg" src="assets/game/ui-plate-large.webp?v=43" alt="">' +
+      plate.innerHTML = '<img class="tb-plateimg" src="assets/game/ui-plate-large.webp?v=44" alt="">' +
         '<div class="tb-plate-txt"><span class="tb-nm">' + p.name + '</span>' +
-        '<span class="tb-row2"><img class="note" src="assets/game/ic-cash1.webp?v=43" alt="">' +
+        '<span class="tb-row2"><img class="note" src="assets/game/ic-cash1.webp?v=44" alt="">' +
         Math.round(p.cash).toLocaleString('en-IN') +
-        '<img class="bar" src="assets/game/ic-gold.webp?v=43" alt="">' + p.gold + '</span></div>';
+        '<img class="bar" src="assets/game/ic-gold.webp?v=44" alt="">' + p.gold + '</span></div>';
       if (s.bids && s.bids[p.id] != null) {
         const lk = document.createElement('span');
         lk.className = 'tb-lock on';
-        lk.innerHTML = '<img src="assets/game/ui-lock.webp?v=43" alt="">Bid Locked';
+        lk.innerHTML = '<img src="assets/game/ui-lock.webp?v=44" alt="">Bid Locked';
         plate.appendChild(lk);
       }
       box.appendChild(plate);
@@ -3704,7 +3703,7 @@ const Bots = (function () {
     for (let i = 0; i < 3; i++) {
       const b = document.createElement('div');
       b.className = 'tb-pilecard';
-      b.innerHTML = '<img src="assets/game/back.webp?v=43" alt="">';
+      b.innerHTML = '<img src="assets/game/back.webp?v=44" alt="">';
       b.style.left = (345 - i * 4) + 'px';
       b.style.top = (760 - i * 4) + 'px';
       piles.appendChild(b);
@@ -4005,13 +4004,13 @@ const Bots = (function () {
       });
       for (let i = 0; i <= 4; i++) grid += '<line x1="0" y1="' + (i * H / 4) + '" x2="' + W + '" y2="' + (i * H / 4) + '" stroke="rgba(160,120,60,.18)" stroke-width="2"/>';
       body.innerHTML =
-        '<div class="pv-price"><img src="assets/game/ic-gold.webp?v=43" alt="">' + s.goldPrice.toLocaleString('en-IN') +
+        '<div class="pv-price"><img src="assets/game/ic-gold.webp?v=44" alt="">' + s.goldPrice.toLocaleString('en-IN') +
         (change ? ' <span class="pv-trend ' + (change > 0 ? 'up' : 'down') + '">' +
           (change > 0 ? '\u25B2 +' : '\u25BC ') + change.toLocaleString('en-IN') + '</span>' : '') + '</div>' +
         '<svg class="pv-graph" viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="none">' + grid +
         '<path d="' + d + '" fill="none" stroke="#e88b1e" stroke-width="4" stroke-linejoin="round"/>' + dots + '</svg>' +
-        '<div class="pv-cols"><span><img src="assets/game/ic-gold.webp?v=43" alt="">My Gold: ' + me.gold + '</span>' +
-        '<span><img src="assets/game/ic-cash1.webp?v=43" alt="">My Cash: ' + Math.round(me.cash).toLocaleString('en-IN') + '</span></div>' +
+        '<div class="pv-cols"><span><img src="assets/game/ic-gold.webp?v=44" alt="">My Gold: ' + me.gold + '</span>' +
+        '<span><img src="assets/game/ic-cash1.webp?v=44" alt="">My Cash: ' + Math.round(me.cash).toLocaleString('en-IN') + '</span></div>' +
         '<div class="pv-step"><button id="rsMinus">\u2212</button><b id="rsQty">' + RS.qty + '</b><button id="rsPlus">+</button></div>' +
         '<div class="pv-btns"><button class="pv-buy" id="rsBuy">BUY</button><button class="pv-sell" id="rsSell">SELL</button></div>';
       $('rsMinus').onclick = function () { RS.qty = Math.max(1, RS.qty - 1); renderRoundStart(); };
@@ -4030,11 +4029,11 @@ const Bots = (function () {
         seen[k] = { card: c, n: 1 }; tiles.push(seen[k]);
       });
       if (!tiles.length) {
-        body.innerHTML = '<div class="pv-cols"><span><img src="assets/game/ic-cash1.webp?v=43" alt="">My Cash: ' +
+        body.innerHTML = '<div class="pv-cols"><span><img src="assets/game/ic-cash1.webp?v=44" alt="">My Cash: ' +
           Math.round(me.cash).toLocaleString('en-IN') + '</span></div><div class="pv-empty">No cards in the discard pile yet</div>';
         return;
       }
-      let html = '<div class="pv-cols"><span><img src="assets/game/ic-cash1.webp?v=43" alt="">My Cash: ' +
+      let html = '<div class="pv-cols"><span><img src="assets/game/ic-cash1.webp?v=44" alt="">My Cash: ' +
         Math.round(me.cash).toLocaleString('en-IN') + '</span></div><div class="pv-grid">';
       tiles.forEach(function (t) {
         html += '<div class="pv-card' + (RS.sel === t.card.id ? ' sel' : '') + '" data-id="' + t.card.id + '">' +
@@ -4357,7 +4356,7 @@ const Bots = (function () {
 </script>
 <script>
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js?v=43').catch(function(){}); });
+  window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js?v=44').catch(function(){}); });
 }
 </script>
 </body>
