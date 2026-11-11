@@ -100,7 +100,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 #gameScreen{padding:0 8px;gap:4px;
   background:
     linear-gradient(180deg,rgba(255,255,255,.42) 0%,rgba(214,244,255,.30) 40%,rgba(200,240,200,.42) 100%),
-    url('assets/tablebg.webp?v=41') center/cover no-repeat fixed}
+    url('assets/tablebg.webp?v=42') center/cover no-repeat fixed}
 
 .topbar{display:flex;align-items:center;gap:8px;padding:8px 0 2px}
 .topbar .icon{
@@ -252,7 +252,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .hand .card.sel{
   border-color:#63e06b;box-shadow:0 0 0 3px #63e06b,0 12px 22px rgba(0,0,0,.35);z-index:20!important;
 }
-.hand .card.ghost{background:url('assets/cardback.webp?v=41') center/cover;border-color:#fff}
+.hand .card.ghost{background:url('assets/cardback.webp?v=42') center/cover;border-color:#fff}
 
 /* ---------- action panel ---------- */
 .actionpanel{
@@ -394,7 +394,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .rcard.red .face.front{color:#d02a1e}
 .rcard .face.front .r{font-size:24px;line-height:1;font-family:Georgia,serif}
 .rcard .face.front .s{font-size:16px;line-height:1}
-.rcard .face.back{transform:rotateY(180deg);background:url('assets/cardback.webp?v=41') center/cover;border:2px solid #fff}
+.rcard .face.back{transform:rotateY(180deg);background:url('assets/cardback.webp?v=42') center/cover;border:2px solid #fff}
 .rcell.win .rcard .face.front{box-shadow:0 0 0 3px #63e06b,0 0 26px rgba(99,224,107,.9)}
 .rcell.win{animation:winglow 1.4s ease-in-out infinite alternate}
 @keyframes winglow{from{transform:scale(1)}to{transform:scale(1.05)}}
@@ -479,7 +479,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
 /* ================= SPLASH ================= */
 @font-face{font-family:'Baloo 2';font-style:normal;font-weight:400 800;font-display:swap;
-  src:url('assets/baloo.woff2?v=41') format('woff2')}
+  src:url('assets/baloo.woff2?v=42') format('woff2')}
 #splashScreen{font-family:'Baloo 2',system-ui,sans-serif}
 
 .splash{position:relative;height:100dvh;min-height:100dvh;width:100%;overflow:hidden;
@@ -556,7 +556,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .hs-skyext{display:none}
 
 .hs-crop{position:absolute;background-repeat:no-repeat;background-size:941px 1672px;
-  background-image:url('assets/home/home-base.webp?v=41');will-change:transform;z-index:2}
+  background-image:url('assets/home/home-base.webp?v=42');will-change:transform;z-index:2}
 .hs-char{left:345px;top:150px;width:267px;height:585px;background-position:-345px -150px;
   animation:hsBob 3s ease-in-out infinite}
 @keyframes hsBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
@@ -941,6 +941,90 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .go-row.me{background:rgba(47,168,31,.22);outline:2px solid #2fa81f}
 .go-row span{white-space:nowrap}
 
+/* ================= STAGE 2B POPUPS ================= */
+.pv{position:fixed;inset:0;z-index:95;background:rgba(6,12,26,.55);opacity:0;transition:opacity .18s}
+.pv[hidden]{display:none}
+.pv.in{opacity:1}
+.pv-sheet{position:absolute;left:0;top:0;transform-origin:center center;transform:scale(.9);
+  transition:transform .2s cubic-bezier(.2,.9,.3,1);filter:drop-shadow(0 18px 44px rgba(0,0,0,.5))}
+.pv.in .pv-sheet{transform:scale(1)}
+.pv-img{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
+.pv-layer{position:absolute;left:0;top:0;transform-origin:top left;font-family:'Baloo 2',system-ui,sans-serif}
+#rsLayer{width:1108px;height:1419px}
+#setLayer,#howLayer,#goLayer,#leaveLayer{width:971px;height:1620px}
+
+.pv-title{position:absolute;transform:translate(-50%,-50%);width:100%;text-align:center;
+  font-weight:800;font-size:52px;color:#fff;letter-spacing:.01em;line-height:1.05;
+  text-shadow:0 4px 0 #8e1c14,0 -2px 0 #8e1c14,3px 0 0 #8e1c14,-3px 0 0 #8e1c14,0 0 10px rgba(120,20,10,.7)}
+.pv-x{position:absolute;background:transparent;border:0;padding:0;border-radius:50%}
+.pv-tabs{position:absolute;inset:0;pointer-events:none}
+.pv-tab{position:absolute;background:transparent;border:0;padding:0;pointer-events:auto;border-radius:26px}
+.pv-tabhl{position:absolute;border-radius:26px;pointer-events:none;display:none;
+  background:rgba(255,201,60,.30);
+  box-shadow:0 0 0 5px #FFC727,0 0 22px 6px rgba(255,199,39,.85),inset 0 0 18px rgba(255,214,110,.6)}
+.pv-tabhl.on{display:block}
+.pv-body{position:absolute;overflow:auto;box-sizing:border-box;padding:22px 26px;
+  font-family:'Baloo 2',system-ui,sans-serif;color:#5A3410}
+.pv-btn{position:absolute;background:transparent;border:0;padding:0;border-radius:40px}
+
+.pv-price{display:flex;align-items:center;justify-content:center;gap:16px;font-weight:800;font-size:68px;color:#5A3410}
+.pv-price img{width:62px;height:auto}
+.pv-trend{font-size:26px;font-weight:800}
+.pv-trend.up{color:#2fa81f}.pv-trend.down{color:#e0453a}
+.pv-graph{display:block;width:100%;height:200px;margin:10px 0}
+.pv-cols{display:flex;justify-content:space-between;font-weight:800;font-size:32px;margin:8px 0 12px}
+.pv-cols span{display:flex;align-items:center;gap:8px}
+.pv-cols img{width:34px;height:auto}
+.pv-step{display:flex;align-items:center;justify-content:center;gap:22px;margin:10px 0}
+.pv-step button{width:92px;height:92px;border-radius:50%;border:0;color:#fff;font-size:48px;font-weight:800;
+  background:linear-gradient(180deg,#3f9bfd,#1b57b8)}
+.pv-step b{font-size:54px;min-width:92px;text-align:center}
+.pv-btns{display:flex;gap:16px;margin-top:6px}
+.pv-buy,.pv-sell{flex:1;height:104px;border-radius:26px;border:0;color:#fff;font-family:'Baloo 2';
+  font-weight:800;font-size:40px;text-shadow:0 3px 0 rgba(0,0,0,.28)}
+.pv-buy{background:linear-gradient(180deg,#6fe04a,#2fa81f)}
+.pv-sell{background:linear-gradient(180deg,#ff8a72,#e0453a)}
+
+.pv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:10px 0}
+.pv-card{position:relative;border-radius:10px;border:3px solid transparent;background:#fff;padding:3px}
+.pv-card img{width:100%;display:block;border-radius:8px}
+.pv-card.sel{border-color:#FFC727;box-shadow:0 0 0 4px rgba(255,199,39,.55)}
+.pv-card b{position:absolute;right:3px;bottom:3px;background:#1d3f7a;color:#fff;font-size:15px;padding:0 6px;border-radius:7px}
+.pv-tag{position:absolute;left:3px;top:3px;background:#2fa81f;color:#fff;font-size:14px;padding:0 6px;border-radius:7px}
+.pv-empty{text-align:center;font-weight:700;font-size:24px;padding:40px 0;opacity:.7}
+
+.pv-rows{display:flex;flex-direction:column;gap:0}
+.pv-row{display:flex;align-items:center;justify-content:space-between;gap:16px;height:150px;
+  border-bottom:2px dashed rgba(160,120,60,.3);font-weight:800;font-size:40px}
+.pv-toggle{width:118px;height:64px;border-radius:29px;border:0;background:#b9a06e;position:relative;transition:.15s}
+.pv-toggle i{position:absolute;left:5px;top:5px;width:54px;height:54px;border-radius:50%;background:#fff;transition:.15s}
+.pv-toggle.on{background:#2fa81f}
+.pv-toggle.on i{left:59px}
+.pv-seg{display:flex;gap:8px}
+.pv-seg b{padding:10px 18px;border-radius:14px;background:#e6d3a8;font-size:34px;font-weight:800}
+.pv-seg b.on{background:#2fa81f;color:#fff}
+.pv-seg.ro b{opacity:.5}
+.pv-link{height:110px;border-radius:22px;border:0;margin-top:20px;background:#e6d3a8;color:#5A3410;
+  font-family:'Baloo 2';font-weight:800;font-size:40px}
+.pv-red{height:110px;border-radius:22px;border:0;margin-top:20px;background:linear-gradient(180deg,#ff8a72,#e0453a);
+  color:#fff;font-family:'Baloo 2';font-weight:800;font-size:40px}
+.pv-green{height:110px;border-radius:26px;border:0;margin-top:18px;background:linear-gradient(180deg,#6fe04a,#2fa81f);
+  color:#fff;font-family:'Baloo 2';font-weight:800;font-size:34px;text-shadow:0 3px 0 rgba(0,0,0,.28)}
+.pv-p{font-size:26px;font-weight:700;margin:20px 0}
+
+.pv-how{display:flex;gap:18px;align-items:flex-start;margin:22px 0;font-weight:700;font-size:34px;line-height:1.25}
+.pv-how i{flex:0 0 58px;height:58px;border-radius:50%;background:#1d3f7a;color:#fff;font-style:normal;
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:24px}
+
+.pv-go{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:16px;
+  background:rgba(255,255,255,.55);margin-bottom:12px;font-weight:800;font-size:34px}
+.pv-go.me{background:rgba(255,199,39,.45);outline:3px solid #FFC727}
+.pv-go .av{width:66px;height:66px;border-radius:50%;background:#1d3f7a;color:#fff;display:flex;
+  align-items:center;justify-content:center;font-size:30px;flex:0 0 66px}
+.pv-go .nm{flex:1}
+.pv-go .pz{color:#2fa81f}
+.pv-go .nz{color:#e0453a}
+
 </style>
 </head>
 <body>
@@ -949,9 +1033,9 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
   <!-- ============ SPLASH / LOGIN ============ -->
   <section id="splashScreen" class="screen splash">
-    <img class="splash-bg" src="assets/bg-garden.webp?v=41" alt="">
+    <img class="splash-bg" src="assets/bg-garden.webp?v=42" alt="">
     <div class="floaties" id="floaties" aria-hidden="true"></div>
-    <img class="splash-logo" src="assets/logo.webp?v=41" alt="Game of Wealth">
+    <img class="splash-logo" src="assets/logo.webp?v=42" alt="Game of Wealth">
 
     <div class="splash-bottom">
       <div class="splash-actions" id="splashActions">
@@ -987,7 +1071,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <div class="hs-wrap" id="hsWrap">
       <div class="hs-stage" id="hsStage">
         <div class="hs-skyext"></div>
-        <img class="hs-bg" src="assets/home/home-base.webp?v=41" alt="">
+        <img class="hs-bg" src="assets/home/home-base.webp?v=42" alt="">
         <div class="hs-crop hs-char" id="hsChar"></div>
         <div class="hs-crop hs-play" id="hsPlay"></div>
         <div class="hs-shimmer"></div>
@@ -1022,18 +1106,18 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
   <section id="tableSelectScreen" class="screen home3" hidden>
     <div class="hs-wrap">
       <div class="hs-stage" id="tsStage">
-        <img class="hs-bg" id="tsBg" src="assets/ts/ts-base.webp?v=41" alt="">
+        <img class="hs-bg" id="tsBg" src="assets/ts/ts-base.webp?v=42" alt="">
 
         <div class="ts-dim" id="dimPro"></div>
         <div class="ts-dim" id="dimHigh"></div>
         <div class="ts-outline" id="tsOutline"></div>
 
-        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp?v=41" alt=""><span>128 playing</span></div>
-        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp?v=41" alt=""><span>64 playing</span></div>
-        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp?v=41" alt=""><span>12 playing</span></div>
+        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp?v=42" alt=""><span>128 playing</span></div>
+        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp?v=42" alt=""><span>64 playing</span></div>
+        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp?v=42" alt=""><span>12 playing</span></div>
 
-        <img class="ts-lock" id="lockPro" src="assets/ic-lock.webp?v=41" alt="">
-        <img class="ts-lock" id="lockHigh" src="assets/ic-lock.webp?v=41" alt="">
+        <img class="ts-lock" id="lockPro" src="assets/ic-lock.webp?v=42" alt="">
+        <img class="ts-lock" id="lockHigh" src="assets/ic-lock.webp?v=42" alt="">
         <span class="ts-need" id="needPro">Need 5,000 cash</span>
         <span class="ts-need" id="needHigh">Need 10,000 cash</span>
 
@@ -1061,7 +1145,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <div class="bi-overlay" id="biOverlay" hidden>
       <div class="bi-sheet" id="biSheet">
         <div class="bi-inner" id="biInner">
-          <img class="bi-img" src="assets/ts/buyin-popup.webp?v=41" alt="">
+          <img class="bi-img" src="assets/ts/buyin-popup.webp?v=42" alt="">
 
           <span class="bi-amount" id="biAmount">2,000</span>
 
@@ -1089,11 +1173,11 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
   <section id="tableScreen" class="screen home3" hidden>
     <div class="hs-wrap">
       <div class="hs-stage" id="tblStage">
-        <img class="hs-bg" src="assets/game/table-base.webp?v=41" alt="">
+        <img class="hs-bg" src="assets/game/table-base.webp?v=42" alt="">
 
         <button class="tb-hit tb-gear" id="tbGear" aria-label="Settings"></button>
         <span class="tb-t tb-round" id="tbRound"></span>
-        <img class="tb-gico" src="assets/game/ic-gold.webp?v=41" alt="">
+        <img class="tb-gico" src="assets/game/ic-gold.webp?v=42" alt="">
         <span class="tb-t tb-gold" id="tbGold"></span>
         <i class="tb-tri" id="tbTri"></i>
 
@@ -1116,61 +1200,6 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
         <div class="tb-overlay" id="tbOverlay" hidden><div class="tb-obox" id="tbObox"></div></div>
 
-    <!-- settings -->
-    <div class="ov" id="setOv" hidden><div class="ov-box">
-      <div class="ov-ribbon">Settings</div>
-      <button class="ov-x" id="setClose" aria-label="Close"></button>
-      <div class="set-row"><span>Sound</span><button class="set-toggle on" id="setSound"><i></i></button></div>
-      <div class="set-row"><span>Music</span><button class="set-toggle on" id="setMusic"><i></i></button></div>
-      <div class="set-row"><span>Game speed</span><button class="set-seg" id="setSpeed"><b>Normal</b><b>Fast</b></button></div>
-      <div class="set-row"><span>Rounds</span><button class="set-seg" id="setRounds"><b>6</b><b class="on">12</b><b>18</b><b>24</b></button></div>
-      <button class="set-link" id="setHow">How to Play</button>
-      <button class="set-leave" id="setLeave">Leave Game</button>
-    </div></div>
-
-    <!-- how to play -->
-    <div class="ov" id="howOv" hidden><div class="ov-box">
-      <div class="ov-ribbon">How to Play</div>
-      <button class="ov-x" id="howClose" aria-label="Close"></button>
-      <div class="how-list">
-        <p>1. Everyone bids cash on the match, then plays one card.</p>
-        <p>2. Highest rank wins the pot plus a bank bonus.</p>
-        <p>3. Equal top ranks cancel and drop out.</p>
-        <p>4. Trade gold at the start of each round.</p>
-        <p>5. Richest player after the last round wins.</p>
-      </div>
-    </div></div>
-
-    <!-- leave confirm -->
-    <div class="ov" id="leaveOv" hidden><div class="ov-box small">
-      <div class="ov-ribbon">Leave Game?</div>
-      <p class="ov-p">Your progress will be lost.</p>
-      <button class="ov-green" id="leaveYes">Leave</button>
-      <button class="ov-plain" id="leaveNo">Stay</button>
-    </div></div>
-
-    <!-- round start sheet -->
-    <div class="ov" id="rsOv" hidden><div class="ov-box wide" id="rsBox">
-      <div class="ov-ribbon" id="rsTitle">Round 2 Begins</div>
-      <button class="ov-x" id="rsClose" aria-label="Close"></button>
-      <div class="rs-tabs">
-        <button class="rs-tab on" data-tab="gold">GOLD</button>
-        <button class="rs-tab" data-tab="cards">CARDS</button>
-        <button class="rs-tab" data-tab="loan">LOAN</button>
-        <button class="rs-tab" data-tab="topup">TOP-UP</button>
-        <i class="rs-hl" id="rsHl"></i>
-      </div>
-      <div class="rs-body" id="rsBody"></div>
-      <button class="ov-green" id="rsStart">Start Round</button>
-    </div></div>
-
-    <!-- game over -->
-    <div class="ov" id="goOv" hidden><div class="ov-box wide">
-      <div class="ov-ribbon">Game Over</div>
-      <div class="go-list" id="goList"></div>
-      <button class="ov-green" id="goHome">Home</button>
-    </div></div>
-
     <!-- debug -->
     <div class="ov" id="dbgOv" hidden><div class="ov-box small">
       <div class="ov-ribbon">Debug</div>
@@ -1182,6 +1211,64 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
       </div>
     </div>
+    <!-- round start sheet -->
+    <div class="pv" id="rsOv" hidden><div class="pv-sheet" id="rsSheet">
+      <img class="pv-img" src="assets/game/roundstart-sheet.webp?v=42" alt="">
+      <div class="pv-layer" id="rsLayer">
+        <span class="pv-title" id="rsTitle" style="left:555px;top:240px;max-width:640px">Round 2 Begins</span>
+        <button class="pv-x" id="rsClose" style="left:970px;top:172px;width:122px;height:120px" aria-label="Close"></button>
+        <button class="pv-tab on" data-tab="gold"  style="left:82px;top:365px;width:233px;height:153px"></button>
+        <button class="pv-tab" data-tab="cards" style="left:325px;top:365px;width:223px;height:153px"></button>
+        <button class="pv-tab" data-tab="loan"  style="left:558px;top:365px;width:227px;height:153px"></button>
+        <button class="pv-tab" data-tab="topup" style="left:793px;top:365px;width:232px;height:153px"></button>
+        <i class="pv-tabhl" id="rsHl"></i>
+        <div class="pv-body" id="rsBody" style="left:56px;top:545px;width:993px;height:624px"></div>
+        <button class="pv-btn" id="rsStart" style="left:215px;top:1180px;width:678px;height:160px" aria-label="Start Round"></button>
+      </div>
+    </div></div>
+
+    <!-- settings -->
+    <div class="pv" id="setOv" hidden><div class="pv-sheet" id="setSheet">
+      <img class="pv-img" src="assets/game/popup-frame.webp?v=42" alt="">
+      <div class="pv-layer" id="setLayer">
+        <span class="pv-title" style="left:485px;top:245px;max-width:520px">Settings</span>
+        <button class="pv-x" id="setClose" style="left:840px;top:176px;width:122px;height:119px" aria-label="Close"></button>
+        <div class="pv-body pv-rows" id="setBody" style="left:54px;top:397px;width:864px;height:1046px"></div>
+      </div>
+    </div></div>
+
+    <!-- how to play -->
+    <div class="pv" id="howOv" hidden><div class="pv-sheet" id="howSheet">
+      <img class="pv-img" src="assets/game/popup-frame.webp?v=42" alt="">
+      <div class="pv-layer" id="howLayer">
+        <span class="pv-title" style="left:485px;top:245px;max-width:520px">How to Play</span>
+        <button class="pv-x" id="howClose" style="left:840px;top:176px;width:122px;height:119px" aria-label="Close"></button>
+        <div class="pv-body pv-rows" id="howBody" style="left:54px;top:397px;width:864px;height:1046px"></div>
+      </div>
+    </div></div>
+
+    <!-- game over -->
+    <div class="pv" id="goOv" hidden><div class="pv-sheet" id="goSheet">
+      <img class="pv-img" src="assets/game/popup-frame.webp?v=42" alt="">
+      <div class="pv-layer" id="goLayer">
+        <span class="pv-title" style="left:485px;top:245px;max-width:520px">Game Over</span>
+        <div class="pv-body pv-rows" id="goBody" style="left:54px;top:397px;width:864px;height:1046px"></div>
+      </div>
+    </div></div>
+
+    <!-- leave confirm -->
+    <div class="pv" id="leaveOv" hidden><div class="pv-sheet" id="leaveSheet">
+      <img class="pv-img" src="assets/game/popup-frame.webp?v=42" alt="">
+      <div class="pv-layer" id="leaveLayer">
+        <span class="pv-title" style="left:485px;top:245px;max-width:520px">Leave Game?</span>
+        <button class="pv-x" id="leaveNo" style="left:840px;top:176px;width:122px;height:119px" aria-label="Close"></button>
+        <div class="pv-body pv-rows" id="leaveBody" style="left:54px;top:397px;width:864px;height:1046px">
+          <p class="pv-p">Your table cash is returned.</p>
+          <button class="pv-red" id="leaveYes">Leave Game</button>
+        </div>
+      </div>
+    </div></div>
+
   </section>
 
   <!-- ============ LOBBY (placeholder) ============ -->
@@ -3406,7 +3493,7 @@ const Bots = (function () {
     const wrap = $('floaties');
     if (!wrap) return;
     wrap.innerHTML = '';
-    const kinds = ['assets/ic-cash1.webp?v=41', 'assets/ic-gold1.webp?v=41'];
+    const kinds = ['assets/ic-cash1.webp?v=42', 'assets/ic-gold1.webp?v=42'];
     for (let i = 0; i < 8; i++) {
       const img = document.createElement('img');
       img.className = 'flimg';
@@ -3683,9 +3770,8 @@ const Bots = (function () {
     Engine.startRound(s);
     showScreen('table');
     fitTable();
-    autoRoundStart();
     renderTable();
-    tbTick();
+    openRoundStart();
   }
 
   function autoRoundStart() {
@@ -3752,9 +3838,9 @@ const Bots = (function () {
       const base = document.createElement('div');
       base.className = 'tb-base';
       base.style.top = (h * 0.56) + 'px';
-      base.innerHTML = '<img class="note" src="assets/game/ic-cash1.webp?v=41" alt="">' +
+      base.innerHTML = '<img class="note" src="assets/game/ic-cash1.webp?v=42" alt="">' +
         Math.round(p.cash).toLocaleString('en-IN') +
-        '<img class="bar" src="assets/game/ic-gold.webp?v=41" alt="">' + p.gold;
+        '<img class="bar" src="assets/game/ic-gold.webp?v=42" alt="">' + p.gold;
       d.appendChild(base);
       if (LOCKS[p.name]) {
         const lc = LOCKS[p.name];
@@ -3765,7 +3851,7 @@ const Bots = (function () {
         const revealed = s.phase !== 'bid' && s.phase !== 'handReveal';
         lk.innerHTML = revealed && locked
           ? Math.round(s.bids[p.id]).toLocaleString('en-IN')
-          : '<img src="assets/game/ui-lock.webp?v=41" alt="">Bid Locked';
+          : '<img src="assets/game/ui-lock.webp?v=42" alt="">Bid Locked';
         d.appendChild(lk);
       }
       seats.appendChild(d);
@@ -3788,9 +3874,9 @@ const Bots = (function () {
       'background:linear-gradient(180deg,#1b3466,#14284F);border:2px solid #d9a441;' +
       'display:flex;align-items:center;justify-content:center;gap:0;' +
       'font-family:\'Baloo 2\';font-weight:800;font-size:24px;color:#fff;text-shadow:0 2px 0 rgba(8,20,45,.9)">' +
-      '<img src="assets/game/ic-cash1.webp?v=41" style="width:30px;height:22px;margin-right:6px" alt="">' +
+      '<img src="assets/game/ic-cash1.webp?v=42" style="width:30px;height:22px;margin-right:6px" alt="">' +
       Math.round(me0.cash).toLocaleString('en-IN') +
-      '<img src="assets/game/ic-gold.webp?v=41" style="width:26px;height:auto;object-fit:contain;margin-left:8px;margin-right:4px" alt="">' +
+      '<img src="assets/game/ic-gold.webp?v=42" style="width:26px;height:auto;object-fit:contain;margin-left:8px;margin-right:4px" alt="">' +
       me0.gold + '</div>' +
       '<div style="position:absolute;left:50%;top:2px;transform:translateX(-50%);' +
       'font-family:\'Baloo 2\';font-weight:800;font-size:24px;color:#fff;text-shadow:0 2px 0 rgba(8,20,45,.9)">You</div>';
@@ -3798,7 +3884,7 @@ const Bots = (function () {
     const piles = $('tbPiles'); piles.innerHTML = '';
     for (let i = 0; i < 3; i++) {
       const b = cardImg({ r: 2, s: 0 }, 'tb-pilecard');
-      b.innerHTML = '<img src="assets/game/back.webp?v=41" alt="">';
+      b.innerHTML = '<img src="assets/game/back.webp?v=42" alt="">';
       b.style.left = (345 - i * 4) + 'px';
       b.style.top = (745 - i * 4) + 'px';
       piles.appendChild(b);
@@ -3867,37 +3953,60 @@ const Bots = (function () {
   let DBG_TAPS = 0, DBG_T = null;
   let RS = { tab: 'gold', qty: 1, sel: null, open: false };
 
-  function openOv(id) { const e = $(id); if (e) e.hidden = false; }
-  function closeOv(id) { const e = $(id); if (e) e.hidden = true; }
+  const PV = {
+    rs:   { id: 'rsOv',   sheet: 'rsSheet',   layer: 'rsLayer',   img: 'roundstart-sheet', W: 1108, H: 1419, x0: 7,  y0: 0, vw: 1090, vh: 1342 },
+    set:  { id: 'setOv',  sheet: 'setSheet',  layer: 'setLayer',  img: 'popup-frame',      W: 971,  H: 1620, x0: 8,  y0: 6, vw: 955,  vh: 1585 },
+    how:  { id: 'howOv',  sheet: 'howSheet',  layer: 'howLayer',  img: 'popup-frame',      W: 971,  H: 1620, x0: 8,  y0: 6, vw: 955,  vh: 1585 },
+    go:   { id: 'goOv',   sheet: 'goSheet',   layer: 'goLayer',   img: 'popup-frame',      W: 971,  H: 1620, x0: 8,  y0: 6, vw: 955,  vh: 1585 },
+    leave:{ id: 'leaveOv',sheet: 'leaveSheet',layer: 'leaveLayer',img: 'popup-frame',      W: 971,  H: 1620, x0: 8,  y0: 6, vw: 955,  vh: 1585 }
+  };
+
+  function pvFit(k) {
+    const c = PV[k];
+    const sheet = $(c.sheet), layer = $(c.layer);
+    if (!sheet || !layer) return;
+    const vv = window.visualViewport;
+    const vw = vv ? vv.width : window.innerWidth;
+    const vh = vv ? vv.height : window.innerHeight;
+    const sc = Math.min((0.92 * vw) / c.vw, (0.90 * vh) / c.vh);
+    const left = (vw - c.vw * sc) / 2 - c.x0 * sc;
+    const top = (vh - c.vh * sc) / 2 - c.y0 * sc;
+    sheet.style.left = left + 'px';
+    sheet.style.top = top + 'px';
+    sheet.style.width = (c.W * sc) + 'px';
+    sheet.style.height = (c.H * sc) + 'px';
+    const img = sheet.querySelector('.pv-img');
+    if (img) {
+      img.style.width = (c.W * sc) + 'px';
+      img.style.height = (c.H * sc) + 'px';
+      img.style.left = '0px'; img.style.top = '0px';
+    }
+    layer.style.transform = 'scale(' + sc + ')';
+  }
+
+  function openOv(k) {
+    const c = PV[k]; if (!c) return;
+    const el = $(c.id);
+    el.hidden = false;
+    requestAnimationFrame(function () { el.classList.add('in'); pvFit(k); });
+  }
+  function closeOv(k) {
+    const c = PV[k]; if (!c) return;
+    const el = $(c.id);
+    el.classList.remove('in');
+    setTimeout(function () { el.hidden = true; }, 190);
+  }
 
   function bindStage2() {
-    if ($('tbGear')) $('tbGear').onclick = function () { openSettings(); };
+    $('tbGear').onclick = function () { openSettings(); };
+    $('setClose').onclick = function () { closeOv('set'); };
+    $('howClose').onclick = function () { closeOv('how'); };
+    $('leaveNo').onclick = function () { closeOv('leave'); };
+    $('leaveYes').onclick = function () { closeOv('leave'); closeOv('set'); goHome(); };
 
-    $('setClose').onclick = function () { closeOv('setOv'); };
-    $('setSound').onclick = function () { CFG.sound = !CFG.sound; $('setSound').classList.toggle('on', CFG.sound); };
-    $('setMusic').onclick = function () { CFG.music = !CFG.music; $('setMusic').classList.toggle('on', CFG.music); };
-    $('setSpeed').onclick = function () {
-      CFG.speed = CFG.speed === 'normal' ? 'fast' : 'normal';
-      Array.from($('setSpeed').children).forEach(function (b, i) {
-        b.classList.toggle('on', (i === 1) === (CFG.speed === 'fast'));
-      });
-    };
-    $('setRounds').onclick = function () {
-      if (TB.s && TB.s.round > 1) return;
-      const seq = [6, 12, 18, 24];
-      const i = (seq.indexOf(CFG.rounds) + 1) % seq.length;
-      CFG.rounds = seq[i];
-      Array.from($('setRounds').children).forEach(function (b, j) { b.classList.toggle('on', seq[j] === CFG.rounds); });
-    };
-    $('setHow').onclick = function () { openOv('howOv'); };
-    $('howClose').onclick = function () { closeOv('howOv'); };
-    $('setLeave').onclick = function () { openOv('leaveOv'); };
-    $('leaveNo').onclick = function () { closeOv('leaveOv'); };
-    $('leaveYes').onclick = function () { closeOv('leaveOv'); closeOv('setOv'); goHome(); };
-
-    $('rsClose').onclick = function () { closeRoundStart(); };
-    $('rsStart').onclick = function () { closeRoundStart(); };
-    document.querySelectorAll('.rs-tab').forEach(function (b) {
+    $('rsClose').onclick = closeRoundStart;
+    $('rsStart').onclick = closeRoundStart;
+    document.querySelectorAll('.pv-tab').forEach(function (b) {
       b.onclick = function () {
         const t = b.dataset.tab;
         if (t === 'loan' || t === 'topup') { toast('Coming soon'); return; }
@@ -3905,100 +4014,133 @@ const Bots = (function () {
       };
     });
 
-    $('goHome').onclick = function () { closeOv('goOv'); goHome(); };
-
-    // debug: tap the round pill 5 times
     $('tbRound').style.pointerEvents = 'auto';
     $('tbRound').onclick = function () {
       DBG_TAPS++; clearTimeout(DBG_T);
       DBG_T = setTimeout(function () { DBG_TAPS = 0; }, 1200);
-      if (DBG_TAPS >= 5) { DBG_TAPS = 0; openOv('dbgOv'); }
+      if (DBG_TAPS >= 5) { DBG_TAPS = 0; $('dbgOv').hidden = false; }
     };
-    $('dbgClose').onclick = function () { closeOv('dbgOv'); };
+    $('dbgClose').onclick = function () { $('dbgOv').hidden = true; };
     $('dbgSkip').onclick = function () {
-      closeOv('dbgOv');
+      $('dbgOv').hidden = true;
       if (!TB.s) return;
-      Engine.nextRound(TB.s); autoRoundStart(); renderTable(); tbTick();
+      TB.s.round = Math.min(TB.s.totalRounds, TB.s.round + 1);
+      Engine.startRound(TB.s); openRoundStart(); renderTable();
     };
     $('dbgPrice').onclick = function () {
+      $('dbgOv').hidden = true;
       if (!TB.s) return;
-      const v = parseInt(prompt('Gold price (1000-5000, steps of 100)', String(TB.s.goldPrice)), 10);
+      const v = parseInt(prompt('Gold price 1000-5000', String(TB.s.goldPrice)), 10);
       if (!isNaN(v)) { TB.s.goldPrice = Math.max(1000, Math.min(5000, Math.round(v / 100) * 100)); renderTable(); }
-      closeOv('dbgOv');
     };
     $('dbgCash').onclick = function () {
+      $('dbgOv').hidden = true;
       if (!TB.s) return;
-      Engine.byId(TB.s, 'p0').cash += 5000;
-      renderTable(); closeOv('dbgOv');
+      Engine.byId(TB.s, 'p0').cash += 5000; renderTable();
     };
   }
 
-  function openSettings() {
-    $('setRounds').classList.toggle('ro', !!(TB.s && TB.s.round > 1));
-    openOv('setOv');
+  function renderSettings() {
+    const locked = !!(TB.s && TB.s.round > 1);
+    const rows = [6, 12, 18, 24];
+    $('setBody').innerHTML =
+      '<div class="pv-row"><span>Sound</span><button class="pv-toggle' + (CFG.sound ? ' on' : '') + '" id="setSound"><i></i></button></div>' +
+      '<div class="pv-row"><span>Music</span><button class="pv-toggle' + (CFG.music ? ' on' : '') + '" id="setMusic"><i></i></button></div>' +
+      '<div class="pv-row"><span>Game speed</span><div class="pv-seg" id="setSpeed">' +
+        '<b class="' + (CFG.speed === 'normal' ? 'on' : '') + '" data-v="normal">Normal</b>' +
+        '<b class="' + (CFG.speed === 'fast' ? 'on' : '') + '" data-v="fast">Fast</b></div></div>' +
+      '<div class="pv-row"><span>Rounds</span><div class="pv-seg' + (locked ? ' ro' : '') + '" id="setRounds">' +
+        rows.map(function (r) { return '<b class="' + (CFG.rounds === r ? 'on' : '') + '" data-v="' + r + '">' + r + '</b>'; }).join('') +
+        '</div></div>' +
+      '<button class="pv-link" id="setHow">How to Play</button>' +
+      '<button class="pv-red" id="setLeave">Leave Game</button>';
+    $('setSound').onclick = function () { CFG.sound = !CFG.sound; renderSettings(); };
+    $('setMusic').onclick = function () { CFG.music = !CFG.music; renderSettings(); };
+    $('setSpeed').querySelectorAll('b').forEach(function (b) {
+      b.onclick = function () { CFG.speed = b.dataset.v; renderSettings(); };
+    });
+    $('setRounds').querySelectorAll('b').forEach(function (b) {
+      b.onclick = function () {
+        if (TB.s && TB.s.round > 1) { toast('Rounds locked after round 1'); return; }
+        CFG.rounds = parseInt(b.dataset.v, 10); renderSettings();
+      };
+    });
+    $('setHow').onclick = function () { openHowTo(); };
+    $('setLeave').onclick = function () { openOv('leave'); };
   }
 
-  /* ---- round start sheet ---- */
+  function openSettings() { renderSettings(); openOv('set'); }
+
+  function openHowTo() {
+    const lines = [
+      'Bid at least 100.',
+      'Everyone shows their hand once per round.',
+      'Pick one card.',
+      'Highest card wins, equal top cards cancel.',
+      'Winner takes the bids plus half of any bid above 100 from the bank.',
+      'At the end, sell your gold. The player with the most cash wins.'
+    ];
+    $('howBody').innerHTML = lines.map(function (t, i) {
+      return '<div class="pv-how"><i>' + (i + 1) + '</i><span>' + t + '</span></div>';
+    }).join('');
+    openOv('how');
+  }
+
   function openRoundStart() {
     if (!TB.s) return;
     RS.tab = 'gold'; RS.qty = 1; RS.sel = null;
     $('rsTitle').textContent = 'Round ' + TB.s.round + ' Begins';
-    openOv('rsOv');
-    RS.open = true;
+    openOv('rs'); RS.open = true;
     renderRoundStart();
+    botsRoundStart();
   }
   function closeRoundStart() {
-    closeOv('rsOv');
-    RS.open = false;
+    closeOv('rs'); RS.open = false;
     const s = TB.s;
     if (s && s.phase === 'roundStart') {
       if (s.step === 'gold') Engine.endGoldTurn(s);
-      autoRoundStart();
-      renderTable(); tbTick();
+      autoRoundStart(); renderTable(); tbTick();
     }
   }
 
   function renderRoundStart() {
     const s = TB.s; if (!s) return;
-    document.querySelectorAll('.rs-tab').forEach(function (b) { b.classList.toggle('on', b.dataset.tab === RS.tab); });
-    const act = document.querySelector('.rs-tab.on');
+    document.querySelectorAll('.pv-tab').forEach(function (b) { b.classList.toggle('on', b.dataset.tab === RS.tab); });
+    const act = document.querySelector('.pv-tab.on'), hl = $('rsHl');
     if (act) {
-      const hl = $('rsHl');
-      hl.style.left = act.offsetLeft + 'px';
-      hl.style.width = act.offsetWidth + 'px';
+      hl.style.left = act.style.left; hl.style.top = act.style.top;
+      hl.style.width = act.style.width; hl.style.height = act.style.height;
+      hl.classList.add('on');
     }
     const me = Engine.byId(s, 'p0');
+    const body = $('rsBody');
     const hist = s.priceHistory.slice(-12);
     const prev = hist.length > 1 ? hist[hist.length - 2].price : null;
     const change = prev != null ? s.goldPrice - prev : 0;
-    const body = $('rsBody');
 
     if (RS.tab === 'gold') {
-      let pts = '';
-      const w = 300, h = 50, n = Math.max(1, hist.length - 1);
-      const lo = Math.min.apply(null, hist.map(x => x.price));
-      const hi = Math.max.apply(null, hist.map(x => x.price));
+      const W = 900, H = 120, n = Math.max(1, hist.length - 1);
+      const lo = Math.min.apply(null, hist.map(function (x) { return x.price; }));
+      const hi = Math.max.apply(null, hist.map(function (x) { return x.price; }));
+      let d = '', dots = '';
       hist.forEach(function (p, i) {
-        const x = (i / n) * w, y = h - ((p.price - lo) / Math.max(1, hi - lo)) * h;
-        pts += '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="3" fill="#e88b1e"/>';
+        const x = (i / n) * W, y = H - ((p.price - lo) / Math.max(1, hi - lo)) * (H - 10) - 5;
+        d += (i ? 'L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1);
+        dots += '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="' + (i === hist.length - 1 ? 7 : 5) +
+          '" fill="' + (i === hist.length - 1 ? '#c96a10' : '#e88b1e') + '"/>';
       });
-      let line = '';
-      hist.forEach(function (p, i) {
-        const x = (i / n) * w, y = h - ((p.price - lo) / Math.max(1, hi - lo)) * h;
-        line += (i ? 'L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1);
-      });
+      let grid = '';
+      for (let i = 0; i <= 4; i++) grid += '<line x1="0" y1="' + (i * H / 4) + '" x2="' + W + '" y2="' + (i * H / 4) + '" stroke="rgba(160,120,60,.18)" stroke-width="2"/>';
       body.innerHTML =
-        '<div class="rs-price"><img src="assets/game/ic-gold.webp?v=41" alt="">' +
-        s.goldPrice.toLocaleString('en-IN') +
-        (change ? ' <span class="rs-trend ' + (change > 0 ? 'up' : 'down') + '">' +
-          (change > 0 ? '\u25B2 +' : '\u25BC ') + change.toLocaleString('en-IN') + '</span>' : '') +
-        '</div>' +
-        '<svg class="rs-graph" viewBox="0 0 300 50" preserveAspectRatio="none">' +
-        '<path d="' + line + '" fill="none" stroke="#e88b1e" stroke-width="2"/>' + pts + '</svg>' +
-        '<div class="rs-mini"><span><img src="assets/game/ic-gold.webp?v=41" alt="">My Gold: ' + me.gold + '</span>' +
-        '<span><img src="assets/game/ic-cash1.webp?v=41" alt="">My Cash: ' + Math.round(me.cash).toLocaleString('en-IN') + '</span></div>' +
-        '<div class="rs-step"><button id="rsMinus">\u2212</button><b id="rsQty">' + RS.qty + '</b><button id="rsPlus">+</button></div>' +
-        '<div class="rs-btns"><button class="rs-buy" id="rsBuy">BUY</button><button class="rs-sell" id="rsSell">SELL</button></div>';
+        '<div class="pv-price"><img src="assets/game/ic-gold.webp?v=42" alt="">' + s.goldPrice.toLocaleString('en-IN') +
+        (change ? ' <span class="pv-trend ' + (change > 0 ? 'up' : 'down') + '">' +
+          (change > 0 ? '\u25B2 +' : '\u25BC ') + change.toLocaleString('en-IN') + '</span>' : '') + '</div>' +
+        '<svg class="pv-graph" viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="none">' + grid +
+        '<path d="' + d + '" fill="none" stroke="#e88b1e" stroke-width="4" stroke-linejoin="round"/>' + dots + '</svg>' +
+        '<div class="pv-cols"><span><img src="assets/game/ic-gold.webp?v=42" alt="">My Gold: ' + me.gold + '</span>' +
+        '<span><img src="assets/game/ic-cash1.webp?v=42" alt="">My Cash: ' + Math.round(me.cash).toLocaleString('en-IN') + '</span></div>' +
+        '<div class="pv-step"><button id="rsMinus">\u2212</button><b id="rsQty">' + RS.qty + '</b><button id="rsPlus">+</button></div>' +
+        '<div class="pv-btns"><button class="pv-buy" id="rsBuy">BUY</button><button class="pv-sell" id="rsSell">SELL</button></div>';
       $('rsMinus').onclick = function () { RS.qty = Math.max(1, RS.qty - 1); renderRoundStart(); };
       $('rsPlus').onclick = function () { RS.qty = Math.min(99, RS.qty + 1); renderRoundStart(); };
       $('rsBuy').onclick = function () {
@@ -4010,56 +4152,82 @@ const Bots = (function () {
         else toast('Not enough gold');
       };
     } else {
-      const seen = {};
-      const tiles = [];
+      const seen = {}, tiles = [];
       s.discard.forEach(function (c) {
         const k = c.r + ':' + c.s;
         if (seen[k]) { seen[k].n++; return; }
         seen[k] = { card: c, n: 1 }; tiles.push(seen[k]);
       });
       if (!tiles.length) {
-        body.innerHTML = '<div class="rs-empty">No cards in the discard pile yet</div>';
+        body.innerHTML = '<div class="pv-cols"><span><img src="assets/game/ic-cash1.webp?v=42" alt="">My Cash: ' +
+          Math.round(me.cash).toLocaleString('en-IN') + '</span></div>' +
+          '<div class="pv-empty">No cards in the discard pile yet</div>';
         return;
       }
-      let html = '<div class="rs-mini"><span><img src="assets/game/ic-cash1.webp?v=41" alt="">My Cash: ' +
-        Math.round(me.cash).toLocaleString('en-IN') + '</span></div><div class="rs-grid">';
+      let html = '<div class="pv-cols"><span><img src="assets/game/ic-cash1.webp?v=42" alt="">My Cash: ' +
+        Math.round(me.cash).toLocaleString('en-IN') + '</span></div><div class="pv-grid">';
       tiles.forEach(function (t) {
-        const nm = cardFace(t.card.r, t.card.s);
-        html += '<div class="rs-card' + (RS.sel === t.card.id ? ' sel' : '') + '" data-id="' + t.card.id + '">' +
-          '<img src="assets/game/' + nm + '.webp" alt="">' +
-          '<span class="rs-tag">' + Engine.priceOf(t.card) + '</span>' +
+        html += '<div class="pv-card' + (RS.sel === t.card.id ? ' sel' : '') + '" data-id="' + t.card.id + '">' +
+          '<img src="assets/game/' + cardFace(t.card.r, t.card.s) + '.webp" alt="">' +
+          '<span class="pv-tag">' + Engine.priceOf(t.card) + '</span>' +
           (t.n > 1 ? '<b>x' + t.n + '</b>' : '') + '</div>';
       });
-      html += '</div><button class="ov-green" id="rsBuyCard">Buy</button>';
+      html += '</div>';
+      const selTile = tiles.filter(function (t) { return t.card.id === RS.sel; })[0];
+      html += '<button class="pv-green" id="rsBuyCard">' +
+        (selTile ? 'Buy for ' + Engine.priceOf(selTile.card) : 'Select a card') + '</button>';
       body.innerHTML = html;
-      body.querySelectorAll('.rs-card').forEach(function (el) {
+      body.querySelectorAll('.pv-card').forEach(function (el) {
         el.onclick = function () { RS.sel = el.dataset.id; renderRoundStart(); };
       });
-      const btn = $('rsBuyCard');
-      if (btn) btn.onclick = function () {
+      $('rsBuyCard').onclick = function () {
         if (!RS.sel) return;
-        if (me.hand.length >= Engine.HAND_LIMIT + 1) { toast('Hand is full'); return; }
+        if (me.hand.length >= Math.max(5, s.players.length) + 1) { toast('Hand is full'); return; }
         if (Engine.buyDiscardCard(s, 'p0', RS.sel)) { RS.sel = null; renderRoundStart(); renderTable(); }
         else toast('Not enough cash');
       };
     }
   }
 
-  /* ---- game over ---- */
+  function botsRoundStart() {
+    const s = TB.s; if (!s) return;
+    const prev = s.priceHistory.length > 1 ? s.priceHistory[s.priceHistory.length - 2].price : null;
+    const change = prev != null ? s.goldPrice - prev : 0;
+    s.players.forEach(function (p) {
+      if (!p.isBot || p.eliminated) return;
+      if (s.phase !== 'roundStart') return;
+      if (change <= -300 && p.cash > 1000) {
+        let budget = Math.min(p.cash - 1000, p.cash * 0.25);
+        const q = Math.floor(budget / s.goldPrice);
+        if (q > 0) Engine.buyGold(s, p.id, q);
+      } else if (change >= 400 && p.gold > 0) {
+        const q = Math.floor(p.gold / 2);
+        if (q > 0) Engine.sellGold(s, p.id, q);
+      }
+      const big = s.discard.filter(function (c) { return (c.r === 13 || c.r === 14) && Engine.priceOf(c) <= p.cash; })[0];
+      if (big) Engine.buyDiscardCard(s, p.id, big.id);
+    });
+  }
+
   function showGameOver() {
     const s = TB.s;
-    const rows = s.players.map(function (p) {
-      const sold = p.gold * s.goldPrice;
-      return { name: p.name, cash: p.cash + sold, gold: p.gold, sold: sold, profit: (p.cash + sold) - s.startingCash, me: p.id === 'p0' };
-    }).sort(function (a, b) { return b.cash - a.cash; });
-    let html = '';
-    rows.forEach(function (r, i) {
-      html += '<div class="go-row' + (r.me ? ' me' : '') + '"><span>' + (i + 1) + '. ' + r.name + '</span>' +
-        '<span>' + Math.round(r.cash).toLocaleString('en-IN') + '</span>' +
-        '<span>' + (r.profit >= 0 ? '+' : '') + Math.round(r.profit).toLocaleString('en-IN') + '</span></div>';
+    s.players.forEach(function (p) {
+      if (p.gold > 0) { p.cash += p.gold * s.goldPrice; p.gold = 0; }
     });
-    $('goList').innerHTML = html;
-    openOv('goOv');
+    const rows = s.players.map(function (p) {
+      return { name: p.name, cash: p.cash, profit: p.cash - s.startingCash, me: p.id === 'p0' };
+    }).sort(function (a, b) { return b.cash - a.cash; });
+    $('goBody').innerHTML = rows.map(function (r, i) {
+      return '<div class="pv-go' + (r.me ? ' me' : '') + '">' +
+        '<span>' + (i + 1) + '</span>' +
+        '<span class="av">' + r.name.charAt(0) + '</span>' +
+        '<span class="nm">' + r.name + '</span>' +
+        '<span>' + Math.round(r.cash).toLocaleString('en-IN') + '</span>' +
+        '<span class="' + (r.profit >= 0 ? 'pz' : 'nz') + '">' + (r.profit >= 0 ? '+' : '') +
+        Math.round(r.profit).toLocaleString('en-IN') + '</span></div>';
+    }).join('') + '<button class="pv-green" id="goHome">Home</button>';
+    $('goHome').onclick = function () { closeOv('go'); goHome(); };
+    openOv('go');
   }
 
   function phaseWord(p) {
@@ -4135,7 +4303,7 @@ const Bots = (function () {
       TB.timer = setTimeout(function () {
         if (Engine.activePlayers(s).length < 2 || s.round >= s.totalRounds) { Engine.finishGame(s); renderTable(); tbTick(); return; }
         Engine.nextRound(s);
-        if (s.phase === 'roundStart' && s.round >= 2) { openRoundStart(); renderTable(); return; }
+        if (s.phase === 'roundStart') { renderTable(); openRoundStart(); return; }
         autoRoundStart(); renderTable(); tbTick();
       }, 700);
     } else if (s.phase === 'finalSell') {
@@ -4197,7 +4365,7 @@ const Bots = (function () {
     sl.addEventListener('pointermove', function (e) { if (drag) setFromEvent(e); });
     sl.addEventListener('pointerup', function () { drag = false; });
     sl.addEventListener('pointercancel', function () { drag = false; });
-    window.addEventListener('resize', fitTable);
+    window.addEventListener('resize', function(){ fitTable(); Object.keys(PV).forEach(pvFit); });
     if (window.visualViewport) window.visualViewport.addEventListener('resize', fitTable);
   }
 
@@ -4325,7 +4493,7 @@ const Bots = (function () {
 </script>
 <script>
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js?v=41').catch(function(){}); });
+  window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js?v=42').catch(function(){}); });
 }
 </script>
 </body>
