@@ -100,7 +100,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 #gameScreen{padding:0 8px;gap:4px;
   background:
     linear-gradient(180deg,rgba(255,255,255,.42) 0%,rgba(214,244,255,.30) 40%,rgba(200,240,200,.42) 100%),
-    url('assets/tablebg.webp?v=36') center/cover no-repeat fixed}
+    url('assets/tablebg.webp?v=37') center/cover no-repeat fixed}
 
 .topbar{display:flex;align-items:center;gap:8px;padding:8px 0 2px}
 .topbar .icon{
@@ -252,7 +252,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .hand .card.sel{
   border-color:#63e06b;box-shadow:0 0 0 3px #63e06b,0 12px 22px rgba(0,0,0,.35);z-index:20!important;
 }
-.hand .card.ghost{background:url('assets/cardback.webp?v=36') center/cover;border-color:#fff}
+.hand .card.ghost{background:url('assets/cardback.webp?v=37') center/cover;border-color:#fff}
 
 /* ---------- action panel ---------- */
 .actionpanel{
@@ -394,7 +394,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .rcard.red .face.front{color:#d02a1e}
 .rcard .face.front .r{font-size:24px;line-height:1;font-family:Georgia,serif}
 .rcard .face.front .s{font-size:16px;line-height:1}
-.rcard .face.back{transform:rotateY(180deg);background:url('assets/cardback.webp?v=36') center/cover;border:2px solid #fff}
+.rcard .face.back{transform:rotateY(180deg);background:url('assets/cardback.webp?v=37') center/cover;border:2px solid #fff}
 .rcell.win .rcard .face.front{box-shadow:0 0 0 3px #63e06b,0 0 26px rgba(99,224,107,.9)}
 .rcell.win{animation:winglow 1.4s ease-in-out infinite alternate}
 @keyframes winglow{from{transform:scale(1)}to{transform:scale(1.05)}}
@@ -479,7 +479,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
 /* ================= SPLASH ================= */
 @font-face{font-family:'Baloo 2';font-style:normal;font-weight:400 800;font-display:swap;
-  src:url('assets/baloo.woff2?v=36') format('woff2')}
+  src:url('assets/baloo.woff2?v=37') format('woff2')}
 #splashScreen{font-family:'Baloo 2',system-ui,sans-serif}
 
 .splash{position:relative;height:100dvh;min-height:100dvh;width:100%;overflow:hidden;
@@ -556,7 +556,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .hs-skyext{display:none}
 
 .hs-crop{position:absolute;background-repeat:no-repeat;background-size:941px 1672px;
-  background-image:url('assets/home/home-base.webp?v=36');will-change:transform;z-index:2}
+  background-image:url('assets/home/home-base.webp?v=37');will-change:transform;z-index:2}
 .hs-char{left:345px;top:150px;width:267px;height:585px;background-position:-345px -150px;
   animation:hsBob 3s ease-in-out infinite}
 @keyframes hsBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
@@ -764,95 +764,103 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .lobby-card p{font-family:'Baloo 2',system-ui,sans-serif;font-size:14px;font-weight:700;color:#8a7442;margin:8px 0 18px}
 
 /* ================= GAME TABLE ================= */
-#tableScreen{background:#1c5c2a}
-#tableScreen .hs-stage{left:0;top:0;transform-origin:top left;width:941px;height:1672px}
+#tableScreen{background:#c98a5a}
+#tableScreen .hs-stage{left:0;top:0;transform-origin:top left;width:841px;height:1870px}
+#tableScreen .hs-bg{width:841px;height:1870px}
 
 .tb-t{position:absolute;transform:translate(-50%,-50%);z-index:6;
   font-family:'Baloo 2',system-ui,sans-serif;font-weight:800;color:#fff;white-space:nowrap;
-  text-shadow:0 3px 0 rgba(8,20,45,.85),0 0 8px rgba(8,20,45,.65)}
-.tb-round{left:465px;top:57px;font-size:34px}
-.tb-gold{left:810px;top:57px;font-size:34px}
-.tb-arrow{position:absolute;left:880px;top:57px;transform:translate(-50%,-50%);height:44px;width:auto;z-index:6;
-  transition:opacity .18s}
-.tb-arrow.pop{animation:arrowPop .26s cubic-bezier(.2,1.4,.4,1)}
-@keyframes arrowPop{0%{transform:translate(-50%,-50%) scale(.5);opacity:0}
-  60%{transform:translate(-50%,-50%) scale(1.12);opacity:1}
+  text-shadow:0 3px 0 rgba(8,20,45,.85),0 0 8px rgba(8,20,45,.6)}
+.tb-round{left:414px;top:109px;font-size:30px}
+.tb-gold{left:722px;top:109px;font-size:30px}
+.tb-gico{position:absolute;left:626px;top:109px;transform:translate(-50%,-50%);width:30px;height:38px;z-index:6}
+.tb-tri{position:absolute;left:800px;top:109px;transform:translate(-50%,-50%);z-index:6;
+  width:0;height:0;border-left:13px solid transparent;border-right:13px solid transparent;border-bottom:22px solid #57d94a;
+  filter:drop-shadow(0 2px 2px rgba(0,0,0,.4))}
+.tb-tri.down{border-bottom:0;border-top:22px solid #ff6b5a}
+.tb-tri.hide{display:none}
+.tb-tri.pop{animation:triPop .28s cubic-bezier(.2,1.5,.4,1)}
+@keyframes triPop{0%{transform:translate(-50%,-50%) scale(.4);opacity:0}
   100%{transform:translate(-50%,-50%) scale(1);opacity:1}}
-.tb-arrow.hide{visibility:hidden;opacity:0}
 
-.tb-seat{position:absolute;inset:0;z-index:5;pointer-events:none}
-.tb-nm{position:absolute;transform:translate(-50%,-50%);
-  font-family:'Baloo 2';font-weight:800;font-size:30px;color:#fff;white-space:nowrap;
-  text-shadow:0 3px 0 rgba(8,20,45,.9),0 0 8px rgba(8,20,45,.7)}
-.tb-num{position:absolute;transform:translate(-50%,-50%);
+.tb-plate{position:absolute;z-index:9;pointer-events:none}
+.tb-nm{position:absolute;left:0;right:0;text-align:center;
   font-family:'Baloo 2';font-weight:800;font-size:26px;color:#fff;white-space:nowrap;
-  text-shadow:0 3px 0 rgba(8,20,45,.9)}
-.tb-lock{position:absolute;transform:translate(-50%,-50%);z-index:6;
-  display:none;align-items:center;justify-content:center;gap:8px;
-  width:224px;height:56px;border-radius:28px;
-  background:linear-gradient(180deg,#4a5a6e,#2c3a4c);border:2px solid #7f93ab;
-  box-shadow:inset 0 2px 0 rgba(255,255,255,.25),0 3px 8px rgba(0,0,0,.4);
+  text-shadow:0 2px 0 rgba(8,20,45,.9)}
+.tb-base{position:absolute;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:0;
   font-family:'Baloo 2';font-weight:800;font-size:24px;color:#fff;white-space:nowrap;
-  text-shadow:0 2px 0 rgba(0,0,0,.55)}
-.tb-lock.on{display:flex}
-.tb-lock img{width:22px;height:26px;display:block}
+  text-shadow:0 2px 0 rgba(8,20,45,.9)}
+.tb-base img.note{width:26px;height:20px;margin-right:6px}
+.tb-base img.bar{width:20px;height:26px;margin-left:8px;margin-right:4px}
 
-.tb-pile{position:absolute;transform:translate(-50%,-50%);z-index:4;width:104px;height:172px;
-  border-radius:9px;filter:drop-shadow(0 6px 10px rgba(0,0,0,.4))}
-.tb-empty{position:absolute;transform:translate(-50%,-50%);z-index:3;width:104px;height:172px;
+.tb-lock{position:absolute;transform:translate(-50%,-50%);z-index:10;display:none;
+  align-items:center;justify-content:center;gap:5px;width:120px;height:34px;border-radius:17px;
+  background:linear-gradient(180deg,#1d3f7a,#12294f);border:2px solid #4b7fd4;
+  font-family:'Baloo 2';font-weight:800;font-size:17px;color:#fff;white-space:nowrap;
+  text-shadow:0 1px 0 rgba(0,0,0,.6);box-shadow:0 3px 6px rgba(0,0,0,.35)}
+.tb-lock.on{display:flex}
+.tb-lock img{width:14px;height:17px;display:block}
+
+.tb-pilecard{position:absolute;transform:translate(-50%,-50%);z-index:4;width:90px;
+  filter:drop-shadow(0 5px 8px rgba(0,0,0,.4))}
+.tb-empty{position:absolute;transform:translate(-50%,-50%);z-index:3;width:90px;height:130px;
   border-radius:10px;border:3px dashed rgba(255,255,255,.3)}
 .tb-badge{position:absolute;transform:translate(-50%,-50%);z-index:5;
-  font-family:'Baloo 2';font-weight:800;font-size:24px;color:#fff;white-space:nowrap;
-  min-width:44px;height:34px;display:flex;align-items:center;justify-content:center;
-  padding:0 10px;border-radius:17px;border:2px solid #4b7fd4;
-  background:linear-gradient(180deg,#1d3f7a,#12294f);text-shadow:0 2px 0 rgba(0,0,0,.6)}
+  font-family:'Baloo 2';font-weight:800;font-size:20px;color:#fff;
+  min-width:40px;height:30px;display:flex;align-items:center;justify-content:center;padding:0 9px;
+  border-radius:15px;border:2px solid #4b7fd4;background:linear-gradient(180deg,#1d3f7a,#12294f);
+  text-shadow:0 1px 0 rgba(0,0,0,.6)}
 
-.tb-hand{position:absolute;left:470px;top:1018px;width:0;height:0;z-index:7}
-.tb-card{position:absolute;left:-66px;top:-110px;width:132px;height:220px;border-radius:9px;
+.tb-played{position:absolute;transform:translate(-50%,-50%);z-index:4;width:80px;
+  filter:drop-shadow(0 4px 7px rgba(0,0,0,.4))}
+
+.tb-hand{position:absolute;left:420px;top:1090px;width:0;height:0;z-index:7}
+.tb-card{position:absolute;left:-59px;top:0;width:118px;cursor:pointer;
   transition:transform .16s ease,filter .16s ease;filter:drop-shadow(0 6px 10px rgba(0,0,0,.45))}
 .tb-card.sel{filter:drop-shadow(0 0 14px rgba(255,215,80,1))}
-.tb-card.miss{background:#123;border:3px dashed #ffd23f;color:#ffd23f;font-family:'Baloo 2';
-  font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;text-align:center;padding:5px}
+.tb-card img{width:100%;display:block;border-radius:9px}
 
-.tb-bidval{left:600px;top:1384px;font-size:46px;font-weight:800;color:#5A3410;
-  padding:2px 16px;border-radius:12px;
-  background:radial-gradient(ellipse at center,rgba(255,226,140,.95) 0%,rgba(255,214,110,.55) 60%,rgba(255,214,110,0) 100%);
+.tb-banner{left:417px;top:1401px;font-size:34px;color:#5A3410;text-shadow:0 2px 0 rgba(255,255,255,.55)}
+.tb-bidval{left:420px;top:1468px;font-size:44px;color:#5A3410;padding:2px 20px;border-radius:14px;
+  background:radial-gradient(ellipse at center,rgba(255,226,140,.95) 0%,rgba(255,214,110,.5) 62%,rgba(255,214,110,0) 100%);
   text-shadow:0 2px 0 rgba(255,255,255,.6)}
 
-.tb-slider{position:absolute;left:160px;top:1384px;width:622px;height:100px;z-index:6}
-.tb-slider i{position:absolute;left:0;top:38px;bottom:38px;border-radius:12px;
-  background:linear-gradient(180deg,#ffd94a,#e8a51e);box-shadow:inset 0 2px 0 rgba(255,255,255,.5)}
-.tb-slider b{position:absolute;top:50%;width:52px;height:52px;border-radius:50%;transform:translate(-50%,-50%);
+.tb-slider{position:absolute;left:134px;top:1464px;width:561px;height:102px;z-index:6}
+.tb-slider i{position:absolute;left:0;top:44px;bottom:44px;border-radius:7px;
+  background:linear-gradient(180deg,#7BE04A,#2FA81F);box-shadow:inset 0 2px 0 rgba(255,255,255,.45)}
+.tb-slider b{position:absolute;top:50%;width:46px;height:46px;border-radius:50%;transform:translate(-50%,-50%);
   background:radial-gradient(circle at 34% 28%,#fff6c9,#ffd54a 45%,#e0a51e 78%,#b57d0d);
   border:3px solid #fff8e0;box-shadow:0 3px 8px rgba(0,0,0,.45);pointer-events:none;z-index:2}
 
-.tb-hit{position:absolute;background:transparent;border:0;padding:0;z-index:8}
-.tb-gear{left:60px;top:57px;width:120px;height:120px;transform:translate(-50%,-50%);border-radius:50%}
-.tb-minus{left:94px;top:1430px;width:110px;height:110px;transform:translate(-50%,-50%);border-radius:50%}
-.tb-plus{left:846px;top:1430px;width:110px;height:110px;transform:translate(-50%,-50%);border-radius:50%}
-.tb-min{left:132px;top:1540px;width:180px;height:110px;transform:translate(-50%,-50%);border-radius:26px}
-.tb-2x{left:324px;top:1540px;width:180px;height:110px;transform:translate(-50%,-50%);border-radius:26px}
-.tb-all{left:525px;top:1540px;width:190px;height:110px;transform:translate(-50%,-50%);border-radius:26px}
-.tb-bidbtn{left:778px;top:1548px;width:270px;height:130px;transform:translate(-50%,-50%);border-radius:34px}
-
-.tb-pv{font-size:26px;color:#fff;line-height:1.08;text-align:center;padding:8px 6px;box-sizing:border-box}
-.tb-pv span{display:block;font-size:26px}
-.tb-pv b{display:block;font-size:26px;font-weight:800}
-.tb-pv1{left:132px;top:1540px}
-.tb-pv2{left:324px;top:1540px}
-.tb-pv3{left:525px;top:1540px}
+.tb-hit{position:absolute;background:transparent;border:0;padding:0;z-index:8;
+  font-family:'Baloo 2',system-ui,sans-serif}
+.tb-gear{left:55px;top:107px;width:100px;height:100px;transform:translate(-50%,-50%);border-radius:50%}
+.tb-minus{left:80px;top:1511px;width:110px;height:110px;transform:translate(-50%,-50%);border-radius:50%}
+.tb-plus{left:756px;top:1511px;width:110px;height:110px;transform:translate(-50%,-50%);border-radius:50%}
+.tb-min{left:115px;top:1616px;width:161px;height:96px;transform:translate(-50%,-50%);border-radius:24px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:8px;box-sizing:border-box}
+.tb-2x{left:289px;top:1616px;width:157px;height:96px;transform:translate(-50%,-50%);border-radius:24px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:8px;box-sizing:border-box}
+.tb-all{left:470px;top:1616px;width:175px;height:96px;transform:translate(-50%,-50%);border-radius:24px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:8px;box-sizing:border-box}
+.tb-min span,.tb-2x span,.tb-all span{font-size:26px;font-weight:800;color:#fff;line-height:1;
+  text-shadow:0 2px 0 rgba(0,0,0,.45)}
+.tb-min b,.tb-2x b,.tb-all b{font-size:24px;font-weight:800;color:#fff;line-height:1;
+  text-shadow:0 2px 0 rgba(0,0,0,.45)}
+.tb-bidbtn{left:696px;top:1623px;width:248px;height:113px;transform:translate(-50%,-50%);border-radius:34px;
+  font-size:44px;font-weight:800;color:#fff;text-shadow:0 3px 0 rgba(0,0,0,.4)}
 
 .tb-overlay{position:absolute;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;
   background:rgba(6,12,26,.55)}
 .tb-overlay[hidden]{display:none}
-.tb-obox{width:620px;border-radius:30px;background:linear-gradient(180deg,#fff3d6,#f0d9a8);
-  border:8px solid #d9a441;padding:30px;font-family:'Baloo 2';color:#5A3410;text-align:center;
+.tb-obox{width:600px;border-radius:30px;background:linear-gradient(180deg,#fff3d6,#f0d9a8);
+  border:8px solid #d9a441;padding:28px;font-family:'Baloo 2';color:#5A3410;text-align:center;
   box-shadow:0 18px 40px rgba(0,0,0,.5)}
-.tb-obox h3{margin:0 0 12px;font-size:40px}
-.tb-obox p{margin:6px 0;font-size:26px;font-weight:700}
-.tb-obox button{margin-top:18px;width:100%;height:100px;border-radius:24px;border:0;
+.tb-obox h3{margin:0 0 10px;font-size:38px}
+.tb-obox p{margin:5px 0;font-size:24px;font-weight:700}
+.tb-obox button{margin-top:16px;width:100%;height:96px;border-radius:24px;border:0;
   background:linear-gradient(180deg,#6fe04a,#2fa81f);color:#fff;font-family:'Baloo 2';
-  font-weight:800;font-size:34px;text-shadow:0 3px 0 rgba(0,0,0,.35)}
+  font-weight:800;font-size:32px;text-shadow:0 3px 0 rgba(0,0,0,.35)}
 
 </style>
 </head>
@@ -862,9 +870,9 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
   <!-- ============ SPLASH / LOGIN ============ -->
   <section id="splashScreen" class="screen splash">
-    <img class="splash-bg" src="assets/bg-garden.webp?v=36" alt="">
+    <img class="splash-bg" src="assets/bg-garden.webp?v=37" alt="">
     <div class="floaties" id="floaties" aria-hidden="true"></div>
-    <img class="splash-logo" src="assets/logo.webp?v=36" alt="Game of Wealth">
+    <img class="splash-logo" src="assets/logo.webp?v=37" alt="Game of Wealth">
 
     <div class="splash-bottom">
       <div class="splash-actions" id="splashActions">
@@ -900,7 +908,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <div class="hs-wrap" id="hsWrap">
       <div class="hs-stage" id="hsStage">
         <div class="hs-skyext"></div>
-        <img class="hs-bg" src="assets/home/home-base.webp?v=36" alt="">
+        <img class="hs-bg" src="assets/home/home-base.webp?v=37" alt="">
         <div class="hs-crop hs-char" id="hsChar"></div>
         <div class="hs-crop hs-play" id="hsPlay"></div>
         <div class="hs-shimmer"></div>
@@ -935,18 +943,18 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
   <section id="tableSelectScreen" class="screen home3" hidden>
     <div class="hs-wrap">
       <div class="hs-stage" id="tsStage">
-        <img class="hs-bg" id="tsBg" src="assets/ts/ts-base.webp?v=36" alt="">
+        <img class="hs-bg" id="tsBg" src="assets/ts/ts-base.webp?v=37" alt="">
 
         <div class="ts-dim" id="dimPro"></div>
         <div class="ts-dim" id="dimHigh"></div>
         <div class="ts-outline" id="tsOutline"></div>
 
-        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp?v=36" alt=""><span>128 playing</span></div>
-        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp?v=36" alt=""><span>64 playing</span></div>
-        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp?v=36" alt=""><span>12 playing</span></div>
+        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp?v=37" alt=""><span>128 playing</span></div>
+        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp?v=37" alt=""><span>64 playing</span></div>
+        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp?v=37" alt=""><span>12 playing</span></div>
 
-        <img class="ts-lock" id="lockPro" src="assets/ic-lock.webp?v=36" alt="">
-        <img class="ts-lock" id="lockHigh" src="assets/ic-lock.webp?v=36" alt="">
+        <img class="ts-lock" id="lockPro" src="assets/ic-lock.webp?v=37" alt="">
+        <img class="ts-lock" id="lockHigh" src="assets/ic-lock.webp?v=37" alt="">
         <span class="ts-need" id="needPro">Need 5,000 cash</span>
         <span class="ts-need" id="needHigh">Need 10,000 cash</span>
 
@@ -974,7 +982,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <div class="bi-overlay" id="biOverlay" hidden>
       <div class="bi-sheet" id="biSheet">
         <div class="bi-inner" id="biInner">
-          <img class="bi-img" src="assets/ts/buyin-popup.webp?v=36" alt="">
+          <img class="bi-img" src="assets/ts/buyin-popup.webp?v=37" alt="">
 
           <span class="bi-amount" id="biAmount">2,000</span>
 
@@ -1002,32 +1010,30 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
   <section id="tableScreen" class="screen home3" hidden>
     <div class="hs-wrap">
       <div class="hs-stage" id="tblStage">
-        <img class="hs-bg" src="assets/game/table-base.webp?v=36" alt="">
+        <img class="hs-bg" src="assets/game/table-base.webp?v=37" alt="">
 
         <button class="tb-hit tb-gear" id="tbGear" aria-label="Settings"></button>
         <span class="tb-t tb-round" id="tbRound"></span>
+        <img class="tb-gico" src="assets/game/ic-gold.webp?v=37" alt="">
         <span class="tb-t tb-gold" id="tbGold"></span>
-        <img class="tb-arrow" id="tbArrow" src="assets/game/top-arrow-up.webp?v=36" alt="">
+        <i class="tb-tri" id="tbTri"></i>
 
         <div id="tbSeats"></div>
-
         <div class="tb-piles" id="tbPiles"></div>
-
+        <div id="tbPlayed"></div>
         <div class="tb-hand" id="tbHand"></div>
 
+        <span class="tb-t tb-banner" id="tbBanner">Place Your Bid</span>
         <span class="tb-t tb-bidval" id="tbBidVal"></span>
 
         <div class="tb-slider" id="tbSlider"><i id="tbFill"></i><b id="tbKnob"></b></div>
         <button class="tb-hit tb-minus" id="tbMinus" aria-label="Less"></button>
         <button class="tb-hit tb-plus" id="tbPlus" aria-label="More"></button>
 
-        <button class="tb-hit tb-min" id="tbMin" aria-label="Min"></button>
-        <button class="tb-hit tb-2x" id="tb2x" aria-label="Double"></button>
-        <button class="tb-hit tb-all" id="tbAllin" aria-label="All in"></button>
-        <button class="tb-hit tb-bidbtn" id="tbBid" aria-label="Bid"></button>
-        <span class="tb-t tb-pv tb-pv1" id="tbMinV"><span>MIN</span><b>100</b></span>
-        <span class="tb-t tb-pv tb-pv2" id="tb2xV"><span>2x</span><b>200</b></span>
-        <span class="tb-t tb-pv tb-pv3" id="tbAllinV"><span>ALL-IN</span><b>2,000</b></span>
+        <button class="tb-hit tb-min" id="tbMin" aria-label="Min"><span>MIN</span><b id="tbMinV">100</b></button>
+        <button class="tb-hit tb-2x" id="tb2x" aria-label="Double"><span>2x</span><b id="tb2xV">200</b></button>
+        <button class="tb-hit tb-all" id="tbAllin" aria-label="All in"><span>ALL-IN</span><b id="tbAllinV">2,000</b></button>
+        <button class="tb-hit tb-bidbtn" id="tbBid" aria-label="Bid">Bid</button>
 
         <div class="tb-overlay" id="tbOverlay" hidden><div class="tb-obox" id="tbObox"></div></div>
       </div>
@@ -3235,7 +3241,7 @@ const Bots = (function () {
     const wrap = $('floaties');
     if (!wrap) return;
     wrap.innerHTML = '';
-    const kinds = ['assets/ic-cash1.webp?v=36', 'assets/ic-gold1.webp?v=36'];
+    const kinds = ['assets/ic-cash1.webp?v=37', 'assets/ic-gold1.webp?v=37'];
     for (let i = 0; i < 8; i++) {
       const img = document.createElement('img');
       img.className = 'flimg';
@@ -3475,26 +3481,40 @@ const Bots = (function () {
   const BOT_NAMES = ['Rohan','Diya','Arjun','Varun','Ananya'];
   const BOT_AV = ['av-rohan','av-diya','av-arjun','av-varun','av-ananya'];
 
+  const PLATES = {
+    Rohan:  [322,422,511,503],
+    Diya:   [31,508,218,591],
+    Arjun:  [620,510,807,592],
+    Varun:  [11,900,204,985],
+    Ananya: [640,912,831,993],
+    You:    [302,1208,540,1303]
+  };
+  const LOCKS = { Rohan:[417,535], Diya:[125,625], Arjun:[713,627], Varun:[108,1012], Ananya:[735,1022] };
+  const PLAYED = { Rohan:[420,600], Arjun:[605,690], Ananya:[605,900], You:[420,880], Varun:[235,900], Diya:[235,690] };
+
   function fitTable() {
     const st = $('tblStage'); if (!st) return;
-    const sx = window.innerWidth / 941, sy = window.innerHeight / 1672;
-    st.style.transform = 'scale(' + sx + ',' + sy + ')';
+    const vv = window.visualViewport;
+    const vw = vv ? vv.width : window.innerWidth;
+    const vh = vv ? vv.height : window.innerHeight;
+    const s = vw / 841;
+    const NEED = 1648;                       // y 56 .. 1704
+    let sy = s, ty;
+    if (vh / s >= NEED) {
+      ty = (vh - NEED * s) / 2 - 56 * s;     // centre the window
+    } else {
+      sy = Math.max(vh / NEED, 0.92 * s);    // squash at most 8%
+      ty = -56 * s;                          // anchor at y 56
+    }
+    st.style.transform = 'translate(0px,' + ty + 'px) scale(' + s + ',' + sy + ')';
   }
-
-  const SEAT_POS = {
-    Rohan:  { nm:[468,383], cash:[440,424], gold:[548,424], lock:[467,470] },
-    Diya:   { nm:[140,473], cash:[126,515], gold:[226,515], lock:[140,561] },
-    Arjun:  { nm:[803,475], cash:[777,516], gold:[884,516], lock:[802,563] },
-    Varun:  { nm:[124,866], cash:[112,908], gold:[212,908], lock:[124,955] },
-    Ananya: { nm:[822,874], cash:[788,915], gold:[884,915], lock:[822,962] },
-    You:    { nm:[468,1186], cash:[435,1221], gold:[565,1221] }
-  };
 
   function startTable() {
     const players = [{ name: 'You', isBot: false, bot: 'normal' }];
     for (let i = 0; i < 5; i++) players.push({ name: BOT_NAMES[i], isBot: true, bot: 'normal' });
     const s = Engine.newGame({ players: players, startingCash: TS.amount, seed: (Date.now() % 99991) + 1 });
     TB.s = s; TB.sel = null; TB.prevGold = null; TB.goldRound = 0; TB_GOLD_SHOWN = null;
+    TB.bidRound = null;
     Engine.startRound(s);
     showScreen('table');
     fitTable();
@@ -3527,18 +3547,16 @@ const Bots = (function () {
   const CARD_OK = {}; ['2','3','4','5','6','7','8','9','10','J','Q','K','A']
     .forEach(r => 'SDHC'.split('').forEach(su => CARD_OK['card-' + r + su] = 1));
 
-  function cardEl(card, cls) {
+  function cardImg(card, cls) {
     const name = cardFace(card.r, card.s);
     const el = document.createElement('div');
-    el.className = 'tb-card ' + (cls || '');
+    el.className = cls;
     if (CARD_OK[name]) {
       const img = document.createElement('img');
       img.src = 'assets/game/' + name + '.webp';
-      img.style.cssText = 'width:100%;height:100%;display:block;border-radius:9px';
       el.appendChild(img);
     } else {
-      el.classList.add('miss');
-      el.textContent = 'MISSING: ' + name;
+      el.textContent = 'MISSING ' + name;
     }
     return el;
   }
@@ -3547,73 +3565,91 @@ const Bots = (function () {
 
   function renderTable() {
     const s = TB.s; if (!s) return;
-    $('tbRound').textContent = 'Round ' + s.round + ' \u00B7 Match ' +
+    $('tbRound').textContent = 'Round ' + s.round + ' - Match ' +
       Math.min(s.matchIndex, s.matchesThisRound) + '/' + s.matchesThisRound;
     renderGoldPrice(s);
 
-    // seats
+    // plates
     const seats = $('tbSeats'); seats.innerHTML = '';
     s.players.forEach(function (p) {
-      const pos = SEAT_POS[p.name]; if (!pos) return;
-      const wrap = document.createElement('div');
-      wrap.className = 'tb-seat';
+      const box = PLATES[p.name]; if (!box) return;
+      const [x0, y0, x1, y1] = box;
+      const w = x1 - x0, h = y1 - y0;
+      const d = document.createElement('div');
+      d.className = 'tb-plate';
+      d.style.cssText = 'left:' + x0 + 'px;top:' + y0 + 'px;width:' + w + 'px;height:' + h + 'px';
       const nm = document.createElement('span');
       nm.className = 'tb-nm';
+      nm.style.top = (h * 0.04) + 'px';
       nm.textContent = p.name;
-      nm.style.cssText = 'position:absolute;left:' + pos.nm[0] + 'px;top:' + pos.nm[1] + 'px;transform:translate(-50%,-50%)';
-      wrap.appendChild(nm);
-      const cash = document.createElement('span');
-      cash.className = 'tb-num';
-      cash.style.left = (pos.cash[0] + 18) + 'px'; cash.style.top = pos.cash[1] + 'px';
-      cash.textContent = Math.round(p.cash).toLocaleString('en-IN');
-      wrap.appendChild(cash);
-      const gold = document.createElement('span');
-      gold.className = 'tb-num';
-      gold.style.left = (pos.gold[0] + 14) + 'px'; gold.style.top = pos.gold[1] + 'px';
-      gold.textContent = p.gold;
-      wrap.appendChild(gold);
-      if (pos.lock) {
+      d.appendChild(nm);
+      const base = document.createElement('div');
+      base.className = 'tb-base';
+      base.style.top = (h * 0.56) + 'px';
+      base.innerHTML = '<img class="note" src="assets/game/ic-cash1.webp?v=37" alt="">' +
+        Math.round(p.cash).toLocaleString('en-IN') +
+        '<img class="bar" src="assets/game/ic-gold.webp?v=37" alt="">' + p.gold;
+      d.appendChild(base);
+      if (LOCKS[p.name]) {
+        const lc = LOCKS[p.name];
         const locked = s.bids && s.bids[p.id] != null;
         const lk = document.createElement('span');
         lk.className = 'tb-lock' + (locked ? ' on' : '');
-        lk.style.left = pos.lock[0] + 'px'; lk.style.top = pos.lock[1] + 'px';
-        lk.innerHTML = '<img src="assets/game/ui-lock.webp?v=36" alt="">Bid Locked';
-        wrap.appendChild(lk);
+        lk.style.left = lc[0] + 'px'; lk.style.top = lc[1] + 'px';
+        const revealed = s.phase !== 'bid' && s.phase !== 'handReveal';
+        lk.innerHTML = revealed && locked
+          ? Math.round(s.bids[p.id]).toLocaleString('en-IN')
+          : '<img src="assets/game/ui-lock.webp?v=37" alt="">Bid Locked';
+        d.appendChild(lk);
       }
-      seats.appendChild(wrap);
+      seats.appendChild(d);
     });
 
     // piles
     const piles = $('tbPiles'); piles.innerHTML = '';
     for (let i = 0; i < 3; i++) {
-      const b = document.createElement('img');
-      b.className = 'tb-pile';
-      b.src = 'assets/game/back.webp?v=36';
-      b.style.left = (365 - i * 5) + 'px';
-      b.style.top = (640 - i * 5) + 'px';
+      const b = cardImg({ r: 2, s: 0 }, 'tb-pilecard');
+      b.innerHTML = '<img src="assets/game/back.webp?v=37" alt="" style="width:90px;display:block;border-radius:8px">';
+      b.style.left = (345 - i * 4) + 'px';
+      b.style.top = (745 - i * 4) + 'px';
       piles.appendChild(b);
     }
     const top = s.discard[s.discard.length - 1];
     if (!top) {
       const e = document.createElement('div');
-      e.className = 'tb-empty';
-      e.style.left = '572px'; e.style.top = '640px';
+      e.className = 'tb-empty'; e.style.left = '495px'; e.style.top = '745px';
       piles.appendChild(e);
+    } else {
+      for (let i = 1; i >= 0; i--) {
+        const c = cardImg(top, 'tb-pilecard');
+        c.style.left = (495 - i * 4) + 'px';
+        c.style.top = (745 - i * 4) + 'px';
+        piles.appendChild(c);
+      }
     }
-    if (top) {
-      const d = document.createElement('img');
-      d.className = 'tb-pile';
-      d.src = 'assets/game/' + cardFace(top.r, top.s) + '.webp';
-      d.style.left = '572px'; d.style.top = '640px';
-      piles.appendChild(d);
-    }
-    const bc1 = document.createElement('span');
-    bc1.className = 'tb-badge'; bc1.style.left = '365px'; bc1.style.top = '742px';
-    bc1.textContent = s.deck.length;
-    const bc2 = document.createElement('span');
-    bc2.className = 'tb-badge'; bc2.style.left = '572px'; bc2.style.top = '742px';
-    bc2.textContent = s.discard.length;
-    piles.appendChild(bc1); piles.appendChild(bc2);
+    const b1 = document.createElement('span');
+    b1.className = 'tb-badge'; b1.style.left = '345px'; b1.style.top = '838px';
+    b1.textContent = s.deck.length;
+    const b2 = document.createElement('span');
+    b2.className = 'tb-badge'; b2.style.left = '495px'; b2.style.top = '838px';
+    b2.textContent = s.discard.length;
+    piles.appendChild(b1); piles.appendChild(b2);
+
+    // played cards
+    const played = $('tbPlayed'); played.innerHTML = '';
+    s.players.forEach(function (p) {
+      const pos = PLAYED[p.name]; if (!pos) return;
+      const card = s.plays && s.plays[p.id];
+      const el = document.createElement('div');
+      el.className = 'tb-played';
+      el.style.left = pos[0] + 'px'; el.style.top = pos[1] + 'px';
+      const faceUp = card && (s.phase === 'payout' || s.phase === 'roundEnd' || s.phase === 'gameEnd');
+      const img = document.createElement('img');
+      img.style.cssText = 'width:80px;display:block;border-radius:7px';
+      img.src = 'assets/game/' + (faceUp ? cardFace(card.r, card.s) : 'back') + '.webp';
+      el.appendChild(img);
+      if (card) played.appendChild(el);
+    });
 
     // hand
     const me = Engine.byId(s, 'p0');
@@ -3621,26 +3657,48 @@ const Bots = (function () {
     const n = me.hand.length;
     me.hand.forEach(function (c, i) {
       const off = i - (n - 1) / 2;
-      const el = cardEl(c, TB.sel === c.id ? 'sel' : '');
-      el.style.transform = 'translateX(' + (off * 80) + 'px) translateY(' +
-        (Math.abs(off) * Math.abs(off) * 8) + 'px) rotate(' + (off * 7) + 'deg)' +
-        (TB.sel === c.id ? ' translateY(-36px)' : '');
+      const el = cardImg(c, 'tb-card' + (TB.sel === c.id ? ' sel' : ''));
+      const lift = TB.sel === c.id ? -26 : 0;
+      el.style.transform = 'translateX(' + (off * 55) + 'px) translateY(' + (Math.abs(off) * Math.abs(off) * 6 + lift) + 'px) rotate(' + (off * 8) + 'deg)';
       el.style.zIndex = 10 + i;
       el.onclick = function () { onCardTap(c); };
       hand.appendChild(el);
     });
 
-    // bid panel
+    updateBidUI();
+    const myTurn = s.phase === 'bid' && s.actor === 'p0';
+    ['tbMin','tb2x','tbAllin','tbMinus','tbPlus','tbBid'].forEach(function (id) { $(id).disabled = !myTurn; });
+    $('tbBanner').textContent = s.phase === 'bid' ? 'Place Your Bid'
+      : s.phase === 'select' ? 'Pick a Card' : s.phase === 'payout' ? 'Reveal!' : phaseWord(s.phase);
+  }
+
+  function phaseWord(p) {
+    return { handReveal: 'Revealing', payout: 'Reveal!', roundEnd: 'Round Over',
+             gameEnd: 'Game Over', finalSell: 'Final Sale' }[p] || '';
+  }
+
+  function updateBidUI() {
+    const s = TB.s; if (!s) return;
     const myTurn = s.phase === 'bid' && s.actor === 'p0';
     const rng = myTurn ? Engine.legalBidRange(s, 'p0') : null;
-    if (myTurn && rng) { if (TB.bidRound !== s.round + ':' + s.matchIndex) { TB.bid = rng.min; TB.bidRound = s.round + ':' + s.matchIndex; } TB.bid = Math.max(rng.min, Math.min(rng.max, TB.bid)); }
-    updateBidUI();
-    ['tbMin','tb2x','tbAllin','tbMinus','tbPlus','tbBid'].forEach(function (id) { $(id).disabled = !myTurn; });
+    if (rng && (TB.bidRound !== s.round + ':' + s.matchIndex || !TB.bid || TB.bid < rng.min)) {
+      TB.bid = rng.min; TB.bidRound = s.round + ':' + s.matchIndex;
+    }
+    if (rng) TB.bid = Math.max(rng.min, Math.min(rng.max, TB.bid));
+    $('tbBidVal').textContent = myTurn ? 'Your Bid: ' + Math.round(TB.bid).toLocaleString('en-IN') : '';
+    if (!rng) return;
+    const t = Math.max(0, Math.min(1, (TB.bid - rng.min) / Math.max(1, rng.max - rng.min)));
+    const pos = 'calc(23px + (100% - 46px) * ' + t + ')';
+    $('tbFill').style.width = pos;
+    $('tbKnob').style.left = pos;
+    $('tbMinV').textContent = rng.min.toLocaleString('en-IN');
+    $('tb2xV').textContent = Math.min(rng.max, rng.min * 2).toLocaleString('en-IN');
+    $('tbAllinV').textContent = rng.max.toLocaleString('en-IN');
   }
 
   function renderGoldPrice(s) {
     const price = Math.round(s.goldPrice);
-    const el = $('tbGold'), ar = $('tbArrow');
+    const el = $('tbGold'), tr = $('tbTri');
     if (TB_GOLD_SHOWN === null) TB_GOLD_SHOWN = price;
     if (TB_GOLD_SHOWN !== price) {
       cancelAnimationFrame(TB_GOLD_ANIM);
@@ -3653,23 +3711,17 @@ const Bots = (function () {
       })(t0);
     } else el.textContent = price.toLocaleString('en-IN');
     const prev = TB.prevGold;
-    let dir = null;
-    if (prev != null && price > prev) dir = 'up';
-    else if (prev != null && price < prev) dir = 'down';
-    if (!dir) { ar.classList.add('hide'); ar.classList.remove('pop'); }
-    else {
-      const want = dir === 'up' ? 'assets/game/top-arrow-up.webp?v=36' : 'assets/game/top-arrow-down.webp?v=36';
-      if (!ar.src.endsWith(want.split('/').pop())) {
-        ar.src = want; ar.classList.remove('pop'); void ar.offsetWidth; ar.classList.add('pop');
-      }
-      ar.classList.remove('hide');
-    }
+    tr.classList.remove('hide', 'down');
+    if (prev == null || price === prev) tr.classList.add('hide');
+    else if (price < prev) tr.classList.add('down');
+    if (prev != null && price !== prev) { tr.classList.remove('pop'); void tr.offsetWidth; tr.classList.add('pop'); }
     if (s.round !== TB.goldRound) { TB.prevGold = price; TB.goldRound = s.round; }
   }
 
   function onCardTap(c) {
     const s = TB.s;
     if (s.phase !== 'select' || s.actor !== 'p0') return;
+    if (TB.sel !== c.id) { TB.sel = c.id; renderTable(); return; }
     Engine.playCard(s, 'p0', c.id);
     TB.sel = null;
     renderTable(); tbTick();
@@ -3709,7 +3761,7 @@ const Bots = (function () {
     });
     html += m.winner ? '<p>Pot ' + Math.round(m.pot) + ' + ' + Math.round(m.bonus) + '</p>'
                      : '<p>All tied \u2014 bids returned</p>';
-    html += '<p style="opacity:.65;font-size:20px">MISSING: reveal art</p><button id="tbPayOk">Continue</button>';
+    html += '<button id="tbPayOk">Continue</button>';
     $('tbObox').innerHTML = html; $('tbOverlay').hidden = false;
     $('tbPayOk').onclick = function () { $('tbOverlay').hidden = true; Engine.payoutDone(s); renderTable(); tbTick(); };
   }
@@ -3727,19 +3779,19 @@ const Bots = (function () {
     $('lobbyStart').onclick = startTable;
     $('tbMinus').onclick = function () { nudgeBid(-100); };
     $('tbPlus').onclick = function () { nudgeBid(100); };
-    if ($('tbGear')) $('tbGear').onclick = function () { /* not wired */ };
     $('tbMin').onclick = function () { setBid('min'); };
     $('tb2x').onclick = function () { setBid('2x'); };
     $('tbAllin').onclick = function () { setBid('all'); };
     $('tbBid').onclick = function () {
-      const s = TB.s, me = Engine.byId(s, 'p0');
-      if (!me || s.phase !== 'bid') return;
+      const s = TB.s;
+      if (!s || s.phase !== 'bid' || s.actor !== 'p0') return;
       if (Engine.placeBid(s, 'p0', TB.bid)) { renderTable(); tbTick(); }
     };
+    if ($('tbGear')) $('tbGear').onclick = function () { /* not wired */ };
     const sl = $('tbSlider');
     function setFromEvent(ev) {
-      const s = TB.s, me = Engine.byId(s, 'p0');
-      if (!me || s.phase !== 'bid' || s.actor !== 'p0') return;
+      const s = TB.s;
+      if (!s || s.phase !== 'bid' || s.actor !== 'p0') return;
       const rng = Engine.legalBidRange(s, 'p0');
       const b = sl.getBoundingClientRect();
       const t = Math.max(0, Math.min(1, (ev.clientX - b.left) / b.width));
@@ -3750,34 +3802,21 @@ const Bots = (function () {
     sl.addEventListener('pointerdown', function (e) { drag = true; setFromEvent(e); });
     sl.addEventListener('pointermove', function (e) { if (drag) setFromEvent(e); });
     sl.addEventListener('pointerup', function () { drag = false; });
+    sl.addEventListener('pointercancel', function () { drag = false; });
     window.addEventListener('resize', fitTable);
-  }
-
-  function updateBidUI() {
-    const s = TB.s; if (!s) return;
-    const myTurn = s.phase === 'bid' && s.actor === 'p0';
-    const rng = myTurn ? Engine.legalBidRange(s, 'p0') : null;
-    $('tbBidVal').textContent = myTurn ? Math.round(TB.bid).toLocaleString('en-IN') : '\u2014';
-    if (!rng) return;
-    const t = Math.max(0, Math.min(1, (TB.bid - rng.min) / Math.max(1, rng.max - rng.min)));
-    const pos = 'calc(26px + (100% - 52px) * ' + t + ')';
-    $('tbFill').style.width = pos;
-    $('tbKnob').style.left = pos;
-    $('tbMinV').innerHTML = '<span>MIN</span><b>' + rng.min.toLocaleString('en-IN') + '</b>';
-    $('tb2xV').innerHTML = '<span>2x</span><b>' + Math.min(rng.max, rng.min * 2).toLocaleString('en-IN') + '</b>';
-    $('tbAllinV').innerHTML = '<span>ALL-IN</span><b>' + rng.max.toLocaleString('en-IN') + '</b>';
+    if (window.visualViewport) window.visualViewport.addEventListener('resize', fitTable);
   }
 
   function nudgeBid(d) {
-    const s = TB.s, me = Engine.byId(s, 'p0');
-    if (!me || s.phase !== 'bid' || s.actor !== 'p0') return;
+    const s = TB.s;
+    if (!s || s.phase !== 'bid' || s.actor !== 'p0') return;
     const rng = Engine.legalBidRange(s, 'p0');
     TB.bid = Math.max(rng.min, Math.min(rng.max, TB.bid + d));
     updateBidUI();
   }
   function setBid(k) {
-    const s = TB.s, me = Engine.byId(s, 'p0');
-    if (!me || s.phase !== 'bid' || s.actor !== 'p0') return;
+    const s = TB.s;
+    if (!s || s.phase !== 'bid' || s.actor !== 'p0') return;
     const rng = Engine.legalBidRange(s, 'p0');
     TB.bid = k === 'min' ? rng.min : k === '2x' ? Math.min(rng.max, rng.min * 2) : rng.max;
     updateBidUI();
@@ -3891,7 +3930,7 @@ const Bots = (function () {
 </script>
 <script>
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js?v=36').catch(function(){}); });
+  window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js?v=37').catch(function(){}); });
 }
 </script>
 </body>
