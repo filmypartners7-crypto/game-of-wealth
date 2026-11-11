@@ -14,7 +14,7 @@
 <link rel="apple-touch-icon" href="icon.svg">
 <style>
 html,body{margin:0;padding:0;overflow:hidden;height:100%;background:#e2a6cf}
-html{background:url('assets/game/table-empty.webp?v=57') center center/cover no-repeat fixed}
+html{background:url('assets/game/table-empty.webp?v=58') center center/cover no-repeat fixed}
 body{background:transparent}
 *,*::before,*::after{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
@@ -103,7 +103,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 #gameScreen{padding:0 8px;gap:4px;
   background:
     linear-gradient(180deg,rgba(255,255,255,.42) 0%,rgba(214,244,255,.30) 40%,rgba(200,240,200,.42) 100%),
-    url('assets/tablebg.webp?v=57') center/cover no-repeat fixed}
+    url('assets/tablebg.webp?v=58') center/cover no-repeat fixed}
 
 .topbar{display:flex;align-items:center;gap:8px;padding:8px 0 2px}
 .topbar .icon{
@@ -255,7 +255,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .hand .card.sel{
   border-color:#63e06b;box-shadow:0 0 0 3px #63e06b,0 12px 22px rgba(0,0,0,.35);z-index:20!important;
 }
-.hand .card.ghost{background:url('assets/cardback.webp?v=57') center/cover;border-color:#fff}
+.hand .card.ghost{background:url('assets/cardback.webp?v=58') center/cover;border-color:#fff}
 
 /* ---------- action panel ---------- */
 .actionpanel{
@@ -397,7 +397,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .rcard.red .face.front{color:#d02a1e}
 .rcard .face.front .r{font-size:24px;line-height:1;font-family:Georgia,serif}
 .rcard .face.front .s{font-size:16px;line-height:1}
-.rcard .face.back{transform:rotateY(180deg);background:url('assets/cardback.webp?v=57') center/cover;border:2px solid #fff}
+.rcard .face.back{transform:rotateY(180deg);background:url('assets/cardback.webp?v=58') center/cover;border:2px solid #fff}
 .rcell.win .rcard .face.front{box-shadow:0 0 0 3px #63e06b,0 0 26px rgba(99,224,107,.9)}
 .rcell.win{animation:winglow 1.4s ease-in-out infinite alternate}
 @keyframes winglow{from{transform:scale(1)}to{transform:scale(1.05)}}
@@ -482,7 +482,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
 /* ================= SPLASH ================= */
 @font-face{font-family:'Baloo 2';font-style:normal;font-weight:400 800;font-display:swap;
-  src:url('assets/baloo.woff2?v=57') format('woff2')}
+  src:url('assets/baloo.woff2?v=58') format('woff2')}
 #splashScreen{font-family:'Baloo 2',system-ui,sans-serif}
 
 .splash{position:relative;height:100dvh;min-height:100dvh;width:100%;overflow:hidden;
@@ -559,7 +559,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .hs-skyext{display:none}
 
 .hs-crop{position:absolute;background-repeat:no-repeat;background-size:941px 1672px;
-  background-image:url('assets/home/home-base.webp?v=57');will-change:transform;z-index:2}
+  background-image:url('assets/home/home-base.webp?v=58');will-change:transform;z-index:2}
 .hs-char{left:345px;top:150px;width:267px;height:585px;background-position:-345px -150px;
   animation:hsBob 3s ease-in-out infinite}
 @keyframes hsBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
@@ -767,80 +767,74 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .lobby-card p{font-family:'Baloo 2',system-ui,sans-serif;font-size:14px;font-weight:700;color:#8a7442;margin:8px 0 18px}
 
 /* ================= GAME TABLE ================= */
-#tableScreen{position:fixed;inset:0;overflow:hidden;
-  background:linear-gradient(180deg,#6fbcf5 0%,#8fc6ef 22%,#f2c3ae 44%,#eab7c6 72%,#e2a6cf 100%)}
-
-.tb-blur{display:none}
-.tb-veil{display:none}
-#tableScreen .hs-stage{position:fixed;left:50%;top:50%;transform-origin:center center;
-  width:852px;height:1846px;z-index:2;will-change:transform;background:transparent}
-#tblBgLayer{position:fixed;inset:0;z-index:0;background:url('assets/game/table-empty.webp?v=57') center center/cover no-repeat;
-  filter:blur(14px) saturate(1.1) brightness(.96);transform:scale(1.08)}
-#tblBgLayer::after{content:'';position:absolute;inset:0;background:rgba(255,240,235,.18)}
+#tableScreen{position:fixed;inset:0;overflow:hidden;background:#f0b8c8}
+#bg{position:fixed;inset:0;z-index:0;background:url('assets/game/bg_room.webp?v=58') 50% 20% / cover no-repeat}
+#tableArea{position:fixed;left:0;right:0;z-index:2;display:flex;align-items:center;justify-content:center;pointer-events:none}
+#tableGroup{position:relative;pointer-events:auto;container-type:inline-size}
+#tableImg{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
 #tblUI{position:fixed;inset:0;z-index:6;pointer-events:none;overflow:hidden}
 #tblUI > *{pointer-events:auto}
 #tblUI .tb-overlay{pointer-events:auto}
-#tableScreen .hs-bg{width:852px;height:1846px;display:block}
 
-/* seats */
+/* seats — everything in % of #tableGroup */
 .tb-seatbox{position:absolute;transform:translate(-50%,-100%);z-index:4}
-.tb-char{display:block;width:220px;height:auto;filter:drop-shadow(0 10px 16px rgba(0,0,0,.45))}
-.tb-seatbox.me .tb-char{width:280px}
-.tb-plate{position:absolute;left:50%;transform:translate(-50%,16%);bottom:0;width:196px;aspect-ratio:685/230;z-index:8}
-.tb-seatbox.me .tb-plate{width:240px}
-.tb-plateimg{display:block;width:100%;height:100%;object-fit:fill}
-.tb-plate-txt{position:absolute;left:7%;right:7%;top:12%;bottom:12%;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;gap:1px;font-family:'Baloo 2',system-ui,sans-serif;color:#fff}
-.tb-nm{font-weight:800;font-size:22px;line-height:1.05;text-shadow:0 2px 0 rgba(8,20,45,.9);white-space:nowrap}
-.tb-row2{display:flex;align-items:center;gap:5px;font-weight:800;font-size:19px;line-height:1.05;
+.tb-char{display:block;width:26cqw;height:auto;filter:drop-shadow(0 6px 10px rgba(0,0,0,.45))}
+.tb-seatbox.me .tb-char{width:30cqw}
+.tb-plate{position:absolute;left:50%;transform:translate(-50%,10%);top:100%;width:23cqw;z-index:8}
+.tb-seatbox.me .tb-plate{width:26cqw}
+.tb-plateimg{display:block;width:100%;height:auto}
+.tb-plate-txt{position:absolute;left:6%;right:6%;top:16%;bottom:14%;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:0;font-family:'Baloo 2',system-ui,sans-serif;color:#fff}
+.tb-nm{font-weight:800;font-size:3.4cqw;line-height:1.05;text-shadow:0 2px 0 rgba(8,20,45,.9);white-space:nowrap}
+.tb-row2{display:flex;align-items:center;gap:.6cqw;font-weight:800;font-size:2.9cqw;line-height:1.05;
   text-shadow:0 2px 0 rgba(8,20,45,.9);white-space:nowrap}
-.tb-row2 img.note{width:21px;height:auto}
-.tb-row2 img.bar{width:17px;height:auto}
-.tb-lock{position:absolute;left:50%;top:-28px;transform:translateX(-50%);display:none;align-items:center;gap:4px;
-  height:34px;padding:0 12px;border-radius:17px;background:linear-gradient(180deg,#4a5a6e,#2c3a4c);
-  border:2px solid #7f93ab;font-family:'Baloo 2';font-weight:800;font-size:17px;color:#fff;white-space:nowrap;z-index:9}
+.tb-row2 img.note{width:3.2cqw;height:auto}
+.tb-row2 img.bar{width:2.6cqw;height:auto}
+.tb-lock{position:absolute;left:50%;top:-3.4cqw;transform:translateX(-50%);display:none;align-items:center;gap:.4cqw;
+  height:3.4cqw;padding:0 1.2cqw;border-radius:1.7cqw;background:linear-gradient(180deg,#4a5a6e,#2c3a4c);
+  border:2px solid #7f93ab;font-family:'Baloo 2';font-weight:800;font-size:1.9cqw;color:#fff;white-space:nowrap;z-index:9}
 .tb-lock.on{display:flex}
-.tb-lock img{width:14px;height:17px}
+.tb-lock img{width:1.5cqw;height:1.9cqw}
 
 /* piles */
-.tb-pilecard{position:absolute;transform:translate(-50%,-50%);z-index:3;width:78px;height:113px;
-  filter:drop-shadow(0 4px 7px rgba(0,0,0,.4))}
+.tb-pilecard{position:absolute;transform:translate(-50%,-50%);z-index:3;width:8cqw;height:11.6cqw;
+  filter:drop-shadow(0 3px 5px rgba(0,0,0,.4))}
 .tb-pilecard img{width:100%;height:100%;object-fit:contain;display:block}
-.tb-empty{position:absolute;transform:translate(-50%,-50%);z-index:2;width:78px;height:113px;
-  border-radius:9px;border:3px dashed rgba(255,255,255,.35)}
+.tb-empty{position:absolute;transform:translate(-50%,-50%);z-index:2;width:8cqw;height:11.6cqw;
+  border-radius:1cqw;border:2px dashed rgba(255,255,255,.4)}
 .tb-badge{position:absolute;transform:translate(-50%,-50%);z-index:4;
-  font-family:'Baloo 2';font-weight:800;font-size:18px;color:#fff;
-  min-width:36px;height:28px;display:flex;align-items:center;justify-content:center;padding:0 8px;
-  border-radius:14px;border:2px solid #4b7fd4;background:linear-gradient(180deg,#1d3f7a,#12294f)}
+  font-family:'Baloo 2';font-weight:800;font-size:2.2cqw;color:#fff;
+  min-width:4cqw;height:3.2cqw;display:flex;align-items:center;justify-content:center;padding:0 .8cqw;
+  border-radius:1.6cqw;border:2px solid #4b7fd4;background:linear-gradient(180deg,#1d3f7a,#12294f)}
 
 /* hand */
-.tb-hand{position:absolute;left:423px;top:1150px;width:0;height:0;z-index:7}
-.tb-card{position:absolute;left:-48px;top:0;width:96px;cursor:pointer;
-  transition:transform .16s ease,filter .16s ease;filter:drop-shadow(0 6px 10px rgba(0,0,0,.45))}
-.tb-card.sel{filter:drop-shadow(0 0 14px rgba(255,215,80,1))}
-.tb-card img{width:100%;display:block;border-radius:7px}
+.tb-hand{position:absolute;left:50%;top:71%;width:0;height:0;z-index:7}
+.tb-card{position:absolute;left:-4.6cqw;top:0;width:9.2cqw;cursor:pointer;
+  transition:transform .16s ease,filter .16s ease;filter:drop-shadow(0 5px 8px rgba(0,0,0,.45))}
+.tb-card.sel{filter:drop-shadow(0 0 12px rgba(255,215,80,1))}
+.tb-card img{width:100%;display:block;border-radius:.7cqw}
 
-/* top bar */
+/* HUD */
 .tb-hud{position:absolute;left:0;right:0;top:env(safe-area-inset-top,0px);height:56px;
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 calc(4vw + env(safe-area-inset-left,0px)) 0 calc(4vw + env(safe-area-inset-right,0px));z-index:9}
-.tb-roundbar{position:relative;flex:1 1 auto;margin:0 8px;min-width:0;max-width:52vw;z-index:9}
+  padding:0 calc(3vw + env(safe-area-inset-left,0px)) 0 calc(3vw + env(safe-area-inset-right,0px));z-index:9}
+.tb-roundbar{position:relative;flex:1 1 auto;margin:0 8px;min-width:0;max-width:52vw}
 .tb-rbimg{display:block;width:100%;height:auto}
 .tb-rbtext{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  font-family:'Baloo 2';font-weight:800;font-size:clamp(13px,3.4vw,20px);color:#fff;text-shadow:0 2px 0 rgba(8,20,45,.85);white-space:nowrap}
-.tb-goldpill{position:relative;flex:0 0 auto;width:30vw;max-width:160px;height:clamp(34px,8vw,52px);z-index:9;
-  display:flex;align-items:center;justify-content:center;gap:8px;
+  font-family:'Baloo 2';font-weight:800;font-size:clamp(13px,3.4vw,20px);color:#fff;
+  text-shadow:0 2px 0 rgba(8,20,45,.85);white-space:nowrap}
+.tb-goldpill{position:relative;flex:0 0 auto;width:30vw;max-width:160px;height:clamp(34px,8vw,52px);
+  display:flex;align-items:center;justify-content:center;gap:6px;
   border-radius:32px;background:linear-gradient(180deg,#2f6fd0,#123a7c);border:3px solid #f2b93b;
   box-shadow:inset 0 3px 0 rgba(255,255,255,.35),0 4px 8px rgba(0,0,0,.35)}
 .tb-gbico{width:clamp(20px,5vw,32px);height:auto}
 .tb-gbtext{font-family:'Baloo 2';font-weight:800;font-size:clamp(15px,4vw,24px);color:#fff;text-shadow:0 2px 0 rgba(8,20,45,.85)}
-.tb-tri{width:0;height:0;border-left:9px solid transparent;border-right:9px solid transparent;border-bottom:15px solid #57d94a}
-.tb-tri.down{border-bottom:0;border-top:15px solid #ff6b5a}
+.tb-tri{width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:13px solid #57d94a}
+.tb-tri.down{border-bottom:0;border-top:13px solid #ff6b5a}
 .tb-tri.hide{display:none}
 
-.tb-hit{position:absolute;background:transparent;border:0;padding:0;z-index:10;
-  font-family:'Baloo 2',system-ui,sans-serif}
-.tb-gear{position:relative;flex:0 0 auto;left:auto;top:auto;transform:none;width:clamp(44px,11vw,58px);height:clamp(44px,11vw,58px);border-radius:50%;
+.tb-hit{position:absolute;background:transparent;border:0;padding:0;z-index:10;font-family:'Baloo 2',system-ui,sans-serif}
+.tb-gear{position:relative;flex:0 0 auto;width:clamp(44px,11vw,58px);height:clamp(44px,11vw,58px);border-radius:50%;
   background:radial-gradient(circle at 35% 30%,#5aa0ff,#1b57b8 70%);border:3px solid #f2b93b;
   box-shadow:0 4px 0 rgba(0,0,0,.25)}
 .tb-gear svg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:55%;height:55%;display:block}
@@ -848,137 +842,46 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 /* bid panel */
 .tb-panel{position:absolute;left:50%;transform:translateX(-50%);
   bottom:calc(env(safe-area-inset-bottom,0px) + 6px);
-  width:min(100vw,480px);height:clamp(124px,19.5vh,152px);z-index:8}
+  width:min(100vw,480px);height:clamp(128px,20vh,156px);z-index:8}
 .tb-pimg{display:block;width:100%;height:100%;object-fit:fill}
-.tb-ptitle{position:absolute;left:50%;top:12.5%;transform:translate(-50%,-50%);width:380px;text-align:center;
-  font-family:'Baloo 2';font-weight:800;font-size:clamp(15px,4.2vw,24px);color:#5A3410;z-index:9;
-  text-shadow:0 2px 0 rgba(255,255,255,.5)}
-.tb-pbid{position:absolute;left:50%;top:12.5%;transform:translate(-50%,-50%);z-index:9;
-  font-family:'Baloo 2';font-weight:800;font-size:clamp(15px,4.2vw,24px);color:#5A3410;padding:0 14px;border-radius:12px}
-.tb-prow1{position:absolute;left:3%;right:3%;top:19.5%;height:36.5%;display:flex;align-items:center;gap:14px}
-.tb-prow2{position:absolute;left:3%;right:3%;top:59.5%;height:34%;display:flex;gap:12px}
+.tb-ptitle{position:absolute;left:50%;top:12%;transform:translate(-50%,-50%);width:80%;text-align:center;
+  font-family:'Baloo 2';font-weight:800;font-size:clamp(14px,4vw,22px);color:#5A3410;z-index:9}
+.tb-pbid{position:absolute;left:50%;top:12%;transform:translate(-50%,-50%);z-index:9;
+  font-family:'Baloo 2';font-weight:800;font-size:clamp(14px,4vw,22px);color:#5A3410;padding:0 14px;border-radius:12px}
+.tb-prow1{position:absolute;left:3%;right:3%;top:21%;height:34%;display:flex;align-items:center;gap:10px}
+.tb-prow2{position:absolute;left:3%;right:3%;top:59%;height:34%;display:flex;gap:8px}
 .tb-slider{position:relative;flex:1 1 auto;height:100%;z-index:9;min-width:0}
-.tb-slider::before{content:'';position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);height:16%;border-radius:18px;
+.tb-slider::before{content:'';position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);height:22%;border-radius:99px;
   background:linear-gradient(180deg,#7a4a22,#5a3410);box-shadow:inset 0 3px 6px rgba(0,0,0,.45)}
-.tb-slider i{position:absolute;left:0;top:50%;transform:translateY(-50%);height:16%;border-radius:18px;z-index:1;
-  background:linear-gradient(180deg,#7BE04A,#2FA81F);box-shadow:inset 0 2px 0 rgba(255,255,255,.35)}
-.tb-slider b{position:absolute;top:50%;width:min(9vw,26px);height:min(9vw,26px);border-radius:50%;transform:translate(-50%,-50%);
+.tb-slider i{position:absolute;left:0;top:50%;transform:translateY(-50%);height:22%;border-radius:99px;z-index:1;
+  background:linear-gradient(180deg,#7BE04A,#2FA81F)}
+.tb-slider b{position:absolute;top:50%;width:min(8.5vw,30px);height:min(8.5vw,30px);border-radius:50%;
+  transform:translate(-50%,-50%);z-index:3;
   background:radial-gradient(circle at 34% 28%,#fff6c9,#ffd54a 45%,#e0a51e 78%,#b57d0d);
-  border:3px solid #fff8e0;box-shadow:0 3px 8px rgba(0,0,0,.45);pointer-events:none;z-index:3}
-.tb-minus,.tb-plus{flex:0 0 auto;width:clamp(40px,10.5vw,54px);height:clamp(40px,10.5vw,54px);border-radius:50%;position:relative;
+  border:3px solid #fff8e0;box-shadow:0 3px 8px rgba(0,0,0,.45);pointer-events:none}
+.tb-minus,.tb-plus{flex:0 0 auto;width:clamp(38px,10vw,50px);height:clamp(38px,10vw,50px);border-radius:50%;position:relative;
   background:radial-gradient(circle at 35% 30%,#5aa0ff,#1b57b8 70%);border:3px solid #f2b93b;
-  color:#fff;font-size:clamp(20px,5vw,30px);font-weight:800;line-height:1;display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:clamp(18px,5vw,28px);font-weight:800;line-height:1;display:flex;align-items:center;justify-content:center;
   box-shadow:0 3px 0 rgba(0,0,0,.25)}
-.tb-min,.tb-2x,.tb-all,.tb-bidbtn{position:relative;height:100%;border-radius:clamp(8px,2vw,14px);
+.tb-min,.tb-2x,.tb-all,.tb-bidbtn{position:relative;height:100%;border-radius:10px;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;color:#fff;
-  box-shadow:0 4px 0 rgba(0,0,0,.22);font-family:'Baloo 2'}
+  box-shadow:0 3px 0 rgba(0,0,0,.22);font-family:'Baloo 2'}
 .tb-min,.tb-2x,.tb-all{flex:1 1 0;background:linear-gradient(180deg,#4f9bff,#1f5fc8);border:3px solid #f2b93b}
-.tb-min span,.tb-2x span,.tb-all span{font-size:clamp(11px,2.9vw,17px);font-weight:800;line-height:1}
-.tb-min b,.tb-2x b,.tb-all b{font-size:clamp(11px,2.9vw,17px);font-weight:800;line-height:1}
+.tb-min span,.tb-2x span,.tb-all span{font-size:clamp(10px,2.7vw,16px);font-weight:800;line-height:1}
+.tb-min b,.tb-2x b,.tb-all b{font-size:clamp(10px,2.7vw,16px);font-weight:800;line-height:1}
 .tb-bidbtn{flex:1.25 1 0;background:linear-gradient(180deg,#6fe04a,#2fa81f);border:3px solid #f2b93b;
-  color:#fff;font-size:clamp(15px,4vw,24px);font-weight:800;text-shadow:0 2px 0 rgba(0,0,0,.3);display:flex;
-  align-items:center;justify-content:center;flex-direction:row}
+  color:#fff;font-size:clamp(14px,4vw,22px);font-weight:800;text-shadow:0 2px 0 rgba(0,0,0,.3);
+  flex-direction:row;align-items:center;justify-content:center}
 
 .tb-overlay{position:absolute;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;
   background:rgba(6,12,26,.55)}
 .tb-overlay[hidden]{display:none}
-.tb-obox{width:560px;border-radius:26px;background:linear-gradient(180deg,#fff3d6,#f0d9a8);
-  border:7px solid #d9a441;padding:24px;font-family:'Baloo 2';color:#5A3410;text-align:center}
-.tb-obox h3{margin:0 0 10px;font-size:34px}
-.tb-obox p{margin:5px 0;font-size:22px;font-weight:700}
-.tb-obox button{margin-top:14px;width:100%;height:86px;border-radius:22px;border:0;
-  background:linear-gradient(180deg,#6fe04a,#2fa81f);color:#fff;font-family:'Baloo 2';font-weight:800;font-size:28px}
-
-/* ================= STAGE 2 POPUPS ================= */
-.ov{position:fixed;inset:0;z-index:995;display:flex;align-items:center;justify-content:center;background:rgba(6,12,26,.55)}
-.ov[hidden]{display:none!important}
-.ov-box{position:relative;width:min(88vw,380px);border-radius:26px;padding:26px 20px 20px;
-  background:linear-gradient(180deg,#fff5dc,#f0d9a8);border:6px solid #d9a441;
-  box-shadow:0 18px 44px rgba(0,0,0,.55);font-family:'Baloo 2',system-ui,sans-serif;color:#5A3410}
-.ov-box.small{width:min(80vw,320px)}
-.ov-ribbon{position:absolute;left:50%;top:-20px;z-index:3;transform:translateX(-50%);padding:6px 26px;border-radius:14px;
-  background:linear-gradient(180deg,#e0453a,#a8231a);color:#fff;font-weight:800;font-size:19px;
-  box-shadow:0 4px 0 rgba(0,0,0,.25);white-space:nowrap}
-.ov-plain{display:block;width:100%;margin-top:8px;height:44px;border-radius:14px;border:0;
-  background:#e6d3a8;color:#5A3410;font-family:'Baloo 2';font-weight:800;font-size:16px}
-
-.pv{position:fixed;inset:0;z-index:990;background:rgba(6,12,26,.55);opacity:0;transition:opacity .18s}
-.pv[hidden]{display:none!important}
-.pv.in{opacity:1}
-.pv-sheet{position:absolute;left:0;top:0;transform-origin:center center;transform:scale(.9);
-  transition:transform .2s cubic-bezier(.2,.9,.3,1);filter:drop-shadow(0 18px 44px rgba(0,0,0,.5))}
-.pv.in .pv-sheet{transform:scale(1)}
-.pv-img{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
-.pv-layer{position:absolute;left:0;top:0;transform-origin:top left;font-family:'Baloo 2',system-ui,sans-serif}
-#rsLayer{width:1108px;height:1419px}
-#setLayer,#howLayer,#goLayer,#leaveLayer{width:971px;height:1620px}
-
-.pv-title{position:absolute;transform:translate(-50%,-50%);width:100%;text-align:center;
-  font-weight:800;font-size:52px;color:#fff;letter-spacing:.01em;line-height:1.05;
-  text-shadow:0 4px 0 #8e1c14,0 -2px 0 #8e1c14,3px 0 0 #8e1c14,-3px 0 0 #8e1c14,0 0 10px rgba(120,20,10,.7)}
-.pv-x{position:absolute;background:transparent;border:0;padding:0;border-radius:50%}
-.pv-tab{position:absolute;background:transparent;border:0;padding:0;border-radius:26px}
-.pv-tabhl{position:absolute;border-radius:26px;pointer-events:none;display:none;
-  background:rgba(255,201,60,.30);
-  box-shadow:0 0 0 5px #FFC727,0 0 22px 6px rgba(255,199,39,.85),inset 0 0 18px rgba(255,214,110,.6)}
-.pv-tabhl.on{display:block}
-.pv-body{position:absolute;overflow:auto;box-sizing:border-box;padding:22px 26px;
-  font-family:'Baloo 2',system-ui,sans-serif;color:#5A3410}
-.pv-btn{position:absolute;background:transparent;border:0;padding:0;border-radius:40px}
-
-.pv-price{display:flex;align-items:center;justify-content:center;gap:16px;font-weight:800;font-size:68px;color:#5A3410}
-.pv-price img{width:62px;height:auto}
-.pv-trend{font-size:26px;font-weight:800}
-.pv-trend.up{color:#2fa81f}.pv-trend.down{color:#e0453a}
-.pv-graph{display:block;width:100%;height:200px;margin:10px 0}
-.pv-cols{display:flex;justify-content:space-between;font-weight:800;font-size:32px;margin:8px 0 12px}
-.pv-cols span{display:flex;align-items:center;gap:8px}
-.pv-cols img{width:34px;height:auto}
-.pv-step{display:flex;align-items:center;justify-content:center;gap:22px;margin:10px 0}
-.pv-step button{width:92px;height:92px;border-radius:50%;border:0;color:#fff;font-size:48px;font-weight:800;
-  background:linear-gradient(180deg,#3f9bfd,#1b57b8)}
-.pv-step b{font-size:54px;min-width:92px;text-align:center}
-.pv-btns{display:flex;gap:16px;margin-top:6px}
-.pv-buy,.pv-sell{flex:1;height:104px;border-radius:26px;border:0;color:#fff;font-family:'Baloo 2';
-  font-weight:800;font-size:40px;text-shadow:0 3px 0 rgba(0,0,0,.28)}
-.pv-buy{background:linear-gradient(180deg,#6fe04a,#2fa81f)}
-.pv-sell{background:linear-gradient(180deg,#ff8a72,#e0453a)}
-.pv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:10px 0}
-.pv-card{position:relative;border-radius:10px;border:3px solid transparent;background:#fff;padding:3px}
-.pv-card img{width:100%;display:block;border-radius:8px}
-.pv-card.sel{border-color:#FFC727;box-shadow:0 0 0 4px rgba(255,199,39,.55)}
-.pv-card b{position:absolute;right:3px;bottom:3px;background:#1d3f7a;color:#fff;font-size:15px;padding:0 6px;border-radius:7px}
-.pv-tag{position:absolute;left:3px;top:3px;background:#2fa81f;color:#fff;font-size:14px;padding:0 6px;border-radius:7px}
-.pv-empty{text-align:center;font-weight:700;font-size:24px;padding:40px 0;opacity:.7}
-.pv-rows{display:flex;flex-direction:column;gap:0}
-.pv-row{display:flex;align-items:center;justify-content:space-between;gap:16px;height:150px;
-  border-bottom:2px dashed rgba(160,120,60,.3);font-weight:800;font-size:40px}
-.pv-toggle{width:118px;height:64px;border-radius:32px;border:0;background:#b9a06e;position:relative;transition:.15s}
-.pv-toggle i{position:absolute;left:5px;top:5px;width:54px;height:54px;border-radius:50%;background:#fff;transition:.15s}
-.pv-toggle.on{background:#2fa81f}
-.pv-toggle.on i{left:59px}
-.pv-seg{display:flex;gap:8px}
-.pv-seg b{padding:10px 18px;border-radius:14px;background:#e6d3a8;font-size:34px;font-weight:800}
-.pv-seg b.on{background:#2fa81f;color:#fff}
-.pv-seg.ro b{opacity:.5}
-.pv-link{height:110px;border-radius:22px;border:0;margin-top:20px;background:#e6d3a8;color:#5A3410;
-  font-family:'Baloo 2';font-weight:800;font-size:40px}
-.pv-red{height:110px;border-radius:22px;border:0;margin-top:20px;background:linear-gradient(180deg,#ff8a72,#e0453a);
-  color:#fff;font-family:'Baloo 2';font-weight:800;font-size:40px}
-.pv-green{height:110px;border-radius:26px;border:0;margin-top:18px;background:linear-gradient(180deg,#6fe04a,#2fa81f);
-  color:#fff;font-family:'Baloo 2';font-weight:800;font-size:34px;text-shadow:0 3px 0 rgba(0,0,0,.28)}
-.pv-p{font-size:26px;font-weight:700;margin:20px 0}
-.pv-how{display:flex;gap:18px;align-items:flex-start;margin:22px 0;font-weight:700;font-size:34px;line-height:1.25}
-.pv-how i{flex:0 0 58px;height:58px;border-radius:50%;background:#1d3f7a;color:#fff;font-style:normal;
-  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:24px}
-.pv-go{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:16px;
-  background:rgba(255,255,255,.55);margin-bottom:12px;font-weight:800;font-size:34px}
-.pv-go.me{background:rgba(255,199,39,.45);outline:3px solid #FFC727}
-.pv-go .av{width:66px;height:66px;border-radius:50%;background:#1d3f7a;color:#fff;display:flex;
-  align-items:center;justify-content:center;font-size:30px;flex:0 0 66px}
-.pv-go .nm{flex:1}
-.pv-go .pz{color:#2fa81f}
-.pv-go .nz{color:#e0453a}
+.tb-obox{width:min(86vw,340px);border-radius:18px;background:linear-gradient(180deg,#fff3d6,#f0d9a8);
+  border:6px solid #d9a441;padding:18px;font-family:'Baloo 2';color:#5A3410;text-align:center}
+.tb-obox h3{margin:0 0 8px;font-size:22px}
+.tb-obox p{margin:4px 0;font-size:15px;font-weight:700}
+.tb-obox button{margin-top:12px;width:100%;height:52px;border-radius:14px;border:0;
+  background:linear-gradient(180deg,#6fe04a,#2fa81f);color:#fff;font-family:'Baloo 2';font-weight:800;font-size:19px}
 
 </style>
 </head>
@@ -988,9 +891,9 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
   <!-- ============ SPLASH / LOGIN ============ -->
   <section id="splashScreen" class="screen splash">
-    <img class="splash-bg" src="assets/bg-garden.webp?v=57" alt="">
+    <img class="splash-bg" src="assets/bg-garden.webp?v=58" alt="">
     <div class="floaties" id="floaties" aria-hidden="true"></div>
-    <img class="splash-logo" src="assets/logo.webp?v=57" alt="Game of Wealth">
+    <img class="splash-logo" src="assets/logo.webp?v=58" alt="Game of Wealth">
 
     <div class="splash-bottom">
       <div class="splash-actions" id="splashActions">
@@ -1026,7 +929,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <div class="hs-wrap" id="hsWrap">
       <div class="hs-stage" id="hsStage">
         <div class="hs-skyext"></div>
-        <img class="hs-bg" src="assets/home/home-base.webp?v=57" alt="">
+        <img class="hs-bg" src="assets/home/home-base.webp?v=58" alt="">
         <div class="hs-crop hs-char" id="hsChar"></div>
         <div class="hs-crop hs-play" id="hsPlay"></div>
         <div class="hs-shimmer"></div>
@@ -1061,18 +964,18 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
   <section id="tableSelectScreen" class="screen home3" hidden>
     <div class="hs-wrap">
       <div class="hs-stage" id="tsStage">
-        <img class="hs-bg" id="tsBg" src="assets/ts/ts-base.webp?v=57" alt="">
+        <img class="hs-bg" id="tsBg" src="assets/ts/ts-base.webp?v=58" alt="">
 
         <div class="ts-dim" id="dimPro"></div>
         <div class="ts-dim" id="dimHigh"></div>
         <div class="ts-outline" id="tsOutline"></div>
 
-        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp?v=57" alt=""><span>128 playing</span></div>
-        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp?v=57" alt=""><span>64 playing</span></div>
-        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp?v=57" alt=""><span>12 playing</span></div>
+        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp?v=58" alt=""><span>128 playing</span></div>
+        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp?v=58" alt=""><span>64 playing</span></div>
+        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp?v=58" alt=""><span>12 playing</span></div>
 
-        <img class="ts-lock" id="lockPro" src="assets/ic-lock.webp?v=57" alt="">
-        <img class="ts-lock" id="lockHigh" src="assets/ic-lock.webp?v=57" alt="">
+        <img class="ts-lock" id="lockPro" src="assets/ic-lock.webp?v=58" alt="">
+        <img class="ts-lock" id="lockHigh" src="assets/ic-lock.webp?v=58" alt="">
         <span class="ts-need" id="needPro">Need 5,000 cash</span>
         <span class="ts-need" id="needHigh">Need 10,000 cash</span>
 
@@ -1100,7 +1003,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <div class="bi-overlay" id="biOverlay" hidden>
       <div class="bi-sheet" id="biSheet">
         <div class="bi-inner" id="biInner">
-          <img class="bi-img" src="assets/ts/buyin-popup.webp?v=57" alt="">
+          <img class="bi-img" src="assets/ts/buyin-popup.webp?v=58" alt="">
 
           <span class="bi-amount" id="biAmount">2,000</span>
 
@@ -1127,47 +1030,44 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
   <!-- ============ GAME TABLE ============ -->
   <section id="tableScreen" class="screen home3" hidden>
     <div id="dbgFit" style="position:fixed;left:4px;bottom:4px;z-index:9999;font:9px/1.15 monospace;color:#fff;background:rgba(0,0,0,.6);padding:2px 4px;border-radius:3px;max-width:60vw;pointer-events:none;opacity:.85">fit</div>
-    <div id="tblBgLayer"></div>
-    <div class="tb-blur"></div>
-    <div class="tb-veil"></div>
-    <div class="hs-wrap">
-      <div class="hs-stage" id="tblStage">
-        <img class="hs-bg" id="tblBg" src="assets/game/table-empty.webp?v=57" alt="">
+    <div id="bg"></div>
 
+    <div id="tableArea">
+      <div id="tableGroup">
+        <img id="tableImg" src="assets/game/table.webp?v=58" alt="">
         <div id="tbSeats"></div>
         <div id="tbPiles"></div>
         <div class="tb-hand" id="tbHand"></div>
       </div>
+    </div>
 
-      <div id="tblUI">
-        <div class="tb-hud">
-<button class="tb-hit tb-gear" id="tbGear" aria-label="Settings"><svg viewBox="0 0 100 100" aria-hidden="true"><path fill="#ffffff" d="M50 4l7.5 3.2 5.6-3.9 8.1 4.7-.6 6.8 6.4 3.6 6.3-2.6 6.6 6.6-2.6 6.3 3.6 6.4 6.8-.6 4.7 8.1-3.9 5.6L100 50l-3.2 7.5 3.9 5.6-4.7 8.1-6.8-.6-3.6 6.4 2.6 6.3-6.6 6.6-6.3-2.6-6.4 3.6.6 6.8-8.1 4.7-5.6-3.9L50 100l-7.5-3.2-5.6 3.9-8.1-4.7.6-6.8-6.4-3.6-6.3 2.6-6.6-6.6 2.6-6.3-3.6-6.4-6.8.6L0 50l3.9-5.6L3.2 36.9 7.1 31.3 6.5 24.5l8.1-4.7 5.6 3.9L26.6 20l-.6-6.8 8.1-4.7 5.6 3.9L50 4z"/><circle cx="50" cy="50" r="22" fill="#1b57b8"/></svg></button>
-        <div class="tb-roundbar"><img class="tb-rbimg" src="assets/game/ui-round-bar.webp?v=57" alt="">
+    <div id="tblUI">
+      <div class="tb-hud">
+        <button class="tb-hit tb-gear" id="tbGear" aria-label="Settings"><svg viewBox="0 0 100 100" aria-hidden="true"><path fill="#ffffff" d="M50 4l7.5 3.2 5.6-3.9 8.1 4.7-.6 6.8 6.4 3.6 6.3-2.6 6.6 6.6-2.6 6.3 3.6 6.4 6.8-.6 4.7 8.1-3.9 5.6L100 50l-3.2 7.5 3.9 5.6-4.7 8.1-6.8-.6-3.6 6.4 2.6 6.3-6.6 6.6-6.3-2.6-6.4 3.6.6 6.8-8.1 4.7-5.6-3.9L50 100l-7.5-3.2-5.6 3.9-8.1-4.7.6-6.8-6.4-3.6-6.3 2.6-6.6-6.6 2.6-6.3-3.6-6.4-6.8.6L0 50l3.9-5.6L3.2 36.9 7.1 31.3 6.5 24.5l8.1-4.7 5.6 3.9L26.6 20l-.6-6.8 8.1-4.7 5.6 3.9L50 4z"/><circle cx="50" cy="50" r="22" fill="#1b57b8"/></svg></button>
+        <div class="tb-roundbar"><img class="tb-rbimg" src="assets/game/ui-round-bar.webp?v=58" alt="">
           <span class="tb-rbtext" id="tbRound">Round 1 - Match 1/6</span></div>
-        <div class="tb-goldpill"><img class="tb-gbico" src="assets/game/ic-gold.webp?v=57" alt="">
+        <div class="tb-goldpill"><img class="tb-gbico" src="assets/game/ic-gold.webp?v=58" alt="">
           <span class="tb-gbtext" id="tbGold">1,000</span><i class="tb-tri hide" id="tbTri"></i></div>
-        </div>
-
-        <div class="tb-panel">
-          <img class="tb-pimg" src="assets/game/ui-bid-panel.webp?v=57" alt="">
-          <span class="tb-ptitle" id="tbBanner">Place Your Bid</span>
-          <span class="tb-pbid" id="tbBidVal">Your Bid: 100</span>
-          <div class="tb-prow1">
-            <button class="tb-hit tb-minus" id="tbMinus" aria-label="Less"><span>&minus;</span></button>
-            <div class="tb-slider" id="tbSlider"><i id="tbFill"></i><b id="tbKnob"></b></div>
-            <button class="tb-hit tb-plus" id="tbPlus" aria-label="More"><span>+</span></button>
-          </div>
-          <div class="tb-prow2">
-            <button class="tb-hit tb-min" id="tbMin" aria-label="Min"><span>MIN</span><b id="tbMinV">100</b></button>
-            <button class="tb-hit tb-2x" id="tb2x" aria-label="Double"><span>2x</span><b id="tb2xV">200</b></button>
-            <button class="tb-hit tb-all" id="tbAllin" aria-label="All in"><span>ALL-IN</span><b id="tbAllinV">2,000</b></button>
-            <button class="tb-hit tb-bidbtn" id="tbBid" aria-label="Bid">Bid</button>
-          </div>
-        </div>
-
-        <div class="tb-overlay" id="tbOverlay" hidden><div class="tb-obox" id="tbObox"></div></div>
-
       </div>
+
+      <div class="tb-panel">
+        <img class="tb-pimg" src="assets/game/ui-bid-panel.webp?v=58" alt="">
+        <span class="tb-ptitle" id="tbBanner">Place Your Bid</span>
+        <span class="tb-pbid" id="tbBidVal">Your Bid: 100</span>
+        <div class="tb-prow1">
+          <button class="tb-hit tb-minus" id="tbMinus" aria-label="Less"><span>&minus;</span></button>
+          <div class="tb-slider" id="tbSlider"><i id="tbFill"></i><b id="tbKnob"></b></div>
+          <button class="tb-hit tb-plus" id="tbPlus" aria-label="More"><span>+</span></button>
+        </div>
+        <div class="tb-prow2">
+          <button class="tb-hit tb-min" id="tbMin" aria-label="Min"><span>MIN</span><b id="tbMinV">100</b></button>
+          <button class="tb-hit tb-2x" id="tb2x" aria-label="Double"><span>2x</span><b id="tb2xV">200</b></button>
+          <button class="tb-hit tb-all" id="tbAllin" aria-label="All in"><span>ALL-IN</span><b id="tbAllinV">2,000</b></button>
+          <button class="tb-hit tb-bidbtn" id="tbBid" aria-label="Bid">Bid</button>
+        </div>
+      </div>
+
+      <div class="tb-overlay" id="tbOverlay" hidden><div class="tb-obox" id="tbObox"></div></div>
     </div>
 
   </section>
@@ -1302,7 +1202,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
     <!-- round start sheet -->
     <div class="pv" id="rsOv" hidden><div class="pv-sheet" id="rsSheet">
-      <img class="pv-img" src="assets/game/roundstart-sheet.webp?v=57" alt="">
+      <img class="pv-img" src="assets/game/roundstart-sheet.webp?v=58" alt="">
       <div class="pv-layer" id="rsLayer">
         <span class="pv-title" id="rsTitle" style="left:555px;top:240px;max-width:640px">Round 2 Begins</span>
         <button class="pv-x" id="rsClose" style="left:970px;top:172px;width:122px;height:120px" aria-label="Close"></button>
@@ -1318,7 +1218,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
     <!-- settings -->
     <div class="pv" id="setOv" hidden><div class="pv-sheet" id="setSheet">
-      <img class="pv-img" src="assets/game/popup-frame.webp?v=57" alt="">
+      <img class="pv-img" src="assets/game/popup-frame.webp?v=58" alt="">
       <div class="pv-layer" id="setLayer">
         <span class="pv-title" style="left:485px;top:245px;max-width:520px">Settings</span>
         <button class="pv-x" id="setClose" style="left:840px;top:176px;width:122px;height:119px" aria-label="Close"></button>
@@ -1328,7 +1228,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
     <!-- how to play -->
     <div class="pv" id="howOv" hidden><div class="pv-sheet" id="howSheet">
-      <img class="pv-img" src="assets/game/popup-frame.webp?v=57" alt="">
+      <img class="pv-img" src="assets/game/popup-frame.webp?v=58" alt="">
       <div class="pv-layer" id="howLayer">
         <span class="pv-title" style="left:485px;top:245px;max-width:520px">How to Play</span>
         <button class="pv-x" id="howClose" style="left:840px;top:176px;width:122px;height:119px" aria-label="Close"></button>
@@ -1338,7 +1238,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
     <!-- game over -->
     <div class="pv" id="goOv" hidden><div class="pv-sheet" id="goSheet">
-      <img class="pv-img" src="assets/game/popup-frame.webp?v=57" alt="">
+      <img class="pv-img" src="assets/game/popup-frame.webp?v=58" alt="">
       <div class="pv-layer" id="goLayer">
         <span class="pv-title" style="left:485px;top:245px;max-width:520px">Game Over</span>
         <div class="pv-body pv-rows" id="goBody" style="left:54px;top:397px;width:864px;height:1046px"></div>
@@ -1347,7 +1247,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
     <!-- leave confirm -->
     <div class="pv" id="leaveOv" hidden><div class="pv-sheet" id="leaveSheet">
-      <img class="pv-img" src="assets/game/popup-frame.webp?v=57" alt="">
+      <img class="pv-img" src="assets/game/popup-frame.webp?v=58" alt="">
       <div class="pv-layer" id="leaveLayer">
         <span class="pv-title" style="left:485px;top:245px;max-width:520px">Leave Game?</span>
         <button class="pv-x" id="leaveNo" style="left:840px;top:176px;width:122px;height:119px" aria-label="Close"></button>
@@ -3463,7 +3363,7 @@ const Bots = (function () {
     const wrap = $('floaties');
     if (!wrap) return;
     wrap.innerHTML = '';
-    const kinds = ['assets/ic-cash1.webp?v=57', 'assets/ic-gold1.webp?v=57'];
+    const kinds = ['assets/ic-cash1.webp?v=58', 'assets/ic-gold1.webp?v=58'];
     for (let i = 0; i < 8; i++) {
       const img = document.createElement('img');
       img.className = 'flimg';
@@ -3704,8 +3604,8 @@ const Bots = (function () {
   const BOT_AV = ['av-rohan','av-diya','av-arjun','av-varun','av-ananya'];
 
   const SEATS = [
-    { x: 423, y: 1170 }, { x: 150, y: 900 }, { x: 150, y: 600 },
-    { x: 427, y: 500 },  { x: 700, y: 600 }, { x: 700, y: 890 }
+    { x: 50, y: 87 }, { x: 11, y: 52 }, { x: 20, y: 24 },
+    { x: 50, y: 22 }, { x: 80, y: 24 },  { x: 89, y: 52 }
   ];
   const USED_BY_N = {
     2: [0, 3], 3: [0, 2, 4], 4: [0, 1, 3, 5], 5: [0, 1, 2, 4, 5], 6: [0, 1, 2, 3, 4, 5]
@@ -3715,30 +3615,35 @@ const Bots = (function () {
   function usedSeats(n) { return USED_BY_N[Math.max(2, Math.min(6, n))] || USED_BY_N[6]; }
 
   function fitTable() {
-    const st = $('tblStage'); if (!st) return;
+    const g = $('tableGroup'), area = $('tableArea'), img = $('tableImg');
+    if (!g || !area || !img) return;
     const vv = window.visualViewport;
     const vw = Math.round(vv ? vv.width : window.innerWidth);
     const vh = Math.round(vv ? vv.height : window.innerHeight);
-    const hud = document.querySelector('.tb-hud');
+    const hudH = 56 + (parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--sat')) || 0);
     const panel = document.querySelector('.tb-panel');
-    const hudH = hud ? hud.getBoundingClientRect().height : 56;
-    const bidH = panel ? panel.getBoundingClientRect().height : 0;
-    const availH = Math.max(120, vh - hudH - bidH);
-    const S = Math.min(vw / 852, availH / 1846);        // contain: never crop the game
-    st.style.left = (vw / 2) + 'px';
-    st.style.top = (hudH + availH / 2) + 'px';
-    st.style.transformOrigin = 'center center';
-    st.style.transform = 'translate(-50%,-50%) scale(' + S + ')';
-    const r = st.getBoundingClientRect();
-    window.__FIT = { vw: vw, vh: vh, S: +S.toFixed(4), hudH: Math.round(hudH), bidH: Math.round(bidH),
-      availH: Math.round(availH), L: Math.round(r.left), R: Math.round(r.right),
-      T: Math.round(r.top), B: Math.round(r.bottom) };
+    const bidH = panel ? panel.getBoundingClientRect().height : 150;
+    const satB = 0;
+    area.style.top = (hudH) + 'px';
+    area.style.bottom = (bidH + satB) + 'px';
+    const availW = vw * 0.98;
+    const availH = Math.max(100, vh - hudH - bidH - satB);
+    const natW = img.naturalWidth || 917, natH = img.naturalHeight || 876;
+    const ratio = natW / natH;
+    const w = Math.min(availW, availH * ratio);
+    g.style.width = Math.round(w) + 'px';
+    g.style.height = Math.round(w / ratio) + 'px';
+    const r = g.getBoundingClientRect();
     if ($('dbgFit')) $('dbgFit').textContent =
-      'iw ' + window.innerWidth + 'x' + window.innerHeight +
-      ' vv ' + (vv ? Math.round(vv.width) + 'x' + Math.round(vv.height) : '-') +
-      ' hud ' + Math.round(hudH) + ' bid ' + Math.round(bidH) + ' S ' + S.toFixed(3) +
-      ' grp L' + Math.round(r.left) + ' T' + Math.round(r.top) + ' R' + Math.round(r.right) + ' B' + Math.round(r.bottom) +
+      'iw ' + vw + 'x' + vh + ' hud ' + Math.round(hudH) + ' bid ' + Math.round(bidH) +
+      ' avail ' + Math.round(availW) + 'x' + Math.round(availH) +
+      ' nat ' + natW + 'x' + natH +
+      ' grp ' + Math.round(r.left) + ',' + Math.round(r.top) + ' ' + Math.round(r.width) + 'x' + Math.round(r.height) +
       ' dpr ' + window.devicePixelRatio.toFixed(2);
+    window.__FIT = { vw: vw, vh: vh, hudH: Math.round(hudH), bidH: Math.round(bidH),
+      availH: Math.round(availH), natW: natW, natH: natH,
+      L: Math.round(r.left), T: Math.round(r.top), R: Math.round(r.right), B: Math.round(r.bottom),
+      W: Math.round(r.width), H: Math.round(r.height) };
   }
 
   function startTable() {
@@ -3807,8 +3712,8 @@ const Bots = (function () {
       const pos = SEATS[p.seat != null ? p.seat : 0];
       const box = document.createElement('div');
       box.className = 'tb-seatbox' + (p.id === 'p0' ? ' me' : '');
-      box.style.left = pos.x + 'px';
-      box.style.top = pos.y + 'px';
+      box.style.left = pos.x + '%';
+      box.style.top = pos.y + '%';
       const av = p.avatarId != null ? p.avatarId : (p.seat || 0);
       const img = document.createElement('img');
       img.className = 'tb-char';
@@ -3818,15 +3723,15 @@ const Bots = (function () {
 
       const plate = document.createElement('div');
       plate.className = 'tb-plate';
-      plate.innerHTML = '<img class="tb-plateimg" src="assets/game/ui-plate-large.webp?v=57" alt="">' +
+      plate.innerHTML = '<img class="tb-plateimg" src="assets/game/ui-plate-large.webp?v=58" alt="">' +
         '<div class="tb-plate-txt"><span class="tb-nm">' + p.name + '</span>' +
-        '<span class="tb-row2"><img class="note" src="assets/game/ic-cash1.webp?v=57" alt="">' +
+        '<span class="tb-row2"><img class="note" src="assets/game/ic-cash1.webp?v=58" alt="">' +
         Math.round(p.cash).toLocaleString('en-IN') +
-        '<img class="bar" src="assets/game/ic-gold.webp?v=57" alt="">' + p.gold + '</span></div>';
+        '<img class="bar" src="assets/game/ic-gold.webp?v=58" alt="">' + p.gold + '</span></div>';
       if (s.bids && s.bids[p.id] != null) {
         const lk = document.createElement('span');
         lk.className = 'tb-lock on';
-        lk.innerHTML = '<img src="assets/game/ui-lock.webp?v=57" alt="">Bid Locked';
+        lk.innerHTML = '<img src="assets/game/ui-lock.webp?v=58" alt="">Bid Locked';
         plate.appendChild(lk);
       }
       box.appendChild(plate);
@@ -3834,53 +3739,33 @@ const Bots = (function () {
       if (p.id === 'p0') { plate.style.zIndex = 12; }
     });
 
-    // hoist my plate above the hand so the cards tuck behind it
-    const myPlate = seatsEl.querySelector('.tb-seatbox.me .tb-plate');
-    if (myPlate) {
-      const r = myPlate.getBoundingClientRect(), st = $('tblStage').getBoundingClientRect();
-      const k = st.width / 852;
-      myPlate.remove();
-      const old = document.getElementById('tbMyPlateHolder');
-      if (old) old.remove();
-      const holder = document.createElement('div');
-      holder.id = 'tbMyPlateHolder';
-      holder.style.cssText = 'position:absolute;left:0;top:0;width:0;height:0;z-index:12';
-      holder.appendChild(myPlate);
-      $('tblStage').appendChild(holder);
-      myPlate.style.position = 'absolute';
-      myPlate.style.left = ((r.left + r.width / 2 - st.left) / k) + 'px';
-      myPlate.style.top = (((r.top + r.height / 2 - st.top) / k) + 150) + 'px';
-      myPlate.style.transform = 'translate(-50%,-50%)';
-      myPlate.style.bottom = 'auto';
-    }
-
     // piles on the felt
     const piles = $('tbPiles'); piles.innerHTML = '';
     for (let i = 0; i < 3; i++) {
       const b = document.createElement('div');
       b.className = 'tb-pilecard';
-      b.innerHTML = '<img src="assets/game/back.webp?v=57" alt="">';
-      b.style.left = (345 - i * 4) + 'px';
-      b.style.top = (760 - i * 4) + 'px';
+      b.innerHTML = '<img src="assets/game/back.webp?v=58" alt="">';
+      b.style.left = (46 - i * 0.4) + '%';
+      b.style.top = (46 - i * 0.4) + '%';
       piles.appendChild(b);
     }
     const top = s.discard[s.discard.length - 1];
     if (!top) {
       const e = document.createElement('div');
-      e.className = 'tb-empty'; e.style.left = '500px'; e.style.top = '760px';
+      e.className = 'tb-empty'; e.style.left = '57%'; e.style.top = '46%';
       piles.appendChild(e);
     } else {
       for (let i = 1; i >= 0; i--) {
         const c = cardImg(top, 'tb-pilecard');
-        c.style.left = (500 - i * 4) + 'px';
-        c.style.top = (760 - i * 4) + 'px';
+        c.style.left = (57 - i * 0.4) + '%';
+        c.style.top = (46 - i * 0.4) + '%';
         piles.appendChild(c);
       }
     }
     const b1 = document.createElement('span');
-    b1.className = 'tb-badge'; b1.style.left = '345px'; b1.style.top = '838px'; b1.textContent = s.deck.length;
+    b1.className = 'tb-badge'; b1.style.left = '46%'; b1.style.top = '54%'; b1.textContent = s.deck.length;
     const b2 = document.createElement('span');
-    b2.className = 'tb-badge'; b2.style.left = '500px'; b2.style.top = '838px'; b2.textContent = s.discard.length;
+    b2.className = 'tb-badge'; b2.style.left = '57%'; b2.style.top = '54%'; b2.textContent = s.discard.length;
     piles.appendChild(b1); piles.appendChild(b2);
 
     // hand
@@ -4166,13 +4051,13 @@ const Bots = (function () {
       });
       for (let i = 0; i <= 4; i++) grid += '<line x1="0" y1="' + (i * H / 4) + '" x2="' + W + '" y2="' + (i * H / 4) + '" stroke="rgba(160,120,60,.18)" stroke-width="2"/>';
       body.innerHTML =
-        '<div class="pv-price"><img src="assets/game/ic-gold.webp?v=57" alt="">' + s.goldPrice.toLocaleString('en-IN') +
+        '<div class="pv-price"><img src="assets/game/ic-gold.webp?v=58" alt="">' + s.goldPrice.toLocaleString('en-IN') +
         (change ? ' <span class="pv-trend ' + (change > 0 ? 'up' : 'down') + '">' +
           (change > 0 ? '\u25B2 +' : '\u25BC ') + change.toLocaleString('en-IN') + '</span>' : '') + '</div>' +
         '<svg class="pv-graph" viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="none">' + grid +
         '<path d="' + d + '" fill="none" stroke="#e88b1e" stroke-width="4" stroke-linejoin="round"/>' + dots + '</svg>' +
-        '<div class="pv-cols"><span><img src="assets/game/ic-gold.webp?v=57" alt="">My Gold: ' + me.gold + '</span>' +
-        '<span><img src="assets/game/ic-cash1.webp?v=57" alt="">My Cash: ' + Math.round(me.cash).toLocaleString('en-IN') + '</span></div>' +
+        '<div class="pv-cols"><span><img src="assets/game/ic-gold.webp?v=58" alt="">My Gold: ' + me.gold + '</span>' +
+        '<span><img src="assets/game/ic-cash1.webp?v=58" alt="">My Cash: ' + Math.round(me.cash).toLocaleString('en-IN') + '</span></div>' +
         '<div class="pv-step"><button id="rsMinus">\u2212</button><b id="rsQty">' + RS.qty + '</b><button id="rsPlus">+</button></div>' +
         '<div class="pv-btns"><button class="pv-buy" id="rsBuy">BUY</button><button class="pv-sell" id="rsSell">SELL</button></div>';
       $('rsMinus').onclick = function () { RS.qty = Math.max(1, RS.qty - 1); renderRoundStart(); };
@@ -4191,11 +4076,11 @@ const Bots = (function () {
         seen[k] = { card: c, n: 1 }; tiles.push(seen[k]);
       });
       if (!tiles.length) {
-        body.innerHTML = '<div class="pv-cols"><span><img src="assets/game/ic-cash1.webp?v=57" alt="">My Cash: ' +
+        body.innerHTML = '<div class="pv-cols"><span><img src="assets/game/ic-cash1.webp?v=58" alt="">My Cash: ' +
           Math.round(me.cash).toLocaleString('en-IN') + '</span></div><div class="pv-empty">No cards in the discard pile yet</div>';
         return;
       }
-      let html = '<div class="pv-cols"><span><img src="assets/game/ic-cash1.webp?v=57" alt="">My Cash: ' +
+      let html = '<div class="pv-cols"><span><img src="assets/game/ic-cash1.webp?v=58" alt="">My Cash: ' +
         Math.round(me.cash).toLocaleString('en-IN') + '</span></div><div class="pv-grid">';
       tiles.forEach(function (t) {
         html += '<div class="pv-card' + (RS.sel === t.card.id ? ' sel' : '') + '" data-id="' + t.card.id + '">' +
