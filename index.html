@@ -100,7 +100,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 #gameScreen{padding:0 8px;gap:4px;
   background:
     linear-gradient(180deg,rgba(255,255,255,.42) 0%,rgba(214,244,255,.30) 40%,rgba(200,240,200,.42) 100%),
-    url('assets/tablebg.webp?v=20') center/cover no-repeat fixed}
+    url('assets/tablebg.webp?v=21') center/cover no-repeat fixed}
 
 .topbar{display:flex;align-items:center;gap:8px;padding:8px 0 2px}
 .topbar .icon{
@@ -252,7 +252,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .hand .card.sel{
   border-color:#63e06b;box-shadow:0 0 0 3px #63e06b,0 12px 22px rgba(0,0,0,.35);z-index:20!important;
 }
-.hand .card.ghost{background:url('assets/cardback.webp?v=20') center/cover;border-color:#fff}
+.hand .card.ghost{background:url('assets/cardback.webp?v=21') center/cover;border-color:#fff}
 
 /* ---------- action panel ---------- */
 .actionpanel{
@@ -394,7 +394,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .rcard.red .face.front{color:#d02a1e}
 .rcard .face.front .r{font-size:24px;line-height:1;font-family:Georgia,serif}
 .rcard .face.front .s{font-size:16px;line-height:1}
-.rcard .face.back{transform:rotateY(180deg);background:url('assets/cardback.webp?v=20') center/cover;border:2px solid #fff}
+.rcard .face.back{transform:rotateY(180deg);background:url('assets/cardback.webp?v=21') center/cover;border:2px solid #fff}
 .rcell.win .rcard .face.front{box-shadow:0 0 0 3px #63e06b,0 0 26px rgba(99,224,107,.9)}
 .rcell.win{animation:winglow 1.4s ease-in-out infinite alternate}
 @keyframes winglow{from{transform:scale(1)}to{transform:scale(1.05)}}
@@ -479,7 +479,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
 /* ================= SPLASH ================= */
 @font-face{font-family:'Baloo 2';font-style:normal;font-weight:400 800;font-display:swap;
-  src:url('assets/baloo.woff2?v=20') format('woff2')}
+  src:url('assets/baloo.woff2?v=21') format('woff2')}
 #splashScreen{font-family:'Baloo 2',system-ui,sans-serif}
 
 .splash{position:relative;height:100dvh;min-height:100dvh;width:100%;overflow:hidden;
@@ -556,7 +556,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .hs-skyext{display:none}
 
 .hs-crop{position:absolute;background-repeat:no-repeat;background-size:941px 1672px;
-  background-image:url('assets/home/home-base.webp?v=20');will-change:transform;z-index:2}
+  background-image:url('assets/home/home-base.webp?v=21');will-change:transform;z-index:2}
 .hs-char{left:345px;top:150px;width:267px;height:585px;background-position:-345px -150px;
   animation:hsBob 3s ease-in-out infinite}
 @keyframes hsBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
@@ -707,35 +707,54 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
 /* buy-in sheet */
 .bi-overlay{position:fixed;inset:0;z-index:90;display:flex;align-items:center;justify-content:center;
-  background:rgba(8,16,30,.55);opacity:0;transition:opacity .18s}
+  background:rgba(6,12,26,.55);opacity:0;transition:opacity .18s}
 .bi-overlay.in{opacity:1}
-.bi-sheet{position:relative;width:92%;max-width:430px;aspect-ratio:985/1230;
-  transform:scale(.9);transition:transform .2s cubic-bezier(.2,.9,.3,1);filter:drop-shadow(0 18px 40px rgba(0,0,0,.45))}
+.bi-sheet{position:relative;width:92%;max-width:430px;aspect-ratio:1122/1402;
+  transform:scale(.9);transition:transform .2s cubic-bezier(.2,.9,.3,1);
+  filter:drop-shadow(0 18px 40px rgba(0,0,0,.45))}
 .bi-overlay.in .bi-sheet{transform:scale(1)}
-.bi-img{position:absolute;inset:0;width:100%;height:100%;border-radius:6%;display:block}
-.bi-amount{position:absolute;left:37%;top:21%;width:54%;height:12%;display:flex;align-items:center;justify-content:center;
-  font-family:'Baloo 2',system-ui,sans-serif;font-size:min(9vw,46px);font-weight:800;color:#5b2a06;letter-spacing:.01em}
-.bi-track{position:absolute;left:18%;top:36.8%;width:63%;height:2.6%;border-radius:20px;
-  background:#6b3a10;box-shadow:inset 0 2px 4px rgba(0,0,0,.45);z-index:2}
-.bi-track i{position:absolute;left:0;top:0;bottom:0;border-radius:20px;
-  background:linear-gradient(180deg,#5ce65c,#2fae3c);box-shadow:0 1px 0 rgba(255,255,255,.4) inset}
-.bi-track b{position:absolute;top:50%;width:7.4%;aspect-ratio:1;transform:translate(-50%,-50%);
-  border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffe98a,#f0b400 62%,#c98f00);
-  border:3px solid #fff6c9;box-shadow:0 3px 8px rgba(0,0,0,.45)}
-.bi-wallet{position:absolute;left:26.6%;top:45.8%;width:62%;height:5%;display:flex;align-items:center;
-  font-family:'Baloo 2',system-ui,sans-serif;font-size:min(4.4vw,22px);font-weight:800;color:#5b2a06;white-space:nowrap}
-.bi-wallet b{color:#d02a1e;margin-left:4px}
-.bi-tap{position:absolute;background:transparent;border:0;padding:0;z-index:3;transition:transform .1s}
-.bi-tap:active{transform:scale(.96)}
-.bi-t1{left:6.6%;top:60.2%;width:27%;height:7.8%}
-.bi-t2{left:36%;top:59.8%;width:28%;height:8.4%}
-.bi-t3{left:67.5%;top:60.2%;width:26%;height:7.8%}
-.bi-join{left:16.2%;top:78%;width:67%;height:12.2%}
-.bi-cancel{left:43.6%;top:92.3%;width:13%;height:3.6%}
-.bi-close{left:91.9%;top:8.5%;width:9.6%;height:8.1%}
-.bi-ring{position:absolute;z-index:2;border-radius:40px;pointer-events:none;opacity:0;
-  box-shadow:0 0 0 5px #ffd23f,0 0 18px 4px rgba(255,210,63,.7);transition:opacity .15s,left .15s,width .15s}
+.bi-inner{position:absolute;left:0;top:0;width:1122px;height:1402px;
+  transform-origin:top left;font-family:'Baloo 2',system-ui,sans-serif}
+.bi-img{position:absolute;inset:0;width:1122px;height:1402px;display:block}
+
+.bi-amount{position:absolute;left:425px;top:300px;width:590px;height:155px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:92px;font-weight:800;color:#5A3410;line-height:1;letter-spacing:.01em}
+
+.bi-track{position:absolute;left:215px;top:497px;width:690px;height:60px;border-radius:30px;overflow:hidden}
+.bi-track i{position:absolute;left:0;top:0;bottom:0;border-radius:30px;
+  background:linear-gradient(180deg,#7BE04A,#2FA81F);box-shadow:inset 0 3px 0 rgba(255,255,255,.45)}
+.bi-knob{position:absolute;top:527px;width:56px;height:56px;border-radius:50%;transform:translate(-50%,-50%);
+  background:radial-gradient(circle at 34% 28%,#fff6c9,#ffd54a 45%,#e0a51e 75%,#b57d0d);
+  box-shadow:0 4px 10px rgba(0,0,0,.45),inset 0 -3px 6px rgba(120,80,0,.4);
+  border:3px solid #fff8e0;z-index:3;pointer-events:none}
+
+.bi-wallet{position:absolute;left:470px;top:595px;width:370px;height:112px;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  font-size:44px;font-weight:800;color:#5A3410;white-space:nowrap}
+.bi-wallet em{font-style:normal;color:#E01E1E}
+
+.bi-chip{position:absolute;z-index:4;background:none;border:0;padding:0;height:110px;transition:transform .1s}
+.bi-chip:active{transform:scale(.96)}
+.bi-chip span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:'Baloo 2',system-ui,sans-serif;font-size:46px;font-weight:800;color:#fff;
+  text-shadow:0 3px 0 rgba(0,0,0,.55),0 -2px 0 rgba(0,0,0,.35),2px 0 0 rgba(0,0,0,.35),-2px 0 0 rgba(0,0,0,.35)}
+.bi-chip.c1{left:97px;top:808px;width:290px}
+.bi-chip.c2{left:411px;top:808px;width:301px}
+.bi-chip.c3{left:736px;top:808px;width:290px}
+.bi-chip.dim{opacity:.4;pointer-events:none}
+
+.bi-ring{position:absolute;z-index:5;border-radius:56px;pointer-events:none;opacity:0;
+  box-shadow:0 0 0 6px #FFC727,0 0 26px 8px rgba(255,199,39,.85);transition:opacity .15s,left .15s,width .15s}
 .bi-ring.on{opacity:1}
+
+.bi-tap{position:absolute;background:transparent;border:0;padding:0;z-index:6;transition:transform .1s}
+.bi-tap:active{transform:scale(.95)}
+.bi-minus{left:87px;top:473px;width:104px;height:104px;border-radius:50%}
+.bi-plus{left:932px;top:473px;width:104px;height:104px;border-radius:50%}
+.bi-join{left:200px;top:1035px;width:725px;height:170px;border-radius:85px}
+.bi-cancel{left:470px;top:1215px;width:184px;height:80px}
+.bi-close{left:993px;top:145px;width:109px;height:105px;border-radius:50%}
 
 .lobby-card{position:relative;z-index:5;margin:auto;width:86%;max-width:360px;text-align:center;
   background:linear-gradient(180deg,#fffdf4,#ffe9bd);border:4px solid #f2c14e;border-radius:22px;padding:24px 18px;
@@ -751,9 +770,9 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
   <!-- ============ SPLASH / LOGIN ============ -->
   <section id="splashScreen" class="screen splash">
-    <img class="splash-bg" src="assets/bg-garden.webp?v=20" alt="">
+    <img class="splash-bg" src="assets/bg-garden.webp?v=21" alt="">
     <div class="floaties" id="floaties" aria-hidden="true"></div>
-    <img class="splash-logo" src="assets/logo.webp?v=20" alt="Game of Wealth">
+    <img class="splash-logo" src="assets/logo.webp?v=21" alt="Game of Wealth">
 
     <div class="splash-bottom">
       <div class="splash-actions" id="splashActions">
@@ -789,7 +808,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <div class="hs-wrap" id="hsWrap">
       <div class="hs-stage" id="hsStage">
         <div class="hs-skyext"></div>
-        <img class="hs-bg" src="assets/home/home-base.webp?v=20" alt="">
+        <img class="hs-bg" src="assets/home/home-base.webp?v=21" alt="">
         <div class="hs-crop hs-char" id="hsChar"></div>
         <div class="hs-crop hs-play" id="hsPlay"></div>
         <div class="hs-shimmer"></div>
@@ -824,18 +843,18 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
   <section id="tableSelectScreen" class="screen home3" hidden>
     <div class="hs-wrap">
       <div class="hs-stage" id="tsStage">
-        <img class="hs-bg" id="tsBg" src="assets/ts/ts-base.webp?v=20" alt="">
+        <img class="hs-bg" id="tsBg" src="assets/ts/ts-base.webp?v=21" alt="">
 
         <div class="ts-dim" id="dimPro"></div>
         <div class="ts-dim" id="dimHigh"></div>
         <div class="ts-outline" id="tsOutline"></div>
 
-        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp?v=20" alt=""><span>128 playing</span></div>
-        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp?v=20" alt=""><span>64 playing</span></div>
-        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp?v=20" alt=""><span>12 playing</span></div>
+        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp?v=21" alt=""><span>128 playing</span></div>
+        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp?v=21" alt=""><span>64 playing</span></div>
+        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp?v=21" alt=""><span>12 playing</span></div>
 
-        <img class="ts-lock" id="lockPro" src="assets/ic-lock.webp?v=20" alt="">
-        <img class="ts-lock" id="lockHigh" src="assets/ic-lock.webp?v=20" alt="">
+        <img class="ts-lock" id="lockPro" src="assets/ic-lock.webp?v=21" alt="">
+        <img class="ts-lock" id="lockHigh" src="assets/ic-lock.webp?v=21" alt="">
         <span class="ts-need" id="needPro">Need 5,000 cash</span>
         <span class="ts-need" id="needHigh">Need 10,000 cash</span>
 
@@ -862,17 +881,27 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <!-- buy-in sheet -->
     <div class="bi-overlay" id="biOverlay" hidden>
       <div class="bi-sheet" id="biSheet">
-        <img class="bi-img" src="assets/ts/buyin.webp?v=20" alt="">
-        <span class="bi-amount" id="biAmount">2,000</span>
-        <div class="bi-track" id="biTrack"><i id="biFill"></i><b id="biKnob"></b></div>
-        <div class="bi-wallet" id="biWallet">Wallet: 2,000 &rarr; 0 after</div>
-        <button class="bi-tap bi-t1" id="biChip1" aria-label="1,000"></button>
-        <button class="bi-tap bi-t2" id="biChip2" aria-label="2,000"></button>
-        <button class="bi-tap bi-t3" id="biChipMax" aria-label="Max"></button>
-        <div class="bi-ring" id="biRing"></div>
-        <button class="bi-tap bi-join" id="biJoin" aria-label="Join Table"></button>
-        <button class="bi-tap bi-cancel" id="biCancel" aria-label="Cancel"></button>
-        <button class="bi-tap bi-close" id="biClose" aria-label="Close"></button>
+        <div class="bi-inner" id="biInner">
+          <img class="bi-img" src="assets/ts/buyin-popup.webp?v=21" alt="">
+
+          <span class="bi-amount" id="biAmount">2,000</span>
+
+          <div class="bi-track" id="biTrack"><i id="biFill"></i></div>
+          <b class="bi-knob" id="biKnob"></b>
+
+          <div class="bi-wallet" id="biWallet"></div>
+
+          <button class="bi-chip c1" id="biChip1"><span>1,000</span></button>
+          <button class="bi-chip c2" id="biChip2"><span>2,000</span></button>
+          <button class="bi-chip c3" id="biChipMax"><span>Max</span></button>
+          <div class="bi-ring" id="biRing"></div>
+
+          <button class="bi-tap bi-minus" id="biMinus" aria-label="Less"></button>
+          <button class="bi-tap bi-plus" id="biPlus" aria-label="More"></button>
+          <button class="bi-tap bi-join" id="biJoin" aria-label="Join Table"></button>
+          <button class="bi-tap bi-cancel" id="biCancel" aria-label="Cancel"></button>
+          <button class="bi-tap bi-close" id="biClose" aria-label="Close"></button>
+        </div>
       </div>
     </div>
   </section>
@@ -3075,7 +3104,7 @@ const Bots = (function () {
     const wrap = $('floaties');
     if (!wrap) return;
     wrap.innerHTML = '';
-    const kinds = ['assets/ic-cash1.webp?v=20', 'assets/ic-gold1.webp?v=20'];
+    const kinds = ['assets/ic-cash1.webp?v=21', 'assets/ic-gold1.webp?v=21'];
     for (let i = 0; i < 8; i++) {
       const img = document.createElement('img');
       img.className = 'flimg';
@@ -3206,44 +3235,78 @@ const Bots = (function () {
     renderTableSelect();
   }
 
-  function openBuyIn() {
+  function buyInRange() {
     const cap = TIERS[TS.tier].cap;
-    const max = Math.min(cap, PROFILE.cash);
-    TS.amount = Math.max(1000, Math.min(max, TS.amount));
-    $('biOverlay').hidden = false;
-    requestAnimationFrame(function () { $('biOverlay').classList.add('in'); });
-    renderBuyIn();
+    let max = Math.min(cap, PROFILE.cash);
+    const min = 1000;
+    if (PROFILE.cash < 1000 && TS.tier === 'rookie') max = 2000;   // newbie gift
+    if (max < min) max = min;
+    return { min: min, max: max };
   }
+
+  function scaleBuyIn() {
+    const sheet = $('biSheet'), inner = $('biInner');
+    if (!sheet || !inner) return;
+    const w = sheet.getBoundingClientRect().width;
+    inner.style.transform = 'scale(' + (w / 1122) + ')';
+  }
+
+  function openBuyIn() {
+    const r = buyInRange();
+    if (!TS.amountTouched) TS.amount = r.max;
+    TS.amount = Math.max(r.min, Math.min(r.max, TS.amount));
+    $('biOverlay').hidden = false;
+    requestAnimationFrame(function () {
+      $('biOverlay').classList.add('in');
+      scaleBuyIn();
+      renderBuyIn();
+    });
+  }
+
   function closeBuyIn() {
     $('biOverlay').classList.remove('in');
     setTimeout(function () { $('biOverlay').hidden = true; }, 190);
   }
+
   function renderBuyIn() {
-    const max = Math.min(TIERS[TS.tier].cap, PROFILE.cash);
-    TS.amount = Math.max(1000, Math.min(max, Math.round(TS.amount / 100) * 100));
-    const pct = ((TS.amount - 1000) / Math.max(1, max - 1000)) * 100;
-    $('biFill').style.width = pct + '%';
-    $('biKnob').style.left = pct + '%';
+    const r = buyInRange();
+    TS.amount = Math.max(r.min, Math.min(r.max, Math.round(TS.amount / 100) * 100));
+
     $('biAmount').textContent = Math.round(TS.amount).toLocaleString('en-IN');
+
+    const pct = (TS.amount - r.min) / Math.max(1, r.max - r.min);
+    $('biFill').style.width = (pct * 100) + '%';
+    $('biKnob').style.left = (215 + pct * 690) + 'px';
+
     const after = PROFILE.cash - TS.amount;
-    $('biWallet').innerHTML = 'Wallet: ' + Math.round(PROFILE.cash).toLocaleString('en-IN') +
-      ' \u2192&nbsp;<b>' + Math.round(after).toLocaleString('en-IN') + '</b>&nbsp;after';
+    $('biWallet').innerHTML = Math.round(PROFILE.cash).toLocaleString('en-IN') +
+      ' &rarr; <em>' + Math.round(after).toLocaleString('en-IN') + '</em>';
+
+    const chips = [['biChip1', 1000], ['biChip2', 2000], ['biChipMax', r.max]];
+    let hit = null;
+    chips.forEach(function (c) {
+      const el = $(c[0]);
+      el.classList.toggle('dim', c[1] > r.max);
+      if (c[1] <= r.max && TS.amount === c[1] && !hit) hit = c[0];
+    });
     const RING = {
-      biChip1: ['6.6%', '60.2%', '27%', '7.8%'],
-      biChip2: ['36%', '59.8%', '28%', '8.4%'],
-      biChipMax: ['67.5%', '60.2%', '26%', '7.8%']
+      biChip1: ['97px', '808px', '290px'],
+      biChip2: ['411px', '808px', '301px'],
+      biChipMax: ['736px', '808px', '290px']
     };
     const ring = $('biRing');
-    let key = null;
-    if (TS.amount === 1000) key = 'biChip1';
-    else if (TS.amount === 2000 && max >= 2000) key = 'biChip2';
-    else if (TS.amount >= max) key = 'biChipMax';
-    if (key) {
-      const r = RING[key];
-      ring.style.left = r[0]; ring.style.top = r[1];
-      ring.style.width = r[2]; ring.style.height = r[3];
+    if (hit) {
+      const g = RING[hit];
+      ring.style.left = g[0]; ring.style.top = g[1]; ring.style.width = g[2]; ring.style.height = '110px';
       ring.classList.add('on');
     } else { ring.classList.remove('on'); }
+  }
+
+  function nudgeAmount(delta) {
+    const r = buyInRange();
+    TS.amountTouched = true;
+    TS.amount = Math.max(r.min, Math.min(r.max, TS.amount + delta));
+    renderBuyIn();
   }
 
   function joinTable() {
@@ -3268,19 +3331,36 @@ const Bots = (function () {
     });
     const track = $('biTrack');
     function setFromEvent(ev) {
-      const r = track.getBoundingClientRect();
-      const t = Math.max(0, Math.min(1, (ev.clientX - r.left) / r.width));
-      const max = Math.min(TIERS[TS.tier].cap, PROFILE.cash);
-      TS.amount = Math.round((1000 + t * (max - 1000)) / 100) * 100;
+      const inner = $('biInner').getBoundingClientRect();
+      const k = inner.width / 1122;
+      const r = buyInRange();
+      const x = (ev.clientX - inner.left) / k;
+      const t = Math.max(0, Math.min(1, (x - 215) / 690));
+      TS.amountTouched = true;
+      TS.amount = Math.round((r.min + t * (r.max - r.min)) / 100) * 100;
       renderBuyIn();
     }
     let dragging = false;
     track.addEventListener('pointerdown', function (ev) { dragging = true; setFromEvent(ev); track.setPointerCapture(ev.pointerId); });
     track.addEventListener('pointermove', function (ev) { if (dragging) setFromEvent(ev); });
     track.addEventListener('pointerup', function () { dragging = false; });
-    $('biChip1').onclick = function () { TS.amount = Math.max(1000, Math.min(TS.amount, 1000)); TS.amount = 1000; renderBuyIn(); };
-    $('biChip2').onclick = function () { TS.amount = 2000; renderBuyIn(); };
-    $('biChipMax').onclick = function () { TS.amount = Math.min(TIERS[TS.tier].cap, PROFILE.cash); renderBuyIn(); };
+    track.addEventListener('pointercancel', function () { dragging = false; });
+
+    function holdRepeat(el, delta) {
+      let t1 = null, t2 = null;
+      function stop() { clearTimeout(t1); clearInterval(t2); }
+      el.addEventListener('pointerdown', function () {
+        nudgeAmount(delta);
+        t1 = setTimeout(function () { t2 = setInterval(function () { nudgeAmount(delta); }, 90); }, 380);
+      });
+      ['pointerup', 'pointerleave', 'pointercancel'].forEach(function (e) { el.addEventListener(e, stop); });
+    }
+    holdRepeat($('biMinus'), -100);
+    holdRepeat($('biPlus'), 100);
+
+    $('biChip1').onclick = function () { TS.amountTouched = true; TS.amount = 1000; renderBuyIn(); };
+    $('biChip2').onclick = function () { TS.amountTouched = true; TS.amount = 2000; renderBuyIn(); };
+    $('biChipMax').onclick = function () { TS.amountTouched = true; TS.amount = buyInRange().max; renderBuyIn(); };
     $('biJoin').onclick = joinTable;
     $('biCancel').onclick = closeBuyIn;
     $('biClose').onclick = closeBuyIn;
@@ -3345,7 +3425,7 @@ const Bots = (function () {
 </script>
 <script>
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js?v=20').catch(function(){}); });
+  window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js?v=21').catch(function(){}); });
 }
 </script>
 </body>
