@@ -100,7 +100,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 #gameScreen{padding:0 8px;gap:4px;
   background:
     linear-gradient(180deg,rgba(255,255,255,.42) 0%,rgba(214,244,255,.30) 40%,rgba(200,240,200,.42) 100%),
-    url('assets/tablebg.webp?v=24') center/cover no-repeat fixed}
+    url('assets/tablebg.webp?v=25') center/cover no-repeat fixed}
 
 .topbar{display:flex;align-items:center;gap:8px;padding:8px 0 2px}
 .topbar .icon{
@@ -252,7 +252,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .hand .card.sel{
   border-color:#63e06b;box-shadow:0 0 0 3px #63e06b,0 12px 22px rgba(0,0,0,.35);z-index:20!important;
 }
-.hand .card.ghost{background:url('assets/cardback.webp?v=24') center/cover;border-color:#fff}
+.hand .card.ghost{background:url('assets/cardback.webp?v=25') center/cover;border-color:#fff}
 
 /* ---------- action panel ---------- */
 .actionpanel{
@@ -394,7 +394,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .rcard.red .face.front{color:#d02a1e}
 .rcard .face.front .r{font-size:24px;line-height:1;font-family:Georgia,serif}
 .rcard .face.front .s{font-size:16px;line-height:1}
-.rcard .face.back{transform:rotateY(180deg);background:url('assets/cardback.webp?v=24') center/cover;border:2px solid #fff}
+.rcard .face.back{transform:rotateY(180deg);background:url('assets/cardback.webp?v=25') center/cover;border:2px solid #fff}
 .rcell.win .rcard .face.front{box-shadow:0 0 0 3px #63e06b,0 0 26px rgba(99,224,107,.9)}
 .rcell.win{animation:winglow 1.4s ease-in-out infinite alternate}
 @keyframes winglow{from{transform:scale(1)}to{transform:scale(1.05)}}
@@ -479,7 +479,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
 /* ================= SPLASH ================= */
 @font-face{font-family:'Baloo 2';font-style:normal;font-weight:400 800;font-display:swap;
-  src:url('assets/baloo.woff2?v=24') format('woff2')}
+  src:url('assets/baloo.woff2?v=25') format('woff2')}
 #splashScreen{font-family:'Baloo 2',system-ui,sans-serif}
 
 .splash{position:relative;height:100dvh;min-height:100dvh;width:100%;overflow:hidden;
@@ -556,7 +556,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .hs-skyext{display:none}
 
 .hs-crop{position:absolute;background-repeat:no-repeat;background-size:941px 1672px;
-  background-image:url('assets/home/home-base.webp?v=24');will-change:transform;z-index:2}
+  background-image:url('assets/home/home-base.webp?v=25');will-change:transform;z-index:2}
 .hs-char{left:345px;top:150px;width:267px;height:585px;background-position:-345px -150px;
   animation:hsBob 3s ease-in-out infinite}
 @keyframes hsBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
@@ -706,10 +706,11 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .ts-continue{left:205px;top:1495px;width:535px;height:137px}
 
 /* buy-in sheet */
-.bi-overlay{position:fixed;inset:0;z-index:90;display:flex;align-items:center;justify-content:center;
+.bi-overlay{position:fixed;inset:0;z-index:90;display:block;
   background:rgba(6,12,26,.55);opacity:0;transition:opacity .18s}
+.bi-overlay[hidden]{display:none}
 .bi-overlay.in{opacity:1}
-.bi-sheet{position:relative;width:92%;max-width:430px;aspect-ratio:1122/1402;
+.bi-sheet{position:absolute;left:0;top:0;transform-origin:center center;
   transform:scale(.9);transition:transform .2s cubic-bezier(.2,.9,.3,1);
   filter:drop-shadow(0 18px 40px rgba(0,0,0,.45))}
 .bi-overlay.in .bi-sheet{transform:scale(1)}
@@ -770,9 +771,9 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
   <!-- ============ SPLASH / LOGIN ============ -->
   <section id="splashScreen" class="screen splash">
-    <img class="splash-bg" src="assets/bg-garden.webp?v=24" alt="">
+    <img class="splash-bg" src="assets/bg-garden.webp?v=25" alt="">
     <div class="floaties" id="floaties" aria-hidden="true"></div>
-    <img class="splash-logo" src="assets/logo.webp?v=24" alt="Game of Wealth">
+    <img class="splash-logo" src="assets/logo.webp?v=25" alt="Game of Wealth">
 
     <div class="splash-bottom">
       <div class="splash-actions" id="splashActions">
@@ -808,7 +809,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <div class="hs-wrap" id="hsWrap">
       <div class="hs-stage" id="hsStage">
         <div class="hs-skyext"></div>
-        <img class="hs-bg" src="assets/home/home-base.webp?v=24" alt="">
+        <img class="hs-bg" src="assets/home/home-base.webp?v=25" alt="">
         <div class="hs-crop hs-char" id="hsChar"></div>
         <div class="hs-crop hs-play" id="hsPlay"></div>
         <div class="hs-shimmer"></div>
@@ -843,18 +844,18 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
   <section id="tableSelectScreen" class="screen home3" hidden>
     <div class="hs-wrap">
       <div class="hs-stage" id="tsStage">
-        <img class="hs-bg" id="tsBg" src="assets/ts/ts-base.webp?v=24" alt="">
+        <img class="hs-bg" id="tsBg" src="assets/ts/ts-base.webp?v=25" alt="">
 
         <div class="ts-dim" id="dimPro"></div>
         <div class="ts-dim" id="dimHigh"></div>
         <div class="ts-outline" id="tsOutline"></div>
 
-        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp?v=24" alt=""><span>128 playing</span></div>
-        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp?v=24" alt=""><span>64 playing</span></div>
-        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp?v=24" alt=""><span>12 playing</span></div>
+        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp?v=25" alt=""><span>128 playing</span></div>
+        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp?v=25" alt=""><span>64 playing</span></div>
+        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp?v=25" alt=""><span>12 playing</span></div>
 
-        <img class="ts-lock" id="lockPro" src="assets/ic-lock.webp?v=24" alt="">
-        <img class="ts-lock" id="lockHigh" src="assets/ic-lock.webp?v=24" alt="">
+        <img class="ts-lock" id="lockPro" src="assets/ic-lock.webp?v=25" alt="">
+        <img class="ts-lock" id="lockHigh" src="assets/ic-lock.webp?v=25" alt="">
         <span class="ts-need" id="needPro">Need 5,000 cash</span>
         <span class="ts-need" id="needHigh">Need 10,000 cash</span>
 
@@ -882,7 +883,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <div class="bi-overlay" id="biOverlay" hidden>
       <div class="bi-sheet" id="biSheet">
         <div class="bi-inner" id="biInner">
-          <img class="bi-img" src="assets/ts/buyin-popup.webp?v=24" alt="">
+          <img class="bi-img" src="assets/ts/buyin-popup.webp?v=25" alt="">
 
           <span class="bi-amount" id="biAmount">2,000</span>
 
@@ -3104,7 +3105,7 @@ const Bots = (function () {
     const wrap = $('floaties');
     if (!wrap) return;
     wrap.innerHTML = '';
-    const kinds = ['assets/ic-cash1.webp?v=24', 'assets/ic-gold1.webp?v=24'];
+    const kinds = ['assets/ic-cash1.webp?v=25', 'assets/ic-gold1.webp?v=25'];
     for (let i = 0; i < 8; i++) {
       const img = document.createElement('img');
       img.className = 'flimg';
@@ -3160,7 +3161,8 @@ const Bots = (function () {
       if (ev.target.closest('button')) playTap();
     }, true);
 
-    window.addEventListener('resize', fitHome);
+    window.addEventListener('resize', function () { fitHome(); scaleBuyIn(); });
+    if (window.visualViewport) window.visualViewport.addEventListener('resize', scaleBuyIn);
     window.addEventListener('orientationchange', fitHome);
 
     let secs = 23 * 3600 + 45 * 60 + 17;
@@ -3244,11 +3246,27 @@ const Bots = (function () {
     return { min: min, max: max };
   }
 
+  const BI_ART = { x0: 19, x1: 1102, y0: 0, y1: 1324, w: 1083, h: 1324 };
+
   function scaleBuyIn() {
     const sheet = $('biSheet'), inner = $('biInner');
     if (!sheet || !inner) return;
-    const w = sheet.getBoundingClientRect().width;
-    inner.style.transform = 'scale(' + (w / 1122) + ')';
+    const vv = window.visualViewport;
+    const vw = vv ? vv.width : window.innerWidth;
+    const vh = vv ? vv.height : window.innerHeight;
+
+    let sc = (0.92 * vw) / BI_ART.w;
+    const cap = (0.88 * vh) / BI_ART.h;
+    if (sc > cap) sc = cap;
+
+    const left = (vw - BI_ART.w * sc) / 2 - BI_ART.x0 * sc;
+    const top = (vh - BI_ART.h * sc) / 2 - BI_ART.y0 * sc;
+
+    sheet.style.left = left + 'px';
+    sheet.style.top = top + 'px';
+    sheet.style.width = (1122 * sc) + 'px';
+    sheet.style.height = (1402 * sc) + 'px';
+    inner.style.transform = 'scale(' + sc + ')';
   }
 
   function openBuyIn() {
@@ -3426,7 +3444,7 @@ const Bots = (function () {
 </script>
 <script>
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js?v=24').catch(function(){}); });
+  window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js?v=25').catch(function(){}); });
 }
 </script>
 </body>
