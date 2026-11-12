@@ -1,7 +1,7 @@
 /* Game of Wealth - offline shell.
    Network-first for everything so a deploy is visible on the next load;
    the cache is only used when the network fails. */
-const CACHE = 'gow-v114';
+const CACHE = 'gow-v115';
 const ASSETS = ['./', './index.html', './manifest.json', './icon.svg'];
 
 self.addEventListener('install', (e) => {
