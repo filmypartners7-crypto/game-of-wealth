@@ -14,7 +14,7 @@
 <link rel="apple-touch-icon" href="icon.svg">
 <style>
 html,body{margin:0;padding:0;overflow:hidden;height:100%;background:#e2a6cf}
-html{background:url('assets/game/table-empty.webp?v=104') center center/cover no-repeat fixed}
+html{background:url('assets/game/table-empty.webp?v=105') center center/cover no-repeat fixed}
 body{background:transparent}
 /* ============================================================================
    LAYOUT RULES — DO NOT CHANGE without asking first.
@@ -118,7 +118,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 #gameScreen{padding:0 8px;gap:4px;
   background:
     linear-gradient(180deg,rgba(255,255,255,.42) 0%,rgba(214,244,255,.30) 40%,rgba(200,240,200,.42) 100%),
-    url('assets/tablebg.webp?v=104') center/cover no-repeat fixed}
+    url('assets/tablebg.webp?v=105') center/cover no-repeat fixed}
 
 .topbar{display:flex;align-items:center;gap:8px;padding:8px 0 2px}
 .topbar .icon{
@@ -270,7 +270,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .hand .card.sel{
   border-color:#63e06b;box-shadow:0 0 0 3px #63e06b,0 12px 22px rgba(0,0,0,.35);z-index:20!important;
 }
-.hand .card.ghost{background:url('assets/cardback.webp?v=104') center/cover;border-color:#fff}
+.hand .card.ghost{background:url('assets/cardback.webp?v=105') center/cover;border-color:#fff}
 
 /* ---------- action panel ---------- */
 .actionpanel{
@@ -412,7 +412,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .rcard.red .face.front{color:#d02a1e}
 .rcard .face.front .r{font-size:24px;line-height:1;font-family:Georgia,serif}
 .rcard .face.front .s{font-size:16px;line-height:1}
-.rcard .face.back{transform:rotateY(180deg);background:url('assets/cardback.webp?v=104') center/cover;border:2px solid #fff}
+.rcard .face.back{transform:rotateY(180deg);background:url('assets/cardback.webp?v=105') center/cover;border:2px solid #fff}
 .rcell.win .rcard .face.front{box-shadow:0 0 0 3px #63e06b,0 0 26px rgba(99,224,107,.9)}
 .rcell.win{animation:winglow 1.4s ease-in-out infinite alternate}
 @keyframes winglow{from{transform:scale(1)}to{transform:scale(1.05)}}
@@ -497,7 +497,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
 /* ================= SPLASH ================= */
 @font-face{font-family:'Baloo 2';font-style:normal;font-weight:400 800;font-display:swap;
-  src:url('assets/baloo.woff2?v=104') format('woff2')}
+  src:url('assets/baloo.woff2?v=105') format('woff2')}
 #splashScreen{font-family:'Baloo 2',system-ui,sans-serif}
 
 .splash{position:relative;height:100dvh;min-height:100dvh;width:100%;overflow:hidden;
@@ -574,7 +574,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .hs-skyext{display:none}
 
 .hs-crop{position:absolute;background-repeat:no-repeat;background-size:941px 1672px;
-  background-image:url('assets/home/home-base.webp?v=104');will-change:transform;z-index:2}
+  background-image:url('assets/home/home-base.webp?v=105');will-change:transform;z-index:2}
 .hs-char{left:345px;top:150px;width:267px;height:585px;background-position:-345px -150px;
   animation:hsBob 3s ease-in-out infinite}
 @keyframes hsBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
@@ -783,7 +783,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
 /* ================= GAME TABLE ================= */
 #tableScreen{position:fixed;inset:0;overflow:hidden;background:#f0b8c8}
-#bg{position:fixed;inset:0;z-index:0;background:url('assets/game/bg_room.webp?v=104') 50% 20% / cover no-repeat}
+#bg{position:fixed;inset:0;z-index:0;background:url('assets/game/bg_room.webp?v=105') 50% 20% / cover no-repeat}
 #tableArea{position:fixed;left:0;right:0;top:56px;bottom:162px;z-index:2;display:flex;flex-direction:column;align-items:center;
   justify-content:flex-end;padding-bottom:0;pointer-events:none}
 #stage{position:relative;flex:1 1 auto;width:100%;min-height:0;pointer-events:none;
@@ -1015,49 +1015,49 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .pv-go .nz{color:#e0453a}
 
 /* ===== SETTINGS (new frame) ===== */
-.set-body{display:flex;flex-direction:column;box-sizing:border-box;padding:10px 16px 6px;
+.set-body{display:flex;flex-direction:column;box-sizing:border-box;padding:6px 16px 4px;
   font-family:'Baloo 2',system-ui,sans-serif}
-.set-row{flex:1 1 0;display:flex;align-items:center;gap:22px;min-height:0;
+.set-row{flex:0 0 88px;display:flex;align-items:center;gap:22px;min-height:0;
   border-bottom:2px dashed rgba(150,110,60,.25)}
 .set-row:last-of-type{border-bottom:0}
-.set-ico{width:88px;height:88px;object-fit:contain;flex:0 0 88px;
+.set-ico{width:80px;height:80px;object-fit:contain;flex:0 0 80px;
   filter:drop-shadow(0 2px 2px rgba(0,0,0,.2))}
-.set-row>span{flex:1 1 auto;font-weight:800;font-size:42px;color:#5a3410;white-space:nowrap;
+.set-row>span{flex:1 1 auto;font-weight:800;font-size:38px;color:#5a3410;white-space:nowrap;
   text-shadow:0 2px 0 rgba(255,255,255,.5)}
-.set-toggle{position:relative;width:132px;height:64px;border-radius:999px;border:4px solid #d9a93f;
+.set-toggle{position:relative;width:118px;height:56px;border-radius:999px;border:4px solid #d9a93f;
   background:linear-gradient(180deg,#e9dcc0,#cdbb98);flex:0 0 auto;cursor:pointer;
   box-shadow:inset 0 3px 7px rgba(0,0,0,.22),0 2px 0 rgba(255,255,255,.5);
   transition:background .16s,border-color .16s}
-.set-toggle i{position:absolute;top:3px;left:3px;width:50px;height:50px;border-radius:50%;
+.set-toggle i{position:absolute;top:3px;left:3px;width:44px;height:44px;border-radius:50%;
   background:radial-gradient(circle at 34% 28%,#ffffff,#e6e6e6 70%,#cfcfcf);
   box-shadow:0 2px 5px rgba(0,0,0,.35);transition:left .18s cubic-bezier(.3,.8,.3,1)}
 .set-toggle.on{background:linear-gradient(180deg,#63e04e,#28a41a);border-color:#1f7d16}
-.set-toggle.on i{left:70px}
+.set-toggle.on i{left:62px}
 .set-seg{display:flex;gap:12px;flex:0 0 auto}
 .set-seg b{display:inline-flex;align-items:center;justify-content:center;
-  min-width:96px;height:64px;padding:0 20px;border-radius:18px;border:3px solid #d9b877;
-  background:linear-gradient(180deg,#fdf3d9,#efdfb9);color:#6b4a1e;font-weight:800;font-size:34px;
+  min-width:88px;height:56px;padding:0 18px;border-radius:16px;border:3px solid #d9b877;
+  background:linear-gradient(180deg,#fdf3d9,#efdfb9);color:#6b4a1e;font-weight:800;font-size:31px;
   cursor:pointer;box-shadow:inset 0 2px 3px rgba(255,255,255,.75),0 2px 3px rgba(0,0,0,.14)}
 .set-seg b.on{background:linear-gradient(180deg,#63e04e,#28a41a);color:#fff;border-color:#1f7d16;
   text-shadow:0 2px 0 rgba(0,0,0,.22);box-shadow:inset 0 2px 3px rgba(255,255,255,.35),0 2px 4px rgba(0,0,0,.25)}
 .set-seg.ro{opacity:.45;pointer-events:none;filter:grayscale(.45)}
-.set-btn-how,.set-btn-leave{width:100%;height:auto;aspect-ratio:5.4/1;border:0;background:transparent;
+.set-btn-how,.set-btn-leave{width:100%;height:auto;aspect-ratio:6.2/1;border:0;background:transparent;
   cursor:pointer;background-size:100% 100%;background-repeat:no-repeat;flex:0 0 auto}
-.set-btn-how{background-image:url('assets/game/set-how.webp?v=104');margin-top:12px}
-.set-btn-leave{background-image:url('assets/game/set-leave.webp?v=104');margin-top:12px;margin-bottom:6px}
+.set-btn-how{background-image:url('assets/game/set-how.webp?v=105');margin-top:auto}
+.set-btn-leave{background-image:url('assets/game/set-leave.webp?v=105');margin-top:10px;margin-bottom:2px}
 .set-btn-how:active,.set-btn-leave:active{transform:translateY(1px)}
 
 </style>
 </head>
-<body data-build="v104">
+<body data-build="v105">
 <div id="app">
 
 
   <!-- ============ SPLASH / LOGIN ============ -->
   <section id="splashScreen" class="screen splash">
-    <img class="splash-bg" src="assets/bg-garden.webp?v=104" alt="">
+    <img class="splash-bg" src="assets/bg-garden.webp?v=105" alt="">
     <div class="floaties" id="floaties" aria-hidden="true"></div>
-    <img class="splash-logo" src="assets/logo.webp?v=104" alt="Game of Wealth">
+    <img class="splash-logo" src="assets/logo.webp?v=105" alt="Game of Wealth">
 
     <div class="splash-bottom">
       <div class="splash-actions" id="splashActions">
@@ -1093,7 +1093,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <div class="hs-wrap" id="hsWrap">
       <div class="hs-stage" id="hsStage">
         <div class="hs-skyext"></div>
-        <img class="hs-bg" src="assets/home/home-base.webp?v=104" alt="">
+        <img class="hs-bg" src="assets/home/home-base.webp?v=105" alt="">
         <div class="hs-crop hs-char" id="hsChar"></div>
         <div class="hs-crop hs-play" id="hsPlay"></div>
         <div class="hs-shimmer"></div>
@@ -1128,18 +1128,18 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
   <section id="tableSelectScreen" class="screen home3" hidden>
     <div class="hs-wrap">
       <div class="hs-stage" id="tsStage">
-        <img class="hs-bg" id="tsBg" src="assets/ts/ts-base.webp?v=104" alt="">
+        <img class="hs-bg" id="tsBg" src="assets/ts/ts-base.webp?v=105" alt="">
 
         <div class="ts-dim" id="dimPro"></div>
         <div class="ts-dim" id="dimHigh"></div>
         <div class="ts-outline" id="tsOutline"></div>
 
-        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp?v=104" alt=""><span>128 playing</span></div>
-        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp?v=104" alt=""><span>64 playing</span></div>
-        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp?v=104" alt=""><span>12 playing</span></div>
+        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp?v=105" alt=""><span>128 playing</span></div>
+        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp?v=105" alt=""><span>64 playing</span></div>
+        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp?v=105" alt=""><span>12 playing</span></div>
 
-        <img class="ts-lock" id="lockPro" src="assets/ic-lock.webp?v=104" alt="">
-        <img class="ts-lock" id="lockHigh" src="assets/ic-lock.webp?v=104" alt="">
+        <img class="ts-lock" id="lockPro" src="assets/ic-lock.webp?v=105" alt="">
+        <img class="ts-lock" id="lockHigh" src="assets/ic-lock.webp?v=105" alt="">
         <span class="ts-need" id="needPro">Need 5,000 cash</span>
         <span class="ts-need" id="needHigh">Need 10,000 cash</span>
 
@@ -1167,7 +1167,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <div class="bi-overlay" id="biOverlay" hidden>
       <div class="bi-sheet" id="biSheet">
         <div class="bi-inner" id="biInner">
-          <img class="bi-img" src="assets/ts/buyin-popup.webp?v=104" alt="">
+          <img class="bi-img" src="assets/ts/buyin-popup.webp?v=105" alt="">
 
           <span class="bi-amount" id="biAmount">2,000</span>
 
@@ -1199,7 +1199,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <div id="tableArea">
       <div id="stage">
         <div id="tableGroup">
-          <img id="tableImg" src="assets/game/table.webp?v=104" alt="">
+          <img id="tableImg" src="assets/game/table.webp?v=105" alt="">
         </div>
         <div id="tbSeats"></div>
         <div id="tbPiles"></div>
@@ -1211,14 +1211,14 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <div id="tblUI">
       <div class="tb-hud">
         <button class="tb-hit tb-gear" id="tbGear" aria-label="Settings"><svg viewBox="0 0 100 100" aria-hidden="true"><path fill="#ffffff" d="M50 4l7.5 3.2 5.6-3.9 8.1 4.7-.6 6.8 6.4 3.6 6.3-2.6 6.6 6.6-2.6 6.3 3.6 6.4 6.8-.6 4.7 8.1-3.9 5.6L100 50l-3.2 7.5 3.9 5.6-4.7 8.1-6.8-.6-3.6 6.4 2.6 6.3-6.6 6.6-6.3-2.6-6.4 3.6.6 6.8-8.1 4.7-5.6-3.9L50 100l-7.5-3.2-5.6 3.9-8.1-4.7.6-6.8-6.4-3.6-6.3 2.6-6.6-6.6 2.6-6.3-3.6-6.4-6.8.6L0 50l3.9-5.6L3.2 36.9 7.1 31.3 6.5 24.5l8.1-4.7 5.6 3.9L26.6 20l-.6-6.8 8.1-4.7 5.6 3.9L50 4z"/><circle cx="50" cy="50" r="22" fill="#1b57b8"/></svg></button>
-        <div class="tb-roundbar"><img class="tb-rbimg" src="assets/game/ui-round-bar.webp?v=104" alt="">
+        <div class="tb-roundbar"><img class="tb-rbimg" src="assets/game/ui-round-bar.webp?v=105" alt="">
           <span class="tb-rbtext" id="tbRound">Round 1 - Match 1/6</span></div>
-        <div class="tb-goldpill"><img class="tb-gbico" src="assets/game/ic-gold.webp?v=104" alt="">
+        <div class="tb-goldpill"><img class="tb-gbico" src="assets/game/ic-gold.webp?v=105" alt="">
           <span class="tb-gbtext" id="tbGold">1,000</span><i class="tb-tri hide" id="tbTri"></i></div>
       </div>
 
       <div class="tb-panel">
-        <img class="tb-pimg" src="assets/game/ui-bid-panel.webp?v=104" alt="">
+        <img class="tb-pimg" src="assets/game/ui-bid-panel.webp?v=105" alt="">
         <span class="tb-ptitle" id="tbBanner">Place Your Bid</span>
         <span class="tb-pbid" id="tbBidVal">Your Bid: 100</span>
         <div class="tb-prow1">
@@ -1369,7 +1369,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
     <!-- round start sheet -->
     <div class="pv" id="rsOv" hidden><div class="pv-sheet" id="rsSheet">
-      <img class="pv-img" src="assets/game/roundstart-sheet.webp?v=104" alt="">
+      <img class="pv-img" src="assets/game/roundstart-sheet.webp?v=105" alt="">
       <div class="pv-layer" id="rsLayer">
         <span class="pv-title" id="rsTitle" style="left:555px;top:240px;max-width:640px">Round 2 Begins</span>
         <button class="pv-x" id="rsClose" style="left:970px;top:172px;width:122px;height:120px" aria-label="Close"></button>
@@ -1386,17 +1386,17 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <!-- settings -->
     <div class="pv" id="setOv" hidden>
       <div class="pv-sheet" id="setSheet">
-        <img class="pv-img" src="assets/game/settings_popup.webp?v=104" alt="">
+        <img class="pv-img" src="assets/game/settings_popup.webp?v=105" alt="">
         <div class="pv-layer" id="setLayer">
           <button class="pv-x" id="setClose" style="left:930px;top:150px;width:120px;height:120px" aria-label="Close"></button>
-          <div class="pv-body set-body" id="setBody" style="left:176px;top:359px;width:846px;height:785px"></div>
+          <div class="pv-body set-body" id="setBody" style="left:176px;top:424px;width:846px;height:660px"></div>
         </div>
       </div>
     </div>
 
     <!-- how to play -->
     <div class="pv" id="howOv" hidden><div class="pv-sheet" id="howSheet">
-      <img class="pv-img" src="assets/game/popup-frame.webp?v=104" alt="">
+      <img class="pv-img" src="assets/game/popup-frame.webp?v=105" alt="">
       <div class="pv-layer" id="howLayer">
         <span class="pv-title" style="left:485px;top:245px;max-width:520px">How to Play</span>
         <button class="pv-x" id="howClose" style="left:840px;top:176px;width:122px;height:119px" aria-label="Close"></button>
@@ -1406,7 +1406,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
     <!-- game over -->
     <div class="pv" id="goOv" hidden><div class="pv-sheet" id="goSheet">
-      <img class="pv-img" src="assets/game/popup-frame.webp?v=104" alt="">
+      <img class="pv-img" src="assets/game/popup-frame.webp?v=105" alt="">
       <div class="pv-layer" id="goLayer">
         <span class="pv-title" style="left:485px;top:245px;max-width:520px">Game Over</span>
         <div class="pv-body pv-rows" id="goBody" style="left:54px;top:397px;width:864px;height:1046px"></div>
@@ -1415,7 +1415,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
     <!-- leave confirm -->
     <div class="pv" id="leaveOv" hidden><div class="pv-sheet" id="leaveSheet">
-      <img class="pv-img" src="assets/game/popup-frame.webp?v=104" alt="">
+      <img class="pv-img" src="assets/game/popup-frame.webp?v=105" alt="">
       <div class="pv-layer" id="leaveLayer">
         <span class="pv-title" style="left:485px;top:245px;max-width:520px">Leave Game?</span>
         <button class="pv-x" id="leaveNo" style="left:840px;top:176px;width:122px;height:119px" aria-label="Close"></button>
@@ -3531,7 +3531,7 @@ const Bots = (function () {
     const wrap = $('floaties');
     if (!wrap) return;
     wrap.innerHTML = '';
-    const kinds = ['assets/ic-cash1.webp?v=104', 'assets/ic-gold1.webp?v=104'];
+    const kinds = ['assets/ic-cash1.webp?v=105', 'assets/ic-gold1.webp?v=105'];
     for (let i = 0; i < 8; i++) {
       const img = document.createElement('img');
       img.className = 'flimg';
@@ -3798,7 +3798,7 @@ const Bots = (function () {
     const back = document.createElement('div');
     back.className = 'card-back';
     const backImg = document.createElement('img');
-    backImg.src = 'assets/game/back.webp?v=104';
+    backImg.src = 'assets/game/back.webp?v=105';
     back.appendChild(backImg);
     const front = document.createElement('div');
     front.className = 'card-front';
@@ -3847,7 +3847,7 @@ const Bots = (function () {
       document.documentElement.style.setProperty('--plate-ar', PLATE_AR.toFixed(4));
       if (TB && TB.s) renderTable();
     };
-    im.src = 'assets/game/plate.webp?v=104';
+    im.src = 'assets/game/plate.webp?v=105';
   })();
 
   function fitTable() {
@@ -3996,15 +3996,15 @@ const Bots = (function () {
 
       const plate = document.createElement('div');
       plate.className = 'tb-plate';
-      plate.innerHTML = '<img class="plate-bg" src="assets/game/plate.webp?v=104" alt="">' +
+      plate.innerHTML = '<img class="plate-bg" src="assets/game/plate.webp?v=105" alt="">' +
         '<div class="plate-text"><span class="pname">' + p.name + '</span>' +
-        '<span class="pcash"><img class="note" src="assets/game/ic-cash1.webp?v=104" alt="">' +
+        '<span class="pcash"><img class="note" src="assets/game/ic-cash1.webp?v=105" alt="">' +
         Math.round(p.cash).toLocaleString('en-IN') +
-        '<img class="bar" src="assets/game/ic-gold.webp?v=104" alt="">' + p.gold + '</span></div>';
+        '<img class="bar" src="assets/game/ic-gold.webp?v=105" alt="">' + p.gold + '</span></div>';
       if (s.bids && s.bids[p.id] != null) {
         const lk = document.createElement('span');
         lk.className = 'tb-lock on';
-        lk.innerHTML = '<img src="assets/game/ui-lock.webp?v=104" alt="">Bid Locked';
+        lk.innerHTML = '<img src="assets/game/ui-lock.webp?v=105" alt="">Bid Locked';
         plate.appendChild(lk);
       }
 
@@ -4055,7 +4055,7 @@ const Bots = (function () {
     for (let i = 0; i < 3; i++) {
       const b = document.createElement('div');
       b.className = 'tb-pilecard';
-      b.innerHTML = '<img src="assets/game/back.webp?v=104" alt="">';
+      b.innerHTML = '<img src="assets/game/back.webp?v=105" alt="">';
       b.style.left = Math.round(LAY.tableLeft + LAY.tableW * (deckSlot.x / 100) - i * 2) + 'px';
       b.style.top = Math.round(LAY.tableTop + LAY.tableH * (deckSlot.y / 100) - i * 2) + 'px';
       piles.appendChild(b);
@@ -4311,15 +4311,15 @@ const Bots = (function () {
     const locked = !!(TB.s && TB.s.round > 1);
     const rows = [6, 12, 18, 24];
     $('setBody').innerHTML =
-      '<div class="set-row"><img class="set-ico" src="assets/game/set-sound.webp?v=104" alt=""><span>Sound</span>' +
+      '<div class="set-row"><img class="set-ico" src="assets/game/set-sound.webp?v=105" alt=""><span>Sound</span>' +
         '<button class="set-toggle' + (CFG.sound ? ' on' : '') + '" id="setSound"><i></i></button></div>' +
-      '<div class="set-row"><img class="set-ico" src="assets/game/set-music.webp?v=104" alt=""><span>Music</span>' +
+      '<div class="set-row"><img class="set-ico" src="assets/game/set-music.webp?v=105" alt=""><span>Music</span>' +
         '<button class="set-toggle' + (CFG.music ? ' on' : '') + '" id="setMusic"><i></i></button></div>' +
-      '<div class="set-row"><img class="set-ico" src="assets/game/set-speed.webp?v=104" alt=""><span>Game speed</span>' +
+      '<div class="set-row"><img class="set-ico" src="assets/game/set-speed.webp?v=105" alt=""><span>Game speed</span>' +
         '<div class="set-seg" id="setSpeed">' +
         '<b class="' + (CFG.speed === 'normal' ? 'on' : '') + '" data-v="normal">Normal</b>' +
         '<b class="' + (CFG.speed === 'fast' ? 'on' : '') + '" data-v="fast">Fast</b></div></div>' +
-      '<div class="set-row"><img class="set-ico" src="assets/game/set-trophy.webp?v=104" alt=""><span>Rounds</span>' +
+      '<div class="set-row"><img class="set-ico" src="assets/game/set-trophy.webp?v=105" alt=""><span>Rounds</span>' +
         '<div class="set-seg' + (locked ? ' ro' : '') + '" id="setRounds">' +
         rows.map(function (r) { return '<b class="' + (CFG.rounds === r ? 'on' : '') + '" data-v="' + r + '">' + r + '</b>'; }).join('') +
         '</div></div>' +
@@ -4397,13 +4397,13 @@ const Bots = (function () {
       });
       for (let i = 0; i <= 4; i++) grid += '<line x1="0" y1="' + (i * H / 4) + '" x2="' + W + '" y2="' + (i * H / 4) + '" stroke="rgba(160,120,60,.18)" stroke-width="2"/>';
       body.innerHTML =
-        '<div class="pv-price"><img src="assets/game/ic-gold.webp?v=104" alt="">' + s.goldPrice.toLocaleString('en-IN') +
+        '<div class="pv-price"><img src="assets/game/ic-gold.webp?v=105" alt="">' + s.goldPrice.toLocaleString('en-IN') +
         (change ? ' <span class="pv-trend ' + (change > 0 ? 'up' : 'down') + '">' +
           (change > 0 ? '\u25B2 +' : '\u25BC ') + change.toLocaleString('en-IN') + '</span>' : '') + '</div>' +
         '<svg class="pv-graph" viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="none">' + grid +
         '<path d="' + d + '" fill="none" stroke="#e88b1e" stroke-width="4" stroke-linejoin="round"/>' + dots + '</svg>' +
-        '<div class="pv-cols"><span><img src="assets/game/ic-gold.webp?v=104" alt="">My Gold: ' + me.gold + '</span>' +
-        '<span><img src="assets/game/ic-cash1.webp?v=104" alt="">My Cash: ' + Math.round(me.cash).toLocaleString('en-IN') + '</span></div>' +
+        '<div class="pv-cols"><span><img src="assets/game/ic-gold.webp?v=105" alt="">My Gold: ' + me.gold + '</span>' +
+        '<span><img src="assets/game/ic-cash1.webp?v=105" alt="">My Cash: ' + Math.round(me.cash).toLocaleString('en-IN') + '</span></div>' +
         '<div class="pv-step"><button id="rsMinus">\u2212</button><b id="rsQty">' + RS.qty + '</b><button id="rsPlus">+</button></div>' +
         '<div class="pv-btns"><button class="pv-buy" id="rsBuy">BUY</button><button class="pv-sell" id="rsSell">SELL</button></div>';
       $('rsMinus').onclick = function () { RS.qty = Math.max(1, RS.qty - 1); renderRoundStart(); };
@@ -4422,11 +4422,11 @@ const Bots = (function () {
         seen[k] = { card: c, n: 1 }; tiles.push(seen[k]);
       });
       if (!tiles.length) {
-        body.innerHTML = '<div class="pv-cols"><span><img src="assets/game/ic-cash1.webp?v=104" alt="">My Cash: ' +
+        body.innerHTML = '<div class="pv-cols"><span><img src="assets/game/ic-cash1.webp?v=105" alt="">My Cash: ' +
           Math.round(me.cash).toLocaleString('en-IN') + '</span></div><div class="pv-empty">No cards in the discard pile yet</div>';
         return;
       }
-      let html = '<div class="pv-cols"><span><img src="assets/game/ic-cash1.webp?v=104" alt="">My Cash: ' +
+      let html = '<div class="pv-cols"><span><img src="assets/game/ic-cash1.webp?v=105" alt="">My Cash: ' +
         Math.round(me.cash).toLocaleString('en-IN') + '</span></div><div class="pv-grid">';
       tiles.forEach(function (t) {
         html += '<div class="pv-card' + (RS.sel === t.card.id ? ' sel' : '') + '" data-id="' + t.card.id + '">' +
