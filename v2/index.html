@@ -14,7 +14,7 @@
 <link rel="apple-touch-icon" href="icon.svg">
 <style>
 html,body{margin:0;padding:0;overflow:hidden;height:100%;background:#e2a6cf}
-html{background:url('assets/game/table-empty.webp?v=90') center center/cover no-repeat fixed}
+html{background:url('assets/game/table-empty.webp?v=91') center center/cover no-repeat fixed}
 body{background:transparent}
 /* ============================================================================
    LAYOUT RULES — DO NOT CHANGE without asking first.
@@ -118,7 +118,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 #gameScreen{padding:0 8px;gap:4px;
   background:
     linear-gradient(180deg,rgba(255,255,255,.42) 0%,rgba(214,244,255,.30) 40%,rgba(200,240,200,.42) 100%),
-    url('assets/tablebg.webp?v=90') center/cover no-repeat fixed}
+    url('assets/tablebg.webp?v=91') center/cover no-repeat fixed}
 
 .topbar{display:flex;align-items:center;gap:8px;padding:8px 0 2px}
 .topbar .icon{
@@ -270,7 +270,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .hand .card.sel{
   border-color:#63e06b;box-shadow:0 0 0 3px #63e06b,0 12px 22px rgba(0,0,0,.35);z-index:20!important;
 }
-.hand .card.ghost{background:url('assets/cardback.webp?v=90') center/cover;border-color:#fff}
+.hand .card.ghost{background:url('assets/cardback.webp?v=91') center/cover;border-color:#fff}
 
 /* ---------- action panel ---------- */
 .actionpanel{
@@ -412,7 +412,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .rcard.red .face.front{color:#d02a1e}
 .rcard .face.front .r{font-size:24px;line-height:1;font-family:Georgia,serif}
 .rcard .face.front .s{font-size:16px;line-height:1}
-.rcard .face.back{transform:rotateY(180deg);background:url('assets/cardback.webp?v=90') center/cover;border:2px solid #fff}
+.rcard .face.back{transform:rotateY(180deg);background:url('assets/cardback.webp?v=91') center/cover;border:2px solid #fff}
 .rcell.win .rcard .face.front{box-shadow:0 0 0 3px #63e06b,0 0 26px rgba(99,224,107,.9)}
 .rcell.win{animation:winglow 1.4s ease-in-out infinite alternate}
 @keyframes winglow{from{transform:scale(1)}to{transform:scale(1.05)}}
@@ -497,7 +497,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
 /* ================= SPLASH ================= */
 @font-face{font-family:'Baloo 2';font-style:normal;font-weight:400 800;font-display:swap;
-  src:url('assets/baloo.woff2?v=90') format('woff2')}
+  src:url('assets/baloo.woff2?v=91') format('woff2')}
 #splashScreen{font-family:'Baloo 2',system-ui,sans-serif}
 
 .splash{position:relative;height:100dvh;min-height:100dvh;width:100%;overflow:hidden;
@@ -574,7 +574,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .hs-skyext{display:none}
 
 .hs-crop{position:absolute;background-repeat:no-repeat;background-size:941px 1672px;
-  background-image:url('assets/home/home-base.webp?v=90');will-change:transform;z-index:2}
+  background-image:url('assets/home/home-base.webp?v=91');will-change:transform;z-index:2}
 .hs-char{left:345px;top:150px;width:267px;height:585px;background-position:-345px -150px;
   animation:hsBob 3s ease-in-out infinite}
 @keyframes hsBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
@@ -783,7 +783,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
 /* ================= GAME TABLE ================= */
 #tableScreen{position:fixed;inset:0;overflow:hidden;background:#f0b8c8}
-#bg{position:fixed;inset:0;z-index:0;background:url('assets/game/bg_room.webp?v=90') 50% 20% / cover no-repeat}
+#bg{position:fixed;inset:0;z-index:0;background:url('assets/game/bg_room.webp?v=91') 50% 20% / cover no-repeat}
 #tableArea{position:fixed;left:0;right:0;z-index:2;display:flex;flex-direction:column;align-items:center;
   justify-content:flex-end;padding-bottom:8px;pointer-events:none}
 #stage{position:relative;flex:1 1 auto;width:100%;min-height:0;pointer-events:none;
@@ -929,9 +929,8 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 /* ================= LAYOUT EDITOR ================= */
 body.editing #tableArea,body.editing #stage,body.editing #tbSeats,body.editing #tbPiles,body.editing #playLayer{
   pointer-events:auto!important}
-body.editing .tb-seatbox,body.editing .tb-pilecard,body.editing .tb-empty,body.editing .tb-played{
-  pointer-events:auto!important;touch-action:none!important;
-  outline:2px dashed #22d3ee;outline-offset:2px;cursor:move}
+body.editing [data-ed]{pointer-events:auto!important;touch-action:none!important;
+  outline:1px dashed rgba(34,211,238,.85);outline-offset:1px;cursor:move}
 body.editing .edHandle{display:block}
 .edHandle{display:none;position:absolute;right:-6px;bottom:-6px;width:16px;height:16px;border-radius:50%;
   background:#22d3ee;border:2px solid #0b1220;z-index:60;touch-action:none;cursor:nwse-resize}
@@ -1035,15 +1034,15 @@ body.editing .edHandle{display:block}
 
 </style>
 </head>
-<body data-build="v90">
+<body data-build="v91">
 <div id="app">
 
 
   <!-- ============ SPLASH / LOGIN ============ -->
   <section id="splashScreen" class="screen splash">
-    <img class="splash-bg" src="assets/bg-garden.webp?v=90" alt="">
+    <img class="splash-bg" src="assets/bg-garden.webp?v=91" alt="">
     <div class="floaties" id="floaties" aria-hidden="true"></div>
-    <img class="splash-logo" src="assets/logo.webp?v=90" alt="Game of Wealth">
+    <img class="splash-logo" src="assets/logo.webp?v=91" alt="Game of Wealth">
 
     <div class="splash-bottom">
       <div class="splash-actions" id="splashActions">
@@ -1079,7 +1078,7 @@ body.editing .edHandle{display:block}
     <div class="hs-wrap" id="hsWrap">
       <div class="hs-stage" id="hsStage">
         <div class="hs-skyext"></div>
-        <img class="hs-bg" src="assets/home/home-base.webp?v=90" alt="">
+        <img class="hs-bg" src="assets/home/home-base.webp?v=91" alt="">
         <div class="hs-crop hs-char" id="hsChar"></div>
         <div class="hs-crop hs-play" id="hsPlay"></div>
         <div class="hs-shimmer"></div>
@@ -1114,18 +1113,18 @@ body.editing .edHandle{display:block}
   <section id="tableSelectScreen" class="screen home3" hidden>
     <div class="hs-wrap">
       <div class="hs-stage" id="tsStage">
-        <img class="hs-bg" id="tsBg" src="assets/ts/ts-base.webp?v=90" alt="">
+        <img class="hs-bg" id="tsBg" src="assets/ts/ts-base.webp?v=91" alt="">
 
         <div class="ts-dim" id="dimPro"></div>
         <div class="ts-dim" id="dimHigh"></div>
         <div class="ts-outline" id="tsOutline"></div>
 
-        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp?v=90" alt=""><span>128 playing</span></div>
-        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp?v=90" alt=""><span>64 playing</span></div>
-        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp?v=90" alt=""><span>12 playing</span></div>
+        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp?v=91" alt=""><span>128 playing</span></div>
+        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp?v=91" alt=""><span>64 playing</span></div>
+        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp?v=91" alt=""><span>12 playing</span></div>
 
-        <img class="ts-lock" id="lockPro" src="assets/ic-lock.webp?v=90" alt="">
-        <img class="ts-lock" id="lockHigh" src="assets/ic-lock.webp?v=90" alt="">
+        <img class="ts-lock" id="lockPro" src="assets/ic-lock.webp?v=91" alt="">
+        <img class="ts-lock" id="lockHigh" src="assets/ic-lock.webp?v=91" alt="">
         <span class="ts-need" id="needPro">Need 5,000 cash</span>
         <span class="ts-need" id="needHigh">Need 10,000 cash</span>
 
@@ -1153,7 +1152,7 @@ body.editing .edHandle{display:block}
     <div class="bi-overlay" id="biOverlay" hidden>
       <div class="bi-sheet" id="biSheet">
         <div class="bi-inner" id="biInner">
-          <img class="bi-img" src="assets/ts/buyin-popup.webp?v=90" alt="">
+          <img class="bi-img" src="assets/ts/buyin-popup.webp?v=91" alt="">
 
           <span class="bi-amount" id="biAmount">2,000</span>
 
@@ -1185,7 +1184,7 @@ body.editing .edHandle{display:block}
     <div id="tableArea">
       <div id="stage">
         <div id="tableGroup">
-          <img id="tableImg" src="assets/game/table.webp?v=90" alt="">
+          <img id="tableImg" src="assets/game/table.webp?v=91" alt="">
         </div>
         <div id="tbSeats"></div>
         <div id="tbPiles"></div>
@@ -1197,14 +1196,14 @@ body.editing .edHandle{display:block}
     <div id="tblUI">
       <div class="tb-hud">
         <button class="tb-hit tb-gear" id="tbGear" aria-label="Settings"><svg viewBox="0 0 100 100" aria-hidden="true"><path fill="#ffffff" d="M50 4l7.5 3.2 5.6-3.9 8.1 4.7-.6 6.8 6.4 3.6 6.3-2.6 6.6 6.6-2.6 6.3 3.6 6.4 6.8-.6 4.7 8.1-3.9 5.6L100 50l-3.2 7.5 3.9 5.6-4.7 8.1-6.8-.6-3.6 6.4 2.6 6.3-6.6 6.6-6.3-2.6-6.4 3.6.6 6.8-8.1 4.7-5.6-3.9L50 100l-7.5-3.2-5.6 3.9-8.1-4.7.6-6.8-6.4-3.6-6.3 2.6-6.6-6.6 2.6-6.3-3.6-6.4-6.8.6L0 50l3.9-5.6L3.2 36.9 7.1 31.3 6.5 24.5l8.1-4.7 5.6 3.9L26.6 20l-.6-6.8 8.1-4.7 5.6 3.9L50 4z"/><circle cx="50" cy="50" r="22" fill="#1b57b8"/></svg></button>
-        <div class="tb-roundbar"><img class="tb-rbimg" src="assets/game/ui-round-bar.webp?v=90" alt="">
+        <div class="tb-roundbar"><img class="tb-rbimg" src="assets/game/ui-round-bar.webp?v=91" alt="">
           <span class="tb-rbtext" id="tbRound">Round 1 - Match 1/6</span></div>
-        <div class="tb-goldpill"><img class="tb-gbico" src="assets/game/ic-gold.webp?v=90" alt="">
+        <div class="tb-goldpill"><img class="tb-gbico" src="assets/game/ic-gold.webp?v=91" alt="">
           <span class="tb-gbtext" id="tbGold">1,000</span><i class="tb-tri hide" id="tbTri"></i></div>
       </div>
 
       <div class="tb-panel">
-        <img class="tb-pimg" src="assets/game/ui-bid-panel.webp?v=90" alt="">
+        <img class="tb-pimg" src="assets/game/ui-bid-panel.webp?v=91" alt="">
         <span class="tb-ptitle" id="tbBanner">Place Your Bid</span>
         <span class="tb-pbid" id="tbBidVal">Your Bid: 100</span>
         <div class="tb-prow1">
@@ -1355,7 +1354,7 @@ body.editing .edHandle{display:block}
 
     <!-- round start sheet -->
     <div class="pv" id="rsOv" hidden><div class="pv-sheet" id="rsSheet">
-      <img class="pv-img" src="assets/game/roundstart-sheet.webp?v=90" alt="">
+      <img class="pv-img" src="assets/game/roundstart-sheet.webp?v=91" alt="">
       <div class="pv-layer" id="rsLayer">
         <span class="pv-title" id="rsTitle" style="left:555px;top:240px;max-width:640px">Round 2 Begins</span>
         <button class="pv-x" id="rsClose" style="left:970px;top:172px;width:122px;height:120px" aria-label="Close"></button>
@@ -1371,7 +1370,7 @@ body.editing .edHandle{display:block}
 
     <!-- settings -->
     <div class="pv" id="setOv" hidden><div class="pv-sheet" id="setSheet">
-      <img class="pv-img" src="assets/game/popup-frame.webp?v=90" alt="">
+      <img class="pv-img" src="assets/game/popup-frame.webp?v=91" alt="">
       <div class="pv-layer" id="setLayer">
         <span class="pv-title" style="left:485px;top:245px;max-width:520px">Settings</span>
         <button class="pv-x" id="setClose" style="left:840px;top:176px;width:122px;height:119px" aria-label="Close"></button>
@@ -1381,7 +1380,7 @@ body.editing .edHandle{display:block}
 
     <!-- how to play -->
     <div class="pv" id="howOv" hidden><div class="pv-sheet" id="howSheet">
-      <img class="pv-img" src="assets/game/popup-frame.webp?v=90" alt="">
+      <img class="pv-img" src="assets/game/popup-frame.webp?v=91" alt="">
       <div class="pv-layer" id="howLayer">
         <span class="pv-title" style="left:485px;top:245px;max-width:520px">How to Play</span>
         <button class="pv-x" id="howClose" style="left:840px;top:176px;width:122px;height:119px" aria-label="Close"></button>
@@ -1391,7 +1390,7 @@ body.editing .edHandle{display:block}
 
     <!-- game over -->
     <div class="pv" id="goOv" hidden><div class="pv-sheet" id="goSheet">
-      <img class="pv-img" src="assets/game/popup-frame.webp?v=90" alt="">
+      <img class="pv-img" src="assets/game/popup-frame.webp?v=91" alt="">
       <div class="pv-layer" id="goLayer">
         <span class="pv-title" style="left:485px;top:245px;max-width:520px">Game Over</span>
         <div class="pv-body pv-rows" id="goBody" style="left:54px;top:397px;width:864px;height:1046px"></div>
@@ -1400,7 +1399,7 @@ body.editing .edHandle{display:block}
 
     <!-- leave confirm -->
     <div class="pv" id="leaveOv" hidden><div class="pv-sheet" id="leaveSheet">
-      <img class="pv-img" src="assets/game/popup-frame.webp?v=90" alt="">
+      <img class="pv-img" src="assets/game/popup-frame.webp?v=91" alt="">
       <div class="pv-layer" id="leaveLayer">
         <span class="pv-title" style="left:485px;top:245px;max-width:520px">Leave Game?</span>
         <button class="pv-x" id="leaveNo" style="left:840px;top:176px;width:122px;height:119px" aria-label="Close"></button>
@@ -3516,7 +3515,7 @@ const Bots = (function () {
     const wrap = $('floaties');
     if (!wrap) return;
     wrap.innerHTML = '';
-    const kinds = ['assets/ic-cash1.webp?v=90', 'assets/ic-gold1.webp?v=90'];
+    const kinds = ['assets/ic-cash1.webp?v=91', 'assets/ic-gold1.webp?v=91'];
     for (let i = 0; i < 8; i++) {
       const img = document.createElement('img');
       img.className = 'flimg';
@@ -3798,7 +3797,7 @@ const Bots = (function () {
       document.documentElement.style.setProperty('--plate-ar', PLATE_AR.toFixed(4));
       if (TB && TB.s) renderTable();
     };
-    im.src = 'assets/game/plate.webp?v=90';
+    im.src = 'assets/game/plate.webp?v=91';
   })();
 
   function fitTable() {
@@ -3943,15 +3942,15 @@ const Bots = (function () {
 
       const plate = document.createElement('div');
       plate.className = 'tb-plate';
-      plate.innerHTML = '<img class="plate-bg" src="assets/game/plate.webp?v=90" alt="">' +
+      plate.innerHTML = '<img class="plate-bg" src="assets/game/plate.webp?v=91" alt="">' +
         '<div class="plate-text"><span class="pname">' + p.name + '</span>' +
-        '<span class="pcash"><img class="note" src="assets/game/ic-cash1.webp?v=90" alt="">' +
+        '<span class="pcash"><img class="note" src="assets/game/ic-cash1.webp?v=91" alt="">' +
         Math.round(p.cash).toLocaleString('en-IN') +
-        '<img class="bar" src="assets/game/ic-gold.webp?v=90" alt="">' + p.gold + '</span></div>';
+        '<img class="bar" src="assets/game/ic-gold.webp?v=91" alt="">' + p.gold + '</span></div>';
       if (s.bids && s.bids[p.id] != null) {
         const lk = document.createElement('span');
         lk.className = 'tb-lock on';
-        lk.innerHTML = '<img src="assets/game/ui-lock.webp?v=90" alt="">Bid Locked';
+        lk.innerHTML = '<img src="assets/game/ui-lock.webp?v=91" alt="">Bid Locked';
         plate.appendChild(lk);
       }
 
@@ -3998,7 +3997,7 @@ const Bots = (function () {
         const back = document.createElement('div');
         back.className = 'card-back';
         const bimg = document.createElement('img');
-        bimg.src = 'assets/game/back.webp?v=90';
+        bimg.src = 'assets/game/back.webp?v=91';
         back.appendChild(bimg);
         const front = document.createElement('div');
         front.className = 'card-front';
@@ -4018,7 +4017,7 @@ const Bots = (function () {
     for (let i = 0; i < 3; i++) {
       const b = document.createElement('div');
       b.className = 'tb-pilecard';
-      b.innerHTML = '<img src="assets/game/back.webp?v=90" alt="">';
+      b.innerHTML = '<img src="assets/game/back.webp?v=91" alt="">';
       b.style.left = Math.round(LAY.tableLeft + LAY.tableW * 0.40 - i * 2) + 'px';
       b.style.top = Math.round(LAY.tableTop + LAY.tableH * 0.30 - i * 2) + 'px';
       piles.appendChild(b);
@@ -4345,13 +4344,13 @@ const Bots = (function () {
       });
       for (let i = 0; i <= 4; i++) grid += '<line x1="0" y1="' + (i * H / 4) + '" x2="' + W + '" y2="' + (i * H / 4) + '" stroke="rgba(160,120,60,.18)" stroke-width="2"/>';
       body.innerHTML =
-        '<div class="pv-price"><img src="assets/game/ic-gold.webp?v=90" alt="">' + s.goldPrice.toLocaleString('en-IN') +
+        '<div class="pv-price"><img src="assets/game/ic-gold.webp?v=91" alt="">' + s.goldPrice.toLocaleString('en-IN') +
         (change ? ' <span class="pv-trend ' + (change > 0 ? 'up' : 'down') + '">' +
           (change > 0 ? '\u25B2 +' : '\u25BC ') + change.toLocaleString('en-IN') + '</span>' : '') + '</div>' +
         '<svg class="pv-graph" viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="none">' + grid +
         '<path d="' + d + '" fill="none" stroke="#e88b1e" stroke-width="4" stroke-linejoin="round"/>' + dots + '</svg>' +
-        '<div class="pv-cols"><span><img src="assets/game/ic-gold.webp?v=90" alt="">My Gold: ' + me.gold + '</span>' +
-        '<span><img src="assets/game/ic-cash1.webp?v=90" alt="">My Cash: ' + Math.round(me.cash).toLocaleString('en-IN') + '</span></div>' +
+        '<div class="pv-cols"><span><img src="assets/game/ic-gold.webp?v=91" alt="">My Gold: ' + me.gold + '</span>' +
+        '<span><img src="assets/game/ic-cash1.webp?v=91" alt="">My Cash: ' + Math.round(me.cash).toLocaleString('en-IN') + '</span></div>' +
         '<div class="pv-step"><button id="rsMinus">\u2212</button><b id="rsQty">' + RS.qty + '</b><button id="rsPlus">+</button></div>' +
         '<div class="pv-btns"><button class="pv-buy" id="rsBuy">BUY</button><button class="pv-sell" id="rsSell">SELL</button></div>';
       $('rsMinus').onclick = function () { RS.qty = Math.max(1, RS.qty - 1); renderRoundStart(); };
@@ -4370,11 +4369,11 @@ const Bots = (function () {
         seen[k] = { card: c, n: 1 }; tiles.push(seen[k]);
       });
       if (!tiles.length) {
-        body.innerHTML = '<div class="pv-cols"><span><img src="assets/game/ic-cash1.webp?v=90" alt="">My Cash: ' +
+        body.innerHTML = '<div class="pv-cols"><span><img src="assets/game/ic-cash1.webp?v=91" alt="">My Cash: ' +
           Math.round(me.cash).toLocaleString('en-IN') + '</span></div><div class="pv-empty">No cards in the discard pile yet</div>';
         return;
       }
-      let html = '<div class="pv-cols"><span><img src="assets/game/ic-cash1.webp?v=90" alt="">My Cash: ' +
+      let html = '<div class="pv-cols"><span><img src="assets/game/ic-cash1.webp?v=91" alt="">My Cash: ' +
         Math.round(me.cash).toLocaleString('en-IN') + '</span></div><div class="pv-grid">';
       tiles.forEach(function (t) {
         html += '<div class="pv-card' + (RS.sel === t.card.id ? ' sel' : '') + '" data-id="' + t.card.id + '">' +
@@ -4693,111 +4692,143 @@ const Bots = (function () {
 })();
 
 /* ================= LAYOUT EDITOR (?edit=1) =================
-   Loads positions/sizes from one LAYOUT object (persisted in localStorage),
-   lets you drag/resize every seat, the deck, the discard slot and the four
-   played-card slots, and exports the result as JSON.
-   It never edits app.js: it applies overrides to the DOM after each render. */
+   Every visible asset and text can be dragged and resized. Each element gets a
+   stable key; offsets/sizes are stored in one LAYOUT object (localStorage) and
+   re-applied after every render. It never edits app.js. */
 (function () {
   if (!/[?&]edit=1/.test(location.search)) return;
   const KEY = 'gow-layout';
-  let LAYOUT = { seats: {}, deck: null, discard: null, play: {}, __locked: false };
-  try { Object.assign(LAYOUT, JSON.parse(localStorage.getItem(KEY) || 'null') || {}); } catch (e) {}
-  const save = function () { try { localStorage.setItem(KEY, JSON.stringify(LAYOUT)); } catch (e) {} };
-  window.__LAYOUT = LAYOUT;
+  let L = { items: {}, __locked: false };
+  try { Object.assign(L, JSON.parse(localStorage.getItem(KEY) || 'null') || {}); if (!L.items) L.items = {}; } catch (e) {}
+  const save = function () { try { localStorage.setItem(KEY, JSON.stringify(L)); } catch (e) {} };
+  window.__LAYOUT = L;
 
-  function stage() { return document.getElementById('stage'); }
+  // every thing the user may want to move: [selector, label]
+  const TARGETS = [
+    ['.tb-hud', 'HUD'], ['.tb-gear', 'gear'], ['.tb-roundbar', 'round pill'],
+    ['.tb-rbtext', 'round text'], ['.tb-goldpill', 'gold pill'], ['.tb-gbtext', 'gold text'],
+    ['.tb-pilecard', 'deck'], ['.tb-empty', 'discard'], ['.tb-badge', 'counter'],
+    ['.tb-panel', 'bid panel'], ['.tb-ptitle', 'panel title'], ['.tb-pbid', 'bid text'],
+    ['.tb-prow1', 'slider row'], ['.tb-prow2', 'button row'],
+    ['.tb-min', 'MIN'], ['.tb-2x', '2x'], ['.tb-all', 'ALL-IN'], ['.tb-bidbtn', 'Bid']
+  ];
+
+  function seatName(el) {
+    const sb = el.closest ? el.closest('.tb-seatbox') : null;
+    if (!sb) return null;
+    const nm = sb.querySelector('.pname');
+    return nm ? nm.textContent : null;
+  }
+  function keyFor(el, label) {
+    const sn = seatName(el);
+    if (el.classList.contains('tb-seatbox')) return 'seat:' + (el.querySelector('.pname') || {}).textContent;
+    if (el.classList.contains('tb-char')) return 'seat:' + sn + ':avatar';
+    if (el.classList.contains('tb-plate')) return 'seat:' + sn + ':plate';
+    if (el.classList.contains('pname')) return 'seat:' + sn + ':name';
+    if (el.classList.contains('pcash')) return 'seat:' + sn + ':cash';
+    if (el.classList.contains('tb-card')) {
+      const idx = Array.prototype.indexOf.call(document.querySelectorAll('.tb-card'), el);
+      return 'hand:' + idx;
+    }
+    if (el.classList.contains('tb-played')) return 'play:' + el.dataset.pid;
+    return 'ui:' + label;
+  }
 
   function apply() {
-    const st = stage(); if (!st) return;
-    const sr = st.getBoundingClientRect();
-    if (!sr.width) return;
-    const W = 393;                                   // design width used by app.js
-    const k = sr.width / W;
-
-    document.querySelectorAll('.tb-seatbox').forEach(function (b) {
-      const nm = b.querySelector('.pname'); if (!nm) return;
-      const o = LAYOUT.seats[nm.textContent]; if (!o) return;
-      b.style.left = Math.round(o.x) + 'px';
-      b.style.top = Math.round(o.y) + 'px';
-      const img = b.querySelector('.tb-char');
-      if (img && o.w) img.style.width = Math.round(o.w) + 'px';
-    });
-    const piles = document.querySelectorAll('#tbPiles .tb-pilecard');
-    if (LAYOUT.deck && piles[0]) { piles[0].style.left = LAYOUT.deck.x + 'px'; piles[0].style.top = LAYOUT.deck.y + 'px'; }
-    const disc = document.querySelector('#tbPiles .tb-empty') || piles[3];
-    if (LAYOUT.discard && disc) { disc.style.left = LAYOUT.discard.x + 'px'; disc.style.top = LAYOUT.discard.y + 'px'; }
-    document.querySelectorAll('.tb-played').forEach(function (el) {
-      const o = LAYOUT.play[el.dataset.pid]; if (!o) return;
-      el.style.left = Math.round(o.x) + 'px';
-      el.style.top = Math.round(o.y) + 'px';
+    Object.keys(L.items).forEach(function (k) {
+      const el = byKey(k); if (!el) return;
+      const o = L.items[k];
+      if (o.dx || o.dy) el.style.transform = 'translate(' + (o.dx || 0) + 'px,' + (o.dy || 0) + 'px)';
       if (o.w) el.style.width = o.w + 'px';
+      if (o.h) el.style.height = o.h + 'px';
     });
   }
-
-  function keyOf(el) {
-    if (el.classList.contains('tb-seatbox')) {
-      const nm = el.querySelector('.pname'); return nm ? { k: nm.textContent, kind: 'seats' } : null;
+  function byKey(k) {
+    if (k.indexOf('seat:') === 0) {
+      const parts = k.split(':');
+      const name = parts[1], what = parts[2];
+      const sb = Array.prototype.filter.call(document.querySelectorAll('.tb-seatbox'), function (b) {
+        const nm = b.querySelector('.pname'); return nm && nm.textContent === name;
+      })[0];
+      if (!sb) return null;
+      if (!what) return sb;
+      if (what === 'avatar') return sb.querySelector('.tb-char');
+      if (what === 'plate') return sb.querySelector('.tb-plate');
+      if (what === 'name') return sb.querySelector('.pname');
+      if (what === 'cash') return sb.querySelector('.pcash');
+      return null;
     }
-    if (el.classList.contains('tb-played')) return { k: el.dataset.pid, kind: 'play' };
-    if (el.classList.contains('tb-pilecard') || el.classList.contains('tb-empty')) {
-      const idx = Array.prototype.indexOf.call(document.querySelectorAll('#tbPiles .tb-pilecard, #tbPiles .tb-empty'), el);
-      return { k: idx === 0 ? 'deck' : 'discard', kind: 'single' };
-    }
+    if (k.indexOf('play:') === 0) return document.querySelector('.tb-played[data-pid="' + k.slice(5) + '"]');
+    if (k.indexOf('hand:') === 0) return document.querySelectorAll('.tb-card')[parseInt(k.slice(5), 10)];
+    const label = k.slice(3);
+    for (let i = 0; i < TARGETS.length; i++) if (TARGETS[i][1] === label) return document.querySelector(TARGETS[i][0]);
     return null;
-  }
-  function getPos(info) {
-    if (info.kind === 'single') return LAYOUT[info.k] || {};
-    return LAYOUT[info.kind][info.k] || {};
-  }
-  function setPos(info, v) {
-    if (info.kind === 'single') LAYOUT[info.k] = Object.assign(LAYOUT[info.k] || {}, v);
-    else LAYOUT[info.kind][info.k] = Object.assign(LAYOUT[info.kind][info.k] || {}, v);
   }
 
   function attach() {
-    if (LAYOUT.__locked) return;
-    const st = stage(); if (!st) return;
+    if (L.__locked) return;
+    const st = document.getElementById('stage'); if (!st) return;
     const sr = st.getBoundingClientRect(); if (!sr.width) return;
     const k = sr.width / 393;
-    const sel = '.tb-seatbox,.tb-played,.tb-pilecard,.tb-empty';
-    document.querySelectorAll(sel).forEach(function (el) {
+
+    const list = [];
+    document.querySelectorAll('.tb-seatbox').forEach(function (b) {
+      list.push([b, 'seat']); 
+      const a = b.querySelector('.tb-char'); if (a) list.push([a, 'avatar']);
+      const p = b.querySelector('.tb-plate'); if (p) list.push([p, 'plate']);
+      const n = b.querySelector('.pname'); if (n) list.push([n, 'name']);
+      const c = b.querySelector('.pcash'); if (c) list.push([c, 'cash']);
+    });
+    TARGETS.forEach(function (t) { document.querySelectorAll(t[0]).forEach(function (e) { list.push([e, t[1]]); }); });
+    document.querySelectorAll('.tb-played').forEach(function (e) { list.push([e, 'played']); });
+    document.querySelectorAll('.tb-card').forEach(function (e) { list.push([e, 'card']); });
+
+    list.forEach(function (pair) {
+      const el = pair[0];
       if (el.dataset.ed) return;
-      const info = keyOf(el); if (!info) return;
-      el.dataset.ed = '1';
+      const key = keyFor(el, pair[1]); if (!key || key.indexOf('undefined') >= 0) return;
+      el.dataset.ed = '1'; el.dataset.key = key;
       el.style.touchAction = 'none';
       const h = document.createElement('div');
       h.className = 'edHandle';
       el.appendChild(h);
-      let mode = null, sx = 0, sy = 0, x0 = 0, y0 = 0, w0 = 0;
+
+      let mode = null, sx = 0, sy = 0, base = null, w0 = 0, h0 = 0;
+      const cur = function () { return L.items[key] || {}; };
       const down = function (ev, m) {
         ev.preventDefault(); ev.stopPropagation();
         mode = m; sx = ev.clientX; sy = ev.clientY;
-        const r = el.getBoundingClientRect();
-        x0 = r.left + r.width / 2; y0 = r.bottom; w0 = r.width;
+        base = cur(); w0 = el.getBoundingClientRect().width; h0 = el.getBoundingClientRect().height;
         window.addEventListener('pointermove', move);
         window.addEventListener('pointerup', up);
+        window.addEventListener('pointercancel', up);
       };
       const move = function (e) {
-        const p = getPos(info);
+        const o = L.items[key] || {};
         if (mode === 'drag') {
-          const nx = (x0 + (e.clientX - sx) - sr.left) / k;
-          const ny = (y0 + (e.clientY - sy) - sr.top) / k;
-          el.style.left = Math.round(nx) + 'px';
-          el.style.top = Math.round(ny) + 'px';
-          setPos(info, { x: Math.round(nx), y: Math.round(ny), w: p.w });
+          o.dx = Math.round((base.dx || 0) + (e.clientX - sx));
+          o.dy = Math.round((base.dy || 0) + (e.clientY - sy));
         } else {
-          const nw = Math.max(40, (w0 + (e.clientX - sx)) / k);
-          const img = el.querySelector('.tb-char');
-          if (img) img.style.width = Math.round(nw) + 'px'; else el.style.width = Math.round(nw) + 'px';
-          setPos(info, { x: p.x, y: p.y, w: Math.round(nw) });
+          o.w = Math.max(8, Math.round(w0 + (e.clientX - sx)));
+          o.h = Math.max(8, Math.round(h0 + (e.clientY - sy)));
         }
+        L.items[key] = o;
+        if (o.dx || o.dy) el.style.transform = 'translate(' + (o.dx || 0) + 'px,' + (o.dy || 0) + 'px)';
+        if (o.w) el.style.width = o.w + 'px';
+        if (o.h) el.style.height = o.h + 'px';
         save();
       };
       const up = function () {
         window.removeEventListener('pointermove', move);
         window.removeEventListener('pointerup', up);
+        window.removeEventListener('pointercancel', up);
       };
-      el.addEventListener('pointerdown', function (e) { if (e.target !== h) down(e, 'drag'); });
+      el.addEventListener('pointerdown', function (e) {
+        if (e.target === h) return;
+        const inner = e.target.closest && e.target.closest('[data-ed]');
+        if (inner && inner !== el) return;            // a child owns this touch
+        down(e, 'drag');
+      });
       h.addEventListener('pointerdown', function (e) { down(e, 'resize'); });
     });
   }
@@ -4808,37 +4839,31 @@ const Bots = (function () {
     d.id = 'editBar';
     d.innerHTML = '<b>Layout</b><button id="edCopy">Copy layout</button>' +
       '<button id="edLock">Lock</button><button id="edReset">Reset</button>' +
-      '<span id="edHint">drag · handle = resize</span>';
+      '<span id="edHint">drag · dot = resize</span>';
     document.body.appendChild(d);
     document.body.classList.add('editing');
     document.getElementById('edCopy').onclick = function () {
-      const json = JSON.stringify(LAYOUT, null, 2);
+      const json = JSON.stringify(L, null, 2);
       if (navigator.clipboard) navigator.clipboard.writeText(json).catch(function () {});
       const ta = document.createElement('textarea');
       ta.value = json;
-      ta.style.cssText = 'position:fixed;inset:8% 4% 16% 4%;z-index:99999;font:11px monospace;padding:8px;border-radius:10px';
+      ta.style.cssText = 'position:fixed;inset:6% 3% 14% 3%;z-index:99999;font:11px monospace;padding:8px;border-radius:10px';
       document.body.appendChild(ta); ta.select();
       try { document.execCommand('copy'); } catch (e) {}
-      const ok = document.createElement('div');
-      ok.textContent = 'Copied — tap to close';
-      ok.style.cssText = 'position:fixed;left:50%;top:10%;transform:translateX(-50%);z-index:100000;background:#2fa81f;color:#fff;padding:6px 14px;border-radius:8px;font:600 13px system-ui';
-      document.body.appendChild(ok);
-      ta.onclick = function () { ta.remove(); ok.remove(); };
+      ta.onclick = function () { ta.remove(); };
     };
     document.getElementById('edLock').onclick = function () {
-      LAYOUT.__locked = true; save();
+      L.__locked = true; save();
       document.body.classList.remove('editing');
       document.getElementById('edHint').textContent = 'locked';
     };
-    document.getElementById('edReset').onclick = function () {
-      localStorage.removeItem(KEY); location.reload();
-    };
+    document.getElementById('edReset').onclick = function () { localStorage.removeItem(KEY); location.reload(); };
   }
 
   function loop() { apply(); attach(); }
   window.addEventListener('load', function () { bar(); loop(); });
-  setInterval(loop, 600);
   document.addEventListener('DOMContentLoaded', function () { bar(); loop(); });
+  setInterval(loop, 700);
 })();
 
 </script>
