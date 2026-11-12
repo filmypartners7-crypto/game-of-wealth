@@ -14,7 +14,7 @@
 <link rel="apple-touch-icon" href="icon.svg">
 <style>
 html,body{margin:0;padding:0;overflow:hidden;height:100%;background:#e2a6cf}
-html{background:url('assets/game/table-empty.webp?v=81') center center/cover no-repeat fixed}
+html{background:url('assets/game/table-empty.webp?v=82') center center/cover no-repeat fixed}
 body{background:transparent}
 /* ============================================================================
    LAYOUT RULES — DO NOT CHANGE without asking first.
@@ -118,7 +118,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 #gameScreen{padding:0 8px;gap:4px;
   background:
     linear-gradient(180deg,rgba(255,255,255,.42) 0%,rgba(214,244,255,.30) 40%,rgba(200,240,200,.42) 100%),
-    url('assets/tablebg.webp?v=81') center/cover no-repeat fixed}
+    url('assets/tablebg.webp?v=82') center/cover no-repeat fixed}
 
 .topbar{display:flex;align-items:center;gap:8px;padding:8px 0 2px}
 .topbar .icon{
@@ -270,7 +270,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .hand .card.sel{
   border-color:#63e06b;box-shadow:0 0 0 3px #63e06b,0 12px 22px rgba(0,0,0,.35);z-index:20!important;
 }
-.hand .card.ghost{background:url('assets/cardback.webp?v=81') center/cover;border-color:#fff}
+.hand .card.ghost{background:url('assets/cardback.webp?v=82') center/cover;border-color:#fff}
 
 /* ---------- action panel ---------- */
 .actionpanel{
@@ -412,7 +412,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .rcard.red .face.front{color:#d02a1e}
 .rcard .face.front .r{font-size:24px;line-height:1;font-family:Georgia,serif}
 .rcard .face.front .s{font-size:16px;line-height:1}
-.rcard .face.back{transform:rotateY(180deg);background:url('assets/cardback.webp?v=81') center/cover;border:2px solid #fff}
+.rcard .face.back{transform:rotateY(180deg);background:url('assets/cardback.webp?v=82') center/cover;border:2px solid #fff}
 .rcell.win .rcard .face.front{box-shadow:0 0 0 3px #63e06b,0 0 26px rgba(99,224,107,.9)}
 .rcell.win{animation:winglow 1.4s ease-in-out infinite alternate}
 @keyframes winglow{from{transform:scale(1)}to{transform:scale(1.05)}}
@@ -497,7 +497,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
 /* ================= SPLASH ================= */
 @font-face{font-family:'Baloo 2';font-style:normal;font-weight:400 800;font-display:swap;
-  src:url('assets/baloo.woff2?v=81') format('woff2')}
+  src:url('assets/baloo.woff2?v=82') format('woff2')}
 #splashScreen{font-family:'Baloo 2',system-ui,sans-serif}
 
 .splash{position:relative;height:100dvh;min-height:100dvh;width:100%;overflow:hidden;
@@ -574,7 +574,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .hs-skyext{display:none}
 
 .hs-crop{position:absolute;background-repeat:no-repeat;background-size:941px 1672px;
-  background-image:url('assets/home/home-base.webp?v=81');will-change:transform;z-index:2}
+  background-image:url('assets/home/home-base.webp?v=82');will-change:transform;z-index:2}
 .hs-char{left:345px;top:150px;width:267px;height:585px;background-position:-345px -150px;
   animation:hsBob 3s ease-in-out infinite}
 @keyframes hsBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
@@ -783,11 +783,11 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
 /* ================= GAME TABLE ================= */
 #tableScreen{position:fixed;inset:0;overflow:hidden;background:#f0b8c8}
-#bg{position:fixed;inset:0;z-index:0;background:url('assets/game/bg_room.webp?v=81') 50% 20% / cover no-repeat}
+#bg{position:fixed;inset:0;z-index:0;background:url('assets/game/bg_room.webp?v=82') 50% 20% / cover no-repeat}
 #tableArea{position:fixed;left:0;right:0;z-index:2;display:flex;flex-direction:column;align-items:center;
   justify-content:flex-end;padding-bottom:8px;pointer-events:none}
 #stage{position:relative;flex:1 1 auto;width:100%;min-height:0;pointer-events:none;
-  --tableScale:0.80}
+  --tableScale:0.94}
 #tableGroup{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
   width:calc(var(--W,390px) * var(--tableScale));z-index:1;pointer-events:none}
 #tableImg{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
@@ -810,7 +810,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 .tb-char{display:block;width:calc(var(--W,390px) * 0.30);height:auto;filter:drop-shadow(0 6px 10px rgba(0,0,0,.45))}
 .tb-seatbox.me .tb-char{width:calc(var(--W,390px) * 0.32)}
 .tb-plate{position:absolute;left:50%;transform:translate(-50%,-10%);top:100%;
-  width:calc(var(--W,390px) * 0.36);max-width:150px;
+  width:calc(var(--W,390px) * 0.27);max-width:108px;
   container-type:inline-size;height:auto;z-index:8}
 .tb-seatbox.me .tb-plate{transform:translate(-50%,-10%)}
 .plate-bg{display:block;width:100%;height:auto;aspect-ratio:685/245;object-fit:fill}
@@ -1011,9 +1011,9 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
   <!-- ============ SPLASH / LOGIN ============ -->
   <section id="splashScreen" class="screen splash">
-    <img class="splash-bg" src="assets/bg-garden.webp?v=81" alt="">
+    <img class="splash-bg" src="assets/bg-garden.webp?v=82" alt="">
     <div class="floaties" id="floaties" aria-hidden="true"></div>
-    <img class="splash-logo" src="assets/logo.webp?v=81" alt="Game of Wealth">
+    <img class="splash-logo" src="assets/logo.webp?v=82" alt="Game of Wealth">
 
     <div class="splash-bottom">
       <div class="splash-actions" id="splashActions">
@@ -1049,7 +1049,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <div class="hs-wrap" id="hsWrap">
       <div class="hs-stage" id="hsStage">
         <div class="hs-skyext"></div>
-        <img class="hs-bg" src="assets/home/home-base.webp?v=81" alt="">
+        <img class="hs-bg" src="assets/home/home-base.webp?v=82" alt="">
         <div class="hs-crop hs-char" id="hsChar"></div>
         <div class="hs-crop hs-play" id="hsPlay"></div>
         <div class="hs-shimmer"></div>
@@ -1084,18 +1084,18 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
   <section id="tableSelectScreen" class="screen home3" hidden>
     <div class="hs-wrap">
       <div class="hs-stage" id="tsStage">
-        <img class="hs-bg" id="tsBg" src="assets/ts/ts-base.webp?v=81" alt="">
+        <img class="hs-bg" id="tsBg" src="assets/ts/ts-base.webp?v=82" alt="">
 
         <div class="ts-dim" id="dimPro"></div>
         <div class="ts-dim" id="dimHigh"></div>
         <div class="ts-outline" id="tsOutline"></div>
 
-        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp?v=81" alt=""><span>128 playing</span></div>
-        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp?v=81" alt=""><span>64 playing</span></div>
-        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp?v=81" alt=""><span>12 playing</span></div>
+        <div class="ts-count" id="cnt0"><img src="assets/ts/people.webp?v=82" alt=""><span>128 playing</span></div>
+        <div class="ts-count" id="cnt1"><img src="assets/ts/people.webp?v=82" alt=""><span>64 playing</span></div>
+        <div class="ts-count" id="cnt2"><img src="assets/ts/people.webp?v=82" alt=""><span>12 playing</span></div>
 
-        <img class="ts-lock" id="lockPro" src="assets/ic-lock.webp?v=81" alt="">
-        <img class="ts-lock" id="lockHigh" src="assets/ic-lock.webp?v=81" alt="">
+        <img class="ts-lock" id="lockPro" src="assets/ic-lock.webp?v=82" alt="">
+        <img class="ts-lock" id="lockHigh" src="assets/ic-lock.webp?v=82" alt="">
         <span class="ts-need" id="needPro">Need 5,000 cash</span>
         <span class="ts-need" id="needHigh">Need 10,000 cash</span>
 
@@ -1123,7 +1123,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <div class="bi-overlay" id="biOverlay" hidden>
       <div class="bi-sheet" id="biSheet">
         <div class="bi-inner" id="biInner">
-          <img class="bi-img" src="assets/ts/buyin-popup.webp?v=81" alt="">
+          <img class="bi-img" src="assets/ts/buyin-popup.webp?v=82" alt="">
 
           <span class="bi-amount" id="biAmount">2,000</span>
 
@@ -1155,7 +1155,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <div id="tableArea">
       <div id="stage">
         <div id="tableGroup">
-          <img id="tableImg" src="assets/game/table.webp?v=81" alt="">
+          <img id="tableImg" src="assets/game/table.webp?v=82" alt="">
         </div>
         <div id="tbSeats"></div>
         <div id="tbPiles"></div>
@@ -1167,14 +1167,14 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
     <div id="tblUI">
       <div class="tb-hud">
         <button class="tb-hit tb-gear" id="tbGear" aria-label="Settings"><svg viewBox="0 0 100 100" aria-hidden="true"><path fill="#ffffff" d="M50 4l7.5 3.2 5.6-3.9 8.1 4.7-.6 6.8 6.4 3.6 6.3-2.6 6.6 6.6-2.6 6.3 3.6 6.4 6.8-.6 4.7 8.1-3.9 5.6L100 50l-3.2 7.5 3.9 5.6-4.7 8.1-6.8-.6-3.6 6.4 2.6 6.3-6.6 6.6-6.3-2.6-6.4 3.6.6 6.8-8.1 4.7-5.6-3.9L50 100l-7.5-3.2-5.6 3.9-8.1-4.7.6-6.8-6.4-3.6-6.3 2.6-6.6-6.6 2.6-6.3-3.6-6.4-6.8.6L0 50l3.9-5.6L3.2 36.9 7.1 31.3 6.5 24.5l8.1-4.7 5.6 3.9L26.6 20l-.6-6.8 8.1-4.7 5.6 3.9L50 4z"/><circle cx="50" cy="50" r="22" fill="#1b57b8"/></svg></button>
-        <div class="tb-roundbar"><img class="tb-rbimg" src="assets/game/ui-round-bar.webp?v=81" alt="">
+        <div class="tb-roundbar"><img class="tb-rbimg" src="assets/game/ui-round-bar.webp?v=82" alt="">
           <span class="tb-rbtext" id="tbRound">Round 1 - Match 1/6</span></div>
-        <div class="tb-goldpill"><img class="tb-gbico" src="assets/game/ic-gold.webp?v=81" alt="">
+        <div class="tb-goldpill"><img class="tb-gbico" src="assets/game/ic-gold.webp?v=82" alt="">
           <span class="tb-gbtext" id="tbGold">1,000</span><i class="tb-tri hide" id="tbTri"></i></div>
       </div>
 
       <div class="tb-panel">
-        <img class="tb-pimg" src="assets/game/ui-bid-panel.webp?v=81" alt="">
+        <img class="tb-pimg" src="assets/game/ui-bid-panel.webp?v=82" alt="">
         <span class="tb-ptitle" id="tbBanner">Place Your Bid</span>
         <span class="tb-pbid" id="tbBidVal">Your Bid: 100</span>
         <div class="tb-prow1">
@@ -1325,7 +1325,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
     <!-- round start sheet -->
     <div class="pv" id="rsOv" hidden><div class="pv-sheet" id="rsSheet">
-      <img class="pv-img" src="assets/game/roundstart-sheet.webp?v=81" alt="">
+      <img class="pv-img" src="assets/game/roundstart-sheet.webp?v=82" alt="">
       <div class="pv-layer" id="rsLayer">
         <span class="pv-title" id="rsTitle" style="left:555px;top:240px;max-width:640px">Round 2 Begins</span>
         <button class="pv-x" id="rsClose" style="left:970px;top:172px;width:122px;height:120px" aria-label="Close"></button>
@@ -1341,7 +1341,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
     <!-- settings -->
     <div class="pv" id="setOv" hidden><div class="pv-sheet" id="setSheet">
-      <img class="pv-img" src="assets/game/popup-frame.webp?v=81" alt="">
+      <img class="pv-img" src="assets/game/popup-frame.webp?v=82" alt="">
       <div class="pv-layer" id="setLayer">
         <span class="pv-title" style="left:485px;top:245px;max-width:520px">Settings</span>
         <button class="pv-x" id="setClose" style="left:840px;top:176px;width:122px;height:119px" aria-label="Close"></button>
@@ -1351,7 +1351,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
     <!-- how to play -->
     <div class="pv" id="howOv" hidden><div class="pv-sheet" id="howSheet">
-      <img class="pv-img" src="assets/game/popup-frame.webp?v=81" alt="">
+      <img class="pv-img" src="assets/game/popup-frame.webp?v=82" alt="">
       <div class="pv-layer" id="howLayer">
         <span class="pv-title" style="left:485px;top:245px;max-width:520px">How to Play</span>
         <button class="pv-x" id="howClose" style="left:840px;top:176px;width:122px;height:119px" aria-label="Close"></button>
@@ -1361,7 +1361,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
     <!-- game over -->
     <div class="pv" id="goOv" hidden><div class="pv-sheet" id="goSheet">
-      <img class="pv-img" src="assets/game/popup-frame.webp?v=81" alt="">
+      <img class="pv-img" src="assets/game/popup-frame.webp?v=82" alt="">
       <div class="pv-layer" id="goLayer">
         <span class="pv-title" style="left:485px;top:245px;max-width:520px">Game Over</span>
         <div class="pv-body pv-rows" id="goBody" style="left:54px;top:397px;width:864px;height:1046px"></div>
@@ -1370,7 +1370,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border:3px solid #fff
 
     <!-- leave confirm -->
     <div class="pv" id="leaveOv" hidden><div class="pv-sheet" id="leaveSheet">
-      <img class="pv-img" src="assets/game/popup-frame.webp?v=81" alt="">
+      <img class="pv-img" src="assets/game/popup-frame.webp?v=82" alt="">
       <div class="pv-layer" id="leaveLayer">
         <span class="pv-title" style="left:485px;top:245px;max-width:520px">Leave Game?</span>
         <button class="pv-x" id="leaveNo" style="left:840px;top:176px;width:122px;height:119px" aria-label="Close"></button>
@@ -3486,7 +3486,7 @@ const Bots = (function () {
     const wrap = $('floaties');
     if (!wrap) return;
     wrap.innerHTML = '';
-    const kinds = ['assets/ic-cash1.webp?v=81', 'assets/ic-gold1.webp?v=81'];
+    const kinds = ['assets/ic-cash1.webp?v=82', 'assets/ic-gold1.webp?v=82'];
     for (let i = 0; i < 8; i++) {
       const img = document.createElement('img');
       img.className = 'flimg';
@@ -3728,10 +3728,10 @@ const Bots = (function () {
 
   // chair centres measured from table.png by clustering red pixels
   const PLAY_SLOTS = {
-    3: { x: 50, y: 36 },   // Arjun  (top-centre of the free zone)
-    1: { x: 40, y: 54 },   // Rohan  (left)
-    5: { x: 60, y: 54 },   // Ananya (right)
-    0: { x: 50, y: 55 }    // You    (bottom-centre)
+    3: { x: 47, y: 38 },   // Arjun  top-centre
+    1: { x: 37, y: 50 },   // Rohan  left
+    5: { x: 56, y: 50 },   // Ananya right
+    0: { x: 47, y: 61 }    // You    bottom-centre
   };
 
   // chair centres as % of table.png (red-pixel clusters), measured
@@ -3745,12 +3745,12 @@ const Bots = (function () {
   ];
   // seat -> chair, avatar width as a fraction of stage width, dy in table heights
   const SEATS = [
-    { chair: 0, w: 0.28, dy: -0.02 },              // You
-    { chair: 1, w: 0.30, dy: 0.03, px: 0.03 },     // Rohan
+    { chair: 0, w: 0.21, dy: -0.02 },              // You
+    { chair: 1, w: 0.19, dy: 0.03, px: 0.06 },     // Rohan
     { chair: 2, w: 0.30, dy: 0 },                  // unused
-    { chair: 3, w: 0.22, dy: 0.22 },     // Arjun
+    { chair: 3, w: 0.19, dy: 0.24 },               // Arjun
     { chair: 4, w: 0.30, dy: 0 },                  // unused
-    { chair: 5, w: 0.30, dy: 0.03, px: -0.03 }     // Ananya
+    { chair: 5, w: 0.19, dy: 0.03, px: -0.06 }     // Ananya
   ];
   let LAY = { W: 390, tableLeft: 0, tableTop: 0, tableW: 390, tableH: 372, anchors: [] };
   const USED_BY_N = {
@@ -3768,7 +3768,7 @@ const Bots = (function () {
       document.documentElement.style.setProperty('--plate-ar', PLATE_AR.toFixed(4));
       if (TB && TB.s) renderTable();
     };
-    im.src = 'assets/game/plate.webp?v=81';
+    im.src = 'assets/game/plate.webp?v=82';
   })();
 
   function fitTable() {
@@ -3789,8 +3789,8 @@ const Bots = (function () {
     const availH = Math.max(80, vh - hudH - bidH - stripH);
     const natW = img.naturalWidth || 917, natH = img.naturalHeight || 876;
     const ratio = natW / natH;
-    const tableScale = parseFloat(getComputedStyle(st).getPropertyValue('--tableScale')) || 0.80;
-    const tableW = W * tableScale;
+    const tableScale = parseFloat(getComputedStyle(st).getPropertyValue('--tableScale')) || 0.94;
+    const tableW = Math.min(W * tableScale, availH * ratio);
     const tableH = tableW / ratio;
     const tableLeft = (W - tableW) / 2;
     const tableTop = (availH - tableH) / 2;
@@ -3910,15 +3910,15 @@ const Bots = (function () {
 
       const plate = document.createElement('div');
       plate.className = 'tb-plate';
-      plate.innerHTML = '<img class="plate-bg" src="assets/game/plate.webp?v=81" alt="">' +
+      plate.innerHTML = '<img class="plate-bg" src="assets/game/plate.webp?v=82" alt="">' +
         '<div class="plate-text"><span class="pname">' + p.name + '</span>' +
-        '<span class="pcash"><img class="note" src="assets/game/ic-cash1.webp?v=81" alt="">' +
+        '<span class="pcash"><img class="note" src="assets/game/ic-cash1.webp?v=82" alt="">' +
         Math.round(p.cash).toLocaleString('en-IN') +
-        '<img class="bar" src="assets/game/ic-gold.webp?v=81" alt="">' + p.gold + '</span></div>';
+        '<img class="bar" src="assets/game/ic-gold.webp?v=82" alt="">' + p.gold + '</span></div>';
       if (s.bids && s.bids[p.id] != null) {
         const lk = document.createElement('span');
         lk.className = 'tb-lock on';
-        lk.innerHTML = '<img src="assets/game/ui-lock.webp?v=81" alt="">Bid Locked';
+        lk.innerHTML = '<img src="assets/game/ui-lock.webp?v=82" alt="">Bid Locked';
         plate.appendChild(lk);
       }
       if (pos.px) { plate.style.transform = 'translate(calc(-50% + ' + (pos.px * 100) + 'cqw), -10%)'; }
@@ -3963,8 +3963,8 @@ const Bots = (function () {
     for (let i = 0; i < 3; i++) {
       const b = document.createElement('div');
       b.className = 'tb-pilecard';
-      b.innerHTML = '<img src="assets/game/back.webp?v=81" alt="">';
-      b.style.left = Math.round(LAY.tableLeft + LAY.tableW * 0.44 - i * 2) + 'px';
+      b.innerHTML = '<img src="assets/game/back.webp?v=82" alt="">';
+      b.style.left = Math.round(LAY.tableLeft + LAY.tableW * 0.40 - i * 2) + 'px';
       b.style.top = Math.round(LAY.tableTop + LAY.tableH * 0.30 - i * 2) + 'px';
       piles.appendChild(b);
     }
@@ -3972,21 +3972,21 @@ const Bots = (function () {
     if (!top) {
       const e = document.createElement('div');
       e.className = 'tb-empty';
-      e.style.left = Math.round(LAY.tableLeft + LAY.tableW * 0.56) + 'px';
+      e.style.left = Math.round(LAY.tableLeft + LAY.tableW * 0.60) + 'px';
       e.style.top = Math.round(LAY.tableTop + LAY.tableH * 0.30) + 'px';
       piles.appendChild(e);
     } else {
       for (let i = 1; i >= 0; i--) {
         const c = cardImg(top, 'tb-pilecard');
-        c.style.left = Math.round(LAY.tableLeft + LAY.tableW * 0.56 - i * 2) + 'px';
+        c.style.left = Math.round(LAY.tableLeft + LAY.tableW * 0.60 - i * 2) + 'px';
         c.style.top = Math.round(LAY.tableTop + LAY.tableH * 0.30 - i * 2) + 'px';
         piles.appendChild(c);
       }
     }
     const b1 = document.createElement('span');
-    b1.className = 'tb-badge'; b1.style.left = Math.round(LAY.tableLeft + LAY.tableW * 0.44) + 'px'; b1.style.top = Math.round(LAY.tableTop + LAY.tableH * 0.38) + 'px'; b1.textContent = s.deck.length;
+    b1.className = 'tb-badge'; b1.style.left = Math.round(LAY.tableLeft + LAY.tableW * 0.40) + 'px'; b1.style.top = Math.round(LAY.tableTop + LAY.tableH * 0.38) + 'px'; b1.textContent = s.deck.length;
     const b2 = document.createElement('span');
-    b2.className = 'tb-badge'; b2.style.left = Math.round(LAY.tableLeft + LAY.tableW * 0.56) + 'px'; b2.style.top = Math.round(LAY.tableTop + LAY.tableH * 0.38) + 'px'; b2.textContent = s.discard.length;
+    b2.className = 'tb-badge'; b2.style.left = Math.round(LAY.tableLeft + LAY.tableW * 0.60) + 'px'; b2.style.top = Math.round(LAY.tableTop + LAY.tableH * 0.38) + 'px'; b2.textContent = s.discard.length;
     piles.appendChild(b1); piles.appendChild(b2);
 
     // hand
@@ -4278,13 +4278,13 @@ const Bots = (function () {
       });
       for (let i = 0; i <= 4; i++) grid += '<line x1="0" y1="' + (i * H / 4) + '" x2="' + W + '" y2="' + (i * H / 4) + '" stroke="rgba(160,120,60,.18)" stroke-width="2"/>';
       body.innerHTML =
-        '<div class="pv-price"><img src="assets/game/ic-gold.webp?v=81" alt="">' + s.goldPrice.toLocaleString('en-IN') +
+        '<div class="pv-price"><img src="assets/game/ic-gold.webp?v=82" alt="">' + s.goldPrice.toLocaleString('en-IN') +
         (change ? ' <span class="pv-trend ' + (change > 0 ? 'up' : 'down') + '">' +
           (change > 0 ? '\u25B2 +' : '\u25BC ') + change.toLocaleString('en-IN') + '</span>' : '') + '</div>' +
         '<svg class="pv-graph" viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="none">' + grid +
         '<path d="' + d + '" fill="none" stroke="#e88b1e" stroke-width="4" stroke-linejoin="round"/>' + dots + '</svg>' +
-        '<div class="pv-cols"><span><img src="assets/game/ic-gold.webp?v=81" alt="">My Gold: ' + me.gold + '</span>' +
-        '<span><img src="assets/game/ic-cash1.webp?v=81" alt="">My Cash: ' + Math.round(me.cash).toLocaleString('en-IN') + '</span></div>' +
+        '<div class="pv-cols"><span><img src="assets/game/ic-gold.webp?v=82" alt="">My Gold: ' + me.gold + '</span>' +
+        '<span><img src="assets/game/ic-cash1.webp?v=82" alt="">My Cash: ' + Math.round(me.cash).toLocaleString('en-IN') + '</span></div>' +
         '<div class="pv-step"><button id="rsMinus">\u2212</button><b id="rsQty">' + RS.qty + '</b><button id="rsPlus">+</button></div>' +
         '<div class="pv-btns"><button class="pv-buy" id="rsBuy">BUY</button><button class="pv-sell" id="rsSell">SELL</button></div>';
       $('rsMinus').onclick = function () { RS.qty = Math.max(1, RS.qty - 1); renderRoundStart(); };
@@ -4303,11 +4303,11 @@ const Bots = (function () {
         seen[k] = { card: c, n: 1 }; tiles.push(seen[k]);
       });
       if (!tiles.length) {
-        body.innerHTML = '<div class="pv-cols"><span><img src="assets/game/ic-cash1.webp?v=81" alt="">My Cash: ' +
+        body.innerHTML = '<div class="pv-cols"><span><img src="assets/game/ic-cash1.webp?v=82" alt="">My Cash: ' +
           Math.round(me.cash).toLocaleString('en-IN') + '</span></div><div class="pv-empty">No cards in the discard pile yet</div>';
         return;
       }
-      let html = '<div class="pv-cols"><span><img src="assets/game/ic-cash1.webp?v=81" alt="">My Cash: ' +
+      let html = '<div class="pv-cols"><span><img src="assets/game/ic-cash1.webp?v=82" alt="">My Cash: ' +
         Math.round(me.cash).toLocaleString('en-IN') + '</span></div><div class="pv-grid">';
       tiles.forEach(function (t) {
         html += '<div class="pv-card' + (RS.sel === t.card.id ? ' sel' : '') + '" data-id="' + t.card.id + '">' +
